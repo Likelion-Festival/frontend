@@ -1,8 +1,9 @@
 ##  Branch Convention
+ex) feat/login-ui
 - feat: 기능 개발
 - refactor: 코드 리팩토링
 - hotfix: 배포 버전 버그 수정
-ex) feat/login-ui
+
 
 ##  Commit Convention
 - feat: 새로운 기능 추가
