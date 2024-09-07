@@ -1,50 +1,53 @@
-# React + TypeScript + Vite
+## 1. Setting
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+```bash
+# Install package
+yarn install
 
-Currently, two official plugins are available:
+# Run dev server
+yarn dev
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+# Build project
+yarn build
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 2. Branch Convention
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+ex) feat/login-ui
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+- feat: 기능 개발
+- refactor: 코드 리팩토링
+- hotfix: 배포 버전 버그 수정
+
+## 3. 폴더구조
+
 ```
+src/
+├── apis // api 호출 함수 관리
+├── assets // 각종 이미지 파일 관리
+├── components // 컴포넌트 관리
+│   ├── common // 기본 컴포넌트
+│   └── performance
+│       ...
+├── constant // 상수 관리
+├── hooks // custom hook 관리
+├── pages
+│   └── main
+│       ...
+├── styles // module css 스타일링
+│   └── Bar.module.css
+├── types // 공유되는 타입 관리
+├── utils // 각종 유틸 함수 관리
+├── App.tsx // routing 처리
+├── index.css // 전역 css 관리
+└── index.tsx
+```
+
+## 4. Commit Convention
+
+- feat: 새로운 기능 추가
+- fix: 버그 수정
+- style: css 파일 위주의 ui 작업
+- docs: 문서 수정
+- refactor: 코드 리팩토링
+- chore: 빌드 업무 수정, 패키지 매니저 수정
