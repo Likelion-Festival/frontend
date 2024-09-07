@@ -1,0 +1,32 @@
+{
+  "name": "fall:ing",
+  "short_name": "fall:ing",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#485EEE",
+  "icons": [
+    {
+      "src": "icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-555x733.png",
+      "sizes": "556x733",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/screenshot1.png",
+      "sizes": "540x720",
+      "type": "image/png"
+    },
+    {
+      "src": "screenshots/screenshot2.png",
+      "sizes": "720x1280",
+      "type": "image/png"
+    }
+  ]
+}
