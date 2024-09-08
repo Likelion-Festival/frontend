@@ -1,5 +1,10 @@
+import { ReactNode } from "react";
 import styles from "../../styles/Layout.module.css";
 
-export const Layout = () => {
-  return <div className={styles.wrapper}></div>;
+interface LayoutProps {
+  children: ReactNode;
+}
+
+export const Layout = ({ children }: LayoutProps) => {
+  return <div className={styles.wrapper}>{children}</div>;
 };

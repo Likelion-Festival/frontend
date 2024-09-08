@@ -12,7 +12,7 @@
       "@components/*": ["src/components/*"],
       "@constant/*": ["src/constant/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@pages/*": ["src/pages/*"],
+      "@pages/*": ["./src/pages/*"],
       "@styles/*": ["src/styles/*"],
       "@types/*": ["src/types/*"],
       "@utils/*": ["src/utils/*"]

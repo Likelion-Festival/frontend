@@ -1,6 +1,12 @@
 .wrapper {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
   width: 375px;
   height: 78px;
-  background-color: salmon;
+  border-top: 1px solid #444444;
+  border-radius: 16px 16px 0 0;
+  background-color: #1e1e1e;
   margin: 0;
 }
