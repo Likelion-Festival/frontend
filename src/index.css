@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+
 :root {
-  /* font-family: "Pretendard", "Spline Sans" !important; */
+  font-family: "Noto Sans KR", sans-serif;
   color-scheme: light dark;
   background-color: white;
+  /* background-color: #131313; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
