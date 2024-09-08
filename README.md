@@ -35,7 +35,7 @@ src/
 │   └── main
 │       ...
 ├── styles // module css 스타일링
-│   └── Bar.module.css
+│   └── Layout.module.css
 ├── types // 공유되는 타입 관리
 ├── utils // 각종 유틸 함수 관리
 ├── App.tsx // routing 처리

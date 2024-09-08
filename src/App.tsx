@@ -1,23 +1,28 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { MainPage } from "./pages/main/main";
-import { MapPage } from "./pages/map/map";
-import { PerformancePage } from "./pages/performance/performance";
-import { BarPage } from "./pages/bar/bar";
+import { MainPage } from "@pages/main/main";
+import { MapPage } from "@pages/map/map";
+import { PerformancePage } from "@pages/performance/performance";
+import { BarPage } from "@pages/bar/bar";
+import { Layout } from "@components/common/Layout";
+import { TabNavigator } from "@components/common/TabNavigator";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          {/* main page */}
-          <Route path="/" element={<MainPage />}></Route>
-          {/* map page */}
-          <Route path="/map" element={<MapPage />}></Route>
-          {/* performance page */}
-          <Route path="/performance" element={<PerformancePage />}></Route>
-          {/* bar page */}
-          <Route path="bar" element={<BarPage />}></Route>
-        </Routes>
+        <Layout>
+          <Routes>
+            {/* main page */}
+            <Route path="/" element={<MainPage />} />
+            {/* map page */}
+            <Route path="/map" element={<MapPage />} />
+            {/* performance page */}
+            <Route path="/performance" element={<PerformancePage />} />
+            {/* bar page */}
+            <Route path="/bar" element={<BarPage />} />
+          </Routes>
+        </Layout>
+        <TabNavigator />
       </BrowserRouter>
     </>
   );
