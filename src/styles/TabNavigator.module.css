@@ -3,10 +3,32 @@
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
   width: 375px;
   height: 78px;
+  padding: 12px 37px 0 37px;
   border-top: 1px solid #444444;
   border-radius: 16px 16px 0 0;
   background-color: #1e1e1e;
   margin: 0;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  font-size: 10px;
+  line-height: 19.4px;
+}
+
+.active {
+  color: #ff85ee;
+}
+
+.unactive {
+  color: #858585;
 }
