@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
-import styles from "../../styles/TabNavigator.module.css";
-import homeUnactiveIcon from "../../assets/nav/home-btn-unactive.svg";
-import homeActiveIcon from "../../assets/nav/home-btn-active.svg";
-import mapUnactiveIcon from "../../assets/nav/map-btn-unactive.svg";
-import mapActiveIcon from "../../assets/nav/map-btn-active.svg";
-import performanceUnactiveIcon from "../../assets/nav/performance-btn-unactive.svg";
-import performanceActiveIcon from "../../assets/nav/performance-btn-active.svg";
-import barUnactiveIcon from "../../assets/nav/bar-btn-unactive.svg";
-import barActiveIcon from "../../assets/nav/bar-btn-active.svg";
+import styles from "@styles/TabNavigator.module.css";
+import homeUnactiveIcon from "@assets/nav/home-btn-unactive.svg";
+import homeActiveIcon from "@assets/nav/home-btn-active.svg";
+import mapUnactiveIcon from "@assets/nav/map-btn-unactive.svg";
+import mapActiveIcon from "@assets/nav/map-btn-active.svg";
+import performanceUnactiveIcon from "@assets/nav/performance-btn-unactive.svg";
+import performanceActiveIcon from "@assets/nav/performance-btn-active.svg";
+import barUnactiveIcon from "@assets/nav/bar-btn-unactive.svg";
+import barActiveIcon from "@assets/nav/bar-btn-active.svg";
 
 export const TabNavigator = () => {
   const [navStatus, setNavStatus] = useState<number>(1);
