@@ -6,6 +6,7 @@ import { BarPage } from "@pages/bar/bar";
 import { Layout } from "@components/common/Layout";
 import { TabNavigator } from "@components/common/TabNavigator";
 import { GuidePage } from "@pages/performance/guide";
+import { ErrorPage } from "@pages/error";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
             <Route path="/performance/guide" element={<GuidePage />} />
             {/* bar page */}
             <Route path="/bar" element={<BarPage />} />
+            {/* error page */}
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
           <TabNavigator />
         </Layout>
