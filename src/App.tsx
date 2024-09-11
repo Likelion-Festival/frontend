@@ -3,6 +3,7 @@ import { MainPage } from "@pages/main/main";
 import { MapPage } from "@pages/map/map";
 import { PerformancePage } from "@pages/performance/performance";
 import { BarPage } from "@pages/bar/bar";
+import { BarDetail } from "@pages/bar/bar-detail";
 import { Layout } from "@components/common/Layout";
 import { TabNavigator } from "@components/common/TabNavigator";
 import { ErrorPage } from "@pages/error";
@@ -21,6 +22,7 @@ function App() {
             <Route path="/performance" element={<PerformancePage />} />
             {/* bar page */}
             <Route path="/bar" element={<BarPage />} />
+            <Route path="/bar-detail/:storeName" element={<BarDetail />} />
             {/* error page */}
             <Route path="*" element={<ErrorPage />} />
           </Routes>

@@ -1,0 +1,18 @@
+.container {
+    padding: 30px;
+    color: #fff;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .store {
+    overflow: hidden; 
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+  
