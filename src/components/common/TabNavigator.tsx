@@ -10,12 +10,10 @@ import performanceUnactiveIcon from "@assets/nav/performance-btn-unactive.svg";
 import performanceActiveIcon from "@assets/nav/performance-btn-active.svg";
 import barUnactiveIcon from "@assets/nav/bar-btn-unactive.svg";
 import barActiveIcon from "@assets/nav/bar-btn-active.svg";
-import { test } from "@type/index";
 
 export const TabNavigator = () => {
   const location = useLocation();
   const path = location.pathname;
-  console.log(test);
 
   return (
     <div className={styles.wrapper}>
