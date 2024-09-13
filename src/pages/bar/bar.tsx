@@ -92,12 +92,18 @@ export const BarPage = () => {
               className={styles.store} 
               onClick={() => handleStoreClick(store.name)} 
             >
-              <h2>{store.name}</h2>
-              <p>{store.representative}</p>
-              <p>{store.description}</p>
+              <div className={styles.storeName}>{store.name}</div>
+              <div className={styles.storeRepresentative}>{store.representative}</div>
+              <div className={styles.descriptions}>
+                <div className={styles.representMenu}>
+                  대표
+                </div>
+                {store.description}
+              </div>
             </div>
           ))
         ) : (
+          //검색 키워드가 없을때
           <p>주점을 찾을 수 없습니다 T.T</p> //하냥이 일러스트 제작 후 추가 예정
         )}
       </div>

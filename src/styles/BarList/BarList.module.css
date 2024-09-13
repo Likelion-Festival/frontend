@@ -43,4 +43,39 @@
     margin-bottom: 20px;
     padding: 10px;
   }
-  
+
+
+  .storeName{
+    font-size: 2.5vw; 
+    font-weight: bold;
+    line-height: 2;
+    margin: 0;
+  }
+
+  .storeRepresentative{
+    font-size: 2vw; 
+    font-weight: bold;
+    line-height: 2;
+    margin: 0;
+    color:#ABABAB;
+  }
+
+
+  .descriptions{
+    display: flex;
+    align-items: center;
+    color: #7E7E7E;
+    font-size: 2vw; 
+    line-height: 2;
+    margin: 0;
+  }
+
+  .representMenu{
+    background-color: #331B52; 
+    color: #BDBDBD; 
+    font-size: 1.7vw; 
+    border-radius: 1vh; 
+    padding: 0px 10px;
+    display: inline-block;
+    margin-right: 1vw;
+  }
