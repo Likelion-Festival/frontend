@@ -1,13 +1,41 @@
 .container {
-    padding: 30px;
-    color: #fff;
+    padding: 2.5vh;
+    background-color: #131313;
+  }
+
+  .search-container{
+    position: sticky;
+    top: 0; 
+    z-index: 10;
+    height: 10vh;
+    background-color: #131313;
+  }
+
+  .title{
+    margin-top: 3vh;
+    margin-bottom: 5%;
+    font-size: 2vw; 
+    font-weight: bold;
   }
   
   .input {
     width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    background-color: #272727;
+    padding: 1.5vh;
+    border-radius: 1.5vh;
+    color: #636363 ; 
+    outline: none; 
+    border: none;
+  }
+
+  .input.active{
+    color: white;
+  }
+
+  .store-list {
+    max-height: 75vh;
+    overflow-y: auto;
+    margin-top: 20px; 
   }
   
   .store {
