@@ -1,18 +1,21 @@
 .container {
-    padding: 2.5vh;
     background-color: #131313;
+    overflow: hidden;
+    max-width: 375px;
   }
 
   .search-container{
+    padding: 2.5vh;
     position: sticky;
     top: 0; 
     z-index: 10;
-    height: 10vh;
+    height: 15vh;
     background-color: #131313;
+    border-radius: 4vh;
   }
 
   .title{
-    margin-top: 3vh;
+    margin-top: 2.5vh;
     margin-bottom: 5%;
     font-size: 2vw; 
     font-weight: bold;
@@ -33,20 +36,36 @@
   }
 
   .store-list {
-    max-height: 75vh;
+    max-height: 78vh;
     overflow-y: auto;
-    margin-top: 20px; 
+    margin-top: 1vw; 
+    padding: 2.5vh;
+    width: 100%;
   }
   
   .store {
+    display: flex; 
+    align-items: center; 
     overflow: hidden; 
     margin-bottom: 20px;
     padding: 10px;
   }
 
+  .storeImage{
+    width: 12vw; 
+    height: 12vw; 
+    border-radius: 2vw;
+    margin-right: 2vw;
+  }
+
+  .storeDetails{
+    flex-grow: 1; 
+    overflow: hidden; 
+  }
+
 
   .storeName{
-    font-size: 2.5vw; 
+    font-size: 2.3vw; 
     font-weight: bold;
     line-height: 2;
     margin: 0;
@@ -68,6 +87,9 @@
     font-size: 2vw; 
     line-height: 2;
     margin: 0;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .representMenu{
@@ -78,4 +100,30 @@
     padding: 0px 10px;
     display: inline-block;
     margin-right: 1vw;
+  }
+
+  .storeLine{
+    height: 0.1vw; 
+    background-color: rgba(128, 128, 128, 0.5); 
+  
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px; 
+    height: 8px; 
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(128, 128, 128, 0.7); 
+    border-radius: 10px;
+  }
+
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(128, 128, 128, 1);
   }
