@@ -23,6 +23,7 @@ function App() {
             {/* bar page */}
             <Route path="/bar" element={<BarPage />} />
             <Route path="/bar-detail/:storeName" element={<BarDetail />} />
+            <Route path="/bar-detail/:barName" element={<BarDetail />} />
             {/* error page */}
             <Route path="*" element={<ErrorPage />} />
           </Routes>

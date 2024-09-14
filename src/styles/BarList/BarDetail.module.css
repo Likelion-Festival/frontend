@@ -2,18 +2,29 @@
     background-color: #131313;
     overflow: hidden;
     max-width: 375px;
-    padding: 3vh;
   }
 
-.barDetail {
-    padding: 3vh;
+.barDetail-image {
     top: 0; 
     z-index: 10;
     height: 80vh;
+    margin: 0;
     background-color: #131313;
 }
 
-.goBack{
-    width: 10vw;
+.barMainImage{
+    width: 100%;
     height: auto;
+}
+
+.goBack{
+    position: absolute;
+    top: 6vw;
+    left: 3vw;
+    width: 3vw;
+    height: auto;
+}
+
+.barDetail-Menu{
+
 }
