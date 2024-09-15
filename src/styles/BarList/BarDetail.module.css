@@ -25,6 +25,39 @@
     height: auto;
 }
 
-.barDetail-Menu{
+.barDetail{
+    font-weight: 600;
+}
 
+.locationButton {
+    background: linear-gradient(90deg, #6a11cb, #2575fc); /* 그라데이션 배경 */
+    border: none; 
+    border-radius: 3vw;
+    color: white; 
+    padding: 1vw 2vw; 
+    cursor: pointer; 
+
+    margin-top: 1vw;
+    font-size: 1.5vw; 
+}
+
+
+.barDetail-title{
+    padding : 2vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;    
+    gap: 1vw;
+
+    font-size: 1.5vw; 
+}
+
+.barDetail-menu{
+    padding : 2vw;
+    font-size: 2vw; 
+}
+
+ul{
+    list-style: none;
 }
