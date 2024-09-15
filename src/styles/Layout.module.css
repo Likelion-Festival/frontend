@@ -1,7 +1,11 @@
 .wrapper {
   position: relative;
+  width: 100%;
   min-width: 375px;
+  max-width: 430px;
   height: 100vh;
   background-color: #131313;
+  padding-bottom: 78px;
   margin: 0 auto;
+  overflow: auto;
 }
