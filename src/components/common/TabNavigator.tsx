@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 import styles from "@styles/TabNavigator.module.css";
@@ -12,67 +12,66 @@ import barUnactiveIcon from "@assets/nav/bar-btn-unactive.svg";
 import barActiveIcon from "@assets/nav/bar-btn-active.svg";
 
 export const TabNavigator = () => {
-  const [navStatus, setNavStatus] = useState<number>(1);
+  const location = useLocation();
+  const path = location.pathname;
 
   return (
     <div className={styles.wrapper}>
-      <Link to={"/"} className={styles.link} onClick={() => setNavStatus(1)}>
+      <Link to={"/"} className={styles.link}>
         <img
-          src={navStatus === 1 ? homeActiveIcon : homeUnactiveIcon}
+          src={path === "/" ? homeActiveIcon : homeUnactiveIcon}
           alt="home-icon"
         />
         <strong
           className={classNames(
             styles.text,
-            navStatus === 1 ? styles.active : styles.unactive
+            path === "/" ? styles.active : styles.unactive
           )}
         >
           홈
         </strong>
       </Link>
-      <Link to={"/map"} className={styles.link} onClick={() => setNavStatus(2)}>
+      <Link to={"/map"} className={styles.link}>
         <img
-          src={navStatus === 2 ? mapActiveIcon : mapUnactiveIcon}
+          src={path === "/map" ? mapActiveIcon : mapUnactiveIcon}
           alt="map-icon"
         />
         <strong
           className={classNames(
             styles.text,
-            navStatus === 2 ? styles.active : styles.unactive
+            path === "/map" ? styles.active : styles.unactive
           )}
         >
           지도
         </strong>
       </Link>
-      <Link
-        to={"/performance"}
-        className={styles.link}
-        onClick={() => setNavStatus(3)}
-      >
+      <Link to={"/performance"} className={styles.link}>
         <img
           src={
-            navStatus === 3 ? performanceActiveIcon : performanceUnactiveIcon
+            path === "/performance"
+              ? performanceActiveIcon
+              : performanceUnactiveIcon
           }
           alt="performance-icon"
         />
         <strong
           className={classNames(
             styles.text,
-            navStatus === 3 ? styles.active : styles.unactive
+            path === "/performance" ? styles.active : styles.unactive
           )}
         >
           공연 정보
         </strong>
       </Link>
-      <Link to={"/bar"} className={styles.link} onClick={() => setNavStatus(4)}>
+      <Link to={"/bar"} className={styles.link}>
         <img
-          src={navStatus === 4 ? barActiveIcon : barUnactiveIcon}
+          src={path === "/bar" ? barActiveIcon : barUnactiveIcon}
           alt="bar-icon"
         />
         <strong
           className={classNames(
             styles.text,
-            navStatus === 4 ? styles.active : styles.unactive
+            path === "/bar" ? styles.active : styles.unactive
           )}
         >
           주점

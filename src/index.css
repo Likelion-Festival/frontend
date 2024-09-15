@@ -48,9 +48,3 @@ table {
   border: 0;
   vertical-align: baseline;
 }
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
