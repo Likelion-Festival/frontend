@@ -1,6 +1,6 @@
 {
-  "name": "Fall:ing",
-  "short_name": "Fall:ing",
+  "name": "가을축제 Fall:ing",
+  "short_name": "가을축제 Fall:ing",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -12,8 +12,13 @@
       "type": "image/png"
     },
     {
-      "src": "icons/icon-555x733.png",
-      "sizes": "556x733",
+      "src": "icons/icon-270x270.png",
+      "sizes": "270x270",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],
