@@ -53,6 +53,15 @@ export const Slide: React.FC<SlideProp> = ({ items }) => {
       }
     }
   };
+  const handleOnclick = (idx : number) => {
+    // desktop 고려 이벤트
+    if(activeIndex !== idx){
+      setActiveIndex(idx);
+      // 컨텐츠 슬라이드
+    } else {
+      // 콘텐츠 이동
+    }
+  };
   return (
     <div className={styles.container}>
       <div
@@ -74,6 +83,7 @@ export const Slide: React.FC<SlideProp> = ({ items }) => {
               }}
               onTouchStart={(e) => handleTouchStart(e)}
               onTouchEnd={(e) => handleTouchEnd(e, index)}
+              onClick={() => handleOnclick(index)}
             >
               <div className={styles.itemHeader}>
                 <span className={styles.itemHeaderSinger}>
