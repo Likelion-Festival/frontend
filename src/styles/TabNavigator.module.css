@@ -9,6 +9,7 @@
   min-width: 375px;
   max-width: 430px;
   height: 78px;
+  z-index: 100;
 
   padding: 12px 37px 0 37px;
   border-top: 1px solid #444444;
