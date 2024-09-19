@@ -26,7 +26,7 @@ function App() {
             {/* error page */}
             <Route path="*" element={<ErrorPage />} />
           </Routes>
-          <TabNavigator />
+          {/* <TabNavigator /> */}
         </Layout>
       </BrowserRouter>
     </>

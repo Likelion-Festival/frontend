@@ -5,11 +5,12 @@ import { PlacesSearchProps } from "@type/map";
 
 export const Map = () => {
   const [map, setMap] = useState<kakao.maps.Map | null>(null);
+  const [currCategory, setCurrCategory] = useState<string>(""); //현재 선택된 카테고리
+  const [ps, setPs] = useState<kakao.maps.services.Places | null>(null); // 장소 검색 객체 생성
+
   const placeOverlay = new window.kakao.maps.CustomOverlay({ zIndex: 1 });
   const contentNode = document.createElement("div"); // 커스텀 오버레이의 컨텐츠 엘리먼트
-  const markers = []; // 마커를 담을 배열
-  const currCategory: string = ""; // 현재 선택된 카테고리를 가지고 있을 변수
-  const ps = new window.kakao.maps.services.Places(map); // 장소 검색 객체 생성
+  const markers: kakao.maps.Marker[] = []; // 마커를 담을 배열
 
   // 처음 실행했을 때
   useEffect(() => {
@@ -23,8 +24,14 @@ export const Map = () => {
     const kakaoMap = new window.kakao.maps.Map(container, options);
     setMap(kakaoMap);
 
+    // Places 객체 초기화
+    const placesService = new window.kakao.maps.services.Places(kakaoMap);
+    setPs(placesService);
+
     // 지도에 idle 이벤트 등록
-    window.kakao.maps.event.addListener(map, "idle", searchPlaces);
+    if (kakaoMap) {
+      window.kakao.maps.event.addListener(kakaoMap, "idle", searchPlaces);
+    }
 
     // 커스텀 오버레이 컨텐츠 노드에 css class 추가
     contentNode.className = "placeinfo_wrap";
@@ -50,7 +57,7 @@ export const Map = () => {
 
   // 카테고리 검색 요청
   const searchPlaces = () => {
-    if (!currCategory) {
+    if (!currCategory || !ps) {
       return;
     }
 
@@ -83,21 +90,22 @@ export const Map = () => {
       .getElementById(currCategory)
       ?.getAttribute("data-order");
 
-    for (var i = 0; i < places.length; i++) {
+    const orderValue = order ? parseInt(order) : 0;
+
+    for (let i = 0; i < places.length; i++) {
       // 마커를 생성하고 지도에 표시합니다
       const marker = addMarker(
         new kakao.maps.LatLng(places[i].y, places[i].x),
-        order
+        orderValue
       );
       console.log(marker);
     }
   };
 
   // 마커를 생성하고 지도 위에 마커를 표시하는 함수
-  function addMarker(
-    position: kakao.maps.LatLng,
-    order: string | string | undefined
-  ) {
+  const addMarker = (position: kakao.maps.LatLng, order: number) => {
+    if (!map) return;
+
     const imageSrc =
         "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png", // 마커 이미지 url, 스프라이트 이미지를 씁니다
       imageSize = new kakao.maps.Size(27, 28), // 마커 이미지의 크기
@@ -116,51 +124,57 @@ export const Map = () => {
     markers.push(marker); // 배열에 생성된 마커를 추가합니다
 
     return marker;
-  }
+  };
 
   // 지도 위 표시된 마커 모두 제거
   const removeMarker = () => {
     for (var i = 0; i < markers.length; i++) {
       markers[i].setMap(null);
     }
-    markers = [];
+    markers.length = 0;
   };
 
-  // 각 카테고리에 클릭 이벤트를 등록
+  // 각 카테고리에 클릭 이벤트 등록
   const addCategoryClickEvent = () => {
-    var category = document.getElementById("category"),
-      children = category.children;
+    const category = document.getElementById("category");
+    if (!category) return;
 
-    for (var i = 0; i < children.length; i++) {
-      children[i].onclick = onClickCategory;
+    // category가 null이 아닐 경우
+    const children = category.children;
+
+    for (let i = 0; i < children.length; i++) {
+      (children[i] as HTMLElement).onclick = (event) => onClickCategory(event);
     }
   };
 
   // 카테고리를 클릭했을 때 호출되는 함수
-  const onClickCategory = () => {
-    var id = this.id,
-      className = this.className;
-
+  const onClickCategory = (event: MouseEvent) => {
+    const target = event.currentTarget as HTMLElement;
+    const id = target.id;
+    const className = target.className;
     placeOverlay.setMap(null);
 
     if (className === "on") {
-      currCategory = "";
+      setCurrCategory("");
       changeCategoryClass();
       removeMarker();
     } else {
-      currCategory = id;
-      changeCategoryClass(this);
+      setCurrCategory(id);
+      console.log(id);
+      changeCategoryClass(target);
       searchPlaces();
     }
   };
 
   // 클릭된 카테고리에만 클릭된 스타일을 적용하는 함수입니다
-  const changeCategoryClass = (el) => {
-    var category = document.getElementById("category"),
-      children = category.children,
-      i;
+  const changeCategoryClass = (el?: HTMLElement) => {
+    const category = document.getElementById("category");
+    if (!category) return;
 
-    for (i = 0; i < children.length; i++) {
+    // category가 null이 아닐 경우
+    const children = category.children;
+
+    for (let i = 0; i < children.length; i++) {
       children[i].className = "";
     }
 
@@ -180,6 +194,26 @@ export const Map = () => {
   return (
     <>
       <div id="map" className={styles.wrapper}></div>
+      <ul id="category">
+        <li id="AT4" data-order="0">
+          <span>이벤트</span>
+        </li>
+        <li id="PK6" data-order="1">
+          <span>주점</span>
+        </li>
+        <li id="FD6" data-order="2">
+          <span>먹거리</span>
+        </li>
+        <li id="HP8" data-order="3">
+          <span>의무실</span>
+        </li>
+        <li id="PO3" data-order="4">
+          <span>화장실</span>
+        </li>
+        <li id="CS2" data-order="5">
+          <span>흡연실</span>
+        </li>
+      </ul>
     </>
   );
 };

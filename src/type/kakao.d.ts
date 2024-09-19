@@ -43,6 +43,14 @@ declare namespace kakao {
       constructor(lat: number, lng: number);
     }
     namespace services {
+      class Places {
+        constructor(map: kakao.maps.Map);
+        categorySearch(
+          category: string,
+          callback: (data: any) => void,
+          options?: any
+        ): void;
+      }
       enum Status {
         OK = 0,
         ZERO_RESULT = 1,
