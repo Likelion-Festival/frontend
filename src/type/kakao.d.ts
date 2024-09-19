@@ -10,6 +10,12 @@ declare namespace kakao.maps {
     );
     panTo(latlng: LatLng): void;
   }
+
+  interface MarkerImageOptions {
+    spriteSize?: Size;
+    spriteOrigin?: Point;
+    offset?: Point;
+  }
 }
 
 // Kakao Maps 서비스 상태 정의

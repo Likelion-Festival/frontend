@@ -1,19 +1,13 @@
-import styles from "@styles/map/Map.module.css";
 import { useEffect, useState } from "react";
-import { addEventHandle } from "@utils/markerManager";
-import { PlacesSearchProps } from "@type/map";
+import { barPositions } from "@constant/map";
+import styles from "@styles/map/Map.module.css";
+import spriteImage from "@assets/map/spirte-image-removebg.png";
 import classNames from "classnames";
 
 export const Map = () => {
   const [map, setMap] = useState<kakao.maps.Map | null>(null);
-  const [currCategory, setCurrCategory] = useState<string>(""); //현재 선택된 카테고리
-  const [ps, setPs] = useState<kakao.maps.services.Places | null>(null); // 장소 검색 객체 생성
+  const [marker, setMarker] = useState<string>("");
 
-  const placeOverlay = new window.kakao.maps.CustomOverlay({ zIndex: 1 });
-  const contentNode = document.createElement("div"); // 커스텀 오버레이의 컨텐츠 엘리먼트
-  const markers: kakao.maps.Marker[] = []; // 마커를 담을 배열
-
-  // 처음 실행했을 때
   useEffect(() => {
     const container = document.getElementById("map");
     const options = {
@@ -24,213 +18,157 @@ export const Map = () => {
     // 지도 생성 및 객체 리턴
     const kakaoMap = new window.kakao.maps.Map(container, options);
     setMap(kakaoMap);
-
-    // Places 객체 초기화
-    const placesService = new window.kakao.maps.services.Places(kakaoMap);
-    setPs(placesService);
-
-    // 지도에 idle 이벤트 등록
-    if (kakaoMap) {
-      window.kakao.maps.event.addListener(kakaoMap, "idle", searchPlaces);
-    }
-
-    // 커스텀 오버레이 컨텐츠 노드에 css class 추가
-    contentNode.className = "placeinfo_wrap";
-
-    // 커스텀 오버레이 컨텐츠 노드의 이벤트가 지도 객체에 전달되지 않도록
-    addEventHandle({
-      target: contentNode,
-      type: "mousedown",
-      callback: window.kakao.maps.event.preventMap,
-    });
-    addEventHandle({
-      target: contentNode,
-      type: "touchstart",
-      callback: window.kakao.maps.event.preventMap,
-    });
-
-    // 커스텀 오버레이 컨텐츠를 설정
-    placeOverlay.setContent(contentNode);
-
-    // 각 카테고리에 클릭 이벤트를 등록
-    addCategoryClickEvent();
   }, []);
 
-  // 카테고리 검색 요청
-  const searchPlaces = () => {
-    if (!currCategory || !ps) {
-      return;
-    }
+  const markerImageSrc = spriteImage;
+  const eventMarkers: kakao.maps.Marker[] = [];
+  const barMarkers: kakao.maps.Marker[] = [];
+  const foodCourtMarkers: kakao.maps.Marker[] = [];
+  const medicalMarkers: kakao.maps.Marker[] = [];
+  const somkingMarkers: kakao.maps.Marker[] = [];
 
-    // 커스텀 오버레이 숨김
-    placeOverlay.setMap(null);
-
-    // 지도에 표시되고 있는 마커 제거
-    removeMarker();
-
-    ps.categorySearch(currCategory, placesSearchCB, { useMapBounds: true });
+  // 마커 이미지 생성
+  const createMarkerImage = (
+    src: string,
+    size: kakao.maps.Size,
+    options: kakao.maps.MarkerImageOptions
+  ) => {
+    const markerImage = new kakao.maps.MarkerImage(src, size, options);
+    return markerImage;
   };
 
-  // 장소검색이 완료됐을 때 호출되는 콜백함수
-  const placesSearchCB = ({ data, status }: PlacesSearchProps) => {
-    if (status === kakao.maps.services.Status.OK) {
-      // 정상적으로 검색이 완료됐으면 지도에 마커를 표출
-      displayPlaces(data);
-    } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-      // 검색 결과 없음
-    } else if (status === kakao.maps.services.Status.ERROR) {
-      // error
-    }
-  };
-
-  // 지도에 마커를 표출하는 함수
-  const displayPlaces = (places: any) => {
-    // 몇번째 카테고리가 선택되어 있는지 얻어옵니다
-    // 이 순서는 스프라이트 이미지에서의 위치를 계산하는데 사용됩니다
-    const order = document
-      .getElementById(currCategory)
-      ?.getAttribute("data-order");
-
-    const orderValue = order ? parseInt(order) : 0;
-
-    for (let i = 0; i < places.length; i++) {
-      // 마커를 생성하고 지도에 표시합니다
-      const marker = addMarker(
-        new kakao.maps.LatLng(places[i].y, places[i].x),
-        orderValue
-      );
-      console.log(marker);
-    }
-  };
-
-  // 마커를 생성하고 지도 위에 마커를 표시하는 함수
-  const addMarker = (position: kakao.maps.LatLng, order: number) => {
-    if (!map) return;
-
-    const imageSrc =
-        "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_category.png", // 마커 이미지 url, 스프라이트 이미지를 씁니다
-      imageSize = new kakao.maps.Size(27, 28), // 마커 이미지의 크기
-      imgOptions = {
-        spriteSize: new kakao.maps.Size(72, 208), // 스프라이트 이미지의 크기
-        spriteOrigin: new kakao.maps.Point(46, order * 36), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
-        offset: new kakao.maps.Point(11, 28), // 마커 좌표에 일치시킬 이미지 내에서의 좌표
-      },
-      markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
-      marker = new kakao.maps.Marker({
-        position: position, // 마커의 위치
-        image: markerImage,
-      });
-
-    marker.setMap(map); // 지도 위에 마커를 표출합니다
-    markers.push(marker); // 배열에 생성된 마커를 추가합니다
+  // 마커 생성
+  const createMarker = (
+    position: kakao.maps.LatLng,
+    image: kakao.maps.MarkerImage
+  ) => {
+    const marker = new kakao.maps.Marker({
+      position: position,
+      image: image,
+    });
 
     return marker;
   };
 
-  // 지도 위 표시된 마커 모두 제거
-  const removeMarker = () => {
-    for (let i = 0; i < markers.length; i++) {
-      markers[i].setMap(null);
+  // 주점 마커 생성 및 배열에 추가
+  const createBarMarkers = () => {
+    for (let i = 0; i < barPositions.length; i++) {
+      const imageSize = new kakao.maps.Size(50, 57),
+        imageOptions = {
+          spriteOrigin: new kakao.maps.Point(9, 0),
+          spriteSize: new kakao.maps.Size(69, 329),
+        };
+
+      // 마커이미지와 마커 생성
+      const markerImage = createMarkerImage(
+          markerImageSrc,
+          imageSize,
+          imageOptions
+        ),
+        marker = createMarker(barPositions[i], markerImage);
+
+      // 생성된 마커를 커피숍 마커 배열에 추가
+      barMarkers.push(marker);
     }
-    markers.length = 0;
   };
 
-  // 각 카테고리에 클릭 이벤트 등록
-  const addCategoryClickEvent = () => {
-    const category = document.getElementById("category");
-    if (!category) return;
-
-    // category가 null이 아닐 경우
-    const children = category.children;
-
-    for (let i = 0; i < children.length; i++) {
-      (children[i] as HTMLElement).onclick = (event) => onClickCategory(event);
+  const setBarMarkers = (map: kakao.maps.Map | null) => {
+    for (let i = 0; i < barMarkers.length; i++) {
+      barMarkers[i].setMap(map);
     }
   };
 
-  // 카테고리를 클릭했을 때 호출
-  const onClickCategory = (event: MouseEvent) => {
+  // 마커 선택 시 스타일링
+  const changeMarker = (event: React.MouseEvent<HTMLElement>) => {
     const target = event.currentTarget as HTMLElement;
     const id = target.id;
-    const className = target.className;
-    placeOverlay.setMap(null);
 
-    if (className === "on") {
-      setCurrCategory("");
-    } else {
-      setCurrCategory(id);
+    switch (id) {
+      case "eventMenu":
+        setMarker("event");
+        setEventMarkers(map);
+        break;
+      case "barMenu":
+        setMarker("bar");
+        setBarMarkers(map);
+        break;
+      case "foodMenu":
+        setMarker("food");
+        setFoodMarkers(map);
+        break;
+      case "medicalMenu":
+        setMarker("medical");
+        setMedicalMarkers(map);
+        break;
+      case "toiletMenu":
+        setMarker("toilet");
+        setToiletMarkers(map);
+        break;
+      case "smokingMenu":
+        setMarker("smoking");
+        setSmokingMarkers(map);
+        break;
     }
+    console.log(id);
   };
 
-  // 해당 위치로 지도 이동
-  const markerMover = () => {
-    if (map) {
-      const moveLatLon = new kakao.maps.LatLng(37.298231, 126.834307);
-      map.panTo(moveLatLon);
-    }
-  };
+  createBarMarkers();
 
   return (
     <>
       <div id="map" className={styles.wrapper}></div>
-      <ul id="category" className={styles.category}>
+      <ul id={styles.category}>
         <li
-          id="AT4"
-          data-order="0"
+          id="eventMenu"
           className={classNames({
-            [styles.on]: currCategory === "AT4",
+            [styles.selected]: marker === "event",
           })}
-          onClick={() => onClickCategory}
+          onClick={changeMarker}
         >
           <span>이벤트</span>
         </li>
         <li
-          id="PK6"
-          data-order="1"
+          id="barMenu"
           className={classNames({
-            [styles.on]: currCategory === "PK6",
+            [styles.selected]: marker === "bar",
           })}
-          onClick={() => onClickCategory}
+          onClick={changeMarker}
         >
           <span>주점</span>
         </li>
         <li
-          id="FD6"
-          data-order="2"
+          id="foodMenu"
           className={classNames({
-            [styles.on]: currCategory === "FD6",
+            [styles.selected]: marker === "food",
           })}
-          onClick={() => onClickCategory}
+          onClick={changeMarker}
         >
           <span>먹거리</span>
         </li>
         <li
-          id="HP8"
-          data-order="3"
+          id="medicalMenu"
           className={classNames({
-            [styles.on]: currCategory === "HP8",
+            [styles.selected]: marker === "medical",
           })}
-          onClick={() => onClickCategory}
+          onClick={changeMarker}
         >
           <span>의무실</span>
         </li>
         <li
-          id="PO3"
-          data-order="4"
+          id="toiletMenu"
           className={classNames({
-            [styles.on]: currCategory === "PO3",
+            [styles.selected]: marker === "toilet",
           })}
-          onClick={() => onClickCategory}
+          onClick={changeMarker}
         >
           <span>화장실</span>
         </li>
         <li
-          id="CS2"
-          data-order="5"
+          id="smokingMenu"
           className={classNames({
-            [styles.on]: currCategory === "CS2",
+            [styles.selected]: marker === "smoking",
           })}
-          onClick={() => onClickCategory}
+          onClick={changeMarker}
         >
           <span>흡연실</span>
         </li>
