@@ -1,0 +1,163 @@
+.container {
+    background-color: #131313;
+    overflow: hidden;
+    max-width: 375px;
+  }
+
+  .search-container{
+    padding: 3vh;
+    position: sticky;
+    top: 0; 
+    z-index: 10;
+    height: 18vh;
+    background-color: #131313;
+    border-bottom-right-radius: 3vh;
+    border-bottom-left-radius: 3vh;
+    box-shadow: 5px 10px 15px rgba(182, 3, 158, 0.1);
+  }
+
+  .title{
+    margin-top: 2.5vh;
+    margin-bottom: 5%;
+    font-size: 2vw; 
+    font-weight: bold;
+  }
+  
+  .input {
+    width: 100%;
+    background-color: #272727;
+    padding:2vh;
+    border-radius: 1vh;
+    color: #636363 ; 
+    outline: none; 
+    border: none;
+  }
+
+  .input.active{
+    color: white;
+  }
+
+  .store-list {
+    max-height: 75vh;
+    overflow-y: auto;
+    margin-top: 0vw; 
+    padding: 2.5vh;
+    width: 100%;
+  }
+  
+  .store {
+    display: flex; 
+    align-items: center; 
+    overflow: hidden; 
+    margin-bottom: 20px;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .storeImage{
+    width: 10vw; 
+    height: 10vw; 
+    border-radius: 2vw;
+    margin-right: 2vw;
+  }
+
+  .storeDetails{
+    flex-grow: 1; 
+    overflow: hidden; 
+  }
+
+
+  .storeName{
+    font-size: 2vw; 
+    font-weight: bold;
+    line-height: 2;
+    margin: 0;
+  }
+
+  .storeRepresentative{
+    font-size: 1.5vw; 
+    font-weight: bold;
+    line-height: 2;
+    margin-bottom: 0.5vw;
+    color:#ABABAB;
+  }
+
+
+  .descriptions{
+    display: flex;
+    align-items: center;
+    color: #7E7E7E;
+    font-size: 1.5vw; 
+    line-height: 2;
+    margin: 0;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .representMenu{
+    background-color: #473273; 
+    color: #BDBDBD; 
+    font-size: 1.3vw; 
+    border-radius: 1vh; 
+    padding:0.1vw 1vw;
+    display: inline-block;
+    margin-right: 1vw;
+  }
+
+  .storeLine{
+    height: 0.1vw; 
+    background-color: rgba(128, 128, 128, 0.5); 
+  
+  }
+
+  .noResult{
+    display: flex;
+    padding: 2vw;
+    height: 40vh;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .noResult-image{
+    margin-top: 10vw;
+    width: 20vw;
+    height: auto;
+  }
+
+  .noResult-main{
+    font-size: 2.2vw; 
+    font-weight: 600;
+    line-height: 2;
+    margin-top: 3vw;
+    color: #696969;
+  }
+
+  .noResult-serve{
+    font-size: 2vw; 
+    font-weight: 600;
+    line-height: 2;
+    margin-top: 0.5vw;
+    color: #696969;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 8px; 
+    height: 8px; 
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(128, 128, 128, 0.7); 
+    border-radius: 10px;
+  }
+
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(128, 128, 128, 1);
+  }

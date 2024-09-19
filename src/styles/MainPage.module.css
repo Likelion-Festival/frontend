@@ -1,0 +1,302 @@
+.wraper {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.topMargin {
+  height: 10px;
+  width: auto;
+}
+/* 로고 */
+.toplogo {
+  display: flex;
+  width: 110px;
+  height: 45px;
+  margin-left: 5%;
+}
+/* 이벤트 */
+.eventSlide {
+  transition: transform 0.05s ease, opacity 0.05s ease;
+}
+
+.activeSlide {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.inactiveSlide {
+  transform: scale(0.95);
+  opacity: 1;
+}
+
+.eventSlideContainer {
+  border: 1px dotted white;
+}
+.eventBox {
+  height: 374px;
+  margin-left: 6px;
+  margin-right: 6px;
+  border: 0.5px solid white;
+  display: flex;
+  flex-direction: column;
+}
+.eventHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+}
+.eventLiveLogo {
+  background: #ff2929;
+  color: #ffffff;
+  border-radius: 37.8px;
+  padding: 7.56px;
+  font-family: Noto Sans KR;
+  font-size: 18.15px;
+  font-weight: 700;
+  line-height: 14px;
+  text-align: center;
+  margin-left: 22px;
+  margin-right: auto;
+}
+.eventIndex {
+  font-family: Noto Sans KR;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
+  text-align: center;
+  border-radius: 39px;
+  padding: 3px 8px 3px 8px;
+  background: #0000004f;
+  margin-right: 19px;
+  margin-left: auto;
+}
+.eventTitleBox {
+  background-color: gray;
+  margin-top: auto;
+  margin-bottom: 47px;
+  margin-left: 39px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-right: auto;
+}
+.eventMainTitle {
+  font-family: Noto Sans KR;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 20.99px;
+  letter-spacing: -1px;
+  text-align: left;
+  color: #ffffff;
+}
+.eventSubTitle {
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20.99px;
+  letter-spacing: -1px;
+  text-align: left;
+  color: white;
+}
+
+/* 프로그램 */
+.programContainer {
+  margin-top: 36px;
+  margin-left: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.programEntireTitle {
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #ffffff;
+}
+.programSlideContainer {
+  margin-left: -170px;
+  border: 1px dashed white;
+}
+.programBox {
+  margin-right: 8px;
+  display: flex;
+  flex-direction: column;
+}
+.programImg {
+  width: 199px;
+  height: 122px;
+  border-radius: 5px;
+  background-color: aqua;
+}
+.programName {
+  font-family: Noto Sans KR;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 25px;
+  letter-spacing: -1px;
+  text-align: left;
+  color: #e2e2e2;
+}
+
+/* 공지사항 */
+.noticeContainer {
+  margin-top: 52px;
+  margin-left: 19px;
+  margin-right: 19px;
+  display: flex;
+  flex-direction: column;
+}
+.noticeHeader {
+  display: flex;
+  flex-direction: row;
+}
+.noticeEntireTitle {
+  display: flex;
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  margin-left: 7px;
+  color: #ffffff;
+}
+.noticeMore {
+  display: flex;
+  font-family: Noto Sans KR;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  color: #878787;
+  margin-right: 6px;
+  margin-left: auto;
+}
+
+.noticeBoxContainer {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.noticeBox {
+  background: #272727;
+  width: 337px;
+  height: 69px;
+  border-radius: 5px;
+}
+.noticeTitle {
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 25px;
+  letter-spacing: -1px;
+  text-align: left;
+  color: #e2e2e2;
+
+  margin-top: 10px;
+  margin-left: 14.52px;
+}
+.noticeContent {
+  font-family: Noto Sans KR;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 25px;
+  letter-spacing: -1px;
+  text-align: left;
+  color: #ababab;
+  margin-left: 14.52px;
+}
+
+/* 문의사항 */
+.contactContainer {
+  margin-top: 47px;
+  margin-left: 26px;
+  margin-right: 26px;
+}
+.contactEntireTitle {
+  font-family: Noto Sans KR;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #ffffff;
+}
+.contactBoxContainer {
+  margin-top: 20px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contactBox {
+  background: #272727;
+  border-radius: 5px;
+  width: 323px;
+  height: 90px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.contactPhraseBox {
+  margin-left: 21px;
+}
+.contactPhrase1 {
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+.contactPhrase2 {
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+.contactIcon {
+  width: 56px;
+  height: 56px;
+  background: transparent;
+  margin-right: 18px;
+  margin-left: auto;
+}
+
+/* 저작권, 판권 */
+.rightsContainer {
+  margin-top: 48px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  align-items: center;
+}
+.rights1 {
+  white-space: break-spaces;
+  font-family: Noto Sans KR;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #ffffff80;
+}
+.rights2 {
+  font-family: Noto Sans KR;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #ffffff80;
+}
