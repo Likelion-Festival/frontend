@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import styles from '@styles/BarList/BarDetail.module.css'; 
-import { stores, Store, MenuItem } from './bar.tsx';
+import { stores, Store, MenuItem, BarPage } from './bar.tsx';
 
 
 
@@ -19,6 +19,11 @@ export const BarDetail = () => {
         return <div>가게를 찾을 수 없습니다.</div>;
     }
 
+    const MoveMap = () => {
+        navigate(`/bar/${BarPage}`); 
+      };
+    
+
     return (
         <div className={styles.container}>
             <div className={styles['barDetail-image']}>
@@ -27,12 +32,13 @@ export const BarDetail = () => {
                 
                 <div className={styles.barDetail}>
                     <div className={styles['barDetail-title']}>
-                        <h1>{store.name}</h1>
-                        <p>{store.representative}</p>
-                        <button className={styles.locationButton}>
-                            지도로 위치 확인
-                        </button>
+                        <div className={styles['barDetail-storeName']}>{store.name}</div>
+                        <div className={styles['barDetail-storeRepre']}>{store.representative}</div>
+                        <img src={'/src/assets/bar/지도이동버튼.png'} alt={'지도이동버튼'} className={styles.MoveToMap} onClick={MoveMap}/>
+
                     </div>
+
+                    <div className={styles.detailLine}></div>
 
                     <div className={styles['barDetail-menu']}>
                         <h3>메뉴</h3>

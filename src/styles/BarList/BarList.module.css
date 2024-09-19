@@ -9,9 +9,11 @@
     position: sticky;
     top: 0; 
     z-index: 10;
-    height: 17vh;
+    height: 18vh;
     background-color: #131313;
-    border-radius: 4vh;
+    border-bottom-right-radius: 3vh;
+    border-bottom-left-radius: 3vh;
+    box-shadow: 5px 10px 15px rgba(182, 3, 158, 0.1);
   }
 
   .title{
@@ -38,7 +40,7 @@
   .store-list {
     max-height: 75vh;
     overflow-y: auto;
-    margin-top: 1vw; 
+    margin-top: 0vw; 
     padding: 2.5vh;
     width: 100%;
   }
@@ -49,6 +51,7 @@
     overflow: hidden; 
     margin-bottom: 20px;
     padding: 10px;
+    cursor: pointer;
   }
 
   .storeImage{
