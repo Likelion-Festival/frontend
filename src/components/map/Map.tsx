@@ -2,6 +2,7 @@ import styles from "@styles/map/Map.module.css";
 import { useEffect, useState } from "react";
 import { addEventHandle } from "@utils/markerManager";
 import { PlacesSearchProps } from "@type/map";
+import classNames from "classnames";
 
 export const Map = () => {
   const [map, setMap] = useState<kakao.maps.Map | null>(null);
@@ -128,7 +129,7 @@ export const Map = () => {
 
   // 지도 위 표시된 마커 모두 제거
   const removeMarker = () => {
-    for (var i = 0; i < markers.length; i++) {
+    for (let i = 0; i < markers.length; i++) {
       markers[i].setMap(null);
     }
     markers.length = 0;
@@ -147,7 +148,7 @@ export const Map = () => {
     }
   };
 
-  // 카테고리를 클릭했을 때 호출되는 함수
+  // 카테고리를 클릭했을 때 호출
   const onClickCategory = (event: MouseEvent) => {
     const target = event.currentTarget as HTMLElement;
     const id = target.id;
@@ -156,30 +157,8 @@ export const Map = () => {
 
     if (className === "on") {
       setCurrCategory("");
-      changeCategoryClass();
-      removeMarker();
     } else {
       setCurrCategory(id);
-      console.log(id);
-      changeCategoryClass(target);
-      searchPlaces();
-    }
-  };
-
-  // 클릭된 카테고리에만 클릭된 스타일을 적용하는 함수입니다
-  const changeCategoryClass = (el?: HTMLElement) => {
-    const category = document.getElementById("category");
-    if (!category) return;
-
-    // category가 null이 아닐 경우
-    const children = category.children;
-
-    for (let i = 0; i < children.length; i++) {
-      children[i].className = "";
-    }
-
-    if (el) {
-      el.className = "on";
     }
   };
 
@@ -194,23 +173,65 @@ export const Map = () => {
   return (
     <>
       <div id="map" className={styles.wrapper}></div>
-      <ul id="category">
-        <li id="AT4" data-order="0">
+      <ul id="category" className={styles.category}>
+        <li
+          id="AT4"
+          data-order="0"
+          className={classNames({
+            [styles.on]: currCategory === "AT4",
+          })}
+          onClick={() => onClickCategory}
+        >
           <span>이벤트</span>
         </li>
-        <li id="PK6" data-order="1">
+        <li
+          id="PK6"
+          data-order="1"
+          className={classNames({
+            [styles.on]: currCategory === "PK6",
+          })}
+          onClick={() => onClickCategory}
+        >
           <span>주점</span>
         </li>
-        <li id="FD6" data-order="2">
+        <li
+          id="FD6"
+          data-order="2"
+          className={classNames({
+            [styles.on]: currCategory === "FD6",
+          })}
+          onClick={() => onClickCategory}
+        >
           <span>먹거리</span>
         </li>
-        <li id="HP8" data-order="3">
+        <li
+          id="HP8"
+          data-order="3"
+          className={classNames({
+            [styles.on]: currCategory === "HP8",
+          })}
+          onClick={() => onClickCategory}
+        >
           <span>의무실</span>
         </li>
-        <li id="PO3" data-order="4">
+        <li
+          id="PO3"
+          data-order="4"
+          className={classNames({
+            [styles.on]: currCategory === "PO3",
+          })}
+          onClick={() => onClickCategory}
+        >
           <span>화장실</span>
         </li>
-        <li id="CS2" data-order="5">
+        <li
+          id="CS2"
+          data-order="5"
+          className={classNames({
+            [styles.on]: currCategory === "CS2",
+          })}
+          onClick={() => onClickCategory}
+        >
           <span>흡연실</span>
         </li>
       </ul>
