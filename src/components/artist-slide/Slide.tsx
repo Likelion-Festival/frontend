@@ -7,14 +7,21 @@ import Bell from "@assets/performance/bell.svg";
 import BellActive from "@assets/performance/bell-active.svg";
 import Location from "@assets/performance/location.svg";
 import Time from "@assets/performance/time.svg";
+import { useNavigate } from "react-router-dom";
 
 interface SlideProp {
   items: Performance[];
 }
 
+interface Mouse {
+  mouseX : number,
+  mouseY : number
+}
+
 export const Slide: React.FC<SlideProp> = ({ items }) => {
+  const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [touchPos, setTouchPos] = useState({ mouseX: 0, mouseY: 0 });
+  const [touchPos, setTouchPos] = useState<Mouse>({ mouseX: 0, mouseY: 0 });
 
   const slideNext = () => {
     setActiveIndex((prev) => (prev + 1) % items.length);
@@ -49,6 +56,7 @@ export const Slide: React.FC<SlideProp> = ({ items }) => {
           setActiveIndex(idx);
         } else {
           // 콘텐츠 이동
+          navigate(`${idx}`)
         }
       }
     }

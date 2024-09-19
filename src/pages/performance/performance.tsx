@@ -9,7 +9,7 @@ import { performances } from "@constant/performance";
 export const PerformancePage = () => {
   const navigate = useNavigate();
   return (
-    <div>
+    <div style={{padding : "0px 0px 50px 0px"}}>
       <div className={styles.column}>
         <div className={styles.header}>
           <span>Today</span>
@@ -32,6 +32,10 @@ export const PerformancePage = () => {
         <div className={styles.header}>
           <span>Soon</span>
         </div>
+        {
+          //slide
+          <Slide items={performances} />
+        }
       </div>
     </div>
   );
