@@ -15,6 +15,20 @@
   margin-left: 5%;
 }
 /* 이벤트 */
+.eventSlide {
+  transition: transform 0.05s ease, opacity 0.05s ease;
+}
+
+.activeSlide {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.inactiveSlide {
+  transform: scale(0.95);
+  opacity: 1;
+}
+
 .eventSlideContainer {
   border: 1px dotted white;
 }
@@ -57,7 +71,7 @@
   margin-right: 19px;
   margin-left: auto;
 }
-.eventPhraseBox {
+.eventTitleBox {
   background-color: gray;
   margin-top: auto;
   margin-bottom: 47px;
@@ -67,7 +81,7 @@
   gap: 14px;
   margin-right: auto;
 }
-.eventName {
+.eventMainTitle {
   font-family: Noto Sans KR;
   font-size: 24px;
   font-weight: 700;
@@ -76,7 +90,7 @@
   text-align: left;
   color: #ffffff;
 }
-.eventPhrase {
+.eventSubTitle {
   font-family: Noto Sans KR;
   font-size: 16px;
   font-weight: 500;
@@ -104,7 +118,7 @@
   color: #ffffff;
 }
 .programSlideContainer {
-  margin-left: -150px;
+  margin-left: -170px;
   border: 1px dashed white;
 }
 .programBox {
@@ -261,6 +275,7 @@
 /* 저작권, 판권 */
 .rightsContainer {
   margin-top: 48px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   gap: 19px;
