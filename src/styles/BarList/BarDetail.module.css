@@ -1,15 +1,22 @@
 .container {
     background-color: #131313;
-    overflow: hidden;
-    max-width: 375px;
+    width: 375px;
+    max-height: 100vh;
+    overflow-y: auto;
+    margin-top: 0vw; 
   }
 
 .barDetail-image {
     top: 0; 
     z-index: 10;
-    height: 80vh;
+    height: 90vh;
+    overflow: auto;
     margin: 0;
     background-color: #131313;
+}
+
+.barDetail-image::-webkit-scrollbar {
+    display: none; 
 }
 
 .barMainImage{
@@ -24,12 +31,10 @@
     width: 3vw;
     height: auto;
     cursor: pointer;
-
 }
 
 .barDetail{
     font-weight: 600;
-    max-height: 75vh;
     overflow-y: auto;
 }
 
@@ -80,6 +85,11 @@
     margin-bottom: 4vw;
 }
 
-ul{
+.barDetail-menu ul{
     list-style: none;
 }
+
+.barDetail-menu li {
+    margin-bottom: 3vw; 
+}
+

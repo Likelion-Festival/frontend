@@ -18,6 +18,7 @@ export const BarDetail = () => {
     if (!store) {
         return <div>가게를 찾을 수 없습니다.</div>;
     }
+    console.log(store.imageUrl);
 
     const MoveMap = () => {
         navigate(`/bar/${BarPage}`); 
@@ -27,7 +28,7 @@ export const BarDetail = () => {
     return (
         <div className={styles.container}>
             <div className={styles['barDetail-image']}>
-                <img src={'/src/assets/bar/주점1.png'} alt={`${store.name} 이미지`} className={styles.barMainImage} />
+                <img src={store.imageUrl} alt={`${store.name}`} className={styles.barMainImage} />
                 <img src={'/src/assets/bar/goBack.png'} alt={`뒤로 가기`} className={styles.goBack} onClick={handleGoBack} />
                 
                 <div className={styles.barDetail}>

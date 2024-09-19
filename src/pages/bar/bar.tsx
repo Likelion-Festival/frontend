@@ -23,7 +23,7 @@ export const stores: Store[] = [
     name: '무간판',
     representative: '언론정보대학 학생회',
     description: '닭전, 유부우동&닭고치, 통영 산지직송',
-    imageUrl:'src/assets/bar/주점1.png',
+    imageUrl:'/src/assets/bar/주점1.png',
     menu: [
       { name: '닭전', price: 5000 },
       { name: '유부우동', price: 6000 },
@@ -179,6 +179,7 @@ export const BarPage = () => {
                 <div className={styles.descriptions}>
                   <div className={styles.representMenu}>
                     대표
+                  
                   </div>
                   {store.description}
                 </div>
