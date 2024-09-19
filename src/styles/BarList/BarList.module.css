@@ -1,7 +1,8 @@
 .container {
     background-color: #131313;
     overflow: hidden;
-    max-width: 375px;
+    min-width: 325px;
+    min-height: 340px;
   }
 
   .search-container{
@@ -142,22 +143,10 @@
     color: #696969;
   }
   
-  ::-webkit-scrollbar {
-    width: 8px; 
-    height: 8px; 
-  }
+  .container::-webkit-scrollbar {
+    display: none; 
+}
 
-  ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: rgba(128, 128, 128, 0.7); 
-    border-radius: 10px;
-  }
-
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(128, 128, 128, 1);
-  }
+.store-list::-webkit-scrollbar {
+  display: none; 
+}
