@@ -7,6 +7,7 @@ import { Layout } from "@components/common/Layout";
 import { TabNavigator } from "@components/common/TabNavigator";
 import { GuidePage } from "@pages/performance/guide";
 import { ErrorPage } from "@pages/error";
+import { PerformanceDetailPage } from "@pages/performance/performanceDetail";
 
 function App() {
   return (
@@ -20,6 +21,10 @@ function App() {
             <Route path="/map" element={<MapPage />} />
             {/* performance page */}
             <Route path="/performance" element={<PerformancePage />} />
+            <Route
+              path="/performance/:id"
+              element={<PerformanceDetailPage />}
+            />
             <Route path="/performance/guide" element={<GuidePage />} />
             {/* bar page */}
             <Route path="/bar" element={<BarPage />} />
