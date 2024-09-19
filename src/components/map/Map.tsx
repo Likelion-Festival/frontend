@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { barPositions } from "@constant/map";
+import { barPositions, eventPositions } from "@constant/map";
 import styles from "@styles/map/Map.module.css";
 import spriteImage from "@assets/map/spirte-image-removebg.png";
 import classNames from "classnames";
@@ -50,6 +50,33 @@ export const Map = () => {
     return marker;
   };
 
+  // 이벤트존 마커 생성 및 배열에 추가
+  const createEventMarkers = () => {
+    for (let i = 0; i < eventPositions.length; i++) {
+      const imageSize = new kakao.maps.Size(50, 57),
+        imageOptions = {
+          spriteOrigin: new kakao.maps.Point(9, 68),
+          spriteSize: new kakao.maps.Size(69, 329),
+        };
+
+      // 마커이미지와 마커 생성
+      const markerImage = createMarkerImage(
+          markerImageSrc,
+          imageSize,
+          imageOptions
+        ),
+        marker = createMarker(eventPositions[i], markerImage);
+
+      // 생성된 마커를 커피숍 마커 배열에 추가
+      eventMarkers.push(marker);
+    }
+  };
+  const setEventMarkers = (map: kakao.maps.Map | null) => {
+    for (let i = 0; i < eventMarkers.length; i++) {
+      eventMarkers[i].setMap(map);
+    }
+  };
+
   // 주점 마커 생성 및 배열에 추가
   const createBarMarkers = () => {
     for (let i = 0; i < barPositions.length; i++) {
@@ -71,7 +98,6 @@ export const Map = () => {
       barMarkers.push(marker);
     }
   };
-
   const setBarMarkers = (map: kakao.maps.Map | null) => {
     for (let i = 0; i < barMarkers.length; i++) {
       barMarkers[i].setMap(map);
@@ -83,6 +109,14 @@ export const Map = () => {
     const target = event.currentTarget as HTMLElement;
     const id = target.id;
 
+    setEventMarkers(null);
+    setBarMarkers(null);
+    // setFoodMarkers(null);
+    // setMedicalMarkers(null);
+    // setToiletMarkers(null);
+    // setSmokingMarkers(null);
+
+    console.log(eventMarkers);
     switch (id) {
       case "eventMenu":
         setMarker("event");
@@ -92,26 +126,27 @@ export const Map = () => {
         setMarker("bar");
         setBarMarkers(map);
         break;
-      case "foodMenu":
-        setMarker("food");
-        setFoodMarkers(map);
-        break;
-      case "medicalMenu":
-        setMarker("medical");
-        setMedicalMarkers(map);
-        break;
-      case "toiletMenu":
-        setMarker("toilet");
-        setToiletMarkers(map);
-        break;
-      case "smokingMenu":
-        setMarker("smoking");
-        setSmokingMarkers(map);
-        break;
-    }
-    console.log(id);
-  };
 
+      //   case "foodMenu":
+      //     setMarker("food");
+      //     setFoodMarkers(map);
+      //     break;
+      //   case "medicalMenu":
+      //     setMarker("medical");
+      //     setMedicalMarkers(map);
+      //     break;
+      //   case "toiletMenu":
+      //     setMarker("toilet");
+      //     setToiletMarkers(map);
+      //     break;
+      //   case "smokingMenu":
+      //     setMarker("smoking");
+      //     setSmokingMarkers(map);
+      //     break;
+    }
+    // console.log(id);
+  };
+  createEventMarkers();
   createBarMarkers();
 
   return (
