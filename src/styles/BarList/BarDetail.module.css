@@ -1,0 +1,95 @@
+.container {
+    background-color: #131313;
+    width: 375px;
+    max-height: 100vh;
+    overflow-y: auto;
+    margin-top: 0vw; 
+  }
+
+.barDetail-image {
+    top: 0; 
+    z-index: 10;
+    height: 90vh;
+    overflow: auto;
+    margin: 0;
+    background-color: #131313;
+}
+
+.barDetail-image::-webkit-scrollbar {
+    display: none; 
+}
+
+.barMainImage{
+    width: 100%;
+    height: auto;
+}
+
+.goBack{
+    position: absolute;
+    top: 6vw;
+    left: 3vw;
+    width: 3vw;
+    height: auto;
+    cursor: pointer;
+}
+
+.barDetail{
+    font-weight: 600;
+    overflow-y: auto;
+}
+
+
+.barDetail-title{
+    padding : 2vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;    
+    gap: 1vw;
+
+    font-size: 1.5vw; 
+}
+
+.barDetail-storeName{
+    font-size: 3vw;
+    font-weight: bold;
+    color: white;
+}
+
+.barDetail-storeRepre{
+    font-size: 1.8vw;
+    font-weight: bold;
+    color: #ABABAB;
+}
+
+.MoveToMap {
+    width: 20vw;
+    height: auto;
+    margin-top: 1.8vw;
+    margin-bottom: 1.8vw;
+    cursor: pointer;
+}
+
+
+.detailLine{    
+    height: 1vw; 
+    background-color: #333333; 
+}
+
+.barDetail-menu{
+    padding : 4vw;
+    font-size: 2vw; 
+}
+
+.barDetail-menu h3{
+    margin-bottom: 4vw;
+}
+
+.barDetail-menu ul{
+    list-style: none;
+}
+
+.barDetail-menu li {
+    margin-bottom: 3vw; 
+}
+
