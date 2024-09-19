@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Performance } from "../../types/performance/performance";
 // aset load
 import Bell from "@assets/performance/bell.svg";
-import BellActive from "@assets/performance/bell-active.svg";
+//import BellActive from "@assets/performance/bell-active.svg";
 import Location from "@assets/performance/location.svg";
 import Time from "@assets/performance/time.svg";
 import { useNavigate } from "react-router-dom";

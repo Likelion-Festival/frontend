@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import styles from '@styles/BarList/BarDetail.module.css'; 
-import { stores, Store, MenuItem, BarPage } from './bar.tsx';
+import { stores, Store, MenuItem } from './bar-types.ts';
+import {BarPage} from './bar.tsx';
 
 
 
