@@ -17,6 +17,7 @@ export const PerformanceDetailPage = () => {
   const navigator = useNavigate();
 
   if (!params.id) {
+    navigator('error');
     return <div>Invalid ID</div>;
   }
 
@@ -24,6 +25,7 @@ export const PerformanceDetailPage = () => {
   const item = performances[id];
 
   if (!item) {
+    navigator('error');
     return <div>Performance not found</div>;
   }
 
@@ -77,11 +79,14 @@ export const PerformanceDetailPage = () => {
           <div>
             {item.songs.map((song, index) => (
               <div key={index} className={styles.songBox}>
+                <div>
                 <img src={song.img} alt="" className={styles.songImg}/>
                 <div>
                   <span className={styles.songTitle}>{song.title}</span>
                   <span className={styles.songArtist}>{item.artistName}</span>
                 </div>
+                </div>
+                
                 <img src={Music} alt="" className={styles.songIcon} onClick={() => {window.open(song.previewUrl)}}/>
               </div>
             ))}
