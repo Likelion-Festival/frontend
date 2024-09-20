@@ -9,11 +9,11 @@ import { performances } from "@constant/performance";
 export const PerformancePage = () => {
   const navigate = useNavigate();
   return (
-    <div style={{padding : "0px 0px 50px 0px"}}>
+    <div>
       <div className={styles.column}>
         <div className={styles.header}>
           <span>Today</span>
-          <img src={timeTable} alt="" onClick={() => navigate('timetable')}/>
+          <img src={timeTable} alt="" onClick={() => navigate("timetable")} />
         </div>
         {
           //slide
@@ -33,7 +33,7 @@ export const PerformancePage = () => {
         </div>
         {
           //slide
-          <Slide items={performances} onlyToday={false}/>
+          <Slide items={performances} onlyToday={false} />
         }
       </div>
     </div>
