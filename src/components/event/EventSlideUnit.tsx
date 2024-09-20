@@ -1,5 +1,5 @@
 // Event.tsx
-import styles from "../../styles/MainPage.module.css";
+import styles from "@styles/MainPage.module.css";
 
 interface EventProps {
   imgURL: string;
