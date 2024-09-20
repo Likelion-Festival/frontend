@@ -1,6 +1,6 @@
 import styles from "@styles/artist-slide/Slide.module.css";
 // performance type
-import { Performance } from "../../types/performance/performance";
+import { Performance } from "../../type/performance/performance";
 // aset load
 import Bell from "@assets/performance/bell.svg";
 //import BellActive from "@assets/performance/bell-active.svg";
