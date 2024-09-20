@@ -13,7 +13,7 @@ export const PerformancePage = () => {
       <div className={styles.column}>
         <div className={styles.header}>
           <span>Today</span>
-          <img src={timeTable} alt="" />
+          <img src={timeTable} alt="" onClick={() => navigate('timetable')}/>
         </div>
         {
           //slide
