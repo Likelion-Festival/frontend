@@ -8,7 +8,9 @@ export const eventPositions = [
   new kakao.maps.LatLng(37.296951, 126.835818),
 ];
 export const barPositions = [new kakao.maps.LatLng(37.296007, 126.835283)];
-export const foodCourtPositions = [];
+export const foodCourtPositions = [
+  new kakao.maps.LatLng(37.296317, 126.833993),
+];
 export const medicalPositions = [];
 export const toiletPositions = [];
 export const smokingPositions = [];

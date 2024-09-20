@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { barPositions, eventPositions } from "@constant/map";
+import {
+  barPositions,
+  eventPositions,
+  foodCourtPositions,
+} from "@constant/map";
 import styles from "@styles/map/Map.module.css";
 import spriteImage from "@assets/map/spirte-image-removebg.png";
 import classNames from "classnames";
@@ -104,6 +108,33 @@ export const Map = () => {
     }
   };
 
+  // 먹거리 마커 생성 및 배열에 추가
+  const createFoodCourtMarkers = () => {
+    for (let i = 0; i < foodCourtPositions.length; i++) {
+      const imageSize = new kakao.maps.Size(50, 57),
+        imageOptions = {
+          spriteOrigin: new kakao.maps.Point(9, 136),
+          spriteSize: new kakao.maps.Size(69, 329),
+        };
+
+      // 마커이미지와 마커 생성
+      const markerImage = createMarkerImage(
+          markerImageSrc,
+          imageSize,
+          imageOptions
+        ),
+        marker = createMarker(foodCourtPositions[i], markerImage);
+
+      // 생성된 마커를 커피숍 마커 배열에 추가
+      foodCourtMarkers.push(marker);
+    }
+  };
+  const setFoodCourtMarkers = (map: kakao.maps.Map | null) => {
+    for (let i = 0; i < foodCourtMarkers.length; i++) {
+      foodCourtMarkers[i].setMap(map);
+    }
+  };
+
   // 마커 선택 시 스타일링
   const changeMarker = (event: React.MouseEvent<HTMLElement>) => {
     const target = event.currentTarget as HTMLElement;
@@ -125,6 +156,10 @@ export const Map = () => {
       case "barMenu":
         setMarker("bar");
         setBarMarkers(map);
+        break;
+      case "foodMenu":
+        setMarker("food");
+        setFoodCourtMarkers(map);
         break;
 
       //   case "foodMenu":
@@ -148,6 +183,7 @@ export const Map = () => {
   };
   createEventMarkers();
   createBarMarkers();
+  createFoodCourtMarkers();
 
   return (
     <>
