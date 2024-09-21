@@ -1,58 +1,58 @@
-import { useState } from "react";
-import useSlider from "@hooks/useSlider1";
-import useSlider2 from "@hooks/useSlider2";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import styles from "@styles/MainPage.module.css";
-import EventSlideUnit from "@components/event/EventSlideUnit";
-import ProgramSlideUnit from "@components/program/programSlideUnit";
-import FallingLogo from "@assets/main/top-logo.svg";
-import UpLogo from "@assets/main/UP-logo.svg";
-import LikelionLogo from "@assets/main/Likelion-logo.svg";
+import { useState } from 'react';
+import useSlider from '@hooks/useSlider1';
+import useSlider2 from '@hooks/useSlider2';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import styles from '@styles/MainPage.module.css';
+import EventSlideUnit from '@components/event/EventSlideUnit';
+import ProgramSlideUnit from '@components/program/programSlideUnit';
+import FallingLogo from '@assets/main/top-logo.svg';
+import UpLogo from '@assets/main/UP-logo.svg';
+import LikelionLogo from '@assets/main/Likelion-logo.svg';
 
 export const MainPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderSettings = useSlider(); // 훅 사용
   const sliderSettings2 = useSlider2();
   const rights1: string =
-    "한양대학교 ERICA 멋쟁이사자처럼\n@LIKELION ERICA. All Rights Reserved.";
-  const rights2: string = "@Design based by 총동아리연합회_UP";
+    '한양대학교 ERICA 멋쟁이사자처럼\n@LIKELION ERICA. All Rights Reserved.';
+  const rights2: string = '@Design based by 총동아리연합회_UP';
 
   const events = [
     // TODO: 서버에서 받아올 내용
     {
-      imgURL: "",
+      imgURL: '',
       isOnLive: true,
-      mainTitle: "가을 축제 사전 이벤트",
-      subTitle: "하냥이 키링을 받아갈 기회!",
+      mainTitle: '가을 축제 사전 이벤트',
+      subTitle: '하냥이 키링을 받아갈 기회!',
     },
     {
-      imgURL: "",
+      imgURL: '',
       isOnLive: false,
-      mainTitle: "겨울 축제 준비 중",
-      subTitle: "따뜻한 겨울을 위한 축제!",
+      mainTitle: '겨울 축제 준비 중',
+      subTitle: '따뜻한 겨울을 위한 축제!',
     },
     {
-      imgURL: "",
+      imgURL: '',
       isOnLive: true,
-      mainTitle: "봄 축제 미리보기",
-      subTitle: "봄바람을 맞이하며 즐기는 축제!",
+      mainTitle: '봄 축제 미리보기',
+      subTitle: '봄바람을 맞이하며 즐기는 축제!',
     },
   ];
   const programs = [
     // TODO: 서버에서 받아오거나 미리 세팅
     {
-      programImgURL: "", // 이미지 URL
-      programName: "클라이밍 콘텐츠",
+      programImgURL: '', // 이미지 URL
+      programName: '클라이밍 콘텐츠',
     },
     {
-      programImgURL: "",
-      programName: "푸드 트럭",
+      programImgURL: '',
+      programName: '푸드 트럭',
     },
     {
-      programImgURL: "",
-      programName: "공연 무대",
+      programImgURL: '',
+      programName: '공연 무대',
     },
   ];
 
@@ -153,6 +153,7 @@ export const MainPage = () => {
               </div>
             </div>
             <div className={styles.contactIcon}>
+              <img src={LikelionLogo} />
               <img src={LikelionLogo} />
             </div>
           </div>
