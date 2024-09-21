@@ -8,9 +8,24 @@ import styles from "@styles/map/Map.module.css";
 import spriteImage from "@assets/map/spirte-image-removebg.png";
 import classNames from "classnames";
 
+interface MarkersType {
+  eventMarkers: kakao.maps.Marker[];
+  barMarkers: kakao.maps.Marker[];
+  foodCourtMarkers: kakao.maps.Marker[];
+  medicalMarkers: kakao.maps.Marker[];
+  smokingMarkers: kakao.maps.Marker[];
+}
+
 export const Map = () => {
   const [map, setMap] = useState<kakao.maps.Map | null>(null);
-  const [marker, setMarker] = useState<string>("");
+  const [currMarker, setCurrMarker] = useState<string>("");
+  const [markers, setMarkers] = useState<MarkersType>({
+    eventMarkers: [],
+    barMarkers: [],
+    foodCourtMarkers: [],
+    medicalMarkers: [],
+    smokingMarkers: [],
+  });
 
   useEffect(() => {
     const container = document.getElementById("map");
@@ -25,11 +40,6 @@ export const Map = () => {
   }, []);
 
   const markerImageSrc = spriteImage;
-  const eventMarkers: kakao.maps.Marker[] = [];
-  const barMarkers: kakao.maps.Marker[] = [];
-  const foodCourtMarkers: kakao.maps.Marker[] = [];
-  const medicalMarkers: kakao.maps.Marker[] = [];
-  const somkingMarkers: kakao.maps.Marker[] = [];
 
   // 마커 이미지 생성
   const createMarkerImage = (
@@ -54,85 +64,49 @@ export const Map = () => {
     return marker;
   };
 
-  // 이벤트존 마커 생성 및 배열에 추가
-  const createEventMarkers = () => {
-    for (let i = 0; i < eventPositions.length; i++) {
-      const imageSize = new kakao.maps.Size(50, 57),
-        imageOptions = {
-          spriteOrigin: new kakao.maps.Point(9, 68),
-          spriteSize: new kakao.maps.Size(69, 329),
-        };
-
-      // 마커이미지와 마커 생성
+  // 각 카테고리 마커 생성 및 배열에 추가
+  const createMarkersOnMap = (
+    category: string,
+    markerPosition: kakao.maps.LatLng[],
+    spriteImagePosition: number
+  ) => {
+    const newEventMarkers = markerPosition.map((position) => {
+      const imageSize = new kakao.maps.Size(50, 57);
+      const imageOptions = {
+        spriteOrigin: new kakao.maps.Point(9, spriteImagePosition),
+        spriteSize: new kakao.maps.Size(69, 329),
+      };
       const markerImage = createMarkerImage(
-          markerImageSrc,
-          imageSize,
-          imageOptions
-        ),
-        marker = createMarker(eventPositions[i], markerImage);
+        markerImageSrc,
+        imageSize,
+        imageOptions
+      );
+      return createMarker(position, markerImage);
+    });
+    console.log(`${markerPosition} : `, newEventMarkers);
 
-      // 생성된 마커를 커피숍 마커 배열에 추가
-      eventMarkers.push(marker);
-    }
-  };
-  const setEventMarkers = (map: kakao.maps.Map | null) => {
-    for (let i = 0; i < eventMarkers.length; i++) {
-      eventMarkers[i].setMap(map);
-    }
-  };
-
-  // 주점 마커 생성 및 배열에 추가
-  const createBarMarkers = () => {
-    for (let i = 0; i < barPositions.length; i++) {
-      const imageSize = new kakao.maps.Size(50, 57),
-        imageOptions = {
-          spriteOrigin: new kakao.maps.Point(9, 0),
-          spriteSize: new kakao.maps.Size(69, 329),
-        };
-
-      // 마커이미지와 마커 생성
-      const markerImage = createMarkerImage(
-          markerImageSrc,
-          imageSize,
-          imageOptions
-        ),
-        marker = createMarker(barPositions[i], markerImage);
-
-      // 생성된 마커를 커피숍 마커 배열에 추가
-      barMarkers.push(marker);
-    }
-  };
-  const setBarMarkers = (map: kakao.maps.Map | null) => {
-    for (let i = 0; i < barMarkers.length; i++) {
-      barMarkers[i].setMap(map);
-    }
+    category === "event"
+      ? setMarkers((prev) => ({
+          ...prev,
+          eventMarkers: newEventMarkers,
+        }))
+      : category === "bar"
+      ? setMarkers((prev) => ({
+          ...prev,
+          barMarkers: newEventMarkers,
+        }))
+      : setMarkers((prev) => ({
+          ...prev,
+          foodCourtMarkers: newEventMarkers,
+        }));
   };
 
-  // 먹거리 마커 생성 및 배열에 추가
-  const createFoodCourtMarkers = () => {
-    for (let i = 0; i < foodCourtPositions.length; i++) {
-      const imageSize = new kakao.maps.Size(50, 57),
-        imageOptions = {
-          spriteOrigin: new kakao.maps.Point(9, 136),
-          spriteSize: new kakao.maps.Size(69, 329),
-        };
-
-      // 마커이미지와 마커 생성
-      const markerImage = createMarkerImage(
-          markerImageSrc,
-          imageSize,
-          imageOptions
-        ),
-        marker = createMarker(foodCourtPositions[i], markerImage);
-
-      // 생성된 마커를 커피숍 마커 배열에 추가
-      foodCourtMarkers.push(marker);
-    }
-  };
-  const setFoodCourtMarkers = (map: kakao.maps.Map | null) => {
-    for (let i = 0; i < foodCourtMarkers.length; i++) {
-      foodCourtMarkers[i].setMap(map);
-    }
+  // 지도에 마커 표시 여부 결정
+  const setMarkersOnMap = (
+    markers: kakao.maps.Marker[],
+    map: kakao.maps.Map | null
+  ) => {
+    markers.forEach((marker) => marker.setMap(map));
   };
 
   // 마커 선택 시 스타일링
@@ -140,26 +114,22 @@ export const Map = () => {
     const target = event.currentTarget as HTMLElement;
     const id = target.id;
 
-    setEventMarkers(null);
-    setBarMarkers(null);
-    // setFoodMarkers(null);
-    // setMedicalMarkers(null);
-    // setToiletMarkers(null);
-    // setSmokingMarkers(null);
+    setMarkersOnMap(markers.eventMarkers, null);
+    setMarkersOnMap(markers.barMarkers, null);
+    setMarkersOnMap(markers.foodCourtMarkers, null);
 
-    console.log(eventMarkers);
     switch (id) {
       case "eventMenu":
-        setMarker("event");
-        setEventMarkers(map);
+        setCurrMarker("event");
+        setMarkersOnMap(markers.eventMarkers, map);
         break;
       case "barMenu":
-        setMarker("bar");
-        setBarMarkers(map);
+        setCurrMarker("bar");
+        setMarkersOnMap(markers.barMarkers, map);
         break;
       case "foodMenu":
-        setMarker("food");
-        setFoodCourtMarkers(map);
+        setCurrMarker("food");
+        setMarkersOnMap(markers.foodCourtMarkers, map);
         break;
 
       //   case "foodMenu":
@@ -181,9 +151,13 @@ export const Map = () => {
     }
     // console.log(id);
   };
-  createEventMarkers();
-  createBarMarkers();
-  createFoodCourtMarkers();
+
+  // 카테고리별 마커 생성
+  useEffect(() => {
+    createMarkersOnMap("event", eventPositions, 68);
+    createMarkersOnMap("bar", barPositions, 0);
+    createMarkersOnMap("foodCourt", foodCourtPositions, 136);
+  }, [map]);
 
   return (
     <>
@@ -192,7 +166,7 @@ export const Map = () => {
         <li
           id="eventMenu"
           className={classNames({
-            [styles.selected]: marker === "event",
+            [styles.selected]: currMarker === "event",
           })}
           onClick={changeMarker}
         >
@@ -201,7 +175,7 @@ export const Map = () => {
         <li
           id="barMenu"
           className={classNames({
-            [styles.selected]: marker === "bar",
+            [styles.selected]: currMarker === "bar",
           })}
           onClick={changeMarker}
         >
@@ -210,7 +184,7 @@ export const Map = () => {
         <li
           id="foodMenu"
           className={classNames({
-            [styles.selected]: marker === "food",
+            [styles.selected]: currMarker === "food",
           })}
           onClick={changeMarker}
         >
@@ -219,7 +193,7 @@ export const Map = () => {
         <li
           id="medicalMenu"
           className={classNames({
-            [styles.selected]: marker === "medical",
+            [styles.selected]: currMarker === "medical",
           })}
           onClick={changeMarker}
         >
@@ -228,7 +202,7 @@ export const Map = () => {
         <li
           id="toiletMenu"
           className={classNames({
-            [styles.selected]: marker === "toilet",
+            [styles.selected]: currMarker === "toilet",
           })}
           onClick={changeMarker}
         >
@@ -237,7 +211,7 @@ export const Map = () => {
         <li
           id="smokingMenu"
           className={classNames({
-            [styles.selected]: marker === "smoking",
+            [styles.selected]: currMarker === "smoking",
           })}
           onClick={changeMarker}
         >
