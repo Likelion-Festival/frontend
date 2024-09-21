@@ -168,8 +168,8 @@ export const Map = () => {
   }, [map]);
 
   return (
-    <>
-      <div id="map" className={styles.wrapper}></div>
+    <div className={styles.wrapper}>
+      <div id="map" className={styles.map_wrapper}></div>
       <ul id={styles.category}>
         <li
           id="eventMenu"
@@ -226,6 +226,6 @@ export const Map = () => {
           <span>흡연실</span>
         </li>
       </ul>
-    </>
+    </div>
   );
 };
