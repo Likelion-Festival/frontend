@@ -27,6 +27,7 @@ export const Map = () => {
     smokingMarkers: [],
   });
 
+  // 초기 세팅
   useEffect(() => {
     const container = document.getElementById("map");
     const options = {
@@ -51,20 +52,7 @@ export const Map = () => {
     return markerImage;
   };
 
-  // 마커 생성
-  const createMarker = (
-    position: kakao.maps.LatLng,
-    image: kakao.maps.MarkerImage
-  ) => {
-    const marker = new kakao.maps.Marker({
-      position: position,
-      image: image,
-    });
-
-    return marker;
-  };
-
-  // 각 카테고리 마커 생성 및 배열에 추가
+  // 각 카테고리별 마커 생성 및 배열에 추가
   const createMarkersOnMap = (
     category: string,
     markerPosition: kakao.maps.LatLng[],
@@ -81,24 +69,37 @@ export const Map = () => {
         imageSize,
         imageOptions
       );
-      return createMarker(position, markerImage);
-    });
-    console.log(`${markerPosition} : `, newEventMarkers);
 
-    category === "event"
-      ? setMarkers((prev) => ({
-          ...prev,
-          eventMarkers: newEventMarkers,
-        }))
-      : category === "bar"
-      ? setMarkers((prev) => ({
-          ...prev,
-          barMarkers: newEventMarkers,
-        }))
-      : setMarkers((prev) => ({
-          ...prev,
-          foodCourtMarkers: newEventMarkers,
-        }));
+      // 마커 생성
+      const marker = new kakao.maps.Marker({
+        position: position,
+        image: markerImage,
+      });
+
+      // 마커 클릭 이벤트 추가
+      kakao.maps.event.addListener(marker, "click", () => {
+        map?.panTo(position); // 마커 클릭 시 해당 위치로 이동
+      });
+
+      return marker;
+    });
+
+    if (category === "event") {
+      setMarkers((prev) => ({
+        ...prev,
+        eventMarkers: newEventMarkers,
+      }));
+    } else if (category === "bar") {
+      setMarkers((prev) => ({
+        ...prev,
+        barMarkers: newEventMarkers,
+      }));
+    } else {
+      setMarkers((prev) => ({
+        ...prev,
+        foodCourtMarkers: newEventMarkers,
+      }));
+    }
   };
 
   // 지도에 마커 표시 여부 결정
@@ -109,7 +110,7 @@ export const Map = () => {
     markers.forEach((marker) => marker.setMap(map));
   };
 
-  // 마커 선택 시 스타일링
+  // 마커 선택 시 이벤트
   const changeMarker = (event: React.MouseEvent<HTMLElement>) => {
     const target = event.currentTarget as HTMLElement;
     const id = target.id;
@@ -131,25 +132,17 @@ export const Map = () => {
         setCurrMarker("food");
         setMarkersOnMap(markers.foodCourtMarkers, map);
         break;
-
-      //   case "foodMenu":
-      //     setMarker("food");
-      //     setFoodMarkers(map);
-      //     break;
-      //   case "medicalMenu":
-      //     setMarker("medical");
-      //     setMedicalMarkers(map);
-      //     break;
-      //   case "toiletMenu":
-      //     setMarker("toilet");
-      //     setToiletMarkers(map);
-      //     break;
-      //   case "smokingMenu":
-      //     setMarker("smoking");
-      //     setSmokingMarkers(map);
-      //     break;
+      case "medicalMenu":
+        setCurrMarker("medical");
+        setMarkersOnMap(markers.medicalMarkers, map);
+        break;
+      case "toiletMenu":
+        setCurrMarker("toilet");
+        break;
+      case "smokingMenu":
+        setCurrMarker("smoking");
+        break;
     }
-    // console.log(id);
   };
 
   // 카테고리별 마커 생성
@@ -157,6 +150,21 @@ export const Map = () => {
     createMarkersOnMap("event", eventPositions, 68);
     createMarkersOnMap("bar", barPositions, 0);
     createMarkersOnMap("foodCourt", foodCourtPositions, 136);
+
+    // [
+    //   ...markers.eventMarkers,
+    //   ...markers.barMarkers,
+    //   ...markers.foodCourtMarkers,
+    // ].forEach((marker) => {
+    //   kakao.maps.event.addListener(
+    //     marker,
+    //     "click",
+    //     (mouseEvent: kakao.maps.event.MouseEvent) => {
+    //       console.log(mouseEvent.latLng);
+    //       console.log("클릭");
+    //     }
+    //   );
+    // });
   }, [map]);
 
   return (

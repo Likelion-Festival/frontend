@@ -18,6 +18,12 @@ declare namespace kakao.maps {
   }
 }
 
+declare namespace kakao.maps.event {
+  interface MouseEvent {
+    latLng: kakao.maps.LatLng;
+  }
+}
+
 // Kakao Maps 서비스 상태 정의
 declare namespace kakao {
   namespace maps {
