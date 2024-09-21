@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"; 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MainPage } from "@pages/main/main";
 import { MapPage } from "@pages/map/map";
@@ -9,11 +10,27 @@ import { TabNavigator } from "@components/common/TabNavigator";
 import { GuidePage } from "@pages/performance/guide";
 import { ErrorPage } from "@pages/error";
 import { PerformanceDetailPage } from "@pages/performance/performanceDetail";
+import { SplashScreen } from "@pages/splash/SplashScreen";
 
 function App() {
+  const [isSplashVisible, setIsSplashVisible] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsSplashVisible(false);
+    }, 2000);
+
+    return () => clearTimeout(timer); 
+  }, []);
+
+
   return (
-    <>
       <BrowserRouter>
+
+      {isSplashVisible ? (
+        <SplashScreen onSplashFinish={() => setIsSplashVisible(false)} />
+      ) : (
+
         <Layout>
           <Routes>
             {/* main page */}
@@ -36,8 +53,9 @@ function App() {
           </Routes>
           <TabNavigator />
         </Layout>
+
+      )}
       </BrowserRouter>
-    </>
   );
 }
 

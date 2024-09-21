@@ -124,20 +124,20 @@
 
   .noResult-image{
     margin-top: 10vw;
-    width: 20vw;
+    width: 180px;
     height: auto;
   }
 
   .noResult-main{
-    font-size: 2.2vw; 
+    font-size: 18px; 
     font-weight: 600;
     line-height: 2;
-    margin-top: 3vw;
+    margin-top: 30px;
     color: #696969;
   }
 
   .noResult-serve{
-    font-size: 2vw; 
+    font-size: 15px; 
     font-weight: 600;
     line-height: 2;
     margin-top: 0.5vw;
