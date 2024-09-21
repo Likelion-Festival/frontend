@@ -7,6 +7,9 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from "@styles/MainPage.module.css";
 import EventSlideUnit from "@components/event/EventSlideUnit";
 import ProgramSlideUnit from "@components/program/programSlideUnit";
+import FallingLogo from "@assets/main/top-logo.svg";
+import UpLogo from "@assets/main/UP-logo.svg";
+import LikelionLogo from "@assets/main/Likelion-logo.svg";
 
 export const MainPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -57,7 +60,7 @@ export const MainPage = () => {
     <div className={styles.wrapper}>
       <div className={styles.topMargin} />
       <div className={styles.toplogo}>
-        <img src="src/assets/main/top-logo.svg" alt="logo" />
+        <img src={FallingLogo} alt="logo" />
       </div>
 
       <div className={styles.eventSlideContainer}>
@@ -139,7 +142,7 @@ export const MainPage = () => {
               </div>
             </div>
             <div className={styles.contactIcon}>
-              <img src="src/assets/main/UP-logo.svg" />
+              <img src={UpLogo} />
             </div>
           </div>
           <div className={styles.contactBox}>
@@ -150,7 +153,7 @@ export const MainPage = () => {
               </div>
             </div>
             <div className={styles.contactIcon}>
-              <img src="src/assets/main/Likelion-logo.svg" />
+              <img src={LikelionLogo} />
             </div>
           </div>
         </div>

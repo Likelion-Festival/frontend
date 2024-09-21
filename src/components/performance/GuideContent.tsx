@@ -1,5 +1,5 @@
 import styles from "@styles/performance/GuideContent.module.css";
-import ground from "@assets/performance/ground.png";
+import ground from "@assets/performance/ground.jpg";
 import innerLayout from "@assets/performance/inner-layout.png";
 
 interface GuideContentProp {
