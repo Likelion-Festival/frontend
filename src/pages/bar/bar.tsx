@@ -60,17 +60,10 @@ export const BarPage = () => {
         ) : (
           //검색 키워드가 없을때?
           <div className={styles.noResult}>
-            <img
-              src={NoResult}
-              alt={`검색 결과 없음`}
-              className={styles['noResult-image']}
-            />
-            <div className={styles['noResult-main']}>
-              주점을 찾을 수 없습니다
-            </div>
-            <div className={styles['noResult-serve']}>
-              검색어에 오타가 있는지 확인해보세요!
-            </div>
+            <img src={'/bar/no_result.png'} alt={`검색 결과 없음`} className={styles['noResult-image']} />
+            <div className={styles['noResult-main']}>주점을 찾을 수 없습니다</div> 
+            <div className={styles['noResult-serve']}>검색어에 오타가 있는지 확인해보세요!</div> 
+
           </div>
         )}
       </div>
