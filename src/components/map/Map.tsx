@@ -141,6 +141,9 @@ export const Map = () => {
 
     switch (id) {
       case "eventMenu":
+        map?.panTo(
+          new kakao.maps.LatLng(37.29649099387646, 126.83445816802536)
+        ); // 해당 위치로 화면 트래킹
         setCurrMarker("event"); // 선택 카테고리 표시
         setMarkersOnMap(markers.eventMarkers, map); // 지도에 마커 표시
         const newEventArea = drawEventArea(map); // 영역 그리기
@@ -150,16 +153,26 @@ export const Map = () => {
         setPlayGroundArea(newEllipse);
         break;
       case "barMenu":
+        map?.panTo(
+          new kakao.maps.LatLng(37.29607777698318, 126.83536134155077)
+        );
         setCurrMarker("bar");
         setMarkersOnMap(markers.barMarkers, map);
         const newBarArea = drawBarArea(map);
         setBarArea(newBarArea);
         break;
       case "foodMenu":
+        map?.panTo(
+          new kakao.maps.LatLng(37.296341663836365, 126.83398762250677)
+        );
         setCurrMarker("food");
         setMarkersOnMap(markers.foodCourtMarkers, map);
         break;
       case "medicalMenu":
+        map?.panTo(
+          new kakao.maps.LatLng(37.29812402209422, 126.83438691733076)
+        );
+
         setCurrMarker("medical");
         setMarkersOnMap(markers.medicalMarkers, map);
         break;

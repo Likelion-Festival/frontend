@@ -28,13 +28,13 @@ export const drawBarArea = (map: kakao.maps.Map | null) => {
   ];
 
   const polygon = new kakao.maps.Polygon({
-    path: polygonPath, // 그려질 다각형의 좌표 배열입니다
-    strokeWeight: 2, // 선의 두께입니다
-    strokeColor: "#FF85EE", // 선의 색깔입니다
-    strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-    strokeStyle: "solid", // 선의 스타일입니다
-    fillColor: "#FF85EE", // 채우기 색깔입니다
-    fillOpacity: 0.3, // 채우기 불투명도 입니다
+    path: polygonPath, // 다각형 좌표 배열
+    strokeWeight: 2,
+    strokeColor: "#FF85EE",
+    strokeOpacity: 1,
+    strokeStyle: "solid",
+    fillColor: "#FF85EE",
+    fillOpacity: 0.3,
   });
 
   // 지도에 다각형을 표시합니다
@@ -47,13 +47,13 @@ export const drawEventArea = (map: kakao.maps.Map | null) => {
   const polygons: kakao.maps.Polygon[] = [];
   eventPositions.forEach((position) => {
     const polygon = new kakao.maps.Polygon({
-      path: position, // 그려질 다각형의 좌표 배열입니다
-      strokeWeight: 2, // 선의 두께입니다
-      strokeColor: "#FF85EE", // 선의 색깔입니다
-      strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-      strokeStyle: "solid", // 선의 스타일입니다
-      fillColor: "#FF85EE", // 채우기 색깔입니다
-      fillOpacity: 0.3, // 채우기 불투명도 입니다
+      path: position,
+      strokeWeight: 2,
+      strokeColor: "#FF85EE",
+      strokeOpacity: 1,
+      strokeStyle: "solid",
+      fillColor: "#FF85EE",
+      fillOpacity: 0.3,
     });
 
     polygon.setMap(map);
