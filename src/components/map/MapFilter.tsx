@@ -54,14 +54,14 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
 
     // 먹거리 영역 초기화
     if (foodCourtArea) {
-      foodCourtArea.setMap(null); // 이전 다각형 제거
-      setFoodCourtArea(null); // 상태 초기화
+      foodCourtArea.setMap(null);
+      setFoodCourtArea(null);
     }
 
     // 대운동장 영역 초기화
     if (playGroundArea) {
-      playGroundArea.setMap(null); // 이전 다각형 제거
-      setPlayGroundArea(null); // 상태 초기화
+      playGroundArea.setMap(null);
+      setPlayGroundArea(null);
     }
 
     switch (id) {
@@ -77,6 +77,7 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
         const newEllipse = drawPlaygroundArea(map);
         setPlayGroundArea(newEllipse);
         break;
+
       case "barMenu":
         map?.panTo(
           new kakao.maps.LatLng(37.29607777698318, 126.83536134155077)
@@ -86,6 +87,7 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
         const newBarArea = drawBarArea(map);
         setBarArea(newBarArea);
         break;
+
       case "foodMenu":
         map?.panTo(
           new kakao.maps.LatLng(37.296341663836365, 126.83398762250677)
@@ -95,6 +97,7 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
         const newFoodCourtArea = drawFoodCourtArea(map);
         setBarArea(newFoodCourtArea);
         break;
+
       case "medicalMenu":
         map?.panTo(
           new kakao.maps.LatLng(37.29812402209422, 126.83438691733076)
@@ -103,9 +106,11 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
         setCurrMarker("medical");
         setMarkersOnMap(markers.medicalMarkers, map);
         break;
+
       case "toiletMenu":
         setCurrMarker("toilet");
         break;
+
       case "smokingMenu":
         setCurrMarker("smoking");
         break;
@@ -118,9 +123,12 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
         <span>{day}</span>
         <img src={dropDownBtn} alt="dropdown-btn" />
       </button>
-      <form>
+
+      <form className={styles.form}>
         <input type="text" placeholder="부스, 주점, 키워드를 검색해보세요" />
+        <button type="submit"></button>
       </form>
+
       <ul id={styles.category}>
         <li
           id="eventMenu"
