@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import {
-  barPositions,
-  eventPositions,
-  foodCourtPositions,
-  medicalPositions,
+  barMarkerPositions,
+  eventMarkerPositions,
+  foodCourtMarkerPositions,
+  medicalMarkerPositions,
 } from "@constant/map";
 import styles from "@styles/map/Map.module.css";
 import spriteImage from "@assets/map/spirte-image-removebg.png";
@@ -11,6 +11,8 @@ import classNames from "classnames";
 import {
   createMarkerImage,
   drawBarArea,
+  drawEventArea,
+  drawPlaygroundArea,
   setMarkersOnMap,
 } from "@utils/mapUtils";
 
@@ -33,6 +35,10 @@ export const Map = () => {
     smokingMarkers: [],
   });
   const [barArea, setBarArea] = useState<kakao.maps.Polygon | null>(null);
+  const [eventArea, setEventArea] = useState<kakao.maps.Polygon[] | null>(null);
+
+  const [playGroundArea, setPlayGroundArea] =
+    useState<kakao.maps.Ellipse | null>(null);
 
   // 초기 세팅
   useEffect(() => {
@@ -121,16 +127,33 @@ export const Map = () => {
       setBarArea(null); // 상태 초기화
     }
 
+    // 이벤트 영역 초기화
+    if (eventArea) {
+      eventArea?.forEach((event) => event.setMap(null)); // 이전 다각형 제거
+      setEventArea(null); // 상태 초기화
+    }
+
+    // 대운동장 영역 초기화
+    if (playGroundArea) {
+      playGroundArea.setMap(null); // 이전 다각형 제거
+      setPlayGroundArea(null); // 상태 초기화
+    }
+
     switch (id) {
       case "eventMenu":
-        setCurrMarker("event");
-        setMarkersOnMap(markers.eventMarkers, map);
+        setCurrMarker("event"); // 선택 카테고리 표시
+        setMarkersOnMap(markers.eventMarkers, map); // 지도에 마커 표시
+        const newEventArea = drawEventArea(map); // 영역 그리기
+        setEventArea(newEventArea); // 상태 설정
+
+        const newEllipse = drawPlaygroundArea(map);
+        setPlayGroundArea(newEllipse);
         break;
       case "barMenu":
         setCurrMarker("bar");
         setMarkersOnMap(markers.barMarkers, map);
-        const newPolygon = drawBarArea(map);
-        setBarArea(newPolygon);
+        const newBarArea = drawBarArea(map);
+        setBarArea(newBarArea);
         break;
       case "foodMenu":
         setCurrMarker("food");
@@ -151,10 +174,10 @@ export const Map = () => {
 
   // 카테고리별 마커 생성
   useEffect(() => {
-    createMarkersOnMap("event", eventPositions, 68);
-    createMarkersOnMap("bar", barPositions, 0);
-    createMarkersOnMap("foodCourt", foodCourtPositions, 136);
-    createMarkersOnMap("medical", medicalPositions, 204);
+    createMarkersOnMap("event", eventMarkerPositions, 68);
+    createMarkersOnMap("bar", barMarkerPositions, 0);
+    createMarkersOnMap("foodCourt", foodCourtMarkerPositions, 136);
+    createMarkersOnMap("medical", medicalMarkerPositions, 204);
   }, [map]);
 
   return (
