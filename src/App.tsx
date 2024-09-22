@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MainPage } from "@pages/main/main";
 import { MapPage } from "@pages/map/map";
@@ -11,12 +12,25 @@ import { ErrorPage } from "@pages/error";
 import { PerformanceDetailPage } from "@pages/performance/performanceDetail";
 import { Timetable } from "@pages/performance/timetable";
 import { AlarmProvider } from "@components/performance/AlarmContext";
+import { SplashScreen } from "@pages/splash/SplashScreen";
 
 function App() {
+  const [isSplashVisible, setIsSplashVisible] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsSplashVisible(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <>
-      <AlarmProvider>
-        <BrowserRouter>
+    <AlarmProvider>
+      <BrowserRouter>
+        {isSplashVisible ? (
+          <SplashScreen onSplashFinish={() => setIsSplashVisible(false)} />
+        ) : (
           <Layout>
             <Routes>
               {/* main page */}
@@ -40,9 +54,9 @@ function App() {
             </Routes>
             <TabNavigator />
           </Layout>
-        </BrowserRouter>
-      </AlarmProvider>
-    </>
+        )}
+      </BrowserRouter>
+    </AlarmProvider>
   );
 }
 

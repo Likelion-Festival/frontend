@@ -1,24 +1,19 @@
 import { useEffect, useState } from "react";
 import {
-  barPositions,
-  eventPositions,
-  foodCourtPositions,
+  barMarkerPositions,
+  eventMarkerPositions,
+  foodCourtMarkerPositions,
+  medicalMarkerPositions,
 } from "@constant/map";
 import styles from "@styles/map/Map.module.css";
 import spriteImage from "@assets/map/spirte-image-removebg.png";
-import classNames from "classnames";
-
-interface MarkersType {
-  eventMarkers: kakao.maps.Marker[];
-  barMarkers: kakao.maps.Marker[];
-  foodCourtMarkers: kakao.maps.Marker[];
-  medicalMarkers: kakao.maps.Marker[];
-  smokingMarkers: kakao.maps.Marker[];
-}
+import { createMarkerImage } from "@utils/mapUtils";
+import { MapFilter } from "./MapFilter";
+import { MarkersType } from "@type/map";
+import { DaySelectorModal } from "./DaySelectorModal";
 
 export const Map = () => {
   const [map, setMap] = useState<kakao.maps.Map | null>(null);
-  const [currMarker, setCurrMarker] = useState<string>("");
   const [markers, setMarkers] = useState<MarkersType>({
     eventMarkers: [],
     barMarkers: [],
@@ -26,6 +21,8 @@ export const Map = () => {
     medicalMarkers: [],
     smokingMarkers: [],
   });
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [day, setDay] = useState<string>("1일차");
 
   // 초기 세팅
   useEffect(() => {
@@ -41,16 +38,6 @@ export const Map = () => {
   }, []);
 
   const markerImageSrc = spriteImage;
-
-  // 마커 이미지 생성
-  const createMarkerImage = (
-    src: string,
-    size: kakao.maps.Size,
-    options: kakao.maps.MarkerImageOptions
-  ) => {
-    const markerImage = new kakao.maps.MarkerImage(src, size, options);
-    return markerImage;
-  };
 
   // 각 카테고리별 마커 생성 및 배열에 추가
   const createMarkersOnMap = (
@@ -94,138 +81,34 @@ export const Map = () => {
         ...prev,
         barMarkers: newEventMarkers,
       }));
-    } else {
+    } else if (category === "foodCourt") {
       setMarkers((prev) => ({
         ...prev,
         foodCourtMarkers: newEventMarkers,
       }));
-    }
-  };
-
-  // 지도에 마커 표시 여부 결정
-  const setMarkersOnMap = (
-    markers: kakao.maps.Marker[],
-    map: kakao.maps.Map | null
-  ) => {
-    markers.forEach((marker) => marker.setMap(map));
-  };
-
-  // 마커 선택 시 이벤트
-  const changeMarker = (event: React.MouseEvent<HTMLElement>) => {
-    const target = event.currentTarget as HTMLElement;
-    const id = target.id;
-
-    setMarkersOnMap(markers.eventMarkers, null);
-    setMarkersOnMap(markers.barMarkers, null);
-    setMarkersOnMap(markers.foodCourtMarkers, null);
-
-    switch (id) {
-      case "eventMenu":
-        setCurrMarker("event");
-        setMarkersOnMap(markers.eventMarkers, map);
-        break;
-      case "barMenu":
-        setCurrMarker("bar");
-        setMarkersOnMap(markers.barMarkers, map);
-        break;
-      case "foodMenu":
-        setCurrMarker("food");
-        setMarkersOnMap(markers.foodCourtMarkers, map);
-        break;
-      case "medicalMenu":
-        setCurrMarker("medical");
-        setMarkersOnMap(markers.medicalMarkers, map);
-        break;
-      case "toiletMenu":
-        setCurrMarker("toilet");
-        break;
-      case "smokingMenu":
-        setCurrMarker("smoking");
-        break;
+    } else if (category === "medical") {
+      setMarkers((prev) => ({
+        ...prev,
+        medicalMarkers: newEventMarkers,
+      }));
     }
   };
 
   // 카테고리별 마커 생성
   useEffect(() => {
-    createMarkersOnMap("event", eventPositions, 68);
-    createMarkersOnMap("bar", barPositions, 0);
-    createMarkersOnMap("foodCourt", foodCourtPositions, 136);
-
-    // [
-    //   ...markers.eventMarkers,
-    //   ...markers.barMarkers,
-    //   ...markers.foodCourtMarkers,
-    // ].forEach((marker) => {
-    //   kakao.maps.event.addListener(
-    //     marker,
-    //     "click",
-    //     (mouseEvent: kakao.maps.event.MouseEvent) => {
-    //       console.log(mouseEvent.latLng);
-    //       console.log("클릭");
-    //     }
-    //   );
-    // });
+    createMarkersOnMap("event", eventMarkerPositions, 68);
+    createMarkersOnMap("bar", barMarkerPositions, 0);
+    createMarkersOnMap("foodCourt", foodCourtMarkerPositions, 136);
+    createMarkersOnMap("medical", medicalMarkerPositions, 204);
   }, [map]);
 
   return (
     <div className={styles.wrapper}>
+      <MapFilter map={map} markers={markers} day={day} setIsOpen={setIsOpen} />
+      {isOpen && (
+        <DaySelectorModal setDay={setDay} onClose={() => setIsOpen(false)} />
+      )}
       <div id="map" className={styles.map_wrapper}></div>
-      <ul id={styles.category}>
-        <li
-          id="eventMenu"
-          className={classNames({
-            [styles.selected]: currMarker === "event",
-          })}
-          onClick={changeMarker}
-        >
-          <span>이벤트</span>
-        </li>
-        <li
-          id="barMenu"
-          className={classNames({
-            [styles.selected]: currMarker === "bar",
-          })}
-          onClick={changeMarker}
-        >
-          <span>주점</span>
-        </li>
-        <li
-          id="foodMenu"
-          className={classNames({
-            [styles.selected]: currMarker === "food",
-          })}
-          onClick={changeMarker}
-        >
-          <span>먹거리</span>
-        </li>
-        <li
-          id="medicalMenu"
-          className={classNames({
-            [styles.selected]: currMarker === "medical",
-          })}
-          onClick={changeMarker}
-        >
-          <span>의무실</span>
-        </li>
-        <li
-          id="toiletMenu"
-          className={classNames({
-            [styles.selected]: currMarker === "toilet",
-          })}
-          onClick={changeMarker}
-        >
-          <span>화장실</span>
-        </li>
-        <li
-          id="smokingMenu"
-          className={classNames({
-            [styles.selected]: currMarker === "smoking",
-          })}
-          onClick={changeMarker}
-        >
-          <span>흡연실</span>
-        </li>
-      </ul>
     </div>
   );
 };

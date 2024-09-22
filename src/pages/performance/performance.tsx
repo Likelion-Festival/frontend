@@ -62,7 +62,7 @@ export const PerformancePage = () => {
 
   const navigate = useNavigate();
   return (
-    <div style={{ padding: "0px 0px 50px 0px" }}>
+    <div className={styles.container}>
       <div className={styles.column}>
         <div className={styles.header}>
           <span>Today</span>

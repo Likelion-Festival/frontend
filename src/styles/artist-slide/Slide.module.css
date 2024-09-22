@@ -1,12 +1,12 @@
 .container {
   width: 375px;
-  height: 340px;
   margin-left: -45px;
 }
 
 .card {
   width: 244px !important;
   height: 322px !important;
+  margin-bottom: 20px;
 }
 
 .cardImg {
