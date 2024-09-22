@@ -1,6 +1,28 @@
 declare namespace kakao.maps {
   class LatLng {
     constructor(lat: number, lng: number);
+    getLat(): number;
+    getLng(): number;
+  }
+  class LatLngBounds {
+    constructor(southWest: LatLng, northEast: LatLng);
+  }
+
+  class Polygon {
+    constructor(options: PolygonOptions);
+    setMap(map: Map | null): void;
+  }
+
+  class Rectangle {
+    constructor(options: RectangleOptions);
+    setMap(map: Map | null): void;
+  }
+
+  class Ellipse {
+    constructor(options: EllipseOptions);
+    setMap(map: Map | null): void;
+    setCenter(center: LatLng): void;
+    setRadius(rx: number, ry: number): void;
   }
 
   class Map {
