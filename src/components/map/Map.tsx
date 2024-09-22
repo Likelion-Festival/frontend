@@ -10,6 +10,7 @@ import spriteImage from "@assets/map/spirte-image-removebg.png";
 import { createMarkerImage } from "@utils/mapUtils";
 import { MapFilter } from "./MapFilter";
 import { MarkersType } from "@type/map";
+import { DaySelectorModal } from "./DaySelectorModal";
 
 export const Map = () => {
   const [map, setMap] = useState<kakao.maps.Map | null>(null);
@@ -20,6 +21,8 @@ export const Map = () => {
     medicalMarkers: [],
     smokingMarkers: [],
   });
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [day, setDay] = useState<string>("1일차");
 
   // 초기 세팅
   useEffect(() => {
@@ -101,8 +104,11 @@ export const Map = () => {
 
   return (
     <div className={styles.wrapper}>
+      <MapFilter map={map} markers={markers} day={day} setIsOpen={setIsOpen} />
+      {isOpen && (
+        <DaySelectorModal setDay={setDay} onClose={() => setIsOpen(false)} />
+      )}
       <div id="map" className={styles.map_wrapper}></div>
-      <MapFilter map={map} markers={markers} />
     </div>
   );
 };

@@ -9,13 +9,16 @@ import {
   setMarkersOnMap,
 } from "@utils/mapUtils";
 import { MarkersType } from "@type/map";
+import dropDownBtn from "@assets/map/dropdown-btn.svg";
 
 interface MapFilterProps {
   map: kakao.maps.Map | null;
   markers: MarkersType;
+  day: string;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const MapFilter = ({ map, markers }: MapFilterProps) => {
+export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
   const [currMarker, setCurrMarker] = useState<string>("");
   const [eventArea, setEventArea] = useState<kakao.maps.Polygon[] | null>(null);
   const [barArea, setBarArea] = useState<kakao.maps.Polygon | null>(null);
@@ -110,7 +113,14 @@ export const MapFilter = ({ map, markers }: MapFilterProps) => {
   };
 
   return (
-    <div>
+    <div className={styles.wrapper}>
+      <button className={styles.day} onClick={() => setIsOpen(true)}>
+        <span>{day}</span>
+        <img src={dropDownBtn} alt="dropdown-btn" />
+      </button>
+      <form>
+        <input type="text" placeholder="부스, 주점, 키워드를 검색해보세요" />
+      </form>
       <ul id={styles.category}>
         <li
           id="eventMenu"
