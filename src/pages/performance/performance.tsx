@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import { AppCheckTokenResult } from "firebase/app-check";
 import { getToken } from "firebase/messaging";
 import { messaging } from "../../config/firebase";
-import axios from "axios";
+//import axios from "axios";
 
 export const PerformancePage = () => {
   const [deviceToken, setDeviceToken] = useState<AppCheckTokenResult>({
@@ -26,7 +26,7 @@ export const PerformancePage = () => {
       console.log("알림 허용");
       registerServiceWorker();
       await handleGetToken();
-      subscribeTopic("day6", deviceToken.token);
+      //subscribeTopic("day6", deviceToken.token);
     } else {
       console.log("알림 거부");
     }
@@ -42,7 +42,7 @@ export const PerformancePage = () => {
     console.log("FCM Token:", token);
     return token; // 반환하여 호출한 곳에서 사용할 수 있도록 함
   }
-
+/*
   async function subscribeTopic(topic: string, token: string) {
     const url = `https://iid.googleapis.com/iid/v1/${token}/rel/topics/${topic}`;
     
@@ -58,7 +58,7 @@ export const PerformancePage = () => {
     } catch (error) {
       console.error("Error subscribing to topic:", error);
     }
-  }  
+  }  */
 
   const navigate = useNavigate();
   return (

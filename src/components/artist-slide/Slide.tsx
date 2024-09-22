@@ -3,13 +3,14 @@ import styles from "@styles/artist-slide/Slide.module.css";
 import { Performance } from "@type/performance/performance";
 // aset load
 import Bell from "@assets/performance/bell.svg";
-//import BellActive from "@assets/performance/bell-active.svg";
+import BellActive from "@assets/performance/bell-active.svg";
 import Location from "@assets/performance/location.svg";
 import Time from "@assets/performance/time.svg";
 // slider import
 import Slider from "react-slick";
 
 import { useNavigate } from "react-router-dom";
+import { useAlarm } from "@hooks/useAlarm";
 
 interface SlideProp {
   items: Performance[];
@@ -25,6 +26,7 @@ const sliderSetting = {
 
 export const Slide: React.FC<SlideProp> = ({ items, onlyToday = false }) => {
   const navigate = useNavigate();
+  const { alarms, toggleAlarm } = useAlarm();
   const today = new Date();
   const filteredItems = onlyToday
     ? items.filter((item) => {
@@ -35,7 +37,7 @@ export const Slide: React.FC<SlideProp> = ({ items, onlyToday = false }) => {
         );
       })
     : items.filter((item) => item.date.getDate() < today.getDate());
-
+  console.log(alarms);
   return (
     <div className={styles.container}>
       <Slider {...sliderSetting}>
@@ -58,8 +60,25 @@ export const Slide: React.FC<SlideProp> = ({ items, onlyToday = false }) => {
               >
                 <div className={styles.cardNameBellBox}>
                   <span className={styles.cardName}>{item.artistName}</span>
-                  <div className={styles.cardBell}>
-                    <img src={Bell} alt="" />
+                  <div
+                    className={styles.cardBell}
+                    style={{
+                      backgroundColor: alarms[index]
+                        ? "#FF85EE"
+                        : "rgba(255, 255, 255, 0.5)",
+                    }}
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      toggleAlarm(index);
+                    }}
+                  >
+                    {
+                      alarms[index] ? (
+                        <img src={BellActive} alt="" />
+                      ) : (
+                        <img src={Bell} alt="" />
+                      )
+                    }
                   </div>
                 </div>
                 <div className={styles.cardBottomBox}>
