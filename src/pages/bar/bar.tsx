@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '@styles/BarList/BarList.module.css';
 import { stores } from './bar-types';
-import NoResult from '@assets/bar/no_result.png';
+
 
 export const BarPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
