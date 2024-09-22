@@ -13,7 +13,6 @@
     background-color: #131313;
     border-bottom-right-radius: 25px;
     border-bottom-left-radius: 25px;
-    box-shadow: 5px 10px 15px rgba(182, 3, 158, 0.1);
   }
 
   .title{
@@ -41,7 +40,6 @@
     height: 590px;
     overflow-y: auto;
     margin-top: 0vw; 
-    padding: 20px;
     width: 100%;
   }
   
@@ -52,6 +50,9 @@
     margin-bottom: 20px;
     padding: 10px;
     cursor: pointer;
+    border-bottom: 0.75px solid #444444;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
   }
 
   .storeImage{
@@ -59,6 +60,7 @@
     height: 100px; 
     border-radius: 25px;
     margin-right: 20px;
+    margin-left: 20px;
   }
 
   .storeDetails{
@@ -122,20 +124,20 @@
 
   .noResult-image{
     margin-top: 10vw;
-    width: 20vw;
+    width: 180px;
     height: auto;
   }
 
   .noResult-main{
-    font-size: 2.2vw; 
+    font-size: 18px; 
     font-weight: 600;
     line-height: 2;
-    margin-top: 3vw;
+    margin-top: 30px;
     color: #696969;
   }
 
   .noResult-serve{
-    font-size: 2vw; 
+    font-size: 15px; 
     font-weight: 600;
     line-height: 2;
     margin-top: 0.5vw;

@@ -26,9 +26,9 @@
 
 .goBack{
     position: absolute;
-    top: 6vw;
-    left: 3vw;
-    width: 3vw;
+    top: 20px;
+    left: 20px;
+    width: 35px;
     height: auto;
     cursor: pointer;
 }
@@ -40,49 +40,47 @@
 
 
 .barDetail-title{
-    padding : 2vw;
+    padding : 20px;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;    
-    gap: 1vw;
-
-    font-size: 1.5vw; 
+    gap: 10px;
 }
 
 .barDetail-storeName{
-    font-size: 3vw;
+    font-size: 28px;
     font-weight: bold;
     color: white;
 }
 
 .barDetail-storeRepre{
-    font-size: 1.8vw;
+    font-size: 18px;
     font-weight: bold;
     color: #ABABAB;
 }
 
 .MoveToMap {
-    width: 20vw;
+    width: 180px;
     height: auto;
-    margin-top: 1.8vw;
-    margin-bottom: 1.8vw;
+    margin-top: 15px;
+    margin-bottom: 30px;
     cursor: pointer;
 }
 
 
 .detailLine{    
-    height: 1vw; 
+    height: 8px; 
     background-color: #333333; 
 }
 
 .barDetail-menu{
-    padding : 4vw;
-    font-size: 2vw; 
+    padding : 25px;
 }
 
 .barDetail-menu h3{
-    margin-bottom: 4vw;
+    margin-bottom: 25px;
+    font-size: 23px; 
 }
 
 .barDetail-menu ul{
@@ -91,5 +89,6 @@
 
 .barDetail-menu li {
     margin-bottom: 3vw; 
+    font-size: 18px; 
 }
 
