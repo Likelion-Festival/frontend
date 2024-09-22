@@ -9,7 +9,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onSplashFinish }) =>
   useEffect(() => {
     const timer = setTimeout(() => {
       onSplashFinish();
-    }, 1000);
+    }, 1500);
 
     return () => clearTimeout(timer); 
   }, [onSplashFinish]);
