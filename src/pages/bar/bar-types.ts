@@ -1,4 +1,5 @@
-// 주점 데이터 넣기
+
+// 주점 데이터 너ㅎ어야함ㅜㅜ
   //메뉴 데이터
   export interface MenuItem {
     name: string;//이름
@@ -19,7 +20,7 @@
       name: '무간판',
       representative: '언론정보대학 학생회',
       description: '닭전, 유부우동&닭고치, 통영 산지직송',
-      imageUrl:'/src/assets/bar/주점1.png',
+      imageUrl:'/bar/주점1.png',
       menu: [
         { name: '닭전', price: 5000 },
         { name: '유부우동', price: 6000 },

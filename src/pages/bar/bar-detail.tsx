@@ -30,13 +30,13 @@ export const BarDetail = () => {
         <div className={styles.container}>
             <div className={styles['barDetail-image']}>
                 <img src={store.imageUrl} alt={`${store.name}`} className={styles.barMainImage} />
-                <img src={'/src/assets/bar/goBack.png'} alt={`뒤로 가기`} className={styles.goBack} onClick={handleGoBack} />
+                <img src={'/bar/goBack.png'} alt={`뒤로 가기`} className={styles.goBack} onClick={handleGoBack} />
                 
                 <div className={styles.barDetail}>
                     <div className={styles['barDetail-title']}>
                         <div className={styles['barDetail-storeName']}>{store.name}</div>
                         <div className={styles['barDetail-storeRepre']}>{store.representative}</div>
-                        <img src={'/src/assets/bar/지도이동버튼.png'} alt={'지도이동버튼'} className={styles.MoveToMap} onClick={MoveMap}/>
+                        <img src={'/bar/지도이동버튼.png'} alt={'지도이동버튼'} className={styles.MoveToMap} onClick={MoveMap}/>
 
                     </div>
 
