@@ -9,7 +9,6 @@
 .barDetail-image {
     top: 0; 
     z-index: 10;
-    height: 90vh;
     overflow: auto;
     margin: 0;
     background-color: #131313;
