@@ -1,91 +1,93 @@
 .container {
-    width: 375px;
-    height: 340px;
-    padding: 10px 28px;
-    overflow: hidden;
-}
-.wrap {
-    display: flex;
-    gap: 16px;
-    transition: 1s;
+  width: 375px;
+  height: 340px;
+  margin-left: -45px;
 }
 
-.item {
-    width: 244px;
-    height: 322px;
-    flex: none;
-    padding: 25px 20px;
-    border-radius: 5px;
-  
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.card {
+  width: 244px !important;
+  height: 322px !important;
 }
-.itemHeader {
-    display: flex;
-    justify-content: space-between;
+
+.cardImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.itemHeaderSinger {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 24px;
+
+.cardNameBellBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardName {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -1px;
+  text-align: left;
+
+  color: #ffffff;
+}
+.cardBell {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+
+  & > img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.cardBottomBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardPlaytime {
+  height: 25px;
+  padding: 2px 14px;
+
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 40px;
+
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20.99px;
+  letter-spacing: -1px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.cardTimeLocate {
+  display: flex;
+  flex-direction: column;
+
+  & > div {
+    display: flex;
+    gap: 2px;
+  }
+  & span {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20.99px;
     letter-spacing: -1px;
-}
-
-.itemHeaderBell {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.itemHeaderBellActive {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: rgba(255, 133, 238, 1);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.itemFooter {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.itemFooterPlaytime {
-    background-color: rgba(255, 255, 255, 0.15);
-    padding: 2px 14px;
-    border-radius: 40px;
-
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 21px;
-    letter-spacing: -1px;
-
-    color: #ffffff;
-}
-
-.itemFooterTimePlace {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    div {
-        display: flex;
-        gap: 4px;
-    }
-    span {
-        color: rgba(203, 203, 203, 1);
-
-        font-size: 12px;
-        font-weight: 500;
-        line-height: 21px;
-        letter-spacing: -1px;
-    }
+    text-align: left;
+    color: #cbcbcb;
+  }
 }

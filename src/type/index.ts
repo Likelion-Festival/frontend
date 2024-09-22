@@ -1,2 +1,5 @@
-// types
-export const test = 1;
+declare global {
+  interface Window {
+    kakao: any;
+  }
+}

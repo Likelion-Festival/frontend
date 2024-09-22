@@ -13,12 +13,11 @@ export const PerformancePage = () => {
       <div className={styles.column}>
         <div className={styles.header}>
           <span>Today</span>
-
-          <img src={timeTable} alt="" />
+          <img src={timeTable} alt="" onClick={() => navigate('timetable')}/>
         </div>
         {
           //slide
-          <Slide items={performances} />
+          <Slide items={performances} onlyToday={true} />
         }
         <div className={styles.guide}>
           <span>공연 관람 Guide 보러가기</span>
@@ -34,7 +33,7 @@ export const PerformancePage = () => {
         </div>
         {
           //slide
-          <Slide items={performances} />
+          <Slide items={performances} onlyToday={false}/>
         }
       </div>
     </div>

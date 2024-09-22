@@ -1,4 +1,4 @@
-import { Performance } from "../types/performance/performance";
+import { Performance } from "@type/performance/performance";
 // load artist png
 import Day6 from "@assets/performance/artist/day6.jpg";
 import Nmixx from "@assets/performance/artist/nmixx.jpg";
@@ -58,5 +58,5 @@ export const performances: Performance[] = [
         previewUrl: "",
       },
     ],
-  }
+  },
 ];

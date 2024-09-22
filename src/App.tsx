@@ -13,7 +13,6 @@ import { PerformanceDetailPage } from "@pages/performance/performanceDetail";
 import { Timetable } from "@pages/performance/timetable";
 import { SplashScreen } from "@pages/splash/SplashScreen";
 
-
 function App() {
   const [isSplashVisible, setIsSplashVisible] = useState(true);
 
