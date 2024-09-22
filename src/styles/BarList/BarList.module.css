@@ -6,29 +6,27 @@
   }
 
   .search-container{
-    padding: 3vh;
+    padding: 20px;
     position: sticky;
     top: 0; 
-    z-index: 10;
-    height: 18vh;
+    height: 150px;
     background-color: #131313;
-    border-bottom-right-radius: 3vh;
-    border-bottom-left-radius: 3vh;
-    box-shadow: 5px 10px 15px rgba(182, 3, 158, 0.1);
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
   }
 
   .title{
-    margin-top: 2.5vh;
+    margin-top: 10px;
     margin-bottom: 5%;
-    font-size: 2vw; 
+    font-size: 17px; 
     font-weight: bold;
   }
   
   .input {
     width: 100%;
     background-color: #272727;
-    padding:2vh;
-    border-radius: 1vh;
+    padding:15px;
+    border-radius: 10px;
     color: #636363 ; 
     outline: none; 
     border: none;
@@ -39,10 +37,9 @@
   }
 
   .store-list {
-    max-height: 75vh;
+    height: 590px;
     overflow-y: auto;
     margin-top: 0vw; 
-    padding: 2.5vh;
     width: 100%;
   }
   
@@ -53,13 +50,17 @@
     margin-bottom: 20px;
     padding: 10px;
     cursor: pointer;
+    border-bottom: 0.75px solid #444444;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
   }
 
   .storeImage{
-    width: 10vw; 
-    height: 10vw; 
-    border-radius: 2vw;
-    margin-right: 2vw;
+    width: 100px; 
+    height: 100px; 
+    border-radius: 25px;
+    margin-right: 20px;
+    margin-left: 20px;
   }
 
   .storeDetails{
@@ -69,17 +70,17 @@
 
 
   .storeName{
-    font-size: 2vw; 
+    font-size: 20px; 
     font-weight: bold;
-    line-height: 2;
+    line-height: 1.5;
     margin: 0;
   }
 
   .storeRepresentative{
-    font-size: 1.5vw; 
+    font-size: 15px; 
     font-weight: bold;
     line-height: 2;
-    margin-bottom: 0.5vw;
+    margin-bottom: 5px;
     color:#ABABAB;
   }
 
@@ -88,7 +89,7 @@
     display: flex;
     align-items: center;
     color: #7E7E7E;
-    font-size: 1.5vw; 
+    font-size: 12px; 
     line-height: 2;
     margin: 0;
     white-space: nowrap; 
@@ -99,11 +100,11 @@
   .representMenu{
     background-color: #473273; 
     color: #BDBDBD; 
-    font-size: 1.3vw; 
-    border-radius: 1vh; 
-    padding:0.1vw 1vw;
+    font-size: 12px; 
+    border-radius: 5px; 
+    padding:0px 8px;
     display: inline-block;
-    margin-right: 1vw;
+    margin-right: 5px;
   }
 
   .storeLine{
@@ -123,20 +124,20 @@
 
   .noResult-image{
     margin-top: 10vw;
-    width: 20vw;
+    width: 180px;
     height: auto;
   }
 
   .noResult-main{
-    font-size: 2.2vw; 
+    font-size: 18px; 
     font-weight: 600;
     line-height: 2;
-    margin-top: 3vw;
+    margin-top: 30px;
     color: #696969;
   }
 
   .noResult-serve{
-    font-size: 2vw; 
+    font-size: 15px; 
     font-weight: 600;
     line-height: 2;
     margin-top: 0.5vw;

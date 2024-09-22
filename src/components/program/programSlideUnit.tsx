@@ -1,4 +1,4 @@
-import styles from "../../styles/MainPage.module.css";
+import styles from "@styles/MainPage.module.css";
 
 interface ProgramSlideUnitProps {
   programImgURL: string; // 이미지 URL

@@ -1,0 +1,114 @@
+.wrapper {
+  height: 153px;
+  padding-top: 7px;
+
+  .day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0 0 14px 32px;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+
+    & span {
+      width: 41px;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 21px;
+      color: white;
+    }
+  }
+
+  .form {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 14px;
+
+    input {
+      width: 324px;
+      height: 46px;
+      padding-left: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #272727;
+      outline: none;
+    }
+    input::placeholder {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 19.4px;
+    }
+
+    button {
+      position: absolute;
+      right: 65px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      border: none;
+      background: url("@assets/map/search-icon.svg") no-repeat;
+      cursor: pointer;
+    }
+  }
+
+  #category {
+    display: flex;
+    width: 100%;
+    margin-left: 26px;
+    background-color: black;
+    z-index: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+
+    /* 스크롤 바 숨김 */
+    &::-webkit-scrollbar {
+      width: 12px;
+      background-color: black;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      width: 10px;
+      background-color: black;
+      border: 3px solid black;
+      border-radius: 76px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: black;
+      border-radius: 10px;
+      box-shadow: inset 0px 0px 5px black;
+    }
+
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: auto;
+      min-width: 56px;
+      height: 31px;
+      padding: 5px 10px;
+      margin-right: 10px;
+      list-style: none;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 50px;
+    }
+
+    & .selected {
+      color: #ff85ee;
+      border: 1px solid #ff85ee;
+    }
+
+    span {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20.3px;
+    }
+  }
+}
