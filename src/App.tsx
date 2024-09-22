@@ -12,6 +12,7 @@ import { ErrorPage } from "@pages/error";
 import { PerformanceDetailPage } from "@pages/performance/performanceDetail";
 import { Timetable } from "@pages/performance/timetable";
 import { SplashScreen } from "@pages/splash/SplashScreen";
+import { NoticeListPage } from "@pages/notice/noticeList";
 
 function App() {
   const [isSplashVisible, setIsSplashVisible] = useState(true);
@@ -36,6 +37,8 @@ function App() {
           <Routes>
             {/* main page */}
             <Route path="/" element={<MainPage />} />
+            {/* notice page */}
+            <Route path="/notice" element={<NoticeListPage />} />
             {/* map page */}
             <Route path="/map" element={<MapPage />} />
             {/* performance page */}

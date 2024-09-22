@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useSlider from "@hooks/useSlider1";
 import useSlider2 from "@hooks/useSlider2";
 import Slider from "react-slick";
@@ -12,8 +13,12 @@ import UpLogo from "@assets/main/UP-logo.svg";
 import LikelionLogo from "@assets/main/Likelion-logo.svg";
 
 export const MainPage = () => {
+  const navigate = useNavigate();
+  const MoveNotice = () => {
+    navigate(`/notice`);
+  };
   const [currentSlide, setCurrentSlide] = useState(0);
-  const sliderSettings = useSlider(); // 훅 사용
+  const sliderSettings = useSlider();
   const sliderSettings2 = useSlider2();
   const rights1: string =
     "한양대학교 ERICA 멋쟁이사자처럼\n@LIKELION ERICA. All Rights Reserved.";
@@ -106,7 +111,9 @@ export const MainPage = () => {
       <div className={styles.noticeContainer}>
         <div className={styles.noticeHeader}>
           <div className={styles.noticeEntireTitle}>공지사항</div>
-          <div className={styles.noticeMore}>더보기&nbsp;&nbsp;&gt;</div>
+          <button className={styles.noticeMore} onClick={MoveNotice}>
+            더보기&nbsp;&nbsp;&gt;
+          </button>
         </div>
         <div className={styles.noticeBoxContainer}>
           <div className={styles.noticeBox}>
