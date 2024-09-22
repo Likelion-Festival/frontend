@@ -11,6 +11,6 @@ export const barPositions = [new kakao.maps.LatLng(37.296007, 126.835283)];
 export const foodCourtPositions = [
   new kakao.maps.LatLng(37.296317, 126.833993),
 ];
-export const medicalPositions = [];
+export const medicalPositions = [new kakao.maps.LatLng(37.298087, 126.834385)];
 export const toiletPositions = [];
 export const smokingPositions = [];

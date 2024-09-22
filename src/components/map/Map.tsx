@@ -3,10 +3,16 @@ import {
   barPositions,
   eventPositions,
   foodCourtPositions,
+  medicalPositions,
 } from "@constant/map";
 import styles from "@styles/map/Map.module.css";
 import spriteImage from "@assets/map/spirte-image-removebg.png";
 import classNames from "classnames";
+import {
+  createMarkerImage,
+  drawBarArea,
+  setMarkersOnMap,
+} from "@utils/mapUtils";
 
 interface MarkersType {
   eventMarkers: kakao.maps.Marker[];
@@ -26,6 +32,7 @@ export const Map = () => {
     medicalMarkers: [],
     smokingMarkers: [],
   });
+  const [barArea, setBarArea] = useState<kakao.maps.Polygon | null>(null);
 
   // 초기 세팅
   useEffect(() => {
@@ -41,16 +48,6 @@ export const Map = () => {
   }, []);
 
   const markerImageSrc = spriteImage;
-
-  // 마커 이미지 생성
-  const createMarkerImage = (
-    src: string,
-    size: kakao.maps.Size,
-    options: kakao.maps.MarkerImageOptions
-  ) => {
-    const markerImage = new kakao.maps.MarkerImage(src, size, options);
-    return markerImage;
-  };
 
   // 각 카테고리별 마커 생성 및 배열에 추가
   const createMarkersOnMap = (
@@ -94,20 +91,17 @@ export const Map = () => {
         ...prev,
         barMarkers: newEventMarkers,
       }));
-    } else {
+    } else if (category === "foodCourt") {
       setMarkers((prev) => ({
         ...prev,
         foodCourtMarkers: newEventMarkers,
       }));
+    } else if (category === "medical") {
+      setMarkers((prev) => ({
+        ...prev,
+        medicalMarkers: newEventMarkers,
+      }));
     }
-  };
-
-  // 지도에 마커 표시 여부 결정
-  const setMarkersOnMap = (
-    markers: kakao.maps.Marker[],
-    map: kakao.maps.Map | null
-  ) => {
-    markers.forEach((marker) => marker.setMap(map));
   };
 
   // 마커 선택 시 이벤트
@@ -115,9 +109,17 @@ export const Map = () => {
     const target = event.currentTarget as HTMLElement;
     const id = target.id;
 
+    // 마커 초기화
     setMarkersOnMap(markers.eventMarkers, null);
     setMarkersOnMap(markers.barMarkers, null);
     setMarkersOnMap(markers.foodCourtMarkers, null);
+    setMarkersOnMap(markers.medicalMarkers, null);
+
+    // 주점 영역 초기화
+    if (barArea) {
+      barArea.setMap(null); // 이전 다각형 제거
+      setBarArea(null); // 상태 초기화
+    }
 
     switch (id) {
       case "eventMenu":
@@ -127,6 +129,8 @@ export const Map = () => {
       case "barMenu":
         setCurrMarker("bar");
         setMarkersOnMap(markers.barMarkers, map);
+        const newPolygon = drawBarArea(map);
+        setBarArea(newPolygon);
         break;
       case "foodMenu":
         setCurrMarker("food");
@@ -150,21 +154,7 @@ export const Map = () => {
     createMarkersOnMap("event", eventPositions, 68);
     createMarkersOnMap("bar", barPositions, 0);
     createMarkersOnMap("foodCourt", foodCourtPositions, 136);
-
-    // [
-    //   ...markers.eventMarkers,
-    //   ...markers.barMarkers,
-    //   ...markers.foodCourtMarkers,
-    // ].forEach((marker) => {
-    //   kakao.maps.event.addListener(
-    //     marker,
-    //     "click",
-    //     (mouseEvent: kakao.maps.event.MouseEvent) => {
-    //       console.log(mouseEvent.latLng);
-    //       console.log("클릭");
-    //     }
-    //   );
-    // });
+    createMarkersOnMap("medical", medicalPositions, 204);
   }, [map]);
 
   return (

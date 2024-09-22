@@ -2,6 +2,19 @@ declare namespace kakao.maps {
   class LatLng {
     constructor(lat: number, lng: number);
   }
+  class LatLngBounds {
+    constructor(southWest: LatLng, northEast: LatLng);
+  }
+
+  class Polygon {
+    constructor(options: PolygonOptions);
+    setMap(map: Map | null): void;
+  }
+
+  class Rectangle {
+    constructor(options: RectangleOptions);
+    setMap(map: Map | null): void;
+  }
 
   class Map {
     constructor(
