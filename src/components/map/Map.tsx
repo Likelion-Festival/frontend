@@ -12,6 +12,7 @@ import {
   createMarkerImage,
   drawBarArea,
   drawEventArea,
+  drawFoodCourtArea,
   drawPlaygroundArea,
   setMarkersOnMap,
 } from "@utils/mapUtils";
@@ -34,8 +35,11 @@ export const Map = () => {
     medicalMarkers: [],
     smokingMarkers: [],
   });
-  const [barArea, setBarArea] = useState<kakao.maps.Polygon | null>(null);
   const [eventArea, setEventArea] = useState<kakao.maps.Polygon[] | null>(null);
+  const [barArea, setBarArea] = useState<kakao.maps.Polygon | null>(null);
+  const [foodCourtArea, setFoodCourtArea] = useState<kakao.maps.Polygon | null>(
+    null
+  );
 
   const [playGroundArea, setPlayGroundArea] =
     useState<kakao.maps.Ellipse | null>(null);
@@ -121,16 +125,22 @@ export const Map = () => {
     setMarkersOnMap(markers.foodCourtMarkers, null);
     setMarkersOnMap(markers.medicalMarkers, null);
 
+    // 이벤트 영역 초기화
+    if (eventArea) {
+      eventArea?.forEach((event) => event.setMap(null)); // 이전 다각형 제거
+      setEventArea(null); // 상태 초기화
+    }
+
     // 주점 영역 초기화
     if (barArea) {
       barArea.setMap(null); // 이전 다각형 제거
       setBarArea(null); // 상태 초기화
     }
 
-    // 이벤트 영역 초기화
-    if (eventArea) {
-      eventArea?.forEach((event) => event.setMap(null)); // 이전 다각형 제거
-      setEventArea(null); // 상태 초기화
+    // 먹거리 영역 초기화
+    if (foodCourtArea) {
+      foodCourtArea.setMap(null); // 이전 다각형 제거
+      setFoodCourtArea(null); // 상태 초기화
     }
 
     // 대운동장 영역 초기화
@@ -167,6 +177,8 @@ export const Map = () => {
         );
         setCurrMarker("food");
         setMarkersOnMap(markers.foodCourtMarkers, map);
+        const newFoodCourtArea = drawFoodCourtArea(map);
+        setBarArea(newFoodCourtArea);
         break;
       case "medicalMenu":
         map?.panTo(

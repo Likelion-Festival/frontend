@@ -37,7 +37,31 @@ export const drawBarArea = (map: kakao.maps.Map | null) => {
     fillOpacity: 0.3,
   });
 
-  // 지도에 다각형을 표시합니다
+  // 지도에 다각형을 표시
+  polygon.setMap(map);
+  return polygon;
+};
+
+// 먹거리 영역 표시
+export const drawFoodCourtArea = (map: kakao.maps.Map | null) => {
+  const polygonPath = [
+    new kakao.maps.LatLng(37.29668135265921, 126.83366544045224), //좌상단
+    new kakao.maps.LatLng(37.29671980898541, 126.83378095984449), //우상단
+    new kakao.maps.LatLng(37.29593885834149, 126.83427892468886), //우하단
+    new kakao.maps.LatLng(37.295895889429566, 126.83415777697986), //좌하단
+  ];
+
+  const polygon = new kakao.maps.Polygon({
+    path: polygonPath, // 다각형 좌표 배열
+    strokeWeight: 2,
+    strokeColor: "#FF85EE",
+    strokeOpacity: 1,
+    strokeStyle: "solid",
+    fillColor: "#FF85EE",
+    fillOpacity: 0.3,
+  });
+
+  // 지도에 다각형을 표시
   polygon.setMap(map);
   return polygon;
 };
@@ -59,7 +83,7 @@ export const drawEventArea = (map: kakao.maps.Map | null) => {
     polygon.setMap(map);
     polygons.push(polygon);
 
-    // 지도에 다각형을 표시합니다
+    // 지도에 다각형을 표시
   });
   return polygons;
 };
