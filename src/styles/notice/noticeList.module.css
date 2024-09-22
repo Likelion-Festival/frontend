@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.goBack {
+  position: absolute;
+  left: 20px;
+  border: none;
+  background: transparent;
+  width: 24px;
+  height: 24px;
+}
+.goBack img {
+  width: 24px;
+  height: 24px;
+}
+.entireTitle {
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20.99px;
+  text-align: center;
+}
