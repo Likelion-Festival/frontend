@@ -115,21 +115,22 @@
 
   .noResult{
     display: flex;
-    padding: 2vw;
-    height: 40vh;
+    padding: 40px;
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    place-items: center;
   }
 
   .noResult-image{
-    margin-top: 10vw;
+    place-items: center;
+    margin-top: 50px;
     width: 180px;
     height: auto;
   }
 
   .noResult-main{
-    font-size: 18px; 
+    font-size: 17px; 
     font-weight: 600;
     line-height: 2;
     margin-top: 30px;
@@ -144,10 +145,3 @@
     color: #696969;
   }
   
-  .container::-webkit-scrollbar {
-    display: none; 
-}
-
-.store-list::-webkit-scrollbar {
-  display: none; 
-}
