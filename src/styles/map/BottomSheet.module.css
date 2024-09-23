@@ -16,7 +16,7 @@
   border-top-right-radius: 20px;
 
   background: #131313;
-  transition: transform 400ms ease-out;
+  transition: transform 200ms ease-out;
 }
 
 .bottomsheet_wrapper {

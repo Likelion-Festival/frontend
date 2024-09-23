@@ -7,7 +7,19 @@
 }
 
 .content {
-  width: 300px;
-  height: 500px;
-  background-color: aquamarine;
+  width: 325px;
+  height: 86px;
+}
+
+.title {
+  display: flex;
+  margin-bottom: 18px;
+
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21px;
+    color: white;
+    margin-right: 8px;
+  }
 }

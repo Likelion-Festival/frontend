@@ -33,6 +33,10 @@
       padding-left: 16px;
       border: none;
       border-radius: 5px;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 19.4px;
       background-color: #272727;
       outline: none;
     }

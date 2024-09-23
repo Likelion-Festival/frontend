@@ -12,6 +12,9 @@ import { MapFilter } from "./MapFilter";
 import { MarkersType } from "@type/map";
 import { DaySelectorModal } from "./DaySelectorModal";
 import { Bottomsheet } from "./BottomSheet";
+import { createContext } from "react";
+
+export const MapContext = createContext<kakao.maps.LatLng | null>(null);
 
 export const Map = () => {
   const [map, setMap] = useState<kakao.maps.Map | null>(null);
@@ -22,6 +25,7 @@ export const Map = () => {
     medicalMarkers: [],
     smokingMarkers: [],
   });
+  const [currMarker, setCurrMarker] = useState<kakao.maps.LatLng | null>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [day, setDay] = useState<string>("1일차");
 
@@ -67,6 +71,10 @@ export const Map = () => {
       // 마커 클릭 이벤트 추가
       kakao.maps.event.addListener(marker, "click", () => {
         map?.panTo(position); // 마커 클릭 시 해당 위치로 이동
+
+        // 비교를 위해 lat lng 값만 추출
+        const newLatLng = position;
+        setCurrMarker(newLatLng);
       });
 
       return marker;
@@ -104,13 +112,20 @@ export const Map = () => {
   }, [map]);
 
   return (
-    <div className={styles.wrapper}>
-      <MapFilter map={map} markers={markers} day={day} setIsOpen={setIsOpen} />
-      {isOpen && (
-        <DaySelectorModal setDay={setDay} onClose={() => setIsOpen(false)} />
-      )}
-      <div id="map" className={styles.map_wrapper}></div>
-      <Bottomsheet />
-    </div>
+    <MapContext.Provider value={currMarker}>
+      <div className={styles.wrapper}>
+        <MapFilter
+          map={map}
+          markers={markers}
+          day={day}
+          setIsOpen={setIsOpen}
+        />
+        {isOpen && (
+          <DaySelectorModal setDay={setDay} onClose={() => setIsOpen(false)} />
+        )}
+        <div id="map" className={styles.map_wrapper}></div>
+        <Bottomsheet />
+      </div>
+    </MapContext.Provider>
   );
 };

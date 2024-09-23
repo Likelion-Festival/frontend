@@ -3,8 +3,8 @@ export const eventMarkerPositions = [
   new kakao.maps.LatLng(37.294711, 126.833163),
   new kakao.maps.LatLng(37.296603, 126.834362),
   new kakao.maps.LatLng(37.297633, 126.833848),
-  new kakao.maps.LatLng(37.29820581238032, 126.83488581905908),
-  new kakao.maps.LatLng(37.296951, 126.835818),
+  new kakao.maps.LatLng(37.29820581238032, 126.83488581905908), // 학생복지관 옆
+  new kakao.maps.LatLng(37.296951, 126.835818), // 학생 복지관 앞 프로모션 존
 ];
 export const barMarkerPositions = [
   new kakao.maps.LatLng(37.296007, 126.835283),
