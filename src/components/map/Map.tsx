@@ -4,6 +4,7 @@ import {
   eventMarkerPositions,
   foodCourtMarkerPositions,
   medicalMarkerPositions,
+  smokingMarkerPositions,
 } from "@constant/map";
 import styles from "@styles/map/Map.module.css";
 import spriteImage from "@assets/map/spirte-image-removebg.png";
@@ -102,6 +103,11 @@ export const Map = () => {
         ...prev,
         medicalMarkers: newEventMarkers,
       }));
+    } else if (category === "smoking") {
+      setMarkers((prev) => ({
+        ...prev,
+        smokingMarkers: newEventMarkers,
+      }));
     }
   };
 
@@ -111,6 +117,7 @@ export const Map = () => {
     createMarkersOnMap("bar", barMarkerPositions, 0);
     createMarkersOnMap("foodCourt", foodCourtMarkerPositions, 136);
     createMarkersOnMap("medical", medicalMarkerPositions, 204);
+    createMarkersOnMap("smoking", smokingMarkerPositions, 272);
   }, [map]);
 
   return (

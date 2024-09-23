@@ -16,7 +16,6 @@ export const medicalMarkerPositions = [
   new kakao.maps.LatLng(37.298087, 126.834385),
 ];
 export const toiletMarkerPositions = [];
-export const smokingMarkerPositions = [];
 
 // 카테고리별 영역 위치
 export const eventPositions = [
@@ -37,4 +36,30 @@ export const eventPositions = [
     new kakao.maps.LatLng(37.29806148573315, 126.8347705284131),
     new kakao.maps.LatLng(37.29806374618874, 126.83477616279194),
   ],
+];
+
+export const smokingMarkerPositions = [
+  new kakao.maps.LatLng(37.29460306535163, 126.83108732473765),
+  new kakao.maps.LatLng(37.296877162347855, 126.83195350159819),
+  new kakao.maps.LatLng(37.296714542301295, 126.83323960607318),
+  new kakao.maps.LatLng(37.29714767184196, 126.83529979757198),
+  new kakao.maps.LatLng(37.297783585966286, 126.83579185002606),
+  new kakao.maps.LatLng(37.29827445341158, 126.8356497994648),
+  new kakao.maps.LatLng(37.2972485132082, 126.83654585472885),
+  new kakao.maps.LatLng(37.29877581917308, 126.83658202542179),
+  new kakao.maps.LatLng(37.298171105076634, 126.83747716772271),
+  new kakao.maps.LatLng(37.29726374714685, 126.83779491869213),
+  new kakao.maps.LatLng(37.2963904043881, 126.83827894545414),
+  new kakao.maps.LatLng(37.295143709749546, 126.83754007192816),
+  new kakao.maps.LatLng(37.299832365830454, 126.83501761040418),
+  new kakao.maps.LatLng(37.29937139988139, 126.83398942294185),
+  new kakao.maps.LatLng(37.299952878373006, 126.8342109037706),
+  new kakao.maps.LatLng(37.30026333115806, 126.83553550191212),
+  new kakao.maps.LatLng(37.299470973242975, 126.83756742145316),
+  new kakao.maps.LatLng(37.29861195218075, 126.8386407479695),
+  new kakao.maps.LatLng(37.296502927942065, 126.83985768255599),
+  new kakao.maps.LatLng(37.29538726131498, 126.84105836145467),
+  new kakao.maps.LatLng(37.29248785027118, 126.83586820806165),
+  new kakao.maps.LatLng(37.29138819725552, 126.83558865564659),
+  new kakao.maps.LatLng(37.291806751069544, 126.83690723724386),
 ];

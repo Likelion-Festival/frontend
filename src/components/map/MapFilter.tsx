@@ -27,6 +27,7 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
   );
 
   const {
+    setCurrMarker,
     currCategory,
     setCurrCategory,
     setIsCategoryClicked,
@@ -43,12 +44,15 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
 
     setIsCategoryClicked(true);
     setIsNavVisible(false);
+    // 현재 선택된 마커 초기화
+    setCurrMarker(null);
 
     // 마커 초기화
     setMarkersOnMap(markers.eventMarkers, null);
     setMarkersOnMap(markers.barMarkers, null);
     setMarkersOnMap(markers.foodCourtMarkers, null);
     setMarkersOnMap(markers.medicalMarkers, null);
+    setMarkersOnMap(markers.smokingMarkers, null);
 
     // 이벤트 영역 초기화
     if (eventArea) {
@@ -123,6 +127,7 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
 
       case "smokingMenu":
         setCurrCategory("smoking");
+        setMarkersOnMap(markers.smokingMarkers, map);
         break;
     }
   };

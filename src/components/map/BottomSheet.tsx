@@ -44,7 +44,8 @@ export const Bottomsheet = () => {
         style={{ height: `${BOTTOM_SHEET_HEIGHT}` }}
       >
         <BottomSheetHeader />
-        <CategoryDetailFilter />
+        {/* 선택된 마커가 없을 때만 2차 필터링 렌더링 */}
+        {currMarker === null && <CategoryDetailFilter />}
         <div className={styles.bottomsheet_wrapper} ref={content}>
           <Content markerInfoList={markerList} />
         </div>
