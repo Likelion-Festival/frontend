@@ -3,7 +3,7 @@
   flex-direction: column;
   position: fixed;
   z-index: 1;
-  top: calc(100% - 223px); /*뷰포트 하단 기준 몇 px 위로 위치할지*/
+  top: calc(100% - 270px); /*뷰포트 하단 기준 몇 px */
   left: 0;
   right: 0;
 
@@ -16,7 +16,7 @@
   border-top-right-radius: 20px;
 
   background: #131313;
-  transition: transform 650ms ease-out;
+  transition: transform 200ms ease-out;
 }
 
 .bottomsheet_wrapper {
