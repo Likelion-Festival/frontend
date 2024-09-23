@@ -118,7 +118,7 @@ export const useBottomSheet = () => {
     };
 
     // 드래그 끝났을 때
-    const handleTouchEnd = (e: TouchEvent) => {
+    const handleTouchEnd = () => {
       document.body.style.overflowY = "auto"; // 스크롤 설정
       const { touchMove } = metrics.current;
 
