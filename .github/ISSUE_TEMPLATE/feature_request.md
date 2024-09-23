@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: 새로운 기능 요청에 대한  간결한 설명해주세요
-title: ''
+title: "[Feature]"
 labels: "✨ Feature"
 assignees: ''
 
