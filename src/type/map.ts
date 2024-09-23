@@ -9,7 +9,7 @@ export interface MarkersType {
 export interface MarkerInfoType {
   id: number;
   name: string;
-  category: string;
+  index: string;
   time: string;
   location: string;
   position: kakao.maps.LatLng;

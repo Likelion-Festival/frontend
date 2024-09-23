@@ -10,6 +10,7 @@ import {
 } from "@utils/mapUtils";
 import { MarkersType } from "@type/map";
 import dropDownBtn from "@assets/map/dropdown-btn.svg";
+import { useMapContext } from "@context/MapContext";
 
 interface MapFilterProps {
   map: kakao.maps.Map | null;
@@ -19,12 +20,13 @@ interface MapFilterProps {
 }
 
 export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
-  const [currCategory, setCurrCategory] = useState<string>("");
   const [eventArea, setEventArea] = useState<kakao.maps.Polygon[] | null>(null);
   const [barArea, setBarArea] = useState<kakao.maps.Polygon | null>(null);
   const [foodCourtArea, setFoodCourtArea] = useState<kakao.maps.Polygon | null>(
     null
   );
+
+  const { currCategory, setCurrCategory } = useMapContext();
 
   const [playGroundArea, setPlayGroundArea] =
     useState<kakao.maps.Ellipse | null>(null);

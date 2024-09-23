@@ -15,7 +15,7 @@ export const Content = ({ markerInfoList }: ContentProps) => {
               <div className={styles.content_info}>
                 <div className={styles.title}>
                   <h3>{markerInfo?.name}</h3>
-                  <span>{markerInfo?.category}</span>
+                  <span>{markerInfo?.index}</span>
                 </div>
                 <div className={styles.detail}>
                   <strong className={styles.time}>{markerInfo?.time}</strong>

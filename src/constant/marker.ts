@@ -1,8 +1,9 @@
 export const markerInfo = [
   {
     id: 5,
+    category: "medical",
     name: "한양보건센터",
-    category: "의무실",
+    index: "의무실",
     time: "09:00~17:00\n(점심시간 12:00~13:00)",
     location: "학생복지관 1층",
     position: new kakao.maps.LatLng(37.298087, 126.834385),
@@ -10,8 +11,9 @@ export const markerInfo = [
   },
   {
     id: 6,
+    category: "event",
     name: "플리마켓 존",
-    category: "이벤트",
+    index: "이벤트",
     time: `10:30~16:30`,
     location: "학생복지관 옆",
     position: new kakao.maps.LatLng(37.29820581238032, 126.83488581905908),
@@ -19,8 +21,9 @@ export const markerInfo = [
   },
   {
     id: 7,
+    category: "event",
     name: "프로모션 존",
-    category: "이벤트",
+    index: "이벤트",
     time: `10:30~16:30`,
     location: "학생복지관 앞",
     position: new kakao.maps.LatLng(37.296951, 126.835818),
@@ -28,8 +31,9 @@ export const markerInfo = [
   },
   {
     id: 8,
+    category: "event",
     name: "공연",
-    category: "이벤트",
+    index: "이벤트",
     time: `16:30~`,
     location: "대운동장 앞",
     position: new kakao.maps.LatLng(37.294711, 126.833163),
@@ -37,8 +41,9 @@ export const markerInfo = [
   },
   {
     id: 9,
+    category: "event",
     name: "쉬깅",
-    category: "이벤트",
+    index: "이벤트",
     time: `11:00~16:30`,
     location: "잔디공원",
     position: new kakao.maps.LatLng(37.296603, 126.834362),
@@ -49,8 +54,9 @@ export const markerInfo = [
 export const lakeParkInfo = [
   {
     id: 1,
+    category: "event",
     name: "호공질주",
-    category: "이벤트",
+    index: "이벤트",
     time: `10월 2일 11:00~14:00`,
     location: "호수공원",
     position: new kakao.maps.LatLng(37.297633, 126.833848),
@@ -58,8 +64,9 @@ export const lakeParkInfo = [
   },
   {
     id: 2,
+    category: "event",
     name: "판타지아",
-    category: "이벤트",
+    index: "이벤트",
     time: `10월 2일 21:00~23:30`,
     location: "호수공원",
     position: new kakao.maps.LatLng(37.297633, 126.833848),
@@ -67,8 +74,9 @@ export const lakeParkInfo = [
   },
   {
     id: 3,
+    category: "event",
     name: "에리카지노",
-    category: "이벤트",
+    index: "이벤트",
     time: `10월 1~2일 11:00~16:30`,
     location: "호수공원",
     position: new kakao.maps.LatLng(37.297633, 126.833848),
@@ -76,8 +84,9 @@ export const lakeParkInfo = [
   },
   {
     id: 4,
+    category: "event",
     name: "이지공작소",
-    category: "이벤트",
+    index: "이벤트",
     time: `10월 1~2일 11:00~16:30`,
     location: "호수공원",
     position: new kakao.maps.LatLng(37.297633, 126.833848),

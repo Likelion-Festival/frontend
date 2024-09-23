@@ -4,22 +4,22 @@ import { BOTTOM_SHEET_HEIGHT } from "@constant/bottomSheetOption";
 import { BottomSheetHeader } from "./BottomSheetHeader";
 import { Content } from "./Content";
 import { useBottomSheet } from "@hooks/useBottomSheet";
-import { MapContext } from "./Map";
 import { lakeParkInfo, markerInfo } from "@constant/marker";
-
-import { useContext } from "react";
 import { MarkerInfoType } from "@type/map";
+import { useMapContext } from "@context/MapContext";
 
 export const Bottomsheet = () => {
   const { sheet, content } = useBottomSheet();
-  const value = useContext(MapContext); // 사용자가 클릭한 마커 위치 정보
+
+  // 사용자가 클릭한 마커 위치 정보
+  const { currMarker } = useMapContext();
 
   const markerList: MarkerInfoType[] = [];
 
   // 호수공원 이벤트 예외처리
   if (
-    lakeParkInfo[0].position.getLat() === value?.getLat() &&
-    lakeParkInfo[0].position.getLng() === value?.getLng()
+    lakeParkInfo[0].position.getLat() === currMarker?.getLat() &&
+    lakeParkInfo[0].position.getLng() === currMarker?.getLng()
   ) {
     lakeParkInfo.map((v) => markerList.push(v));
   }
@@ -28,8 +28,8 @@ export const Bottomsheet = () => {
   const info = markerInfo.find((marker) => {
     const newLatLng = marker.position;
     return (
-      newLatLng.getLat() === value?.getLat() &&
-      newLatLng.getLng() === value?.getLng()
+      newLatLng.getLat() === currMarker?.getLat() &&
+      newLatLng.getLng() === currMarker?.getLng()
     );
   });
 
