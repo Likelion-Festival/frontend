@@ -1,3 +1,12 @@
+.wraper {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.topMargin {
+  height: 20px;
+  width: auto;
+}
 .header {
   display: flex;
   flex-direction: row;
@@ -6,7 +15,7 @@
 }
 .goBack {
   position: absolute;
-  left: 20px;
+  left: 24px;
   border: none;
   background: transparent;
   width: 24px;
