@@ -11,6 +11,7 @@ import { createMarkerImage } from "@utils/mapUtils";
 import { MapFilter } from "./MapFilter";
 import { MarkersType } from "@type/map";
 import { DaySelectorModal } from "./DaySelectorModal";
+import { Bottomsheet } from "./BottomSheet";
 
 export const Map = () => {
   const [map, setMap] = useState<kakao.maps.Map | null>(null);
@@ -109,6 +110,7 @@ export const Map = () => {
         <DaySelectorModal setDay={setDay} onClose={() => setIsOpen(false)} />
       )}
       <div id="map" className={styles.map_wrapper}></div>
+      <Bottomsheet />
     </div>
   );
 };
