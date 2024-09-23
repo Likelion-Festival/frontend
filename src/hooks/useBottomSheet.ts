@@ -90,7 +90,6 @@ export const useBottomSheet = () => {
       }
 
       // 바텀시트 움직이기
-
       if (canUserMoveBottomSheet()) {
         e.preventDefault();
 
@@ -110,7 +109,7 @@ export const useBottomSheet = () => {
         sheet.current!.style.setProperty(
           "transform",
           `translateY(${nextSheetY - MAX_Y}px)`
-        ); //바닥 만큼은 빼야쥬...
+        ); //바닥 만큼 빼기
       } else {
         // 컨텐츠를 스크롤하는 동안에는 body가 스크롤 되는 것 방지
         document.body.style.overflowY = "hidden";

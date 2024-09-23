@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"; 
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MainPage } from "@pages/main/main";
 import { MapPage } from "@pages/map/map";
@@ -13,26 +13,25 @@ import { PerformanceDetailPage } from "@pages/performance/performanceDetail";
 import { Timetable } from "@pages/performance/timetable";
 import { SplashScreen } from "@pages/splash/SplashScreen";
 import { NoticeListPage } from "@pages/notice/noticeList";
+import { useMapContext } from "@context/MapContext";
 
 function App() {
   const [isSplashVisible, setIsSplashVisible] = useState(true);
+  const { isNavVisible } = useMapContext();
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsSplashVisible(false);
     }, 2000);
 
-    return () => clearTimeout(timer); 
+    return () => clearTimeout(timer);
   }, []);
 
-
   return (
-      <BrowserRouter>
-
+    <BrowserRouter>
       {isSplashVisible ? (
         <SplashScreen onSplashFinish={() => setIsSplashVisible(false)} />
       ) : (
-
         <Layout>
           <Routes>
             {/* main page */}
@@ -56,11 +55,10 @@ function App() {
             {/* error page */}
             <Route path="*" element={<ErrorPage />} />
           </Routes>
-          <TabNavigator />
+          {isNavVisible && <TabNavigator />}
         </Layout>
-
       )}
-      </BrowserRouter>
+    </BrowserRouter>
   );
 }
 
