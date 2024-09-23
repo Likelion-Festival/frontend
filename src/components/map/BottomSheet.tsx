@@ -7,6 +7,7 @@ import { useBottomSheet } from "@hooks/useBottomSheet";
 import { lakeParkInfo, markerInfo } from "@constant/marker";
 import { MarkerInfoType } from "@type/map";
 import { useMapContext } from "@context/MapContext";
+import { CategoryDetailFilter } from "./CategoryDetailFilter";
 
 export const Bottomsheet = () => {
   const { sheet, content } = useBottomSheet();
@@ -43,6 +44,7 @@ export const Bottomsheet = () => {
         style={{ height: `${BOTTOM_SHEET_HEIGHT}` }}
       >
         <BottomSheetHeader />
+        <CategoryDetailFilter />
         <div className={styles.bottomsheet_wrapper} ref={content}>
           <Content markerInfoList={markerList} />
         </div>

@@ -66,10 +66,11 @@
     z-index: 1;
     padding-left: 27px;
     overflow-x: auto;
+    overflow-y: hidden;
     white-space: nowrap;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    touch-action: pan-y;
+    touch-action: pan-x;
     scroll-snap-type: x mandatory;
 
     /* 스크롤 바 숨김 */
