@@ -3,8 +3,7 @@ export const markerInfo = [
     id: 5,
     name: "한양보건센터",
     category: "의무실",
-    time: `09:00~17:00
-        (점심시간 12:00~13:00)`,
+    time: "09:00~17:00\n(점심시간 12:00~13:00)",
     location: "학생복지관 1층",
     position: new kakao.maps.LatLng(37.298087, 126.834385),
     imagePath: "/marker-img/medical.png",
@@ -26,6 +25,24 @@ export const markerInfo = [
     location: "학생복지관 앞",
     position: new kakao.maps.LatLng(37.296951, 126.835818),
     imagePath: "/marker-img/flea-market.png",
+  },
+  {
+    id: 8,
+    name: "공연",
+    category: "이벤트",
+    time: `16:30~`,
+    location: "대운동장 앞",
+    position: new kakao.maps.LatLng(37.294711, 126.833163),
+    imagePath: "/marker-img/performance.png",
+  },
+  {
+    id: 9,
+    name: "쉬깅",
+    category: "이벤트",
+    time: `11:00~16:30`,
+    location: "잔디공원",
+    position: new kakao.maps.LatLng(37.296603, 126.834362),
+    imagePath: "/marker-img/rest.png",
   },
 ];
 

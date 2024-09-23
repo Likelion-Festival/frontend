@@ -1,6 +1,6 @@
 // 마커 위치
 export const eventMarkerPositions = [
-  new kakao.maps.LatLng(37.294711, 126.833163),
+  new kakao.maps.LatLng(37.294711, 126.833163), // 대운동장
   new kakao.maps.LatLng(37.296603, 126.834362),
   new kakao.maps.LatLng(37.297633, 126.833848), // 호수공원
   new kakao.maps.LatLng(37.29820581238032, 126.83488581905908), // 학생복지관 옆

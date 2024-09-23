@@ -8,18 +8,20 @@ interface ContentProps {
 export const Content = ({ markerInfoList }: ContentProps) => {
   return (
     <div className={styles.wrapper}>
-      <ul>
+      <ul className={styles.marker_list}>
         {markerInfoList?.map((markerInfo) => {
           return (
-            <li key={markerInfo.id} className={styles.content}>
+            <li className={styles.content} key={markerInfo.id}>
               <div className={styles.content_info}>
                 <div className={styles.title}>
                   <h3>{markerInfo?.name}</h3>
                   <span>{markerInfo?.category}</span>
                 </div>
                 <div className={styles.detail}>
-                  <strong>{markerInfo?.time}</strong>
-                  <strong>{markerInfo?.location}</strong>
+                  <strong className={styles.time}>{markerInfo?.time}</strong>
+                  <strong className={styles.location}>
+                    {markerInfo?.location}
+                  </strong>
                 </div>
               </div>
               <div className={styles.image}>
