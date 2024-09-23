@@ -13,3 +13,15 @@ export interface Performance {
     date : Date, // 공연 날짜
     playTime : number, // 공연 시간
 }
+
+interface simplePerformance {
+    artistName : string, // 가수
+    time : Date, // 공연 날짜
+    playTime : number, // 공연 시간
+    index : string // 공연 인덱스
+}
+
+export interface dayPerformance {
+    day : string,
+    performances : simplePerformance[]
+}

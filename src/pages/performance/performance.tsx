@@ -9,13 +9,13 @@ import { useEffect, useState } from "react";
 import { AppCheckTokenResult } from "firebase/app-check";
 import { getToken } from "firebase/messaging";
 import { messaging } from "../../config/firebase";
+import axios from "axios";
 //import axios from "axios";
 
 export const PerformancePage = () => {
   const [deviceToken, setDeviceToken] = useState<AppCheckTokenResult>({
     token: "",
   });
-
   useEffect(() => {
     handleAllowNotification();
   }, []);
@@ -39,10 +39,9 @@ export const PerformancePage = () => {
     setDeviceToken({
       token: token,
     });
-    console.log("FCM Token:", token);
     return token; // 반환하여 호출한 곳에서 사용할 수 있도록 함
   }
-/*
+  /*
   async function subscribeTopic(topic: string, token: string) {
     const url = `https://iid.googleapis.com/iid/v1/${token}/rel/topics/${topic}`;
     
@@ -61,12 +60,27 @@ export const PerformancePage = () => {
   }  */
 
   const navigate = useNavigate();
+  const handleTimeTableClick = () => {
+    const today = new Date();
+    const dayOfMonth = today.getDate();
+
+    if (today.getFullYear() === 2024 && today.getMonth() === 9) {
+      if (dayOfMonth === 1) {
+        navigate("timetable/1");
+      } else if (dayOfMonth === 2) {
+        navigate("timetable/2");
+      }
+    } else {
+      navigate("timetable/0");
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.column}>
         <div className={styles.header}>
           <span>Today</span>
-          <img src={timeTable} alt="" onClick={() => navigate("timetable")} />
+          <img src={timeTable} alt="" onClick={() => handleTimeTableClick()} />
         </div>
         <Slide items={performances} onlyToday={true} />
         <div className={styles.guide}>

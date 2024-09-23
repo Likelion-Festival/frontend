@@ -1,4 +1,4 @@
-import { Performance } from "@type/performance/performance";
+import { dayPerformance, Performance } from "@type/performance/performance";
 // load artist png
 // LEYUKA IMG IMPORT
 import LEEYUKA from "@assets/performance/artist/leeyuka.jpg";
@@ -171,6 +171,61 @@ export const performances: Performance[] = [
         title: "Bubble",
         img: BUBBLE,
         previewUrl: "https://www.youtube.com/watch?v=jnWTZOKRHSQ",
+      },
+    ],
+  },
+];
+
+export const daysPerformance : dayPerformance[] = [
+  {
+    day: "1",
+    performances: [
+      {
+        artistName: "LEEYUKA",
+        time: new Date("2024-10-01T17:00:00"),
+        playTime: 90,
+        index: "0",
+      },
+      {
+        artistName: "LUCY",
+        time: new Date("2024-10-01T18:30:00"),
+        playTime: 90,
+        index: "1",
+      },
+      {
+        artistName: "LE SSERAFIM",
+        time: new Date("2024-10-01T20:00:00"),
+        playTime: 90,
+        index: "2",
+      },
+      {
+        artistName: "김수영",
+        time: new Date("2024-10-01T21:30:00"),
+        playTime: 60,
+        index: "3",
+      },
+    ],
+  },
+  {
+    day: "2",
+    performances: [
+      {
+        artistName: "YELO",
+        time: new Date("2024-10-02T17:00:00"),
+        playTime: 90,
+        index: "4",
+      },
+      {
+        artistName: "N.Flying",
+        time: new Date("2024-10-02T18:30:00"),
+        playTime: 90,
+        index: "5",
+      },
+      {
+        artistName: "STAYC",
+        time: new Date("2024-10-02T20:00:00"),
+        playTime: 90,
+        index: "6",
       },
     ],
   },

@@ -43,7 +43,7 @@ function App() {
                 path="/performance/:id"
                 element={<PerformanceDetailPage />}
               />
-              <Route path="/performance/timetable" element={<Timetable />} />
+              <Route path="/performance/timetable/:day" element={<Timetable />} />
               <Route path="/performance/guide" element={<GuidePage />} />
               {/* bar page */}
               <Route path="/bar" element={<BarPage />} />
