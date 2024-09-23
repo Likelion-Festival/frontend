@@ -26,7 +26,8 @@ export const Map = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [day, setDay] = useState<string>("1일차");
 
-  const { setCurrMarker, currCategory, setIsCategoryClicked } = useMapContext();
+  const { setCurrMarker, currCategory, setIsCategoryClicked, setIsNavVisible } =
+    useMapContext();
 
   // 초기 세팅
   useEffect(() => {
@@ -75,6 +76,7 @@ export const Map = () => {
         const newLatLng = position;
         setCurrMarker(newLatLng);
         setIsCategoryClicked(false);
+        setIsNavVisible(true);
       });
 
       return marker;
