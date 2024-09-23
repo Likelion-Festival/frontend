@@ -26,7 +26,7 @@ export const Map = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [day, setDay] = useState<string>("1일차");
 
-  const { setCurrMarker } = useMapContext();
+  const { setCurrMarker, currCategory, setIsCategoryClicked } = useMapContext();
 
   // 초기 세팅
   useEffect(() => {
@@ -74,6 +74,7 @@ export const Map = () => {
         // 비교를 위해 lat lng 값만 추출
         const newLatLng = position;
         setCurrMarker(newLatLng);
+        setIsCategoryClicked(false);
       });
 
       return marker;
@@ -117,7 +118,10 @@ export const Map = () => {
         <DaySelectorModal setDay={setDay} onClose={() => setIsOpen(false)} />
       )}
       <div id="map" className={styles.map_wrapper}></div>
-      <Bottomsheet />
+      {(currCategory === "event" ||
+        currCategory === "bar" ||
+        currCategory === "food" ||
+        currCategory === "medical") && <Bottomsheet />}
     </div>
   );
 };

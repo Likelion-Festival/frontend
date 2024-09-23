@@ -9,7 +9,8 @@ interface ContentProps {
 }
 
 export const Content = ({ markerInfoList }: ContentProps) => {
-  const { currCategory } = useMapContext();
+  const { currCategory, isCategoryClicked } = useMapContext();
+
   // 현재 선택된 카테고리에 해당되는 리스트 필터링
   const categoryList = [...markerInfo, ...lakeParkInfo].filter(
     (marker) => marker.category === currCategory
@@ -19,15 +20,17 @@ export const Content = ({ markerInfoList }: ContentProps) => {
 
   // 카테고리 리스트 렌더링을 기본으로
   useEffect(() => {
-    setRenderList(categoryList);
-  }, [currCategory]);
+    if (isCategoryClicked) {
+      setRenderList(categoryList);
+    }
+  }, [currCategory, isCategoryClicked]);
 
-  // 개별 마커 클릭시에만 항목 렌더링
+  // 개별 마커 클릭시에만 그 항목 렌더링
   useEffect(() => {
-    if (markerInfoList && markerInfoList.length > 0) {
+    if (!isCategoryClicked && markerInfoList && markerInfoList.length > 0) {
       setRenderList(markerInfoList);
     }
-  }, [markerInfoList]);
+  }, [markerInfoList, isCategoryClicked]);
 
   return (
     <div className={styles.wrapper}>

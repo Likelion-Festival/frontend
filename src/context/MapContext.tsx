@@ -5,6 +5,8 @@ interface MapContextType {
   setCurrMarker: React.Dispatch<React.SetStateAction<kakao.maps.LatLng | null>>;
   currCategory: string;
   setCurrCategory: React.Dispatch<React.SetStateAction<string>>;
+  isCategoryClicked: boolean;
+  setIsCategoryClicked: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const MapContext = createContext<MapContextType | undefined>(undefined);
@@ -12,9 +14,17 @@ const MapContext = createContext<MapContextType | undefined>(undefined);
 export const MapProvider = ({ children }: { children: React.ReactNode }) => {
   const [currMarker, setCurrMarker] = useState<kakao.maps.LatLng | null>(null);
   const [currCategory, setCurrCategory] = useState<string>("");
+  const [isCategoryClicked, setIsCategoryClicked] = useState<boolean>(false);
   return (
     <MapContext.Provider
-      value={{ currMarker, setCurrMarker, currCategory, setCurrCategory }}
+      value={{
+        currMarker,
+        setCurrMarker,
+        currCategory,
+        setCurrCategory,
+        isCategoryClicked,
+        setIsCategoryClicked,
+      }}
     >
       {children}
     </MapContext.Provider>

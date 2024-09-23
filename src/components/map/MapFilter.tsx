@@ -26,7 +26,8 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
     null
   );
 
-  const { currCategory, setCurrCategory } = useMapContext();
+  const { currCategory, setCurrCategory, setIsCategoryClicked } =
+    useMapContext();
 
   const [playGroundArea, setPlayGroundArea] =
     useState<kakao.maps.Ellipse | null>(null);
@@ -35,6 +36,8 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
   const changeMarker = (event: React.MouseEvent<HTMLElement>) => {
     const target = event.currentTarget as HTMLElement;
     const id = target.id;
+
+    setIsCategoryClicked(true);
 
     // 마커 초기화
     setMarkersOnMap(markers.eventMarkers, null);
