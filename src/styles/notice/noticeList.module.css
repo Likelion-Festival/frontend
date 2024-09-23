@@ -12,6 +12,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  border-bottom: 1.5px solid #44444480;
+  margin-bottom: 25px;
 }
 .goBack {
   position: absolute;
