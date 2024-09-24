@@ -17,7 +17,7 @@ import { useAlarm } from "@hooks/useAlarm";
 export const PerformanceDetailPage = () => {
   const params = useParams();
   const navigator = useNavigate();
-  const { alarms, toggleAlarm } = useAlarm();
+  const { alarms, handleToggleAlarm } = useAlarm();
 
   if (!params.id) {
     navigator("error");
@@ -46,7 +46,7 @@ export const PerformanceDetailPage = () => {
           <div
             className={styles.alarm}
             style={{ backgroundColor: alarms[id] ? "#FF85EE" : "" }}
-            onClick={() => toggleAlarm(id)}
+            onClick={() => handleToggleAlarm(id, item.topic)}
           >
             {alarms[id] ? (
               <img
