@@ -5,6 +5,7 @@ export interface song {
 }
 
 export interface Performance {
+    topic : string,
     artistName : string, // 가수
     artistImg : string, // 가수 사진
     intro : string, // 가수 설명
@@ -12,4 +13,16 @@ export interface Performance {
 
     date : Date, // 공연 날짜
     playTime : number, // 공연 시간
+}
+
+interface simplePerformance {
+    artistName : string, // 가수
+    time : Date, // 공연 날짜
+    playTime : number, // 공연 시간
+    index : string // 공연 인덱스
+}
+
+export interface dayPerformance {
+    day : string,
+    performances : simplePerformance[]
 }

@@ -11,6 +11,7 @@ import { GuidePage } from "@pages/performance/guide";
 import { ErrorPage } from "@pages/error";
 import { PerformanceDetailPage } from "@pages/performance/performanceDetail";
 import { Timetable } from "@pages/performance/timetable";
+import { AlarmProvider } from "./context/AlarmContext";
 import { SplashScreen } from "@pages/splash/SplashScreen";
 import { useMapContext } from "@context/MapContext";
 
@@ -27,6 +28,7 @@ function App() {
   }, []);
 
   return (
+    <AlarmProvider>
     <BrowserRouter>
       {isSplashVisible ? (
         <SplashScreen onSplashFinish={() => setIsSplashVisible(false)} />
@@ -43,7 +45,7 @@ function App() {
               path="/performance/:id"
               element={<PerformanceDetailPage />}
             />
-            <Route path="/performance/timetable" element={<Timetable />} />
+            <Route path="/performance/timetable/:day" element={<Timetable />} />
             <Route path="/performance/guide" element={<GuidePage />} />
             {/* bar page */}
             <Route path="/bar" element={<BarPage />} />
@@ -56,6 +58,7 @@ function App() {
         </Layout>
       )}
     </BrowserRouter>
+    </AlarmProvider>
   );
 }
 
