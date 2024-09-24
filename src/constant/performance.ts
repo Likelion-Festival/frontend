@@ -31,6 +31,7 @@ import SOBAD from "@assets/performance/artist/songs/sobad.jpg";
 
 export const performances: Performance[] = [
   {
+    topic : "leeyuka",
     artistName: "LEEYUKA",
     artistImg: LEEYUKA,
     date: new Date("2024-10-01T17:00:00"),
@@ -51,6 +52,7 @@ export const performances: Performance[] = [
     ],
   },
   {
+    topic : "lucy",
     artistName: "LUCY",
     artistImg: LUCY,
     date: new Date("2024-10-01T18:00:00"),
@@ -72,6 +74,7 @@ export const performances: Performance[] = [
   },
 
   {
+    topic : "lesserafim",
     artistName: "LE SSERAFIM",
     artistImg: LESERRAFIM,
     date: new Date("2024-10-01T19:00:00"),
@@ -93,6 +96,7 @@ export const performances: Performance[] = [
   },
 
   {
+    topic : "kimsooyoung",
     artistName: "김수영",
     artistImg: KSY,
     date: new Date("2024-10-01T19:00:00"),
@@ -114,6 +118,7 @@ export const performances: Performance[] = [
   },
 
   {
+    topic : "yelo",
     artistName: "YELO",
     artistImg: YELO,
     date: new Date("2024-10-01T19:00:00"),
@@ -135,6 +140,7 @@ export const performances: Performance[] = [
   },
 
   {
+    topic : "nflying",
     artistName: "N.Flying",
     artistImg: NFlYING,
     date: new Date("2024-10-01T19:00:00"),
@@ -155,6 +161,7 @@ export const performances: Performance[] = [
     ],
   },
   {
+    topic : "stayc",
     artistName: "STAYC",
     artistImg: STAYC,
     date: new Date("2024-10-01T19:00:00"),
