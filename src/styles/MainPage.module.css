@@ -166,6 +166,9 @@
   color: #ffffff;
 }
 .noticeMore {
+  border: none;
+  background-color: transparent;
+  padding: 2px;
   display: flex;
   font-family: Noto Sans KR;
   font-size: 12px;
