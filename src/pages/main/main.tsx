@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "@styles/MainPage.module.css";
 import EventSlideUnit from "@components/event/EventSlideUnit";
-import ProgramSlideUnit from "@components/program/ProgramSlideUnit";
+import ProgramSlideUnit from "@components/program/programSlideUnit";
 import FallingLogo from "@assets/main/top-logo.svg";
 import UpLogo from "@assets/main/UP-logo.svg";
 import LikelionLogo from "@assets/main/Likelion-logo.svg";
