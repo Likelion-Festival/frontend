@@ -5,6 +5,7 @@ export interface song {
 }
 
 export interface Performance {
+    topic : string,
     artistName : string, // 가수
     artistImg : string, // 가수 사진
     intro : string, // 가수 설명
