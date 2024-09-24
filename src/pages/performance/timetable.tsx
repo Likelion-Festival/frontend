@@ -3,7 +3,6 @@ import { daysPerformance } from "@constant/performance";
 
 // add styles
 import styles from "@styles/performance/Timetable.module.css";
-import { nav } from "framer-motion/client";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
