@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 1;
+  top: calc(100% - 270px); /*뷰포트 하단 기준 몇 px */
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  min-width: 375px;
+  max-width: 430px;
+  margin: 0 auto;
+
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
+  background: #131313;
+  transition: transform 200ms ease-out;
+}
+
+.bottomsheet_wrapper {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}

@@ -13,9 +13,11 @@ import { PerformanceDetailPage } from "@pages/performance/performanceDetail";
 import { Timetable } from "@pages/performance/timetable";
 import { AlarmProvider } from "./context/AlarmContext";
 import { SplashScreen } from "@pages/splash/SplashScreen";
+import { useMapContext } from "@context/MapContext";
 
 function App() {
   const [isSplashVisible, setIsSplashVisible] = useState(true);
+  const { isNavVisible } = useMapContext();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -27,35 +29,35 @@ function App() {
 
   return (
     <AlarmProvider>
-      <BrowserRouter>
-        {isSplashVisible ? (
-          <SplashScreen onSplashFinish={() => setIsSplashVisible(false)} />
-        ) : (
-          <Layout>
-            <Routes>
-              {/* main page */}
-              <Route path="/" element={<MainPage />} />
-              {/* map page */}
-              <Route path="/map" element={<MapPage />} />
-              {/* performance page */}
-              <Route path="/performance" element={<PerformancePage />} />
-              <Route
-                path="/performance/:id"
-                element={<PerformanceDetailPage />}
-              />
-              <Route path="/performance/timetable/:day" element={<Timetable />} />
-              <Route path="/performance/guide" element={<GuidePage />} />
-              {/* bar page */}
-              <Route path="/bar" element={<BarPage />} />
-              <Route path="/bar-detail/:storeName" element={<BarDetail />} />
-              <Route path="/bar-detail/:barName" element={<BarDetail />} />
-              {/* error page */}
-              <Route path="*" element={<ErrorPage />} />
-            </Routes>
-            <TabNavigator />
-          </Layout>
-        )}
-      </BrowserRouter>
+    <BrowserRouter>
+      {isSplashVisible ? (
+        <SplashScreen onSplashFinish={() => setIsSplashVisible(false)} />
+      ) : (
+        <Layout>
+          <Routes>
+            {/* main page */}
+            <Route path="/" element={<MainPage />} />
+            {/* map page */}
+            <Route path="/map" element={<MapPage />} />
+            {/* performance page */}
+            <Route path="/performance" element={<PerformancePage />} />
+            <Route
+              path="/performance/:id"
+              element={<PerformanceDetailPage />}
+            />
+            <Route path="/performance/timetable/:day" element={<Timetable />} />
+            <Route path="/performance/guide" element={<GuidePage />} />
+            {/* bar page */}
+            <Route path="/bar" element={<BarPage />} />
+            <Route path="/bar-detail/:storeName" element={<BarDetail />} />
+            <Route path="/bar-detail/:barName" element={<BarDetail />} />
+            {/* error page */}
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+          {isNavVisible && <TabNavigator />}
+        </Layout>
+      )}
+    </BrowserRouter>
     </AlarmProvider>
   );
 }

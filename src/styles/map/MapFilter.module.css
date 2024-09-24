@@ -8,7 +8,7 @@
     align-items: center;
     padding: 0;
     margin: 0 0 14px 32px;
-    background-color: black;
+    background-color: #131313;
     border: none;
     cursor: pointer;
 
@@ -33,6 +33,10 @@
       padding-left: 16px;
       border: none;
       border-radius: 5px;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 19.4px;
       background-color: #272727;
       outline: none;
     }
@@ -58,31 +62,20 @@
   #category {
     display: flex;
     width: 100%;
-    margin-left: 26px;
-    background-color: black;
+    background-color: #131313;
     z-index: 1;
+    padding-left: 27px;
     overflow-x: auto;
     overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
     white-space: nowrap;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+    scroll-snap-type: x mandatory;
 
     /* 스크롤 바 숨김 */
     &::-webkit-scrollbar {
-      width: 12px;
-      background-color: black;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      width: 10px;
-      background-color: black;
-      border: 3px solid black;
-      border-radius: 76px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background-color: black;
-      border-radius: 10px;
-      box-shadow: inset 0px 0px 5px black;
+      display: none;
     }
 
     li {
