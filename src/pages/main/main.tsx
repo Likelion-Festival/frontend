@@ -25,7 +25,7 @@ export const MainPage = () => {
   const rights2: string = "@Design based by 총동아리연합회_UP";
 
   const events = [
-    // TODO: 서버에서 받아올 내용
+    // TODO: 수정하기
     {
       imgURL: "",
       isOnLive: true,
