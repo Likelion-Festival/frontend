@@ -11,7 +11,7 @@ import { GuidePage } from "@pages/performance/guide";
 import { ErrorPage } from "@pages/error";
 import { PerformanceDetailPage } from "@pages/performance/performanceDetail";
 import { Timetable } from "@pages/performance/timetable";
-import { AlarmProvider } from "@components/performance/AlarmContext";
+import { AlarmProvider } from "./context/AlarmContext";
 import { SplashScreen } from "@pages/splash/SplashScreen";
 
 function App() {
