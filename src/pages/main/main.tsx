@@ -23,9 +23,8 @@ export const MainPage = () => {
   const rights1: string =
     "한양대학교 ERICA 멋쟁이사자처럼\n@LIKELION ERICA. All Rights Reserved.";
   const rights2: string = "@Design based by 총동아리연합회_UP";
-
   const events = [
-    // TODO: 서버에서 받아올 내용
+    // TODO: 수정하기
     {
       imgURL: "",
       isOnLive: true,

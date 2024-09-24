@@ -1,4 +1,4 @@
-import styles from "@styles/noticeList.module.css";
+import styles from "@styles/notice/noticeList.module.css";
 
 interface NoticeListUnitProps {
   noticeType: string; // 공지 타입 (->NoticeType.tsx)
@@ -14,8 +14,8 @@ const NoticeListUnit = ({
   return (
     <div className={styles.unitBox}>
       <div className={styles.textBox}>
-        <div>`{noticeType}`</div>
-        <div>`{title}`</div>
+        <div className={styles.typeText}>{noticeType}</div>
+        <div className={styles.titleText}>{title}</div>
       </div>
       <div className={styles.imgBox}>
         <img src={thumbNailImgURL} alt={`${title} image`} />
