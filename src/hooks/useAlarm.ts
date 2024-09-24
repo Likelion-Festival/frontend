@@ -1,4 +1,4 @@
-import { AlarmContext } from "@components/performance/AlarmContext";
+import { AlarmContext } from "../context/AlarmContext";
 import { useContext } from "react";
 
 export const useAlarm = () => { 
