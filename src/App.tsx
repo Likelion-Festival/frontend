@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"; 
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MainPage } from "@pages/main/main";
 import { MapPage } from "@pages/map/map";
@@ -11,27 +11,28 @@ import { GuidePage } from "@pages/performance/guide";
 import { ErrorPage } from "@pages/error";
 import { PerformanceDetailPage } from "@pages/performance/performanceDetail";
 import { Timetable } from "@pages/performance/timetable";
+import { AlarmProvider } from "./context/AlarmContext";
 import { SplashScreen } from "@pages/splash/SplashScreen";
+import { useMapContext } from "@context/MapContext";
 
 function App() {
   const [isSplashVisible, setIsSplashVisible] = useState(true);
+  const { isNavVisible } = useMapContext();
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsSplashVisible(false);
     }, 2000);
 
-    return () => clearTimeout(timer); 
+    return () => clearTimeout(timer);
   }, []);
 
-
   return (
-      <BrowserRouter>
-
+    <AlarmProvider>
+    <BrowserRouter>
       {isSplashVisible ? (
         <SplashScreen onSplashFinish={() => setIsSplashVisible(false)} />
       ) : (
-
         <Layout>
           <Routes>
             {/* main page */}
@@ -44,7 +45,7 @@ function App() {
               path="/performance/:id"
               element={<PerformanceDetailPage />}
             />
-            <Route path="/performance/timetable" element={<Timetable />} />
+            <Route path="/performance/timetable/:day" element={<Timetable />} />
             <Route path="/performance/guide" element={<GuidePage />} />
             {/* bar page */}
             <Route path="/bar" element={<BarPage />} />
@@ -53,11 +54,11 @@ function App() {
             {/* error page */}
             <Route path="*" element={<ErrorPage />} />
           </Routes>
-          <TabNavigator />
+          {isNavVisible && <TabNavigator />}
         </Layout>
-
       )}
-      </BrowserRouter>
+    </BrowserRouter>
+    </AlarmProvider>
   );
 }
 
