@@ -47,8 +47,8 @@ export const BarDetail = () => {
                         <ul>
                             {store.menu.map((item: MenuItem, index: number) => (
                                 <li key={index}>
-                                    {item.name}<br/>
-                                    {item.price}원
+                                    <div className={styles.menuName}>{item.name}</div>
+                                    <div className={styles.menuPrice}>{item.price}원</div>
                                 </li>
                             ))}
                         </ul>

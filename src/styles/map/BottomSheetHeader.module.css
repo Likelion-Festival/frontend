@@ -1,0 +1,17 @@
+.wrapper {
+  height: 24px;
+  border-top-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  position: relative;
+  padding-top: 13px;
+  padding-bottom: 4px;
+  margin-bottom: 15px;
+}
+
+.handle {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: auto;
+}

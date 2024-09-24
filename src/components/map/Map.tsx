@@ -4,6 +4,7 @@ import {
   eventMarkerPositions,
   foodCourtMarkerPositions,
   medicalMarkerPositions,
+  smokingMarkerPositions,
 } from "@constant/map";
 import styles from "@styles/map/Map.module.css";
 import spriteImage from "@assets/map/spirte-image-removebg.png";
@@ -11,6 +12,8 @@ import { createMarkerImage } from "@utils/mapUtils";
 import { MapFilter } from "./MapFilter";
 import { MarkersType } from "@type/map";
 import { DaySelectorModal } from "./DaySelectorModal";
+import { Bottomsheet } from "./BottomSheet";
+import { useMapContext } from "@context/MapContext";
 
 export const Map = () => {
   const [map, setMap] = useState<kakao.maps.Map | null>(null);
@@ -23,6 +26,9 @@ export const Map = () => {
   });
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [day, setDay] = useState<string>("1일차");
+
+  const { setCurrMarker, currCategory, setIsCategoryClicked, setIsNavVisible } =
+    useMapContext();
 
   // 초기 세팅
   useEffect(() => {
@@ -66,6 +72,12 @@ export const Map = () => {
       // 마커 클릭 이벤트 추가
       kakao.maps.event.addListener(marker, "click", () => {
         map?.panTo(position); // 마커 클릭 시 해당 위치로 이동
+
+        // 비교를 위해 lat lng 값만 추출
+        const newLatLng = position;
+        setCurrMarker(newLatLng);
+        setIsCategoryClicked(false);
+        setIsNavVisible(true);
       });
 
       return marker;
@@ -91,6 +103,11 @@ export const Map = () => {
         ...prev,
         medicalMarkers: newEventMarkers,
       }));
+    } else if (category === "smoking") {
+      setMarkers((prev) => ({
+        ...prev,
+        smokingMarkers: newEventMarkers,
+      }));
     }
   };
 
@@ -100,6 +117,7 @@ export const Map = () => {
     createMarkersOnMap("bar", barMarkerPositions, 0);
     createMarkersOnMap("foodCourt", foodCourtMarkerPositions, 136);
     createMarkersOnMap("medical", medicalMarkerPositions, 204);
+    createMarkersOnMap("smoking", smokingMarkerPositions, 272);
   }, [map]);
 
   return (
@@ -109,6 +127,10 @@ export const Map = () => {
         <DaySelectorModal setDay={setDay} onClose={() => setIsOpen(false)} />
       )}
       <div id="map" className={styles.map_wrapper}></div>
+      {(currCategory === "event" ||
+        currCategory === "bar" ||
+        currCategory === "food" ||
+        currCategory === "medical") && <Bottomsheet />}
     </div>
   );
 };
