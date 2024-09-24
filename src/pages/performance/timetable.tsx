@@ -3,19 +3,43 @@ import { daysPerformance } from "@constant/performance";
 
 // add styles
 import styles from "@styles/performance/Timetable.module.css";
+import { nav } from "framer-motion/client";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 export const Timetable = () => {
   const navigate = useNavigate();
   const parmas = useParams();
+  const [currentArtist, setCurrentArtist] = useState("");
+  const checkCurrentPerformance = () => {
+    if (!(parmas.day === "1" || parmas.day === "2")) return;
+
+    const todayPerformances =
+      daysPerformance[Number(parmas.day) - 1].performances;
+    const currentPerformance = todayPerformances.find((performance) => {
+      console.log();
+      return (
+        performance.time <= new Date() &&
+        new Date() <
+          new Date(
+            performance.time.getTime() + performance.playTime * 60 * 1000
+          )
+      );
+    });
+
+    if (currentPerformance) setCurrentArtist(currentPerformance?.index);
+    else setCurrentArtist("");
+  };
+  useEffect(() => {
+    checkCurrentPerformance();
+  });
 
   const handleButtonClick = () => {
     // const today = new Date();
-    if (parmas.day === "1") {
-      console.log("day 1 logic");
-    } else if (parmas.day === "2") {
-      console.log("day 2 logic");
-    } else {
+    if (parmas.day === "1" || parmas.day === "2") {
+      navigate(`/performance/${currentArtist}`);
+    }
+    else {
       console.log("no performance today");
     }
   };
@@ -75,12 +99,29 @@ export const Timetable = () => {
               }` === time
             );
           });
+
           return (
             <div
               className={styles.tableCell}
               key={index}
               style={{ marginTop: filteredPerformance ? "14px" : "" }}
             >
+              {currentArtist === filteredPerformance?.index ? (
+                <div
+                  className={styles.onplay}
+                  style={{
+                    height: `${(filteredPerformance.playTime / 30) * 95}px`,
+                  }}
+                >
+                  {" "}
+                  <div className={styles.circleLine} style={{top : `${Math.floor(((new Date().getTime() - filteredPerformance.time.getTime()) / 1000 / 60))/filteredPerformance.playTime * filteredPerformance.playTime / 30 * 95}px`}}>
+                    <div className={styles.circleLineCircle}></div>
+                    <div className={styles.circleLineLine}></div>
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
               <span className={styles.tableTime}>{time}</span>
               <div className={styles.tableVertical}></div>
               <div className={styles.tableContent}>
@@ -100,10 +141,6 @@ export const Timetable = () => {
                       }`
                     : ""}
                 </span>
-              </div>
-              <div className={styles.circleLine}>
-                <div className={styles.circleLineCircle}></div>
-                <div className={styles.circleLineLine}></div>
               </div>
             </div>
           );
