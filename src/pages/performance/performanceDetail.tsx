@@ -94,7 +94,7 @@ export const PerformanceDetailPage = () => {
         </div>
         <div
           className={styles.grayBox}
-          style={{ flexDirection: "column", gap: "14px" }}
+          style={{ flexDirection: "column", gap: "14px", backgroundColor : "transparent" }}
         >
           <span className={styles.artistIntroTitle}>아티스트 소개</span>
           <span className={styles.artistIntroText}>{item.intro}</span>
