@@ -4,6 +4,7 @@ import arrow from "@assets/performance/arrow.svg";
 import { useNavigate } from "react-router-dom";
 import { Slide } from "@components/artist-slide/Slide";
 import { performances } from "@constant/performance";
+import { Tooltip } from "@components/performance/Tooltip";
 
 export const PerformancePage = () => {
   const navigate = useNavigate();
@@ -29,7 +30,9 @@ export const PerformancePage = () => {
         <div className={styles.header}>
           <span>Today</span>
           <img src={timeTable} alt="" onClick={() => handleTimeTableClick()} />
+          <Tooltip text="타임테이블 보러가기" top={60} left={212} />
         </div>
+        
         <Slide items={performances} onlyToday={true} />
         <div className={styles.guide}>
           <span>공연 관람 Guide 보러가기</span>
