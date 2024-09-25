@@ -2,6 +2,7 @@ import React, { createContext, useState, ReactNode, useEffect } from "react";
 import { subscribeToTopic, unsubscribeFromTopic } from "@apis/alarm";
 import { getToken } from "firebase/messaging";
 import { messaging } from "../config/firebase";
+import { Toast } from "@components/performance/Toast";
 
 type AlarmContextType = {
   alarms: boolean[];
@@ -29,6 +30,7 @@ export const AlarmProvider: React.FC<{ children: ReactNode }> = ({
     deviceToken: null,
     showModal: false,
   });
+  const [toast, setToast] = useState(false);
 
   useEffect(() => {
     // 로컬 스토리지에서 deviceToken을 불러옵니다.
@@ -50,7 +52,6 @@ export const AlarmProvider: React.FC<{ children: ReactNode }> = ({
     };
     localStorage.setItem("falling", JSON.stringify(updatedData));
   };
-
   const fetchToken = async () => {
     try {
       const token = await getToken(messaging, {
@@ -107,6 +108,7 @@ export const AlarmProvider: React.FC<{ children: ReactNode }> = ({
         const response = await subscribeToTopic(token, topic);
         if (response.successCount === 1) {
           toggleAlarm(index);
+          setToast(true);
         }
       } catch (e) {
         console.error(e);
@@ -127,7 +129,7 @@ export const AlarmProvider: React.FC<{ children: ReactNode }> = ({
         handleToggleAlarm,
       }}
     >
-      {children}
+      {children} {toast && <Toast message="공연 알림 설정 완료!" setToast={setToast} />}
     </AlarmContext.Provider>
   );
 };
