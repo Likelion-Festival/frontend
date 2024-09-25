@@ -6,9 +6,12 @@ import { Slide } from "@components/artist-slide/Slide";
 import { performances } from "@constant/performance";
 import { Tooltip } from "@components/performance/Tooltip";
 import { NoPerformanceDay } from "@components/performance/NoPerformanceDay";
+import { useAlarm } from "@hooks/useAlarm";
+import { Modal } from "@components/performance/Modal";
 
 export const PerformancePage = () => {
   const navigate = useNavigate();
+  const {showModal} = useAlarm();
 
   const handleTimeTableClick = () => {
     const today = new Date();
@@ -53,6 +56,7 @@ export const PerformancePage = () => {
         </div>
         <Slide items={performances} onlyToday={false} />
       </div>
+      {  showModal && <Modal />}
     </div>
   );
 };

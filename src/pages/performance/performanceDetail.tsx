@@ -13,11 +13,12 @@ import Time from "@assets/performance/time.svg";
 import Calendar from "@assets/performance/calendar.svg";
 import Music from "@assets/performance/music.svg";
 import { useAlarm } from "@hooks/useAlarm";
+import { Modal } from "@components/performance/Modal";
 
 export const PerformanceDetailPage = () => {
   const params = useParams();
   const navigator = useNavigate();
-  const { alarms, handleToggleAlarm } = useAlarm();
+  const { alarms, handleToggleAlarm, showModal } = useAlarm();
 
   if (!params.id) {
     navigator("error");
@@ -127,6 +128,7 @@ export const PerformanceDetailPage = () => {
           </div>
         </div>
       </div>
+      {  showModal && <Modal />}
     </div>
   );
 };
