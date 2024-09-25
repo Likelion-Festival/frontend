@@ -61,7 +61,9 @@ export const PerformanceDetailPage = () => {
                 style={{ width: "20px", height: "20px" }}
               />
             )}
-            <span style={{color : alarms[id] ? "#141414" : "#FF85EE"}}>{alarms[id] ? "알림" : "알림 받기"}</span>
+            <span style={{ color: alarms[id] ? "#141414" : "#FF85EE" }}>
+              {alarms[id] ? "알림" : "알림 받기"}
+            </span>
           </div>
         </div>
         <div
