@@ -4,9 +4,14 @@ import arrow from "@assets/performance/arrow.svg";
 import { useNavigate } from "react-router-dom";
 import { Slide } from "@components/artist-slide/Slide";
 import { performances } from "@constant/performance";
+import { Tooltip } from "@components/performance/Tooltip";
+import { NoPerformanceDay } from "@components/performance/NoPerformanceDay";
+import { useAlarm } from "@hooks/useAlarm";
+import { Modal } from "@components/performance/Modal";
 
 export const PerformancePage = () => {
   const navigate = useNavigate();
+  const {showModal} = useAlarm();
 
   const handleTimeTableClick = () => {
     const today = new Date();
@@ -29,8 +34,14 @@ export const PerformancePage = () => {
         <div className={styles.header}>
           <span>Today</span>
           <img src={timeTable} alt="" onClick={() => handleTimeTableClick()} />
+          <Tooltip text="타임테이블 보러가기" top={60} left={212} />
         </div>
-        <Slide items={performances} onlyToday={true} />
+        {new Date().getMonth() === 9 &&
+        (new Date().getDate() === 1 || new Date().getDate() === 2) ? (
+          <Slide items={performances} onlyToday={true} />
+        ) : (
+          <NoPerformanceDay/>
+        )}
         <div className={styles.guide}>
           <span>공연 관람 Guide 보러가기</span>
           <div onClick={() => navigate("guide")}>
@@ -45,6 +56,7 @@ export const PerformancePage = () => {
         </div>
         <Slide items={performances} onlyToday={false} />
       </div>
+      {  showModal && <Modal />}
     </div>
   );
 };
