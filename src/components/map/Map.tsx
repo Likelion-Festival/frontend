@@ -7,8 +7,6 @@ import {
   smokingMarkerPositions,
 } from "@constant/map";
 import styles from "@styles/map/Map.module.css";
-import spriteImage from "@assets/map/spirte-image-removebg.png";
-import { createMarkerImage } from "@utils/mapUtils";
 import { MapFilter } from "./MapFilter";
 import { MarkersType } from "@type/map";
 import { DaySelectorModal } from "./DaySelectorModal";
@@ -54,25 +52,16 @@ export const Map = () => {
     setCurrCategory("");
   }, []);
 
-  const markerImageSrc = spriteImage;
-
   // 각 카테고리별 마커 생성 및 배열에 추가
   const createMarkersOnMap = (
     category: string,
     markerPosition: kakao.maps.LatLng[],
-    spriteImagePosition: number
+    imagePath: string
   ) => {
     const newEventMarkers = markerPosition.map((position) => {
-      const imageSize = new kakao.maps.Size(50, 57);
-      const imageOptions = {
-        spriteOrigin: new kakao.maps.Point(9, spriteImagePosition),
-        spriteSize: new kakao.maps.Size(69, 329),
-      };
-      const markerImage = createMarkerImage(
-        markerImageSrc,
-        imageSize,
-        imageOptions
-      );
+      const imageSize = new kakao.maps.Size(50, 60);
+      const markerImageSrc = imagePath;
+      const markerImage = new kakao.maps.MarkerImage(markerImageSrc, imageSize);
 
       // 마커 생성
       const marker = new kakao.maps.Marker({
@@ -80,6 +69,7 @@ export const Map = () => {
         image: markerImage,
       });
 
+      console.log(marker);
       // 마커 클릭 이벤트 추가
       kakao.maps.event.addListener(marker, "click", () => {
         map?.panTo(position); // 마커 클릭 시 해당 위치로 이동
@@ -124,11 +114,27 @@ export const Map = () => {
 
   // 카테고리별 마커 생성
   useEffect(() => {
-    createMarkersOnMap("event", eventMarkerPositions, 68);
-    createMarkersOnMap("bar", barMarkerPositions, 0);
-    createMarkersOnMap("foodCourt", foodCourtMarkerPositions, 136);
-    createMarkersOnMap("medical", medicalMarkerPositions, 204);
-    createMarkersOnMap("smoking", smokingMarkerPositions, 272);
+    createMarkersOnMap(
+      "event",
+      eventMarkerPositions,
+      "/marker-img/event-marker.svg"
+    );
+    createMarkersOnMap("bar", barMarkerPositions, "/marker-img/bar-marker.svg");
+    createMarkersOnMap(
+      "foodCourt",
+      foodCourtMarkerPositions,
+      "/marker-img/food-marker.svg"
+    );
+    createMarkersOnMap(
+      "medical",
+      medicalMarkerPositions,
+      "/marker-img/medical-marker.svg"
+    );
+    createMarkersOnMap(
+      "smoking",
+      smokingMarkerPositions,
+      "/marker-img/smoking-marker.svg"
+    );
   }, [map]);
 
   return (

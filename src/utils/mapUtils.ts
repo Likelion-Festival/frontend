@@ -1,15 +1,5 @@
 import { eventPositions } from "@constant/map";
 
-// 마커 이미지 생성
-export const createMarkerImage = (
-  src: string,
-  size: kakao.maps.Size,
-  options: kakao.maps.MarkerImageOptions
-) => {
-  const markerImage = new kakao.maps.MarkerImage(src, size, options);
-  return markerImage;
-};
-
 // 지도에 마커 표시 여부 결정
 export const setMarkersOnMap = (
   markers: kakao.maps.Marker[],
