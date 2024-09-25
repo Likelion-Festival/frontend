@@ -32,6 +32,7 @@ export const Map = () => {
     setIsCategoryClicked,
     setCurrCategory,
     isBottomSheetVisible,
+    setIsNavVisible,
   } = useMapContext();
 
   // 초기 세팅
@@ -87,6 +88,7 @@ export const Map = () => {
         const newLatLng = position;
         setCurrMarker(newLatLng);
         setIsCategoryClicked(false);
+        setIsNavVisible(true);
       });
 
       return marker;

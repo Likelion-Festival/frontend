@@ -27,7 +27,7 @@ export const markerInfo = [
     time: `10:30~16:30`,
     location: "학생복지관 앞",
     position: new kakao.maps.LatLng(37.296951, 126.835818),
-    imagePath: "/marker-img/flea-market.png",
+    imagePath: "/marker-img/promotion.png",
   },
   {
     id: 8,
