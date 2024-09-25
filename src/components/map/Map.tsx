@@ -27,20 +27,30 @@ export const Map = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [day, setDay] = useState<string>("1일차");
 
-  const { setCurrMarker, currCategory, setIsCategoryClicked, setIsNavVisible } =
-    useMapContext();
+  const {
+    setCurrMarker,
+    setIsCategoryClicked,
+    setCurrCategory,
+    isBottomSheetVisible,
+  } = useMapContext();
 
   // 초기 세팅
   useEffect(() => {
     const container = document.getElementById("map");
     const options = {
-      center: new window.kakao.maps.LatLng(37.297311, 126.835358), // 지도 중심좌표
+      center: new window.kakao.maps.LatLng(
+        37.29644017218779,
+        126.83516599926162
+      ), // 지도 중심좌표
       level: 3,
     };
 
     // 지도 생성 및 객체 리턴
     const kakaoMap = new window.kakao.maps.Map(container, options);
     setMap(kakaoMap);
+
+    setIsCategoryClicked(false);
+    setCurrCategory("");
   }, []);
 
   const markerImageSrc = spriteImage;
@@ -77,7 +87,6 @@ export const Map = () => {
         const newLatLng = position;
         setCurrMarker(newLatLng);
         setIsCategoryClicked(false);
-        setIsNavVisible(true);
       });
 
       return marker;
@@ -127,10 +136,7 @@ export const Map = () => {
         <DaySelectorModal setDay={setDay} onClose={() => setIsOpen(false)} />
       )}
       <div id="map" className={styles.map_wrapper}></div>
-      {(currCategory === "event" ||
-        currCategory === "bar" ||
-        currCategory === "food" ||
-        currCategory === "medical") && <Bottomsheet />}
+      {isBottomSheetVisible && <Bottomsheet />}
     </div>
   );
 };
