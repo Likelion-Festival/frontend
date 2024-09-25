@@ -13,6 +13,7 @@ import { PerformanceDetailPage } from "@pages/performance/performanceDetail";
 import { Timetable } from "@pages/performance/timetable";
 import { AlarmProvider } from "./context/AlarmContext";
 import { SplashScreen } from "@pages/splash/SplashScreen";
+import { NoticeListPage } from "@pages/notice/noticeList";
 import { useMapContext } from "@context/MapContext";
 
 function App() {
@@ -37,6 +38,8 @@ function App() {
           <Routes>
             {/* main page */}
             <Route path="/" element={<MainPage />} />
+            {/* notice page */}
+            <Route path="/notice" element={<NoticeListPage />} />
             {/* map page */}
             <Route path="/map" element={<MapPage />} />
             {/* performance page */}
