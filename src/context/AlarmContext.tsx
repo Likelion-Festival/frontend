@@ -1,11 +1,12 @@
-import React, { createContext, useState, ReactNode } from "react";
-import { AppCheckTokenResult } from "firebase/app-check";
+import React, { createContext, useState, ReactNode, useEffect } from "react";
 import { subscribeToTopic, unsubscribeFromTopic } from "@apis/alarm";
-import { getToken } from "firebase/messaging"; // Firebase에서 메시징 토큰을 가져오는 함수
-import { messaging } from "../config/firebase"; // Firebase 설정 파일 경로
+import { getToken } from "firebase/messaging";
+import { messaging } from "../config/firebase";
 
 type AlarmContextType = {
   alarms: boolean[];
+  closeModal: () => void;
+  showModal: boolean;
   handleToggleAlarm: (index: number, topic: string) => void;
 };
 
@@ -16,23 +17,53 @@ export const AlarmContext = createContext<AlarmContextType | undefined>(
 export const AlarmProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [alarms, setAlarms] = useState<boolean[]>(() => {
-    const savedAlarms = localStorage.getItem("alarms");
-    return savedAlarms ? JSON.parse(savedAlarms) : Array(10).fill(false);
+  const savedData = localStorage.getItem("falling");
+  const initialAlarms = savedData ? JSON.parse(savedData).alarms || Array(10).fill(false) : Array(10).fill(false);
+
+  const [state, setState] = useState<{
+    alarms: boolean[];
+    deviceToken: string | null;
+    showModal: boolean;
+  }>({
+    alarms: initialAlarms,
+    deviceToken: null,
+    showModal: false,
   });
 
-  const [deviceToken, setDeviceToken] = useState<AppCheckTokenResult>({
-    token: "",
-  });
+  useEffect(() => {
+    // 로컬 스토리지에서 deviceToken을 불러옵니다.
+    const savedData = localStorage.getItem("falling");
+    if (savedData) {
+      const parsedData = JSON.parse(savedData);
+      setState((prevState) => ({
+        ...prevState,
+        deviceToken: parsedData.deviceToken || null,
+      }));
+    }
+  }, []);
+
+  const saveToLocalStorage = (newState: Partial<typeof state>) => {
+    const currentData = JSON.parse(localStorage.getItem("falling") || "{}");
+    const updatedData = {
+      ...currentData,
+      ...newState,
+    };
+    localStorage.setItem("falling", JSON.stringify(updatedData));
+  };
 
   const fetchToken = async () => {
     try {
       const token = await getToken(messaging, {
-        vapidKey: import.meta.env.VITE_VAPID_KEY, // VAPID 키 설정
+        vapidKey: import.meta.env.VITE_VAPID_KEY,
       });
-      setDeviceToken({
-        token: token,
-      }); // 토큰 업데이트
+      setState((prevState) => {
+        const newState = {
+          ...prevState,
+          deviceToken: token,
+        };
+        saveToLocalStorage({ deviceToken: token });
+        return newState;
+      });
       return token;
     } catch (error) {
       console.error("토큰 가져오기 실패:", error);
@@ -41,27 +72,28 @@ export const AlarmProvider: React.FC<{ children: ReactNode }> = ({
   };
 
   const toggleAlarm = (index: number) => {
-    setAlarms((prev) => {
-      const newAlarms = [...prev];
+    setState((prevState) => {
+      const newAlarms = [...prevState.alarms];
       newAlarms[index] = !newAlarms[index];
-      localStorage.setItem("alarms", JSON.stringify(newAlarms)); // 변경된 상태를 저장
-      return newAlarms;
+      saveToLocalStorage({ alarms: newAlarms }); // 로컬 스토리지에 저장
+      return { ...prevState, alarms: newAlarms };
     });
   };
 
   const handleToggleAlarm = async (index: number, topic: string) => {
-    // 알림 권한 확인
     const permission = await Notification.requestPermission();
-   
-    if (permission !== "granted") {
-      console.log("알림 권한이 허용되지 않았습니다.");
-      return; // 알림 권한이 없으면 종료
-    }
-  
-    const token = !deviceToken.token ? await fetchToken() : deviceToken.token;
 
-    if (alarms[index]) {
-      // 알람 해제
+    if (!state.deviceToken) {
+      setState((prevState) => ({ ...prevState, showModal: true }));
+    }
+
+    if (permission !== "granted") {
+      return;
+    }
+
+    const token = state.deviceToken || (await fetchToken());
+
+    if (state.alarms[index]) {
       try {
         const response = await unsubscribeFromTopic(token, topic);
         if (response.successCount === 1) {
@@ -71,7 +103,6 @@ export const AlarmProvider: React.FC<{ children: ReactNode }> = ({
         console.error(e);
       }
     } else {
-      // 알람 설정
       try {
         const response = await subscribeToTopic(token, topic);
         if (response.successCount === 1) {
@@ -83,10 +114,16 @@ export const AlarmProvider: React.FC<{ children: ReactNode }> = ({
     }
   };
 
+  const closeModal = () => {
+    setState((prevState) => ({ ...prevState, showModal: false }));
+  };
+
   return (
     <AlarmContext.Provider
       value={{
-        alarms,
+        showModal: state.showModal,
+        closeModal,
+        alarms: state.alarms,
         handleToggleAlarm,
       }}
     >
