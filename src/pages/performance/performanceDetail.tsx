@@ -61,7 +61,9 @@ export const PerformanceDetailPage = () => {
                 style={{ width: "20px", height: "20px" }}
               />
             )}
-            <span style={{color : alarms[id] ? "#141414" : "#FF85EE"}}>{alarms[id] ? "알림" : "알림 받기"}</span>
+            <span style={{ color: alarms[id] ? "#141414" : "#FF85EE" }}>
+              {alarms[id] ? "알림" : "알림 받기"}
+            </span>
           </div>
         </div>
         <div
@@ -94,7 +96,7 @@ export const PerformanceDetailPage = () => {
         </div>
         <div
           className={styles.grayBox}
-          style={{ flexDirection: "column", gap: "14px", backgroundColor : "transparent" }}
+          style={{ flexDirection: "column", gap: "14px" }}
         >
           <span className={styles.artistIntroTitle}>아티스트 소개</span>
           <span className={styles.artistIntroText}>{item.intro}</span>
