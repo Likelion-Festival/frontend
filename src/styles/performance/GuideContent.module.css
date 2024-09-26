@@ -1,3 +1,36 @@
+@-webkit-keyframes skeleton-gradient {
+  0% {
+    background-color: rgba(165, 165, 165, 0.1);
+  }
+
+  50% {
+    background-color: rgba(165, 165, 165, 0.3);
+  }
+
+  100% {
+    background-color: rgba(165, 165, 165, 0.1);
+  }
+}
+
+@keyframes skeleton-gradient {
+  0% {
+    background-color: rgba(165, 165, 165, 0.1);
+  }
+
+  50% {
+    background-color: rgba(165, 165, 165, 0.3);
+  }
+
+  100% {
+    background-color: rgba(165, 165, 165, 0.1);
+  }
+}
+.skeleton {
+  border-radius: 5px;
+  -webkit-animation: skeleton-gradient 1.8s infinite ease-in-out;
+  animation: skeleton-gradient 1.8s infinite ease-in-out;
+}
+
 .wrapper {
   width: 325px;
 }
@@ -29,10 +62,10 @@
   color: rgba(226, 226, 226, 1);
 }
 .spanContent400 {
-    font-size: 16px;
-    line-height: 25px;
-    letter-spacing: -1px;
-    font-weight: 400;
-  
-    color: rgba(226, 226, 226, 1);
-  }
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: -1px;
+  font-weight: 400;
+
+  color: rgba(226, 226, 226, 1);
+}

@@ -3,6 +3,7 @@ import { subscribeToTopic, unsubscribeFromTopic } from "@apis/alarm";
 import { getToken } from "firebase/messaging";
 import { messaging } from "../config/firebase";
 import { Toast } from "@components/performance/Toast";
+import { registerServiceWorker } from "@utils/notification";
 
 type AlarmContextType = {
   alarms: boolean[];
@@ -19,7 +20,9 @@ export const AlarmProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const savedData = localStorage.getItem("falling");
-  const initialAlarms = savedData ? JSON.parse(savedData).alarms || Array(10).fill(false) : Array(10).fill(false);
+  const initialAlarms = savedData
+    ? JSON.parse(savedData).alarms || Array(10).fill(false)
+    : Array(10).fill(false);
 
   const [state, setState] = useState<{
     alarms: boolean[];
@@ -109,6 +112,7 @@ export const AlarmProvider: React.FC<{ children: ReactNode }> = ({
         if (response.successCount === 1) {
           toggleAlarm(index);
           setToast(true);
+          registerServiceWorker();
         }
       } catch (e) {
         console.error(e);
@@ -129,7 +133,8 @@ export const AlarmProvider: React.FC<{ children: ReactNode }> = ({
         handleToggleAlarm,
       }}
     >
-      {children} {toast && <Toast message="공연 알림 설정 완료!" setToast={setToast} />}
+      {children}{" "}
+      {toast && <Toast message="공연 알림 설정 완료!" setToast={setToast} />}
     </AlarmContext.Provider>
   );
 };
