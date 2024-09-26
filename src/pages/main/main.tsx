@@ -15,7 +15,7 @@ import LikelionLogo from "@assets/main/Likelion-logo.svg";
 export const MainPage = () => {
   const navigate = useNavigate();
   const MoveNotice = () => {
-    navigate(`/notice`);
+    navigate(`/notice-list`);
   };
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderSettings = useSlider();
@@ -23,6 +23,7 @@ export const MainPage = () => {
   const rights1: string =
     "한양대학교 ERICA 멋쟁이사자처럼\n@LIKELION ERICA. All Rights Reserved.";
   const rights2: string = "@Design based by 총동아리연합회_UP";
+
   const events = [
     // TODO: 수정하기
     {
