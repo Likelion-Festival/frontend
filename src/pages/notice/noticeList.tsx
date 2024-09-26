@@ -3,7 +3,6 @@ import goBackImg from "@assets/notice/goBackButton.svg";
 import styles from "@styles/notice/noticeList.module.css";
 import { NoticeType } from "@type/notice/NoticeType";
 import NoticeListUnit from "@components/notice/NoticeListUnit";
-import { useNoticeTypeText } from "@hooks/useNoticeTypeText";
 import thumbnail_eg from "@assets/notice/thumbnails/thumbnail_eg.svg";
 
 export const NoticeListPage = () => {
@@ -15,31 +14,37 @@ export const NoticeListPage = () => {
       noticeType: NoticeType.Booth,
       title: "FACE STICKER BOOTH  -타투스티커...",
       thumbNailImgURL: thumbnail_eg,
+      id: "1",
     },
     {
       noticeType: NoticeType.Notice,
       title: "FACE STICKER BOOTH  -타투스티커...",
       thumbNailImgURL: thumbnail_eg,
+      id: "1",
     },
     {
       noticeType: NoticeType.Festival,
       title: "FACE STICKER BOOTH  -타투스티커...",
       thumbNailImgURL: thumbnail_eg,
+      id: "1",
     },
     {
-      noticeType: NoticeType.Booth,
+      noticeType: NoticeType.PerformanceGuide,
       title: "FACE STICKER BOOTH  -타투스티커...",
       thumbNailImgURL: thumbnail_eg,
+      id: "1",
     },
     {
       noticeType: NoticeType.Notice,
       title: "FACE STICKER BOOTH  -타투스티커...",
       thumbNailImgURL: thumbnail_eg,
+      id: "1",
     },
     {
       noticeType: NoticeType.Festival,
       title: "FACE STICKER BOOTH  -타투스티커...",
       thumbNailImgURL: thumbnail_eg,
+      id: "1",
     },
   ];
 
@@ -56,9 +61,10 @@ export const NoticeListPage = () => {
         {noticeUnits.map((noticeUnit, index) => (
           <NoticeListUnit
             key={index}
-            noticeType={useNoticeTypeText(noticeUnit.noticeType)}
+            noticeType={noticeUnit.noticeType}
             title={noticeUnit.title}
             thumbNailImgURL={noticeUnit.thumbNailImgURL}
+            id={noticeUnit.id}
           />
         ))}
       </div>
