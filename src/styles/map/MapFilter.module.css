@@ -1,5 +1,25 @@
 .wrapper {
-  height: 153px;
+  height: 69px;
+  display: flex;
+  align-items: center;
+  padding-left: 26px;
+
+  img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 21px;
+    color: white;
+  }
+}
+
+.filter_wrapper {
   padding-top: 7px;
 
   .day {
@@ -65,6 +85,7 @@
     background-color: #131313;
     z-index: 1;
     padding-left: 27px;
+    margin-bottom: 20px;
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;

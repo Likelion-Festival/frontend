@@ -189,25 +189,25 @@ export const daysPerformance : dayPerformance[] = [
     performances: [
       {
         artistName: "LEEYUKA",
-        time: new Date("2024-10-01T17:00:00"),
+        time: new Date("2024-09-24T17:00:00"),
         playTime: 90,
         index: "0",
       },
       {
         artistName: "LUCY",
-        time: new Date("2024-10-01T18:30:00"),
+        time: new Date("2024-09-24T18:30:00"),
         playTime: 90,
         index: "1",
       },
       {
         artistName: "LE SSERAFIM",
-        time: new Date("2024-10-01T20:00:00"),
+        time: new Date("2024-09-24T20:00:00"),
         playTime: 90,
         index: "2",
       },
       {
         artistName: "김수영",
-        time: new Date("2024-10-01T21:30:00"),
+        time: new Date("2024-09-24T21:30:00"),
         playTime: 60,
         index: "3",
       },

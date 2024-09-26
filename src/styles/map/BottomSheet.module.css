@@ -3,13 +3,15 @@
   flex-direction: column;
   position: fixed;
   z-index: 1;
-  top: calc(100% - 270px); /*뷰포트 하단 기준 몇 px */
+  top: calc(100% - 250px); /*뷰포트 하단 기준 몇 px */
   left: 0;
   right: 0;
 
   width: 100%;
   min-width: 375px;
   max-width: 430px;
+  max-height: calc(100vh - 50px);
+
   margin: 0 auto;
 
   border-top-left-radius: 20px;

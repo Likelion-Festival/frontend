@@ -1,0 +1,213 @@
+.wraper {
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+.topMargin {
+  height: 20px;
+  width: auto;
+}
+.headerWithBack {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1.5px none;
+  padding-bottom: 25px;
+}
+.goBack {
+  margin-left: 24px;
+  border: none;
+  background: transparent;
+  width: 24px;
+  height: 24px;
+}
+.goBack img {
+  width: 24px;
+  height: 24px;
+}
+
+/* 슬라이더 */
+.slideContainer {
+  margin-top: 24px;
+  justify-content: center;
+  align-items: center;
+}
+.imageBox {
+  display: flex;
+  width: 100%;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.imageBox img {
+  border: none;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
+/* 텍스트 바디 */
+.textBody {
+  margin-top: 20px;
+  margin-left: 26px;
+  margin-right: 26px;
+  width: auto;
+}
+.pageTypeText {
+  font-family: Noto Sans;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20.99px;
+  text-align: left;
+}
+.mainTitle {
+  margin-top: 15px;
+  font-family: Noto Sans;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: left;
+}
+
+/* mainText */
+.mainText {
+  margin-top: 27px;
+  font-family: Noto Sans KR;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  color: #aeaeae;
+  white-space: break-spaces;
+}
+
+/* infoBox1 */
+.boxWrapper {
+  margin-top: 19px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 74px;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #272727;
+  border-radius: 5px;
+}
+.locationBox {
+  margin-left: 16px;
+}
+.timeBox {
+  margin-right: 16px;
+}
+.locationBox,
+.dateBox,
+.timeBox {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 7px;
+  justify-content: center;
+  width: auto;
+}
+.infoIndex {
+  font-family: Noto Sans KR;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 12px;
+  text-align: left;
+  color: #c8c8c8;
+}
+.infoContents {
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: left;
+  color: #ffffff;
+}
+.boxDiv {
+  height: 35.5px;
+  width: 0;
+  border-right: 1.5px solid #454545;
+  /* margin: 0 18px; */
+}
+/* infoBox2 */
+.boxWrapper2 {
+  margin-top: 19px;
+  display: flex;
+  flex-direction: row;
+  min-width: 325px;
+  width: auto;
+  height: 119px;
+  background-color: transparent;
+}
+.leftBox,
+.rightBox {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #272727;
+
+  align-items: center;
+  padding-top: 24px;
+}
+.leftBox {
+  width: 104px;
+  height: 100%;
+  background-color: #202020;
+  border-top-left-radius: 4.5px;
+  border-bottom-left-radius: 4.5px;
+  justify-content: start;
+}
+.rightBox {
+  flex: 1;
+  border-top-right-radius: 4.5px;
+  border-bottom-right-radius: 4.5px;
+}
+.index1,
+.index2 {
+  font-family: Noto Sans KR;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.phrase1,
+.phrase2 {
+  font-family: Noto Sans KR;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: left;
+  color: #7a7a7a;
+  width: 100%;
+  display: block;
+  padding-left: 18px;
+  padding-right: 18px;
+  white-space: pre-wrap;
+}
+.phrase2Box {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.horizDiv1 {
+  height: 0;
+  margin: 20px 15px;
+  width: calc(100% - 30px);
+  border-top: 1.5px solid #454545;
+  box-sizing: border-box;
+}
+.horizDiv2 {
+  height: 0;
+  width: calc(100% - 30px);
+  margin-top: 20px;
+  border-top: 1.5px solid #454545;
+  box-sizing: border-box;
+}
