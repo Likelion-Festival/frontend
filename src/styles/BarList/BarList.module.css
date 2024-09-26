@@ -15,6 +15,33 @@
     border-bottom-left-radius: 25px;
   }
 
+
+  .inputContainer{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .inputGlass{
+    position: absolute;
+    width: 20px;
+    height: auto;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+
+  .goBack{
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+  }
+
   .title{
     margin-top: 10px;
     margin-bottom: 5%;
@@ -35,6 +62,21 @@
 
   .input.active{
     color: white;
+  }
+
+  .searchResult{
+    place-items: center;
+    margin-top: 40px;
+    width: 200px;
+    height: auto;
+  }
+
+  .noResult-image{
+    place-items: center;
+    margin-top: 20px;
+    width: 180px;
+    height: auto;
+
   }
 
   .store-list {
@@ -120,7 +162,7 @@
 
   .noResult{
     display: flex;
-    padding: 40px;
+    padding: 30px;
     align-items: center;
     flex-direction: column;
     justify-content: center;
@@ -129,7 +171,7 @@
 
   .noResult-image{
     place-items: center;
-    margin-top: 50px;
+    margin-top: 20px;
     width: 180px;
     height: auto;
   }
