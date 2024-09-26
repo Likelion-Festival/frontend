@@ -19,17 +19,33 @@ import { BoothPage } from "@pages/notice/BoothPage";
 import { NoticePage } from "@pages/notice/NoticePage";
 import { FestivalPage } from "@pages/notice/FestivalPage";
 import { PerformanceGuidePage } from "@pages/notice/PerformancePage";
+import useDisableBackSwipe from "@hooks/useDisableBackSwipe";
 
 function App() {
   const [isSplashVisible, setIsSplashVisible] = useState(true);
   const { isNavVisible } = useMapContext();
-
+  useDisableBackSwipe();
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsSplashVisible(false);
     }, 2000);
 
     return () => clearTimeout(timer);
+  }, []);
+  useEffect(() => {
+    const preventPinchZoom = (event: TouchEvent) => {
+      if (event.touches.length > 1) {
+        event.preventDefault();
+      }
+    };
+
+    document.addEventListener("touchmove", preventPinchZoom, {
+      passive: false,
+    });
+
+    return () => {
+      document.removeEventListener("touchmove", preventPinchZoom);
+    };
   }, []);
 
   return (
