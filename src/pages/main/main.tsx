@@ -15,7 +15,7 @@ import LikelionLogo from "@assets/main/Likelion-logo.svg";
 export const MainPage = () => {
   const navigate = useNavigate();
   const MoveNotice = () => {
-    navigate(`/notice`);
+    navigate(`/notice-list`);
   };
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderSettings = useSlider();
