@@ -3,7 +3,6 @@ import { subscribeToTopic, unsubscribeFromTopic } from "@apis/alarm";
 import { getToken } from "firebase/messaging";
 import { messaging } from "../config/firebase";
 import { Toast } from "@components/performance/Toast";
-import { registerServiceWorker } from "@utils/notification";
 
 type AlarmContextType = {
   alarms: boolean[];
@@ -112,7 +111,6 @@ export const AlarmProvider: React.FC<{ children: ReactNode }> = ({
         if (response.successCount === 1) {
           toggleAlarm(index);
           setToast(true);
-          registerServiceWorker();
         }
       } catch (e) {
         console.error(e);
