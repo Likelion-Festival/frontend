@@ -19,12 +19,10 @@ import { BoothPage } from "@pages/notice/BoothPage";
 import { NoticePage } from "@pages/notice/NoticePage";
 import { FestivalPage } from "@pages/notice/FestivalPage";
 import { PerformanceGuidePage } from "@pages/notice/PerformancePage";
-import useDisableBackSwipe from "@hooks/useDisableBackSwipe";
 
 function App() {
   const [isSplashVisible, setIsSplashVisible] = useState(true);
   const { isNavVisible } = useMapContext();
-  useDisableBackSwipe();
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsSplashVisible(false);
