@@ -33,6 +33,7 @@ export const Map = () => {
     setIsCategoryClicked,
     setCurrCategory,
     isBottomSheetVisible,
+    setIsBottomSheetVisible,
     setIsNavVisible,
   } = useMapContext();
 
@@ -52,6 +53,7 @@ export const Map = () => {
     setMap(kakaoMap);
 
     setIsCategoryClicked(false);
+    setIsBottomSheetVisible(false);
     setCurrCategory("");
   }, []);
 
