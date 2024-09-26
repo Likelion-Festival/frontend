@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useSlider from "@hooks/useSlider1";
 import useSlider2 from "@hooks/useSlider2";
@@ -11,15 +11,20 @@ import ProgramSlideUnit from "@components/program/programSlideUnit";
 import FallingLogo from "@assets/main/top-logo.svg";
 import UpLogo from "@assets/main/UP-logo.svg";
 import LikelionLogo from "@assets/main/Likelion-logo.svg";
+import { useMapContext } from "@context/MapContext";
+import useInstagramOpen from "@hooks/useLinkToInsta";
 
 export const MainPage = () => {
   const navigate = useNavigate();
+  const { setIsNavVisible } = useMapContext();
   const MoveNotice = () => {
     navigate(`/notice-list`);
   };
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderSettings = useSlider();
   const sliderSettings2 = useSlider2();
+  const openInstagramOfUp = useInstagramOpen("hanyang_erica_club_association");
+  const openInstagramOfLikelion = useInstagramOpen("likelion_erica");
   const rights1: string =
     "한양대학교 ERICA 멋쟁이사자처럼\n@LIKELION ERICA. All Rights Reserved.";
   const rights2: string = "@Design based by 총동아리연합회_UP";
@@ -61,6 +66,9 @@ export const MainPage = () => {
     },
   ];
 
+  useEffect(() => {
+    setIsNavVisible(true);
+  }, []);
   return (
     <div className={styles.wrapper}>
       <div className={styles.topMargin} />
@@ -139,7 +147,7 @@ export const MainPage = () => {
       <div className={styles.contactContainer}>
         <div className={styles.contactEntireTitle}>문의사항</div>
         <div className={styles.contactBoxContainer}>
-          <div className={styles.contactBox}>
+          <div className={styles.contactBox} onClick={openInstagramOfUp}>
             <div className={styles.contactPhraseBox}>
               <div className={styles.contactPhrase1}>
                 이번 축제가 더 궁금하다면?
@@ -152,7 +160,7 @@ export const MainPage = () => {
               <img src={UpLogo} />
             </div>
           </div>
-          <div className={styles.contactBox}>
+          <div className={styles.contactBox} onClick={openInstagramOfLikelion}>
             <div className={styles.contactPhraseBox}>
               <div className={styles.contactPhrase1}>축제 앱 어떠셨나요?</div>
               <div className={styles.contactPhrase2}>
