@@ -41,12 +41,9 @@ export default defineConfig({
           },
           {
             urlPattern: ({ request }) => request.destination === "image",
-            handler: "CacheFirst",
+            handler: "StaleWhileRevalidate",
             options: {
               cacheName: "image-cache",
-              expiration: {
-                maxAgeSeconds: 24 * 60 * 60, // 1 day
-              },
             },
           },
         ],
