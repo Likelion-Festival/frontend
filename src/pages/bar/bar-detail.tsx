@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import styles from '@styles/BarList/BarDetail.module.css'; 
 import { stores, Store, MenuItem } from './bar-types.ts';
 import {BarPage} from './bar.tsx';
+import goBack from '@assets/bar/goBack.png';
+import MoveToMap from '@assets/bar/지도이동버튼.png';
 
 
 
@@ -29,14 +31,20 @@ export const BarDetail = () => {
     return (
         <div className={styles.container}>
             <div className={styles['barDetail-image']}>
-                <img src={store.imageUrl} alt={`${store.name}`} className={styles.barMainImage} />
-                <img src={'/bar/goBack.png'} alt={`뒤로 가기`} className={styles.goBack} onClick={handleGoBack} />
-                
+                <div className={styles.barMain}>
+                    <div className={styles.imageContainer}>
+                        <img src={store.imageUrl} alt={`${store.name}`} className={styles.barMainImage} />
+                        <div className={styles.overlay} />
+                    </div>
+
+                    <img src={goBack} alt={`뒤로 가기`} className={styles.goBack} onClick={handleGoBack} />
+                </div>
+
                 <div className={styles.barDetail}>
                     <div className={styles['barDetail-title']}>
                         <div className={styles['barDetail-storeName']}>{store.name}</div>
                         <div className={styles['barDetail-storeRepre']}>{store.representative}</div>
-                        <img src={'/bar/지도이동버튼.png'} alt={'지도이동버튼'} className={styles.MoveToMap} onClick={MoveMap}/>
+                        <img src={MoveToMap} alt={'지도이동버튼'} className={styles.MoveToMap} onClick={MoveMap}/>
 
                     </div>
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   barMarkerPositions,
   eventMarkerPositions,
@@ -7,8 +7,6 @@ import {
   smokingMarkerPositions,
 } from "@constant/map";
 import styles from "@styles/map/Map.module.css";
-import spriteImage from "@assets/map/spirte-image-removebg.png";
-import { createMarkerImage } from "@utils/mapUtils";
 import { MapFilter } from "./MapFilter";
 import { MarkersType } from "@type/map";
 import { DaySelectorModal } from "./DaySelectorModal";
@@ -24,43 +22,74 @@ export const Map = () => {
     medicalMarkers: [],
     smokingMarkers: [],
   });
+  // const [selectedMarker, setSelectedMarker] =
+  //   useState<kakao.maps.Marker | null>(null);
+  const selectedMarkerRef = useRef<kakao.maps.Marker | null>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [day, setDay] = useState<string>("1일차");
-
-  const { setCurrMarker, currCategory, setIsCategoryClicked, setIsNavVisible } =
-    useMapContext();
+  const {
+    day,
+    setCurrMarker,
+    isCategoryClicked,
+    setIsCategoryClicked,
+    setCurrCategory,
+    isBottomSheetVisible,
+    setIsBottomSheetVisible,
+    setIsNavVisible,
+  } = useMapContext();
 
   // 초기 세팅
   useEffect(() => {
     const container = document.getElementById("map");
     const options = {
-      center: new window.kakao.maps.LatLng(37.297311, 126.835358), // 지도 중심좌표
+      center: new window.kakao.maps.LatLng(
+        37.29644017218779,
+        126.83516599926162
+      ), // 지도 중심좌표
       level: 3,
     };
 
     // 지도 생성 및 객체 리턴
     const kakaoMap = new window.kakao.maps.Map(container, options);
     setMap(kakaoMap);
+
+    setIsCategoryClicked(false);
+    setIsBottomSheetVisible(false);
+    setCurrCategory("");
   }, []);
 
-  const markerImageSrc = spriteImage;
+  const handleMarkerImage = (
+    marker: kakao.maps.Marker,
+    markerImageSrc: string
+  ) => {
+    const markerImage = new kakao.maps.MarkerImage(
+      markerImageSrc,
+      new kakao.maps.Size(50, 60)
+    );
+    const newMarkerImage = new kakao.maps.MarkerImage(
+      markerImageSrc,
+      new kakao.maps.Size(60, 72)
+    );
+
+    // (지금 선택된 마커와 다른)기존에 선택된 마커가 있다면
+    if (selectedMarkerRef.current) {
+      selectedMarkerRef.current.setImage(markerImage); // 원래 크기로 되돌리기
+    }
+
+    marker.setImage(newMarkerImage); // 현재 선택된 마커 크기 키우기
+    selectedMarkerRef.current = marker;
+  };
 
   // 각 카테고리별 마커 생성 및 배열에 추가
   const createMarkersOnMap = (
     category: string,
     markerPosition: kakao.maps.LatLng[],
-    spriteImagePosition: number
+    imagePath: string
   ) => {
     const newEventMarkers = markerPosition.map((position) => {
-      const imageSize = new kakao.maps.Size(50, 57);
-      const imageOptions = {
-        spriteOrigin: new kakao.maps.Point(9, spriteImagePosition),
-        spriteSize: new kakao.maps.Size(69, 329),
-      };
-      const markerImage = createMarkerImage(
+      const markerImageSrc = imagePath;
+      const markerImage = new kakao.maps.MarkerImage(
         markerImageSrc,
-        imageSize,
-        imageOptions
+        new kakao.maps.Size(50, 60)
       );
 
       // 마커 생성
@@ -78,6 +107,8 @@ export const Map = () => {
         setCurrMarker(newLatLng);
         setIsCategoryClicked(false);
         setIsNavVisible(true);
+
+        handleMarkerImage(marker, markerImageSrc);
       });
 
       return marker;
@@ -113,24 +144,72 @@ export const Map = () => {
 
   // 카테고리별 마커 생성
   useEffect(() => {
-    createMarkersOnMap("event", eventMarkerPositions, 68);
-    createMarkersOnMap("bar", barMarkerPositions, 0);
-    createMarkersOnMap("foodCourt", foodCourtMarkerPositions, 136);
-    createMarkersOnMap("medical", medicalMarkerPositions, 204);
-    createMarkersOnMap("smoking", smokingMarkerPositions, 272);
+    createMarkersOnMap(
+      "event",
+      eventMarkerPositions,
+      "/marker-img/event-marker.svg"
+    );
+    createMarkersOnMap("bar", barMarkerPositions, "/marker-img/bar-marker.svg");
+    createMarkersOnMap(
+      "foodCourt",
+      foodCourtMarkerPositions,
+      "/marker-img/food-marker.svg"
+    );
+    createMarkersOnMap(
+      "medical",
+      medicalMarkerPositions,
+      "/marker-img/medical-marker.svg"
+    );
+    createMarkersOnMap(
+      "smoking",
+      smokingMarkerPositions,
+      "/marker-img/smoking-marker.svg"
+    );
   }, [map]);
+
+  useEffect(() => {
+    // 카테고리 클릭 시 모든 마커 초기화
+    if (isCategoryClicked) {
+      // 선택된 마커가 있다면 기존 카테고리의 마커들을 초기화
+      if (selectedMarkerRef.current) {
+        const resetMarkerImage = (
+          markersArray: kakao.maps.Marker[],
+          imagePath: string
+        ) => {
+          const markerImage = new kakao.maps.MarkerImage(
+            imagePath,
+            new kakao.maps.Size(50, 60)
+          );
+          markersArray.forEach((marker) => {
+            marker.setImage(markerImage); // 모든 마커의 이미지를 초기화
+          });
+        };
+
+        // 각각의 마커 배열 초기화
+        resetMarkerImage(markers.eventMarkers, "/marker-img/event-marker.svg");
+        resetMarkerImage(markers.barMarkers, "/marker-img/bar-marker.svg");
+        resetMarkerImage(
+          markers.foodCourtMarkers,
+          "/marker-img/food-marker.svg"
+        );
+        resetMarkerImage(
+          markers.medicalMarkers,
+          "/marker-img/medical-marker.svg"
+        );
+        resetMarkerImage(
+          markers.smokingMarkers,
+          "/marker-img/smoking-marker.svg"
+        );
+      }
+    }
+  }, [isCategoryClicked]);
 
   return (
     <div className={styles.wrapper}>
       <MapFilter map={map} markers={markers} day={day} setIsOpen={setIsOpen} />
-      {isOpen && (
-        <DaySelectorModal setDay={setDay} onClose={() => setIsOpen(false)} />
-      )}
+      {isOpen && <DaySelectorModal setIsOpen={setIsOpen} />}
       <div id="map" className={styles.map_wrapper}></div>
-      {(currCategory === "event" ||
-        currCategory === "bar" ||
-        currCategory === "food" ||
-        currCategory === "medical") && <Bottomsheet />}
+      {isBottomSheetVisible && <Bottomsheet />}
     </div>
   );
 };

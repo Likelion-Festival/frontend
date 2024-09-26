@@ -1,15 +1,5 @@
 import { eventPositions } from "@constant/map";
 
-// 마커 이미지 생성
-export const createMarkerImage = (
-  src: string,
-  size: kakao.maps.Size,
-  options: kakao.maps.MarkerImageOptions
-) => {
-  const markerImage = new kakao.maps.MarkerImage(src, size, options);
-  return markerImage;
-};
-
 // 지도에 마커 표시 여부 결정
 export const setMarkersOnMap = (
   markers: kakao.maps.Marker[],
@@ -90,19 +80,24 @@ export const drawEventArea = (map: kakao.maps.Map | null) => {
 
 // 대운동장 영역 표시
 export const drawPlaygroundArea = (map: kakao.maps.Map | null) => {
-  const ellipse = new kakao.maps.Ellipse({
-    map: map,
-    center: new kakao.maps.LatLng(37.294795066690206, 126.83304929497407),
-    rx: 50,
-    ry: 100,
-    strokeWeight: 2,
-    strokeColor: "#FF00FF",
-    strokeOpacity: 0.8,
-    strokeStyle: "dashed",
-    fillColor: "#00EEEE",
-    fillOpacity: 0.5,
+  const polygonPath = [
+    new kakao.maps.LatLng(37.29527551544004, 126.83191477109656), //좌상단
+    new kakao.maps.LatLng(37.2957955676468346, 126.83329802624638), //우상단
+    new kakao.maps.LatLng(37.29420894083035, 126.83433065129614), //우하단
+    new kakao.maps.LatLng(37.293652851294574, 126.83294185871812), //좌하단
+  ];
+
+  const polygon = new kakao.maps.Polygon({
+    path: polygonPath, // 다각형 좌표 배열
+    strokeWeight: 1,
+    strokeColor: "#FF85EE",
+    strokeOpacity: 1,
+    strokeStyle: "solid",
+    fillColor: "#FF85EE",
+    fillOpacity: 0.4,
   });
 
-  ellipse.setMap(map);
-  return ellipse;
+  // 지도에 다각형을 표시
+  polygon.setMap(map);
+  return polygon;
 };

@@ -103,7 +103,7 @@ export const CategoryDetailFilter = () => {
               })}
               onClick={() => setDetailCategory(11)}
             >
-              기타 이벤트
+              기타
             </li>
           </>
         );
