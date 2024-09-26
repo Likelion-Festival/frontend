@@ -1,8 +1,9 @@
 .category {
   display: flex;
+  justify-content: center;
   width: 100%;
   background-color: #131313;
-  padding-left: 27px;
+  /* padding-left: 27px; */
   margin-bottom: 24px;
   overflow-x: auto;
   overflow-y: hidden;
