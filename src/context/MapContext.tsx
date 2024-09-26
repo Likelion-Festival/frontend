@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useState } from "react";
 
 interface MapContextType {
+  day: string;
+  setDay: React.Dispatch<React.SetStateAction<string>>;
   currMarker: kakao.maps.LatLng | null;
   setCurrMarker: React.Dispatch<React.SetStateAction<kakao.maps.LatLng | null>>;
   currCategory: string;
@@ -9,6 +11,8 @@ interface MapContextType {
   setIsCategoryClicked: React.Dispatch<React.SetStateAction<boolean>>;
   isNavVisible: boolean;
   setIsNavVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  isBottomSheetVisible: boolean;
+  setIsBottomSheetVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const MapContext = createContext<MapContextType | undefined>(undefined);
@@ -18,10 +22,15 @@ export const MapProvider = ({ children }: { children: React.ReactNode }) => {
   const [currCategory, setCurrCategory] = useState<string>("");
   const [isCategoryClicked, setIsCategoryClicked] = useState<boolean>(false);
   const [isNavVisible, setIsNavVisible] = useState<boolean>(true);
+  const [isBottomSheetVisible, setIsBottomSheetVisible] =
+    useState<boolean>(false);
+  const [day, setDay] = useState<string>("전체");
 
   return (
     <MapContext.Provider
       value={{
+        day,
+        setDay,
         currMarker,
         setCurrMarker,
         currCategory,
@@ -30,6 +39,8 @@ export const MapProvider = ({ children }: { children: React.ReactNode }) => {
         setIsCategoryClicked,
         isNavVisible,
         setIsNavVisible,
+        isBottomSheetVisible,
+        setIsBottomSheetVisible,
       }}
     >
       {children}

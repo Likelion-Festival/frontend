@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useSlider from "@hooks/useSlider1";
 import useSlider2 from "@hooks/useSlider2";
@@ -11,10 +11,12 @@ import ProgramSlideUnit from "@components/program/programSlideUnit";
 import FallingLogo from "@assets/main/top-logo.svg";
 import UpLogo from "@assets/main/UP-logo.svg";
 import LikelionLogo from "@assets/main/Likelion-logo.svg";
+import { useMapContext } from "@context/MapContext";
 import useInstagramOpen from "@hooks/useLinkToInsta";
 
 export const MainPage = () => {
   const navigate = useNavigate();
+  const { setIsNavVisible } = useMapContext();
   const MoveNotice = () => {
     navigate(`/notice-list`);
   };
@@ -64,6 +66,9 @@ export const MainPage = () => {
     },
   ];
 
+  useEffect(() => {
+    setIsNavVisible(true);
+  }, []);
   return (
     <div className={styles.wrapper}>
       <div className={styles.topMargin} />
