@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import styles from '@styles/BarList/BarDetail.module.css'; 
-import { stores, Store, MenuItem } from './bar-types.ts';
+import { stores, Store, MenuItem} from './bar-types.ts';
 import {BarPage} from './bar.tsx';
 import goBack from '@assets/bar/goBack.png';
 import MoveToMap from '@assets/bar/지도이동버튼.png';
@@ -50,16 +50,49 @@ export const BarDetail = () => {
 
                     <div className={styles.detailLine}></div>
 
-                    <div className={styles['barDetail-menu']}>
-                        <h3>메뉴</h3>
+                    <div>
+                        <div className={styles['barDetail-menu']}>
+                        <div className={styles.main}>{store.category[0]?.Main}</div>
                         <ul>
-                            {store.menu.map((item: MenuItem, index: number) => (
+                            {store.mainMenu.map((item: MenuItem, index: number) => (
                                 <li key={index}>
                                     <div className={styles.menuName}>{item.name}</div>
                                     <div className={styles.menuPrice}>{item.price}원</div>
                                 </li>
                             ))}
                         </ul>
+                        </div>
+
+                        <div className={styles.detailLine}></div>
+
+                        <div className={styles['barDetail-menu']}>
+                        <div className={styles.main}>{store.category[0]?.Second}</div>
+                        <ul>
+                            {store.secondMenu.map((item: MenuItem, index: number) => (
+                                <li key={index}>
+                                    <div className={styles.menuName}>{item.name}</div>
+                                    <div className={styles.menuPrice}>{item.price}원</div>
+                                </li>
+                            ))}
+                        </ul>
+                        </div>
+
+
+                        <div className={styles.detailLine}></div>
+                        <div className={styles['barDetail-menu']}>
+                        <div className={styles.main}>{store.category[0]?.Third}</div>
+                        <ul>
+                            {store.thirdMenu.map((item: MenuItem, index: number) => (
+                                <li key={index}>
+                                    <div className={styles.menuName}>{item.name}</div>
+                                    <div className={styles.menuPrice}>{item.price}원</div>
+                                </li>
+                            ))}
+                        </ul>
+                        </div>
+
+
+
                     </div>
 
                 </div>
