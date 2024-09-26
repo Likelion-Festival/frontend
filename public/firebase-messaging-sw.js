@@ -28,3 +28,9 @@ self.addEventListener("push", function (e) {
       showNotification(notificationTitle, notificationOptions) // 함수 호출로 통합
   );
 });
+
+self.addEventListener("notificationclick", function (event) {
+  const url = "/performance";
+  event.notification.close();
+  event.waitUntil(clients.openWindow(url));
+});
