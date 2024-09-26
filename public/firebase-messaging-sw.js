@@ -16,14 +16,18 @@ const firebaseConfig = {
 };
 
 const app = firebase.initializeApp(firebaseConfig);
-const messaging = firebase.messaging(app);
 
-messaging.onBackgroundMessage(function (payload) {
-  const notificationTitle = payload.notification.title;
+self.addEventListener("push", function (e) {
+  if (!e.data.json()) return;
+
+  const resultData = e.data.json().notification;
+  const notificationTitle = resultData.title;
   const notificationOptions = {
-    body: payload.notification.body,
-    icon: payload.notification.icon,
+    body: resultData.body,
+    icon: resultData.image, // 웹 푸시 이미지는 icon
+    tag: resultData.tag,
   };
+
   self.registration.showNotification(notificationTitle, notificationOptions);
 });
 
