@@ -2,7 +2,7 @@ import styles from "@styles/performance/Guide.module.css";
 import arrowBack from "@assets/performance/arrow-back.svg";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { GuideContent } from "@components/performance/GuideContent";
+import { GuideEntrance, GuideLayout, GuideTime } from "@components/performance/GuideContent";
 
 export const GuidePage = () => {
   const [index, setIndex] = useState<number>(0);
@@ -18,7 +18,9 @@ export const GuidePage = () => {
         <li className={index === 1 ? styles.selected : ""} onClick={() => setIndex(1)}>입장안내</li>
         <li className={index === 2 ? styles.selected : ""} onClick={() => setIndex(2)}>배치도</li>
       </ul>
-      <GuideContent index={index}/>
+      {index === 0 && <GuideTime/>}
+      {index === 1 && <GuideEntrance/>}
+      {index === 2 && <GuideLayout/>}
     </div>
   );
 };

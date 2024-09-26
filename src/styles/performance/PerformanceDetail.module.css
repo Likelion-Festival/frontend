@@ -51,7 +51,6 @@
 }
 .name {
   color: #ffffff;
-  font-family: Noto Sans;
   font-size: 20px;
   font-weight: 700;
   line-height: 21px;
@@ -70,7 +69,6 @@
   box-shadow: 0px 0px 5px 0px #ff85ee8c;
 
   & > span {
-    color: #ff85ee;
     font-size: 16px;
     font-weight: 700;
     line-height: 21px;
@@ -138,7 +136,7 @@
   text-align: left;
 }
 .artistIntroText {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 18px;
   text-align: left;
@@ -149,7 +147,6 @@
   width: 48px;
   height: 48px;
   border-radius: 5px;
-  border: 1px solid #ffffff;
 }
 .songIcon {
   width: 24px;

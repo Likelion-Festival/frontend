@@ -54,6 +54,7 @@
 .playground {
   width: 325px;
   margin-top: 16px;
+  margin-bottom: 8px;
 
   font-size: 16px;
   font-weight: 700;
@@ -104,6 +105,14 @@
   line-height: 16px;
   text-align: left;
   color: #ffffff;
+  z-index: 4;
+}
+
+.onplay {
+  position: absolute;
+  background-color : rgba(255, 133, 238, 0.15);
+  width: 262px;
+  left: 63px;
 }
 
 .tablePlaytime {
@@ -113,15 +122,15 @@
   line-height: 12px;
   text-align: left;
   color: rgba(255, 255, 255, 0.6);
+  z-index: 4;
 }
 
 .circleLine {
     display: flex;
     align-items: center;
     position: absolute;
-    display: none;
-    top: 50px;
-    left: 45px;
+    z-index: 3;
+    left: -20px;
 }
 .circleLineCircle {
     width: 5px;
