@@ -38,7 +38,7 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
   } = useMapContext();
 
   const [playGroundArea, setPlayGroundArea] =
-    useState<kakao.maps.Ellipse | null>(null);
+    useState<kakao.maps.Polygon | null>(null);
 
   // 카테고리 선택 시 이벤트
   const changeMarker = (event: React.MouseEvent<HTMLElement>) => {
@@ -85,7 +85,7 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
         setIsNavVisible(false);
         setIsBottomSheetVisible(true);
         map?.panTo(
-          new kakao.maps.LatLng(37.29649099387646, 126.83445816802536)
+          new kakao.maps.LatLng(37.29611717143787, 126.83453511611461)
         ); // 해당 위치로 화면 트래킹
         setCurrCategory("event"); // 선택 카테고리 표시
         setMarkersOnMap(markers.eventMarkers, map); // 지도에 마커 표시
