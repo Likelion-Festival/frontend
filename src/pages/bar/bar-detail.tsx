@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import styles from '@styles/BarList/BarDetail.module.css'; 
 import { stores, Store, MenuItem } from './bar-types.ts';
 import {BarPage} from './bar.tsx';
+import goBack from '@assets/bar/goBack.png';
 
 
 
@@ -30,7 +31,7 @@ export const BarDetail = () => {
         <div className={styles.container}>
             <div className={styles['barDetail-image']}>
                 <img src={store.imageUrl} alt={`${store.name}`} className={styles.barMainImage} />
-                <img src={'/bar/goBack.png'} alt={`뒤로 가기`} className={styles.goBack} onClick={handleGoBack} />
+                <img src={goBack} alt={`뒤로 가기`} className={styles.goBack} onClick={handleGoBack} />
                 
                 <div className={styles.barDetail}>
                     <div className={styles['barDetail-title']}>
