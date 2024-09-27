@@ -15,6 +15,7 @@ import { AlarmProvider } from "./context/AlarmContext";
 import { SplashScreen } from "@pages/splash/SplashScreen";
 import { NoticeListPage } from "@pages/notice/noticeList";
 import { useMapContext } from "@context/MapContext";
+import {DevelopersPage} from "@pages/developer/developers";
 import { DetailPage } from "@pages/notice/DetailPage";
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
               <Route path="/" element={<MainPage />} />
               {/* notice page */}
               <Route path="/notice-list" element={<NoticeListPage />} />
+              <Route path="/developers" element={<DevelopersPage />} />
               <Route path="/detail/:id" element={<DetailPage />} />
               {/* map page */}
               <Route path="/map" element={<MapPage />} />
@@ -72,7 +74,6 @@ function App() {
               {/* bar page */}
               <Route path="/bar" element={<BarPage />} />
               <Route path="/bar-detail/:storeName" element={<BarDetail />} />
-              <Route path="/bar-detail/:barName" element={<BarDetail />} />
               {/* error page */}
               <Route path="*" element={<ErrorPage />} />
             </Routes>
