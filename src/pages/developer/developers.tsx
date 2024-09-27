@@ -1,4 +1,5 @@
 import styles from "@styles/developer/Developers.module.css";
+import { useNavigate } from 'react-router-dom';
 import goBack from "@assets/bar/goBack.png";
 import appImage from "@assets/developer/appImage.png";
 import LikelionUP from "@assets/developer/LikelionUP.png";
@@ -17,14 +18,18 @@ import useInstagramOpen from "@hooks/useLinkToInsta";
 import Instagram from "@assets/developer/instagram.png";
 
 export const DevelopersPage = () => {
-
+    const navigate = useNavigate();
     const openInstagramOfLikelion = useInstagramOpen("likelion_erica");
+    const handleBackClick = () => {
+        navigate(-1); 
+      };
+
 
   return (
-    <div className={styles.developerContainer}>
+     <div className={styles.developerContainer}>
 
         <div className={styles.developerTitle}>
-            <img src={goBack} className={styles.goBack} />
+            <img src={goBack} className={styles.goBack} onClick={handleBackClick} />
             만든 이들
         </div>
 
