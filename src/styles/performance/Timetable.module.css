@@ -24,15 +24,24 @@
 }
 
 .nday {
-  width: 325px;
-  margin-top: 50px;
-
   font-size: 20px;
   font-weight: 700;
   line-height: 20.99px;
   text-align: left;
 
   color: #ffffff;
+}
+.ndayBox {
+  width: 325px;
+  margin-top: 20px;
+  display: flex;
+ 
+  align-items: center;
+  gap: 5px;
+  & > img {
+    width: 12px;
+    height: 6px;
+  }
 }
 
 .button {

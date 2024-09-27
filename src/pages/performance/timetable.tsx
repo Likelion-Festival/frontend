@@ -1,4 +1,6 @@
 import Arrow from "@assets/performance/arrow-back.svg";
+import ArrowDown from "@assets/performance/arrow-down.svg";
+import { DaySelect } from "@components/performance/DaySelect";
 import { daysPerformance } from "@constant/performance";
 
 // add styles
@@ -9,14 +11,20 @@ import { useNavigate, useParams } from "react-router-dom";
 export const Timetable = () => {
   const navigate = useNavigate();
   const parmas = useParams();
+  const [currentDay, setCurrentDay] = useState("1");
   const [currentArtist, setCurrentArtist] = useState("");
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    if (parmas.day === "2" || parmas.day === "3") setCurrentDay(parmas.day);
+  }, [parmas.day]);
+
   const checkCurrentPerformance = () => {
-    if (!(parmas.day === "1" || parmas.day === "2")) return;
+    if (!(currentDay === "2" || currentDay === "3")) return;
 
     const todayPerformances =
-      daysPerformance[Number(parmas.day) - 1].performances;
+      daysPerformance[Number(currentDay) - 1].performances;
     const currentPerformance = todayPerformances.find((performance) => {
-      console.log();
       return (
         performance.time <= new Date() &&
         new Date() <
@@ -34,13 +42,10 @@ export const Timetable = () => {
   });
 
   const handleButtonClick = () => {
-    // const today = new Date();
-    if (parmas.day === "1" || parmas.day === "2") {
+    if (parmas.day === "2" || parmas.day === "3") {
       navigate(`/performance/${currentArtist}`);
     }
-    else {
-      console.log("no performance today");
-    }
+    return;
   };
 
   const generateTimeSlots = () => {
@@ -66,29 +71,21 @@ export const Timetable = () => {
         <span>타임테이블</span>
       </div>
 
-      <span className={styles.nday}>
-        {parmas.day === "1" || parmas.day === "2"
-          ? parmas.day + "일차"
-          : "오늘은 준비된 공연이 없어요"}
-      </span>
+      <div className={styles.ndayBox} onClick={() => setShowModal(true)}>
+        <span className={styles.nday}>{currentDay}일차</span>
+        <img src={ArrowDown} alt="" />
+      </div>
 
-      {parmas.day === "1" || parmas.day === "2" ? (
-        <button className={styles.button} onClick={handleButtonClick}>
-          현재 진행중인 공연보기
-        </button>
-      ) : (
-        ""
-      )}
-      {parmas.day === "1" || parmas.day === "2" ? (
-        <span className={styles.playground}>대운동장</span>
-      ) : (
-        ""
-      )}
+      <button className={styles.button} onClick={handleButtonClick}>
+        현재 진행중인 공연보기
+      </button>
 
-      {(parmas.day === "1" || parmas.day === "2") &&
+      <span className={styles.playground}>대운동장</span>
+
+      {(currentDay === "2" || currentDay === "3") &&
         timeSlots.map((time, index) => {
           const filteredPerformance = daysPerformance[
-            Number(parmas.day) - 1
+            Number(currentDay) - 1
           ].performances.find((performance) => {
             return (
               `${performance.time.getHours()}:${
@@ -113,7 +110,23 @@ export const Timetable = () => {
                   }}
                 >
                   {" "}
-                  <div className={styles.circleLine} style={{top : `${Math.floor(((new Date().getTime() - filteredPerformance.time.getTime()) / 1000 / 60))/filteredPerformance.playTime * filteredPerformance.playTime / 30 * 95}px`}}>
+                  <div
+                    className={styles.circleLine}
+                    style={{
+                      top: `${
+                        (((Math.floor(
+                          (new Date().getTime() -
+                            filteredPerformance.time.getTime()) /
+                            1000 /
+                            60
+                        ) /
+                          filteredPerformance.playTime) *
+                          filteredPerformance.playTime) /
+                          30) *
+                        95
+                      }px`,
+                    }}
+                  >
                     <div className={styles.circleLineCircle}></div>
                     <div className={styles.circleLineLine}></div>
                   </div>
@@ -144,6 +157,13 @@ export const Timetable = () => {
             </div>
           );
         })}
+      {showModal && (
+        <DaySelect
+          currentDay={currentDay}
+          setCurrentDay={setCurrentDay}
+          setshowModal={setShowModal}
+        />
+      )}
     </div>
   );
 };
