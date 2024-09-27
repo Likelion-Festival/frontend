@@ -19,6 +19,7 @@ import { BoothPage } from "@pages/notice/BoothPage";
 import { NoticePage } from "@pages/notice/NoticePage";
 import { FestivalPage } from "@pages/notice/FestivalPage";
 import { PerformanceGuidePage } from "@pages/notice/PerformancePage";
+import {DevelopersPage} from "@pages/developer/developers";
 
 function App() {
   const [isSplashVisible, setIsSplashVisible] = useState(true);
@@ -65,6 +66,7 @@ function App() {
                 path="/performance-guide/:id"
                 element={<PerformanceGuidePage />}
               />
+              <Route path="/developers" element={<DevelopersPage />} />
               {/* map page */}
               <Route path="/map" element={<MapPage />} />
               {/* performance page */}
@@ -81,7 +83,6 @@ function App() {
               {/* bar page */}
               <Route path="/bar" element={<BarPage />} />
               <Route path="/bar-detail/:storeName" element={<BarDetail />} />
-              <Route path="/bar-detail/:barName" element={<BarDetail />} />
               {/* error page */}
               <Route path="*" element={<ErrorPage />} />
             </Routes>
