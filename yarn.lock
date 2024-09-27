@@ -2453,7 +2453,7 @@ es-errors@^1.2.1, es-errors@^1.3.0:
 
 es-hangul@^2.1.0:
   version "2.1.0"
-  resolved "https://registry.npmjs.org/es-hangul/-/es-hangul-2.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/es-hangul/-/es-hangul-2.1.0.tgz#e56e368da8581c7daaafca6b86659d0faa040ef4"
   integrity sha512-Ka10Um476t1t7NtOXxeLb6RCAmPQGisMsQjDxqhc7zHIuL2APtcR2Lp6SRNW9XVb1VcnX+en7WMmKkjRurRbow==
 
 es-object-atoms@^1.0.0:
