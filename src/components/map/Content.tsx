@@ -1,4 +1,4 @@
-import { lakeParkInfo, markerInfo } from "@constant/marker";
+import { foodCourtInfo, lakeParkInfo, eventInfo } from "@constant/marker";
 import { useMapContext } from "@context/MapContext";
 import styles from "@styles/map/Content.module.css";
 import { MarkerInfoType } from "@type/map";
@@ -12,19 +12,21 @@ export const Content = ({ clickMarkerList }: ContentProps) => {
   const { day, currCategory, isCategoryClicked, subCategory } = useMapContext();
 
   // 현재 선택된 카테고리에 해당되는 리스트 필터링
-  const categoryList = [...markerInfo, ...lakeParkInfo].filter((marker) => {
-    if (!subCategory) {
-      // 2차 필터링 없을 때
-      return marker.day.includes(day) && marker.category === currCategory;
-    } else {
-      // 2차 필터링 있을 때
-      return (
-        marker.day.includes(day) &&
-        marker.category === currCategory &&
-        marker.subCategory === subCategory
-      );
+  const categoryList = [...eventInfo, ...foodCourtInfo, ...lakeParkInfo].filter(
+    (marker) => {
+      if (!subCategory) {
+        // 2차 필터링 없을 때
+        return marker.day.includes(day) && marker.category === currCategory;
+      } else {
+        // 2차 필터링 있을 때
+        return (
+          marker.day.includes(day) &&
+          marker.category === currCategory &&
+          marker.subCategory === subCategory
+        );
+      }
     }
-  });
+  );
 
   const [renderList, setRenderList] = useState<MarkerInfoType[]>(categoryList);
 

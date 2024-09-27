@@ -1,5 +1,5 @@
 // 호수공원 제외 마커 정보
-export const markerInfo = [
+export const eventInfo = [
   {
     id: 5,
     day: ["전체", "1일차", "2일차", "3일차"],
@@ -108,6 +108,9 @@ export const markerInfo = [
     position: new kakao.maps.LatLng(37.296951, 126.835818),
     imagePath: "/marker-img/flea-market.png",
   },
+];
+
+export const foodCourtInfo = [
   {
     id: 14,
     day: ["전체", "1일차", "2일차", "3일차"],
