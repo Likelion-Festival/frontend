@@ -1,12 +1,12 @@
 type AlarmResponse = {
-  successCount: number;
-  failureCount: number;
-  errors: string[];
-};
+    successCount : number,
+    failureCount : number,
+    errors : string[]
+}
 
 export const subscribeToTopic = async (token: string, topic: string) => {
   const response = await fetch(
-    "https://asia-northeast3-hyuerica-festival.cloudfunctions.net/api/subscribe",
+    import.meta.env.VITE_SERVER_ENDPOINT + "subscribe",
     {
       method: "POST",
       headers: {
@@ -21,7 +21,7 @@ export const subscribeToTopic = async (token: string, topic: string) => {
 
 export const unsubscribeFromTopic = async (token: string, topic: string) => {
   const response = await fetch(
-    "https://asia-northeast3-hyuerica-festival.cloudfunctions.net/api/subscribe",
+    import.meta.env.VITE_SERVER_ENDPOINT + "unsubscribe",
     {
       method: "POST",
       headers: {
