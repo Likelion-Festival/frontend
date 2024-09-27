@@ -1,32 +1,40 @@
-import { foodCourtInfo, lakeParkInfo, eventInfo } from "@constant/marker";
+import {
+  foodCourtInfo,
+  lakeParkInfo,
+  eventInfo,
+  picnicInfo,
+  promotionInfo,
+  fleaMarketInfo,
+} from "@constant/marker";
 import { useMapContext } from "@context/MapContext";
 import styles from "@styles/map/Content.module.css";
-import { MarkerInfoType } from "@type/map";
+import { clickMarkerListType, MarkerInfoType } from "@type/map";
 import { useEffect, useState } from "react";
 
-interface ContentProps {
-  clickMarkerList?: MarkerInfoType[];
-}
-
-export const Content = ({ clickMarkerList }: ContentProps) => {
+export const Content = ({ clickMarkerList }: clickMarkerListType) => {
   const { day, currCategory, isCategoryClicked, subCategory } = useMapContext();
 
   // 현재 선택된 카테고리에 해당되는 리스트 필터링
-  const categoryList = [...eventInfo, ...foodCourtInfo, ...lakeParkInfo].filter(
-    (marker) => {
-      if (!subCategory) {
-        // 2차 필터링 없을 때
-        return marker.day.includes(day) && marker.category === currCategory;
-      } else {
-        // 2차 필터링 있을 때
-        return (
-          marker.day.includes(day) &&
-          marker.category === currCategory &&
-          marker.subCategory === subCategory
-        );
-      }
+  const categoryList = [
+    ...eventInfo,
+    ...promotionInfo,
+    ...picnicInfo,
+    ...fleaMarketInfo,
+    ...foodCourtInfo,
+    ...lakeParkInfo,
+  ].filter((marker) => {
+    if (!subCategory) {
+      // 2차 필터링 없을 때
+      return marker.day.includes(day) && marker.category === currCategory;
+    } else {
+      // 2차 필터링 있을 때
+      return (
+        marker.day.includes(day) &&
+        marker.category === currCategory &&
+        marker.subCategory === subCategory
+      );
     }
-  );
+  });
 
   const [renderList, setRenderList] = useState<MarkerInfoType[]>(categoryList);
 
@@ -35,7 +43,6 @@ export const Content = ({ clickMarkerList }: ContentProps) => {
     // if (isCategoryClicked || ) {
     setRenderList(categoryList);
     // }
-    console.log(categoryList);
   }, [day, currCategory, isCategoryClicked, subCategory]);
 
   // 개별 마커 클릭시에만 그 항목 렌더링

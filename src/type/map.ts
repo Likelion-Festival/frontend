@@ -19,3 +19,7 @@ export interface MarkerInfoType {
   position: kakao.maps.LatLng;
   imagePath: string;
 }
+
+export interface clickMarkerListType {
+  clickMarkerList?: MarkerInfoType[];
+}
