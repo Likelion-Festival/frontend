@@ -14,7 +14,7 @@ import 예안님 from "@assets/developer/예안님.png";
 import 선후님 from "@assets/developer/선후님.png";
 import LikelionLogo from "@assets/main/Likelion-logo.svg";
 import useInstagramOpen from "@hooks/useLinkToInsta";
-
+import Instagram from "@assets/developer/instagram.png";
 
 export const DevelopersPage = () => {
 
@@ -173,18 +173,33 @@ export const DevelopersPage = () => {
             </div>
 
 
-            {/* 컨택 주소 - 메인과 동일 */}
-            <div className={styles.contactBox} onClick={openInstagramOfLikelion}>
-            <div className={styles.contactPhraseBox}>
-              <div className={styles.contactPhrase1}>멋사가 궁금하다면?</div>
-              <div className={styles.contactPhrase2}>
-                인스타그램 바로가기
-              </div>
-            </div>
-            <div className={styles.contactIcon}>
-              <img src={LikelionLogo} />
-            </div>
+            {/* 설문 주소 - 아직 주소 추가 X*/}
+            <div className={styles.contactBox}>
+                <div className={styles.contactPhraseBox}>
+                <div className={styles.contactPhrase1}>축제 앱 어떠셨나요?</div>
+                <div className={styles.contactPhrase2}>
+                    멋사에게 후기를 알려주세요!
+                </div>
+                </div>
+                <div className={styles.contactIcon}>
+                <img src={LikelionLogo} />
+                </div>
           </div>
+            {/* 컨택 주소 - 메인과 동일 */}
+          <div className={styles.contactBox} onClick={openInstagramOfLikelion}>
+                <div className={styles.contactPhraseBox}>
+                <div className={styles.contactPhrase1}>멋사가 궁금하다면?</div>
+                <div className={styles.contactPhrase2}>
+                    인스타그램 바로가기
+                </div>
+                </div>
+                <div className={styles.contactIcon2}>
+                <img src={Instagram} className={styles.contactIcon2}/>
+                </div>
+          </div>
+
+          
+
 
 
 
