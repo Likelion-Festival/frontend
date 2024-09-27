@@ -38,6 +38,7 @@ export const eventPositions = [
   ],
 ];
 
+// 흡연장 마커 위치
 export const smokingMarkerPositions = [
   new kakao.maps.LatLng(37.29460306535163, 126.83108732473765),
   new kakao.maps.LatLng(37.296877162347855, 126.83195350159819),
