@@ -1,0 +1,217 @@
+.developerContainer{
+    margin: 0;
+    padding: 20px;
+    border: none;
+
+}
+.developerTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;  
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.goBack{
+    position: absolute;
+    left : 20px;
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+}
+
+.appIntro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  
+}
+
+.appImage{
+    width: 400px;
+    height: auto;
+}
+
+.LikelionUP {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.introText{
+    color: #E3E3E3;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.introX {
+    width: 15px;
+    height: auto;
+    margin: 10px;
+}
+
+.introText2{
+    margin-top:20px;
+    margin-bottom: 50px;
+}
+
+.introTextInner {
+    color: #AEAEAE;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.developerRoles{
+    margin-top : 30px;
+    margin-bottom : 50px;
+}
+
+.developerLine{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;  
+
+}
+
+.developerOne{
+    background-color: #272727;
+    border-radius: 20px;
+    width: 170px;
+    height: 250px;
+    margin : 10px
+}
+
+.developerDetails{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  
+}
+
+.developerImage{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 140px;
+    height: auto;
+}
+.developerDepart{
+    color: #A9A9A9;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 2;
+}
+.developerParts{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;  
+    margin-top: 5px;
+    gap: 7px;
+}
+
+.developerDirector{
+    width: 50px;
+    padding: 6px;
+    background-color: #E47C2C;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.developerBE{
+    width: 70px;
+    padding: 6px;
+    background-color: #3D67F0;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.developerDE{
+    width: 70px;
+    padding: 6px;
+    background-color: #DB55BE;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.developerFE{
+    width: 70px;
+    padding: 6px;
+    background-color: #409E77;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.developerLast{
+    background-color: #272727;
+    border-radius: 20px;
+    width: 190px;
+    height: 240px;
+    margin : 10px
+}
+
+.developerCO{
+    width: 70px;
+    padding: 6px;
+    background-color: #7C59CF;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.contactBox {
+    background: #272727;
+    border-radius: 10px;
+    width: 350px;
+    height: 90px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  .contactPhraseBox {
+    margin-left: 21px;
+  }
+  .contactPhrase1 {
+    font-family: Noto Sans KR;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    text-align: left;
+  }
+  .contactPhrase2 {
+    font-family: Noto Sans KR;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: -0.01em;
+    text-align: left;
+  }
+  .contactIcon {
+    width: 56px;
+    height: 56px;
+    background: transparent;
+    margin-right: 18px;
+    margin-left: auto;
+  }
+  .contactIcon2 {
+    width: 56px;
+    height: 56px;
+    background: transparent;
+    margin-right: 18px;
+    margin-left: auto;
+  }

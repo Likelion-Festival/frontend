@@ -13,6 +13,8 @@ import UpLogo from "@assets/main/UP-logo.svg";
 import LikelionLogo from "@assets/main/Likelion-logo.svg";
 import { useMapContext } from "@context/MapContext";
 import useInstagramOpen from "@hooks/useLinkToInsta";
+import LaptopIcon from "@assets/main/laptop-icon.png";
+import InstagramIcon from "@assets/main/instagram-icon.png";
 
 export const MainPage = () => {
   const navigate = useNavigate();
@@ -69,6 +71,11 @@ export const MainPage = () => {
   useEffect(() => {
     setIsNavVisible(true);
   }, []);
+
+  const moveToDevelopers = () => {
+    navigate(`/developers`);
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.topMargin} />
@@ -177,6 +184,20 @@ export const MainPage = () => {
         <div className={styles.rights1}>{rights1}</div>
         <div className={styles.rights2}>{rights2}</div>
       </div>
+
+      {/* 개발자 소개 및 인스타그램 페이지 연결 */}
+      <div className={styles.moreInfo}>
+        <div className={styles.introDev} onClick={moveToDevelopers}>      {/* 개발자 소개 페이지로! */}
+            <img src={LaptopIcon} className={styles.introDevIcon1} />
+            Developers
+        </div>
+        |
+        <div className={styles.introDev} onClick={openInstagramOfLikelion}> {/* 멋사 인스타그램으로! */}
+          <img src={InstagramIcon} className={styles.introDevIcon2} />
+          Instagram
+        </div>
+      </div>
+
     </div>
   );
 };

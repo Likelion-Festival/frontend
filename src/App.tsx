@@ -15,10 +15,8 @@ import { AlarmProvider } from "./context/AlarmContext";
 import { SplashScreen } from "@pages/splash/SplashScreen";
 import { NoticeListPage } from "@pages/notice/noticeList";
 import { useMapContext } from "@context/MapContext";
-import { BoothPage } from "@pages/notice/BoothPage";
-import { NoticePage } from "@pages/notice/NoticePage";
-import { FestivalPage } from "@pages/notice/FestivalPage";
-import { PerformanceGuidePage } from "@pages/notice/PerformancePage";
+import {DevelopersPage} from "@pages/developer/developers";
+import { DetailPage } from "@pages/notice/DetailPage";
 
 function App() {
   const [isSplashVisible, setIsSplashVisible] = useState(true);
@@ -58,13 +56,8 @@ function App() {
               <Route path="/" element={<MainPage />} />
               {/* notice page */}
               <Route path="/notice-list" element={<NoticeListPage />} />
-              <Route path="/booth/:id" element={<BoothPage />} />
-              <Route path="/notice/:id" element={<NoticePage />} />
-              <Route path="/festival/:id" element={<FestivalPage />} />
-              <Route
-                path="/performance-guide/:id"
-                element={<PerformanceGuidePage />}
-              />
+              <Route path="/developers" element={<DevelopersPage />} />
+              <Route path="/detail/:id" element={<DetailPage />} />
               {/* map page */}
               <Route path="/map" element={<MapPage />} />
               {/* performance page */}
