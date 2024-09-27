@@ -2412,6 +2412,12 @@ enquire.js@^2.1.6:
   resolved "https://registry.npmjs.org/enquire.js/-/enquire.js-2.1.6.tgz"
   integrity sha512-/KujNpO+PT63F7Hlpu4h3pE3TokKRHN26JYmQpPyjkRD/N57R7bPDNojMXdi7uveAKjYB7yQnartCxZnFWr0Xw==
 
+
+es-hangul@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/es-hangul/-/es-hangul-2.1.0.tgz#e56e368da8581c7daaafca6b86659d0faa040ef4"
+  integrity sha512-Ka10Um476t1t7NtOXxeLb6RCAmPQGisMsQjDxqhc7zHIuL2APtcR2Lp6SRNW9XVb1VcnX+en7WMmKkjRurRbow==
+
 es-abstract@^1.22.1, es-abstract@^1.22.3, es-abstract@^1.23.0, es-abstract@^1.23.2:
   version "1.23.3"
   resolved "https://registry.yarnpkg.com/es-abstract/-/es-abstract-1.23.3.tgz#8f0c5a35cd215312573c5a27c87dfd6c881a0aa0"
@@ -2500,6 +2506,7 @@ es-to-primitive@^1.2.1:
     is-callable "^1.1.4"
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
+
 
 esbuild@^0.21.3:
   version "0.21.5"
