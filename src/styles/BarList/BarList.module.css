@@ -15,6 +15,9 @@
     border-bottom-left-radius: 25px;
   }
 
+  .highlighting{
+    color: #DD57DD;
+  }
 
   .inputContainer{
     position: relative;
