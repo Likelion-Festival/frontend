@@ -7,8 +7,8 @@ interface MapContextType {
   setCurrMarker: React.Dispatch<React.SetStateAction<kakao.maps.LatLng | null>>;
   currCategory: string;
   setCurrCategory: React.Dispatch<React.SetStateAction<string>>;
-  subCategory: number;
-  setSubCategory: React.Dispatch<React.SetStateAction<number>>;
+  subCategory: string;
+  setSubCategory: React.Dispatch<React.SetStateAction<string>>;
   isCategoryClicked: boolean;
   setIsCategoryClicked: React.Dispatch<React.SetStateAction<boolean>>;
   isNavVisible: boolean;
@@ -22,7 +22,7 @@ const MapContext = createContext<MapContextType | undefined>(undefined);
 export const MapProvider = ({ children }: { children: React.ReactNode }) => {
   const [currMarker, setCurrMarker] = useState<kakao.maps.LatLng | null>(null);
   const [currCategory, setCurrCategory] = useState<string>("");
-  const [subCategory, setSubCategory] = useState<number>(0);
+  const [subCategory, setSubCategory] = useState<string>("");
   const [isCategoryClicked, setIsCategoryClicked] = useState<boolean>(false);
   const [isNavVisible, setIsNavVisible] = useState<boolean>(true);
   const [isBottomSheetVisible, setIsBottomSheetVisible] =

@@ -5,32 +5,43 @@ import { MarkerInfoType } from "@type/map";
 import { useEffect, useState } from "react";
 
 interface ContentProps {
-  markerInfoList?: MarkerInfoType[];
+  clickMarkerList?: MarkerInfoType[];
 }
 
-export const Content = ({ markerInfoList }: ContentProps) => {
-  const { currCategory, isCategoryClicked } = useMapContext();
+export const Content = ({ clickMarkerList }: ContentProps) => {
+  const { day, currCategory, isCategoryClicked, subCategory } = useMapContext();
 
   // 현재 선택된 카테고리에 해당되는 리스트 필터링
-  const categoryList = [...markerInfo, ...lakeParkInfo].filter(
-    (marker) => marker.category === currCategory
-  );
+  const categoryList = [...markerInfo, ...lakeParkInfo].filter((marker) => {
+    if (!subCategory) {
+      // 2차 필터링 없을 때
+      return marker.day.includes(day) && marker.category === currCategory;
+    } else {
+      // 2차 필터링 있을 때
+      return (
+        marker.day.includes(day) &&
+        marker.category === currCategory &&
+        marker.subCategory === subCategory
+      );
+    }
+  });
 
   const [renderList, setRenderList] = useState<MarkerInfoType[]>(categoryList);
 
   // 카테고리 리스트 렌더링을 기본으로
   useEffect(() => {
-    if (isCategoryClicked) {
-      setRenderList(categoryList);
-    }
-  }, [currCategory, isCategoryClicked]);
+    // if (isCategoryClicked || ) {
+    setRenderList(categoryList);
+    // }
+    console.log(categoryList);
+  }, [day, currCategory, isCategoryClicked, subCategory]);
 
   // 개별 마커 클릭시에만 그 항목 렌더링
   useEffect(() => {
-    if (!isCategoryClicked && markerInfoList && markerInfoList.length > 0) {
-      setRenderList(markerInfoList);
+    if (!isCategoryClicked && clickMarkerList && clickMarkerList.length > 0) {
+      setRenderList(clickMarkerList);
     }
-  }, [markerInfoList, isCategoryClicked]);
+  }, [clickMarkerList, isCategoryClicked]);
 
   return (
     <div className={styles.wrapper}>

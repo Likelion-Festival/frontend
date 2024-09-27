@@ -3,8 +3,15 @@ import styles from "@styles/map/CategoryDetailFilter.module.css";
 import classNames from "classnames";
 
 export const CategoryDetailFilter = () => {
-  const { currCategory, subCategory, setSubCategory } = useMapContext();
+  const { day, currCategory, subCategory, setSubCategory } = useMapContext();
 
+  const clickSubCategory = (e: React.MouseEvent<HTMLElement>) => {
+    const target = e.target as HTMLElement;
+    const innerText = target.innerText;
+
+    if (innerText === subCategory) setSubCategory("");
+    else setSubCategory(innerText);
+  };
   const renderCategoryItems = () => {
     switch (currCategory) {
       case "bar":
@@ -12,49 +19,49 @@ export const CategoryDetailFilter = () => {
           <>
             <li
               className={classNames({
-                [styles.selected]: subCategory === 1,
+                [styles.selected]: subCategory === "공대",
               })}
-              onClick={() => setSubCategory(1)}
+              onClick={clickSubCategory}
             >
               공대
             </li>
             <li
               className={classNames({
-                [styles.selected]: subCategory === 2,
+                [styles.selected]: subCategory === "소융대",
               })}
-              onClick={() => setSubCategory(2)}
+              onClick={clickSubCategory}
             >
               소융대
             </li>
             <li
               className={classNames({
-                [styles.selected]: subCategory === 3,
+                [styles.selected]: subCategory === "약학대",
               })}
-              onClick={() => setSubCategory(3)}
+              onClick={clickSubCategory}
             >
               약학대
             </li>
             <li
               className={classNames({
-                [styles.selected]: subCategory === 4,
+                [styles.selected]: subCategory === "과기대",
               })}
-              onClick={() => setSubCategory(4)}
+              onClick={clickSubCategory}
             >
               과기대
             </li>
             <li
               className={classNames({
-                [styles.selected]: subCategory === 5,
+                [styles.selected]: subCategory === "국문대",
               })}
-              onClick={() => setSubCategory(5)}
+              onClick={clickSubCategory}
             >
               국문대
             </li>
             <li
               className={classNames({
-                [styles.selected]: subCategory === 6,
+                [styles.selected]: subCategory === "언정대",
               })}
-              onClick={() => setSubCategory(6)}
+              onClick={clickSubCategory}
             >
               언정대
             </li>
@@ -63,45 +70,47 @@ export const CategoryDetailFilter = () => {
       case "event":
         return (
           <>
+            {day !== "1일차" && (
+              <li
+                className={classNames({
+                  [styles.selected]: subCategory === "호수공원",
+                })}
+                onClick={clickSubCategory}
+              >
+                호수공원
+              </li>
+            )}
             <li
               className={classNames({
-                [styles.selected]: subCategory === 7,
+                [styles.selected]: subCategory === "프로모션",
               })}
-              onClick={() => setSubCategory(7)}
-            >
-              호수공원
-            </li>
-            <li
-              className={classNames({
-                [styles.selected]: subCategory === 8,
-              })}
-              onClick={() => setSubCategory(8)}
+              onClick={clickSubCategory}
             >
               프로모션
             </li>
             <li
               className={classNames({
-                [styles.selected]: subCategory === 9,
+                [styles.selected]: subCategory === "잔디공원",
               })}
-              onClick={() => setSubCategory(9)}
+              onClick={clickSubCategory}
             >
               잔디공원
             </li>
             <li
               className={classNames({
-                [styles.selected]: subCategory === 10,
+                [styles.selected]: subCategory === "네컷사진",
               })}
-              onClick={() => setSubCategory(10)}
+              onClick={clickSubCategory}
             >
               네컷사진
             </li>
             <li
               className={classNames({
-                [styles.selected]: subCategory === 11,
+                [styles.selected]: subCategory === "플리마켓",
               })}
-              onClick={() => setSubCategory(11)}
+              onClick={clickSubCategory}
             >
-              기타
+              플리마켓
             </li>
           </>
         );
@@ -110,49 +119,49 @@ export const CategoryDetailFilter = () => {
           <>
             <li
               className={classNames({
-                [styles.selected]: subCategory === 12,
+                [styles.selected]: subCategory === "한식",
               })}
-              onClick={() => setSubCategory(12)}
+              onClick={clickSubCategory}
             >
               한식
             </li>
             <li
               className={classNames({
-                [styles.selected]: subCategory === 13,
+                [styles.selected]: subCategory === "일식",
               })}
-              onClick={() => setSubCategory(13)}
+              onClick={clickSubCategory}
             >
               일식
             </li>
             <li
               className={classNames({
-                [styles.selected]: subCategory === 14,
+                [styles.selected]: subCategory === "양식",
               })}
-              onClick={() => setSubCategory(14)}
+              onClick={clickSubCategory}
             >
               양식
             </li>
             <li
               className={classNames({
-                [styles.selected]: subCategory === 15,
+                [styles.selected]: subCategory === "아시안",
               })}
-              onClick={() => setSubCategory(15)}
+              onClick={clickSubCategory}
             >
               아시안
             </li>
             <li
               className={classNames({
-                [styles.selected]: subCategory === 16,
+                [styles.selected]: subCategory === "음료",
               })}
-              onClick={() => setSubCategory(16)}
+              onClick={clickSubCategory}
             >
               음료
             </li>
             <li
               className={classNames({
-                [styles.selected]: subCategory === 17,
+                [styles.selected]: subCategory === "디저트",
               })}
-              onClick={() => setSubCategory(17)}
+              onClick={clickSubCategory}
             >
               디저트
             </li>

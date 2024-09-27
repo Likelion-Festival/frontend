@@ -15,14 +15,15 @@ export const Bottomsheet = () => {
   // 사용자가 클릭한 마커 위치 정보
   const { currMarker } = useMapContext();
 
-  const markerList: MarkerInfoType[] = [];
+  // 사용자가 클릭한 마커 정보 담는 배열
+  const clickMarkerList: MarkerInfoType[] = [];
 
   // 호수공원 이벤트 예외처리
   if (
     lakeParkInfo[0].position.getLat() === currMarker?.getLat() &&
     lakeParkInfo[0].position.getLng() === currMarker?.getLng()
   ) {
-    lakeParkInfo.map((v) => markerList.push(v));
+    lakeParkInfo.map((v) => clickMarkerList.push(v));
   }
 
   // 사용자 클릭 위치 정보와 일치하는 것 찾아내기
@@ -33,8 +34,7 @@ export const Bottomsheet = () => {
       newLatLng.getLng() === currMarker?.getLng()
     );
   });
-
-  if (info) markerList.push(info);
+  if (info) clickMarkerList.push(info);
 
   return (
     <>
@@ -47,7 +47,7 @@ export const Bottomsheet = () => {
         {/* 선택된 마커가 없을 때만 2차 필터링 렌더링 */}
         {currMarker === null && <CategoryDetailFilter />}
         <div className={styles.bottomsheet_wrapper} ref={content}>
-          <Content markerInfoList={markerList} />
+          <Content clickMarkerList={clickMarkerList} />
         </div>
       </motion.div>
     </>
