@@ -19,6 +19,22 @@ export const CategoryDetailFilter = () => {
           <>
             <li
               className={classNames({
+                [styles.selected]: subCategory === "동아리",
+              })}
+              onClick={clickSubCategory}
+            >
+              동아리
+            </li>
+            <li
+              className={classNames({
+                [styles.selected]: subCategory === "과기대",
+              })}
+              onClick={clickSubCategory}
+            >
+              과기대
+            </li>
+            <li
+              className={classNames({
                 [styles.selected]: subCategory === "공대",
               })}
               onClick={clickSubCategory}
@@ -35,35 +51,20 @@ export const CategoryDetailFilter = () => {
             </li>
             <li
               className={classNames({
-                [styles.selected]: subCategory === "약학대",
-              })}
-              onClick={clickSubCategory}
-            >
-              약학대
-            </li>
-            <li
-              className={classNames({
-                [styles.selected]: subCategory === "과기대",
-              })}
-              onClick={clickSubCategory}
-            >
-              과기대
-            </li>
-            <li
-              className={classNames({
-                [styles.selected]: subCategory === "국문대",
-              })}
-              onClick={clickSubCategory}
-            >
-              국문대
-            </li>
-            <li
-              className={classNames({
                 [styles.selected]: subCategory === "언정대",
               })}
               onClick={clickSubCategory}
             >
               언정대
+            </li>
+
+            <li
+              className={classNames({
+                [styles.selected]: subCategory === "약학대",
+              })}
+              onClick={clickSubCategory}
+            >
+              약학대
             </li>
           </>
         );

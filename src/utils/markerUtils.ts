@@ -5,6 +5,7 @@ import {
   picnicInfo,
   promotionInfo,
   fleaMarketInfo,
+  barInfo,
 } from "@constant/marker";
 import { MarkerInfoType } from "@type/map";
 import { useMapContext } from "@context/MapContext";
@@ -42,6 +43,12 @@ export const getClickMarkerList = () => {
     fleaMarketInfo[0].position.getLng() === currMarker?.getLng()
   ) {
     fleaMarketInfo.map((v) => clickMarkerList.push(v));
+  } else if (
+    // 주점 마커 클릭 시
+    barInfo[0].position.getLat() === currMarker?.getLat() &&
+    barInfo[0].position.getLng() === currMarker?.getLng()
+  ) {
+    barInfo.map((v) => clickMarkerList.push(v));
   } else if (
     // 먹거리 마커 클릭 시
     foodCourtInfo[0].position.getLat() === currMarker?.getLat() &&
