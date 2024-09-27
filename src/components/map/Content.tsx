@@ -14,45 +14,45 @@ import { useEffect, useState } from "react";
 
 export const Content = ({ clickMarkerList }: clickMarkerListType) => {
   const { day, currCategory, isCategoryClicked, subCategory } = useMapContext();
+  const [renderList, setRenderList] = useState<MarkerInfoType[]>([]);
 
   // 현재 선택된 카테고리에 해당되는 리스트 필터링
-  const categoryList = [
-    ...eventInfo,
-    ...promotionInfo,
-    ...picnicInfo,
-    ...fleaMarketInfo,
-    ...barInfo,
-    ...foodCourtInfo,
-    ...lakeParkInfo,
-  ].filter((marker) => {
-    if (!subCategory) {
-      // 2차 필터링 없을 때 (축제 일자에 맞는 것들 필터링)
-      return marker.day.includes(day) && marker.category === currCategory;
-    } else {
-      // 2차 필터링 있을 때
-      return (
-        marker.day.includes(day) &&
-        marker.category === currCategory &&
-        marker.subCategory === subCategory
-      );
-    }
-  });
+  const filterCategoryList = () => {
+    return [
+      ...eventInfo,
+      ...promotionInfo,
+      ...picnicInfo,
+      ...fleaMarketInfo,
+      ...barInfo,
+      ...foodCourtInfo,
+      ...lakeParkInfo,
+    ].filter((marker) => {
+      if (!subCategory) {
+        // 2차 필터링 없을 때 (축제 일자에 맞는 것들 필터링)
+        return marker.day.includes(day) && marker.category === currCategory;
+      } else {
+        // 2차 필터링 있을 때
+        return (
+          marker.day.includes(day) &&
+          marker.category === currCategory &&
+          marker.subCategory === subCategory
+        );
+      }
+    });
+  };
 
-  const [renderList, setRenderList] = useState<MarkerInfoType[]>(categoryList);
-
-  // 카테고리 리스트 렌더링을 기본으로
+  // 조건에 따른 리스트 렌더링
   useEffect(() => {
-    // if (isCategoryClicked || ) {
-    setRenderList(categoryList);
-    // }
-  }, [day, currCategory, isCategoryClicked, subCategory]);
+    const categoryList = filterCategoryList();
 
-  // 개별 마커 클릭시에만 그 항목 렌더링
-  useEffect(() => {
-    if (!isCategoryClicked && clickMarkerList && clickMarkerList.length > 0) {
+    if (isCategoryClicked || subCategory) {
+      setRenderList(categoryList);
+    } else if (clickMarkerList && clickMarkerList.length > 0) {
       setRenderList(clickMarkerList);
     }
-  }, [clickMarkerList, isCategoryClicked]);
+
+    console.log(categoryList);
+  }, [day, currCategory, isCategoryClicked, subCategory]);
 
   return (
     <div className={styles.wrapper}>
@@ -81,7 +81,7 @@ export const Content = ({ clickMarkerList }: clickMarkerListType) => {
                   </div>
                 </div>
                 <div className={styles.image}>
-                  <img src={markerInfo?.imagePath} alt="" />
+                  <img src={markerInfo?.imagePath} alt="marker-image" />
                 </div>
               </li>
             );
@@ -104,7 +104,7 @@ export const Content = ({ clickMarkerList }: clickMarkerListType) => {
                   </strong>
                 </div>
                 <div className={styles.bar_image}>
-                  <img src={markerInfo?.imagePath} alt="" />
+                  <img src={markerInfo?.imagePath} alt="marker-image" />
                 </div>
               </li>
             );
