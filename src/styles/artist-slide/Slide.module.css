@@ -54,12 +54,12 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between !important;
 }
 
 .cardNameBellBox {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between !important;
 }
 
 .cardName {
@@ -92,6 +92,10 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  & > div {
+    display: flex;
+    justify-content: flex-start !important;
+  }
 }
 
 .cardPlaytime {
@@ -111,9 +115,11 @@
 .cardTimeLocate {
   display: flex;
   flex-direction: column;
+  
 
   & > div {
     display: flex;
+    justify-content: flex-start !important;
     gap: 2px;
   }
   & span {

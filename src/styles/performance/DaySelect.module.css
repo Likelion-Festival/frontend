@@ -1,0 +1,40 @@
+.wrap {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 167px;
+  height: 167px;
+  z-index: 10;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+
+  background-color: #ffffff;
+  border-radius: 5px;
+
+  & > div {
+    border-radius: 5px;
+    height: 44px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -1px;
+    text-align: left;
+
+    color: rgba(185, 185, 185, 1);
+  }
+}
+
+.current {
+  background-color: rgba(240, 240, 240, 1);
+  color: #000000 !important;
+}
