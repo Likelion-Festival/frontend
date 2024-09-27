@@ -55,7 +55,14 @@ export const Content = ({ clickMarkerList }: ContentProps) => {
                   <span>{markerInfo?.index}</span>
                 </div>
                 <div className={styles.detail}>
-                  <strong className={styles.time}>{markerInfo?.time}</strong>
+                  <strong className={styles.time}>
+                    {day === "전체" && currCategory === "food"
+                      ? markerInfo?.total || markerInfo.time
+                      : (day === "2일차" || day === "3일차") &&
+                        currCategory === "food"
+                      ? "10월 1~2일 11:00~23:30"
+                      : markerInfo?.time}
+                  </strong>
                   <strong className={styles.location}>
                     {markerInfo?.location}
                   </strong>
