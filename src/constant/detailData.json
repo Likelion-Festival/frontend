@@ -1,0 +1,189 @@
+[
+  {
+    "id": "1",
+    "images": [
+      "/detail-page-images/pid1/img1.png",
+      "/detail-page-images/pid1/img1.png"
+    ],
+    "pageType": 1,
+    "subTitle": "운영 안내",
+    "mainTitle": "푸드트럭 야간 운영 안내",
+    "mainText": "2024 한양대학교 ERICA 가을축제[HYRICA : FALL:ING]빠져들어라! 또 다른 차원 너머로 HYRICA : FALL:ING 2024 한양대학교 ERICA 가을축제 푸드트럭 소개안녕하십니까, 한양대학교 ERICA 제 2대 총동아리연합회 UP 축제기획단입니다.2024년 가을축제 푸드트럭을 소개합니다 🍟🚚✔️ 푸드트럭 운영 시간2024.09.30 (월) 11:00 ~ 17:002024.10.01 (월)~ 2024.10.02 (수) 11:00 ~ 23:30✔️ 푸드트럭 운영 장소예체능 대학 앞, 잔디공터 맞은편 거리자세한 내용은 카드뉴스 참고해주시기 바랍니다 :)",
+    "location": "주점존 앞",
+    "date": "10/1-2",
+    "time": "11:00~23:30"
+  },
+  {
+    "id": "2",
+    "images": [
+      "/detail-page-images/pid1/img1.png",
+      "/detail-page-images/pid1/img1.png"
+    ],
+    "pageType": 1,
+    "subTitle": "축제 소개",
+    "mainTitle": "SHOPP:ING\n플리마켓 소개",
+    "mainText": "2024 한양대학교 ERICA 가을축제[HYRICA : FALL:ING]빠져들어라! 또 다른 차원 너머로 HYRICA : FALL:ING 2024 한양대학교 ERICA 가을축제 SHOPP:ING 플리마켓 소개안녕하십니까, 한양대학교 ERICA 제 2대 총동아리연합회 UP 축제기획단 플리마켓팀입니다.2024년 가을축제 플리마켓 컨텐츠 SHOPP:ING을 소개합니다 🛍️✔️ 플리마켓 운영 시간2024.09.30 (월) ~ 2024.10.02 (수) 11:00 ~ 17:00✔️ 플리마켓 운영 장소학생복지관 앞 민주 광장자세한 내용은 카드뉴스 참고해주시기 바랍니다 :)",
+    "location": "민주 광장",
+    "date": "모든 일차",
+    "time": "11:00~17:00"
+  },
+  {
+    "id": "3",
+    "images": [
+      "/detail-page-images/pid1/img1.png",
+      "/detail-page-images/pid1/img1.png"
+    ],
+    "pageType": 3,
+    "subTitle": "축제 소개",
+    "mainTitle": "SHOPP:ING\n가을축제 굿즈 소개",
+    "mainText": "2024 한양대학교 ERICA 가을축제[HYRICA : FALL:ING]빠져들어라! 또 다른 차원 너머로 HYRICA : FALL:ING 2024 한양대학교 ERICA 가을축제 Shopp:ing 굿즈 소개안녕하십니까, 한양대학교 ERICA 제 2대 총동아리연합회 UP 축제기획단 플리마켓팀입니다.2024년 가을축제 플리마켓 SHOPP:ING에서 판매하는 굿즈를 소개합니다 ✨🛍️ 굿즈 종류하키티셔츠 / 야구티셔츠 / 농구티셔츠 / 반다나 / 슬로건카드뉴스 참고하여 세부적인 굿즈의 디자인과 가격을 확인해주시기 바랍니다 :)"
+  },
+  {
+    "id": "4",
+    "images": [
+      "/detail-page-images/pid1/img1.png",
+      "/detail-page-images/pid1/img1.png"
+    ],
+    "pageType": 3,
+    "subTitle": "단속 공고",
+    "mainTitle": "축제 기간 킥보드\n단속 강화 공고",
+    "mainText": "2024 한양대학교 ERICA 가을축제[HYRICA : FALL:ING]빠져들어라! 또 다른 차원 너머로 HYRICA : FALL:ING2024 한양대학교 ERICA 가을축제 킥보드 단속 공고안녕하십니까, 한양대학교 ERICA 제 2대 총동아리연합회 UP 축제기획단입니다.2024년 9월 30일(월) 부터 10월 02일(수) 3일간 보다 안전한 축제 문화를 위해 단속이 강화됩니다.✔️ 단속사항❌2인 탑승, 음주운전, 무면허, 헬멧 미착용 등 ❌🙏🏻안전한 축제문화를 위해 협조 부탁드립니다. 🙏🏻자세한 내용은 카드뉴스 참고해주시기 바랍니다 :)"
+  },
+  {
+    "id": "5",
+    "images": [
+      "/detail-page-images/pid1/img1.png",
+      "/detail-page-images/pid1/img1.png"
+    ],
+    "pageType": 1,
+    "subTitle": "축제 소개",
+    "mainTitle": "PROMOT:ING\n프로모션 존 소개",
+    "mainText": "2024 한양대학교 ERICA 가을축제[HYRICA : FALL:ING]빠져들어라! 또 다른 차원 너머로 HYRICA : FALL:ING2024 한양대학교 ERICA 가을축제 프로모션존 ’PROMOT:ING‘ 소개 안녕하십니까, 한양대학교 ERICA 제 2대 총동아리연합회 UP 축제기획단 프로모션팀입니다.다가오는 2024 HYRICA FALL:ING의 프로모션존 ’PROMOT:ING‘을 소개합니다!💡 운영 시간2024.09.30 (월) ~ 2024.10.02 (수) 11:00 ~ 17:00💡 위치 안내학생복지관 앞 민주광장자세한 사항은 카드뉴스를 참고해 주시기 바랍니다.2024 HYRICA FALL:ING을 함께 만들어가는 프로모션 협력 기업에 많은 관심 부탁드립니다!감사합니다.",
+    "location": "민주 광장",
+    "date": "모든 일차",
+    "time": "11:00~17:00"
+  },
+  {
+    "id": "6",
+    "images": [
+      "/detail-page-images/pid1/img1.png",
+      "/detail-page-images/pid1/img1.png"
+    ],
+    "pageType": 2,
+    "subTitle": "운영 안내",
+    "mainTitle": "포토부스 운영 안내",
+    "mainText": "2024 한양대학교 ERICA 가을축제[HYRICA : FALL:ING]\n빠져들어라! 또 다른 차원 너머로 HYRICA : FALL:ING 2024 한양대학교 ERICA 가을축제 푸드트럭 소개안녕하십니까, 한양대학교 ERICA 제 2대 총동아리연합회 UP 축제기획단입니다.2024년 가을축제 푸드트럭을 소개합니다 🍟🚚✔️ 푸드트럭 운영 시간2024.09.30 (월) 11:00 ~ 17:002024.10.01 (월)~ 2024.10.02 (수) 11:00 ~ 23:30✔️ 푸드트럭 운영 장소예체능 대학 앞, 잔디공터 맞은편 거리자세한 내용은 카드뉴스 참고해주시기 바랍니다 :)",
+    "index1": "운영 일자",
+    "index2": "운영 부스",
+    "phrase1": "2024. 9. 27 (금) ~ 10. 02 (수)",
+    "phrase2": "학술정보관 포토부스 4대\n주점존 포토부스 트레일러 1대"
+  },
+  {
+    "id": "7",
+    "images": [
+      "/detail-page-images/pid1/img1.png",
+      "/detail-page-images/pid1/img1.png"
+    ],
+    "pageType": 3,
+    "subTitle": "유의사항",
+    "mainTitle": "공연관람 유의사항",
+    "mainText": "2024 한양대학교 ERICA 가을축제[HYRICA : FALL:ING]\n빠져들어라! 또 다른 차원 너머로 HYRICA : FALL:ING 📌가을축제 공연 관람 유의사항📌✔️소지품 검사 안내-공연장 안전을 위하여 매표소 소지품 검사를 실시합니다.-소지품 검사 전 QR코드를 통한 소지품 검사 동의서 작성 바랍니다.-동의서 작성후 소지품검사시 보여주시기 바랍니다✔️반입금지물품-쓰레기를 발생시킬 수 있는 물품(유리병, 캔 플라스틱병 등)-날카로운 물건(칼, 가위, 도끼 등)-슬로건(가을축제 굿즈 제외)-총기 및 무기류-폭죽, 폭발물, 불꽃놀이용품-대형 배낭이나 가방(캐리어)-휴대폰 제외 모든 촬영 장비(삼각대, 카메라 등)-이외에 주최측에서 위험하다고 판단하는 물품※안내견을 제외한 반려동물은 입장 불가합니다.자세한 사항은 카드뉴스 참고해주시면 감사하겠습니다.문의사항은 축제기획단 공연무대팀 공식채널로 연락주시면 감사하겠습니다."
+  },
+  {
+    "id": "8",
+    "images": [
+      "/detail-page-images/pid1/img1.png",
+      "/detail-page-images/pid1/img1.png"
+    ],
+    "pageType": 1,
+    "subTitle": "축제 소개",
+    "mainTitle": "가을축제 매표소 소개",
+    "mainText": "2024 한양대학교 ERICA 가을축제[HYRICA : FALL:ING]\n빠져들어라! 또 다른 차원 너머로 HYRICA : FALL:ING📌가을축제 매표소 소개📌🎟️매표 안내🎟️✔️티켓구매 및 입장 가능 시간10.01 (화)~10.02(수) 2일간 14:00~21:00✔️매표소위치대운동장(공연장) 입구 앞✔️매표관련유의사항💙ERICA인(재학생, 휴학생, 대학원생, 교직원)-반드시 신분증과 학생증 모두 소지하셔야 합니다.※소지품 검사 전 QR코드를 통해 소지품 검사 동의서를 반드시 작성해주세요.🩶외부인-현금(15,000원) 또는 계좌이체로만 구매 가능합니다.-거스름돈이 없으니 현금 결제 시 금액을 맞춰 준비해주시기 바랍니다.※소지품 검사 전 QR코드를 통해 소지품 검사 동의서를 반드시 작성해주세요.※현금 결제 시 매표소 내에서 성명, 연락처, 결제한 금액 등을 수기로 작성 받을 예정입니다.자세한 사항은 카드뉴스를 참고해주세요.문의사항은 축제기획단 공연무대팀 공식채널로 연락주시면 감사하겠습니다.",
+    "location": "대운동장 앞",
+    "date": "10/1-2",
+    "time": "14:00~21:00"
+  },
+  {
+    "id": "9",
+    "images": [
+      "/detail-page-images/pid1/img1.png",
+      "/detail-page-images/pid1/img1.png"
+    ],
+    "pageType": 3,
+    "subTitle": "축제 소개",
+    "mainTitle": "BBOMNAEG:ING\n끼페스티벌 소개",
+    "mainText": "2024 한양대학교 ERICA 가을축제[HYRICA : FALL:ING]\n빠져들어라! 또 다른 차원 너머로 HYRICA : FALL:ING🎸숨겨왔던 나의~수줍은 끼를 뽐내라 [BBomnaeg:ing]!🎸안녕하십니까, 2024년 가을축제 공연무대팀입니다💚현실세계에선 하냥인인 내가 HYRICA : FALL:ING에선 스테이터스9999의 만렙 음유시인?!아직까지 남들에게는 보여주지 못했던 끼를 마음껏 뽐내줄 [BBomnaeg:ing]의 본선 진출 팀 소개 및 일정을 안내합니다!!📍[BBomnaeg:ing] 본선 진출 팀 소개 및 순서1. 뭉게구름2. DOH3. 이주원 밴드4. 필소굿5. HEMA6. 만취[BBomnaeg:ing] 본선은 HYRICA : FALL:ING 3일차 10월 2일 (수) 18:00부터 진행됩니다.여러분들에게 끼를 [BBomnaeg:ing]할 학우분들의 무대, 많은 관심과 응원 부탁드립니다!👏자세한 사항은 카드뉴스 참고해주시면 감사하겠습니다.문의사항은 축제기획단 공연무대팀 공식채널로 연락주시면 감사하겠습니다."
+  },
+  {
+    "id": "10",
+    "images": [
+      "/detail-page-images/pid1/img1.png",
+      "/detail-page-images/pid1/img1.png"
+    ],
+    "pageType": 1,
+    "subTitle": "가이드",
+    "mainTitle": "DRINK:ING\n주류 구매 가이드",
+    "mainText": "2024 한양대학교 ERICA 가을 축제 “[HYRICA:FALLING]”빠져들어라! 또 다른 차원 너머로, HYRICA:FALLING 안녕하십니까, 한양대학교 ERICA 가을 측제기획단 주점팀 [DRINK:ING]입니다.‘하이트 진로’와 ‘세븐일레븐’과 함께 하는 <주류 구매 가이드>를 알려드립니다!📌주류 판매 위치학술정보관 주차장 내 DRINK:ING 운영본부 옆 부스📌 주류 구매 가능 시간2024.10.01 (화) ~ 2024.10.02 (수) 18:00 - 23:30📌 주류 품목 및 가격(소주) 진로 640ml (PET) / 참이슬 후레쉬 640ml (PET) : 3500원(맥주) 켈리 500ml (CAN) / 테라 500ml (CAN) : 3000원자세한 내용은 카드뉴스를 참고해 주시기 바랍니다.문의사항• 축제기획단_주점팀 카카오 채널:http://pf.kakao.com/_hpxlpG• 주점팀장 정홍인 010-4762-2623",
+    "location": "학술정보관",
+    "date": "10/1-2",
+    "time": "18:00~23:30"
+  },
+  {
+    "id": "11",
+    "images": [
+      "/detail-page-images/pid1/img1.png",
+      "/detail-page-images/pid1/img1.png"
+    ],
+    "pageType": 1,
+    "subTitle": "축제 소개",
+    "mainTitle": "DRINK:ING\n주점 소개",
+    "mainText": "2024 한양대학교 ERICA 가을 축제 “[HYRICA:FALLING]”빠져들어라! 또 다른 차원 너머로, HYRICA:FALLING 안녕하십니까, 한양대학교 ERICA 가을 측제기획단 주점팀 [DRINK:ING]입니다.2024년 HYRICA:FALLING 🍻[DRINK:ING]🍻을 소개합니다!🎇 [DRINK:ING] 운영 시간2024.10.01 (화) ~ 2024.10.02 (수) 18:00 - 00:00🎇 [DRINK:ING] 위치 안내학술정보관 옆 주차장 일대에 펼쳐집니다.자세한 내용은 카드뉴스를 참고해 주시기 바랍니다.문의사항• 축제기획단_주점팀 카카오 채널:http://pf.kakao.com/_hpxlpG\n• 주점팀장 정홍인 010-4762-2623",
+    "location": "학술정보관",
+    "date": "10/1-2",
+    "time": "18:00~00:00"
+  },
+  {
+    "id": "12",
+    "images": [
+      "/detail-page-images/pid1/img1.png",
+      "/detail-page-images/pid1/img1.png"
+    ],
+    "pageType": 3,
+    "subTitle": "축제 소개",
+    "mainTitle": "2024 가을축제 규찰대 소개",
+    "mainText": "2024 한양대학교 ERICA 가을축제[HYRICA : FALL:ING]빠져들어라! 또 다른 차원 너머로 HYRICA : FALL:ING 💫2024 가을축제 Fall:ing!! 축제의 평행세계로 빠질 준비 되셨나요?💫평행세계의 경계를 지키는 Fall:ing Keeper 를 소개합니다!💫Fall:ing Keeper란?💫학우 여러분들이 신나는 축제를 보다 안전하게 즐기실 수 있도록 학교 곳곳을 관리 및 순찰하는 규찰대입니다!💫Fall:ing Keeper 근무 일정💫2024.10.1(화)~2024.10.2(수)매일 18:00~01:00🚨축제 기간 학우 여러분들께서는 신나고 안전한 축제를 위해 규찰대 지시에 원활한 협조 부탁드립니다.🚨보다 자세한 내용은 카드뉴스를 참고 바랍니다.문의사항규찰대 카카오톡 - http://pf.kakao.com/_xbxfLyG"
+  },
+  {
+    "id": "13",
+    "images": [
+      "/detail-page-images/pid1/img1.png",
+      "/detail-page-images/pid1/img1.png"
+    ],
+    "pageType": 3,
+    "subTitle": "축제 소개",
+    "mainTitle": "공연무대 타임 테이블",
+    "mainText": "2024 한양대학교 ERICA 가을축제[HYRICA : FALL:ING]빠져들어라! 또 다른 차원 너머로 HYRICA : FALL:ING 10월 01일 ~02일 !축제의 공연 타임테이블을 소개합니다 ~"
+  },
+  {
+    "id": "14",
+    "images": [
+      "/detail-page-images/pid1/img1.png",
+      "/detail-page-images/pid1/img1.png"
+    ],
+    "pageType": 3,
+    "subTitle": "축제 소개",
+    "mainTitle": "FALL:ING\n2-3일차 타임 테이블",
+    "mainText": "2024 한양대학교 ERICA 가을축제 [HYRICA : FALL:ING]빠져들어라! 또 다른 차원 너머로 HYRICA : FALL:ING 10월 01일, 02일 !2일차,3일차 타임테이블을 소개합니다 ~"
+  },
+  {
+    "id": "15",
+    "images": [
+      "/detail-page-images/pid1/img1.png",
+      "/detail-page-images/pid1/img1.png"
+    ],
+    "pageType": 3,
+    "subTitle": "축제 소개",
+    "mainTitle": "FALL:ING\n1일차 타임 테이블",
+    "mainText": "2024 한양대학교 ERICA 가을축제[HYRICA : FALL:ING]빠져들어라! 또 다른 차원 너머로 HYRICA : FALL:ING 9월 30일 월요일 !1일차 타임테이블을 소개합니다 ~"
+  }
+]
