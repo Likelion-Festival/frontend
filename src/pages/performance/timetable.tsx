@@ -1,5 +1,6 @@
 import Arrow from "@assets/performance/arrow-back.svg";
 import ArrowDown from "@assets/performance/arrow-down.svg";
+import NoPerformance from "@assets/performance/noperformance.svg";
 import { DaySelect } from "@components/performance/DaySelect";
 import { daysPerformance } from "@constant/performance";
 
@@ -79,8 +80,17 @@ export const Timetable = () => {
       <button className={styles.button} onClick={handleButtonClick}>
         현재 진행중인 공연보기
       </button>
-
-      <span className={styles.playground}>대운동장</span>
+      {currentDay === "1" ? (
+        <div className={styles.noPerformance}>
+          <div>오늘은 공연이 없어요.</div>
+          <div>
+            날짜를 선택하고 예정된 공연 타임테이블을<br/> 미리 확인해보세요!
+          </div>
+          <img src={NoPerformance} alt="" />
+        </div>
+      ) : (
+        <span className={styles.playground}>대운동장</span>
+      )}
 
       {(currentDay === "2" || currentDay === "3") &&
         timeSlots.map((time, index) => {

@@ -12,7 +12,7 @@
 .modal {
   width: 167px;
   height: 167px;
-
+  z-index: 10;
   padding: 18px 16px;
   display: flex;
   flex-direction: column;

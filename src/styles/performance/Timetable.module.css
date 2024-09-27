@@ -35,7 +35,7 @@
   width: 325px;
   margin-top: 20px;
   display: flex;
- 
+
   align-items: center;
   gap: 5px;
   & > img {
@@ -119,7 +119,7 @@
 
 .onplay {
   position: absolute;
-  background-color : rgba(255, 133, 238, 0.15);
+  background-color: rgba(255, 133, 238, 0.15);
   width: 262px;
   left: 63px;
 }
@@ -135,20 +135,43 @@
 }
 
 .circleLine {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    z-index: 3;
-    left: -20px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  z-index: 3;
+  left: -20px;
 }
 .circleLineCircle {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background-color: #FF85EE;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #ff85ee;
 }
 .circleLineLine {
-    width: 275px;
-    height: 1px;
-    background-color: #FF85EE;
+  width: 275px;
+  height: 1px;
+  background-color: #ff85ee;
+}
+
+.noPerformance {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 325px;
+
+  & > div {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 34px;
+    letter-spacing: -1px;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  & > img {
+    width: 133px;
+    height: 166px;
+  }
 }
