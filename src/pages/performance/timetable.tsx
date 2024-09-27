@@ -2,6 +2,7 @@ import Arrow from "@assets/performance/arrow-back.svg";
 import ArrowDown from "@assets/performance/arrow-down.svg";
 import NoPerformance from "@assets/performance/noperformance.svg";
 import { DaySelect } from "@components/performance/DaySelect";
+import { Toast } from "@components/performance/Toast";
 import { daysPerformance } from "@constant/performance";
 
 // add styles
@@ -15,6 +16,7 @@ export const Timetable = () => {
   const [currentDay, setCurrentDay] = useState("1");
   const [currentArtist, setCurrentArtist] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
     if (parmas.day === "2" || parmas.day === "3") setCurrentDay(parmas.day);
@@ -44,8 +46,12 @@ export const Timetable = () => {
 
   const handleButtonClick = () => {
     if (parmas.day === "2" || parmas.day === "3") {
-      navigate(`/performance/${currentArtist}`);
+      if (currentArtist !== "-1") {
+        navigate(`/performance/${currentArtist}`);
+        return;
+      }
     }
+    setShowToast(true);
     return;
   };
 
@@ -84,7 +90,8 @@ export const Timetable = () => {
         <div className={styles.noPerformance}>
           <div>오늘은 공연이 없어요.</div>
           <div>
-            날짜를 선택하고 예정된 공연 타임테이블을<br/> 미리 확인해보세요!
+            날짜를 선택하고 예정된 공연 타임테이블을
+            <br /> 미리 확인해보세요!
           </div>
           <img src={NoPerformance} alt="" />
         </div>
@@ -172,6 +179,12 @@ export const Timetable = () => {
           currentDay={currentDay}
           setCurrentDay={setCurrentDay}
           setshowModal={setShowModal}
+        />
+      )}
+      {showToast && (
+        <Toast
+          message="현재 진행중인 공연이 없습니다."
+          setToast={setShowToast}
         />
       )}
     </div>
