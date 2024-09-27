@@ -37,7 +37,7 @@ export const DevelopersPage = () => {
 
         <div className={styles.introText}>
           한양대학교 ERICA 멋쟁이 사자처럼 12기
-        </div>
+        </div>/
         <img src={X} className={styles.introX} />
         <div className={styles.introText}>총동아리연합회 UP</div>
         <div className={styles.introText2}>
