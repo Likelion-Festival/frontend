@@ -44,9 +44,9 @@ const highlightText = (text: string, searchTerm: string): (string | JSX.Element)
   );
 };
 
-  const handleStoreClick = (BarDetail: string) => {
-    navigate(`/bar-detail/${BarDetail}`);
-  };
+const handleStoreClick = (storeId: number) => {
+  navigate(`/bar-detail/${storeId}`);
+};
 
   const handleInputFocus = () => {
     setIsInputFocused(true);
@@ -103,7 +103,7 @@ const highlightText = (text: string, searchTerm: string): (string | JSX.Element)
             <div
               key={index}
               className={styles.store}
-              onClick={() => handleStoreClick(store.name)}
+              onClick={() => handleStoreClick(store.id)}
             >
               <img src={store.imageUrl} alt={`${store.name} 이미지`} className={styles.storeImage}
               />

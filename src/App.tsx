@@ -82,7 +82,7 @@ function App() {
               <Route path="/performance/guide" element={<GuidePage />} />
               {/* bar page */}
               <Route path="/bar" element={<BarPage />} />
-              <Route path="/bar-detail/:storeName" element={<BarDetail />} />
+              <Route path="/bar-detail/:storeId" element={<BarDetail />} />
               {/* error page */}
               <Route path="*" element={<ErrorPage />} />
             </Routes>
