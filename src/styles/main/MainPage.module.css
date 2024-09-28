@@ -4,16 +4,17 @@
   border: none;
 }
 .topMargin {
-  height: 10px;
+  height: 17px;
   width: auto;
 }
 /* 로고 */
 .toplogo {
+  width: 114px;
+  height: 35.81px;
   display: flex;
-  width: 110px;
-  height: 67px;
-  margin-left: 26px;
+  margin-left: 23px;
   margin-right: auto;
+  margin-bottom: 23px;
 }
 /* 이벤트 */
 .eventSlide {
@@ -123,19 +124,22 @@
   color: #ffffff;
 }
 .programSlideContainer {
-  margin-left: -170px;
-  border: 1px dashed white;
+  margin-left: -180px;
+  /* border: 1px dashed white; */
 }
 .programBox {
   margin-right: 8px;
   display: flex;
   flex-direction: column;
+  align-items: start;
 }
 .programImg {
   width: 199px;
   height: 122px;
   border-radius: 5px;
   background-color: aqua;
+  background-size: cover;
+  background-position: center;
 }
 .programName {
   font-family: Noto Sans KR;
@@ -150,8 +154,8 @@
 /* 공지사항 */
 .noticeContainer {
   margin-top: 52px;
-  margin-left: 19px;
-  margin-right: 19px;
+  margin-left: 26px;
+  margin-right: 26px;
   display: flex;
   flex-direction: column;
 }
@@ -159,16 +163,15 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 .noticeEntireTitle {
   display: flex;
   font-family: Noto Sans KR;
   font-size: 20px;
   font-weight: 700;
-
   letter-spacing: -0.01em;
   text-align: left;
-  margin-left: 7px;
   color: #ffffff;
 }
 .noticeMore {
@@ -181,7 +184,6 @@
   letter-spacing: -0.02em;
   text-align: left;
   color: #878787;
-  margin-right: 6px;
   margin-left: auto;
 }
 .rightVector {
@@ -194,12 +196,17 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  width: 100%;
 }
 .noticeBox {
   background: #272727;
-  width: 337px;
+  width: 100%;
   height: 69px;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-content: start;
+  padding: 10px 15px 9px 15px;
 }
 .noticeTitle {
   font-family: Noto Sans KR;
@@ -209,9 +216,6 @@
   letter-spacing: -1px;
   text-align: left;
   color: #e2e2e2;
-
-  margin-top: 10px;
-  margin-left: 14.52px;
 }
 .noticeContent {
   font-family: Noto Sans KR;
@@ -221,7 +225,6 @@
   letter-spacing: -1px;
   text-align: left;
   color: #ababab;
-  margin-left: 14.52px;
 }
 
 /* 문의사항 */

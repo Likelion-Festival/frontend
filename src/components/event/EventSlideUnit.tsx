@@ -6,6 +6,7 @@ interface EventProps {
   indexText: string;
   mainTitle: string;
   subTitle: string;
+  onClick?: () => void;
 }
 
 const EventSlideUnit = ({
@@ -13,6 +14,7 @@ const EventSlideUnit = ({
   indexText,
   mainTitle,
   subTitle,
+  onClick,
 }: EventProps) => {
   return (
     <div
@@ -22,6 +24,7 @@ const EventSlideUnit = ({
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
+      onClick={onClick ? onClick : undefined}
     >
       <div className={styles.eventHeader}>
         <div className={styles.eventIndex}>{indexText}</div>

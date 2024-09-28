@@ -24,9 +24,29 @@ export const MainPage = () => {
   const MoveNotice = () => {
     navigate(`/notice-list`);
   };
+  const MoveDetailPageWithID = (id: string) => {
+    if (id && !isDragging) {
+      // 드래그 중일 때는 onClick 방지
+      navigate(`detail/${id}`);
+    }
+  };
   const [currentSlide, setCurrentSlide] = useState(0);
-  const sliderSettings = useSlider();
-  const sliderSettings2 = useSlider2();
+  const [isDragging, setIsDragging] = useState(false); // 드래그 상태 관리
+  // const sliderSettings = useSlider();
+  // const sliderSettings2 = useSlider2();
+  const sliderSettings = {
+    ...useSlider(),
+    beforeChange: () => setIsDragging(true), // 슬라이드 이동 전에 드래그 상태 설정
+    afterChange: (current: number) => {
+      setIsDragging(false); // 슬라이드 이동 후 드래그 상태 해제
+      setCurrentSlide(current); // 현재 슬라이드 업데이트
+    },
+  };
+  const sliderSettings2 = {
+    ...useSlider2(),
+    beforeChange: () => setIsDragging(true),
+    afterChange: () => setIsDragging(false),
+  };
   const openInstagramOfUp = useInstagramOpen("hanyang_erica_club_association");
   const openInstagramOfLikelion = useInstagramOpen("likelion_erica");
   const openGoogleForm = () => {
@@ -47,24 +67,17 @@ export const MainPage = () => {
     "14",
     "15",
   ];
+  const programIdOrderList = ["103", "102", "101", "104", "105", "106"];
+  const noticeIdOrderList = ["4", "7", "10"];
   const sortedEventListData = eventIdOrderList
     .map((id) => allJsonData.find((item) => item.id === id))
     .filter((item) => item !== undefined);
-  const programs = [
-    // TODO: 서버에서 받아오거나 미리 세팅
-    {
-      programImgURL: "", // 이미지 URL
-      programName: "클라이밍 콘텐츠",
-    },
-    {
-      programImgURL: "",
-      programName: "푸드 트럭",
-    },
-    {
-      programImgURL: "",
-      programName: "공연 무대",
-    },
-  ];
+  const sortedProgramListData = programIdOrderList
+    .map((id) => allJsonData.find((item) => item.id === id))
+    .filter((item) => item !== undefined);
+  const sortedNoticeListData = noticeIdOrderList
+    .map((id) => allJsonData.find((item) => item.id === id))
+    .filter((item) => item !== undefined);
 
   useEffect(() => {
     setIsNavVisible(true);
@@ -83,10 +96,7 @@ export const MainPage = () => {
 
       <div className={styles.eventSlideContainer}>
         {/* TODO:로딩 구현하기 */}
-        <Slider
-          {...sliderSettings}
-          afterChange={(current: number) => setCurrentSlide(current)}
-        >
+        <Slider {...sliderSettings}>
           {sortedEventListData.map((event, index) => (
             <div
               key={index}
@@ -101,6 +111,7 @@ export const MainPage = () => {
                 indexText={`${index + 1}/${sortedEventListData.length}`}
                 mainTitle={event.mainTitle}
                 subTitle={event.subTitle}
+                onClick={() => MoveDetailPageWithID(event.id)}
               />
             </div>
           ))}
@@ -111,11 +122,12 @@ export const MainPage = () => {
         <div className={styles.programEntireTitle}>축제 프로그램</div>
         <div className={styles.programSlideContainer}>
           <Slider {...sliderSettings2}>
-            {programs.map((program, index) => (
+            {sortedProgramListData.map((program, index) => (
               <ProgramSlideUnit
                 key={index}
-                programImgURL={program.programImgURL}
-                programName={program.programName}
+                programImgURL={`/program-thumbnails/${program.id}.png`}
+                programName={program.mainTitle}
+                onClick={() => MoveDetailPageWithID(program.id)}
               />
             ))}
           </Slider>
@@ -136,24 +148,18 @@ export const MainPage = () => {
           </button>
         </div>
         <div className={styles.noticeBoxContainer}>
-          <div className={styles.noticeBox}>
-            <div className={styles.noticeTitle}>음주구역 안내</div>
-            <div className={styles.noticeContent}>
-              큰 구역 : 호수공원 옆 도로, 잔디공터 작은 구역 : ...
+          {sortedNoticeListData.map((notice, index) => (
+            <div
+              key={index}
+              className={styles.noticeBox}
+              onClick={() => MoveDetailPageWithID(notice.id)}
+            >
+              <div className={styles.noticeTitle}>{notice.mainTitle}</div>
+              <div className={styles.noticeContent}>
+                평행세계의 경계를 지키는 Fall:ing Keeper 를 소개합니다!
+              </div>
             </div>
-          </div>
-          <div className={styles.noticeBox}>
-            <div className={styles.noticeTitle}>주류 구매</div>
-            <div className={styles.noticeContent}>
-              큰 구역 : 호수공원 옆 도로, 잔디공터 작은 구역 : ...
-            </div>
-          </div>
-          <div className={styles.noticeBox}>
-            <div className={styles.noticeTitle}>공연장 유의사항 안내</div>
-            <div className={styles.noticeContent}>
-              큰 구역 : 호수공원 옆 도로, 잔디공터 작은 구역 : ...
-            </div>
-          </div>
+          ))}
         </div>
       </div>
       <div className={styles.contactContainer}>

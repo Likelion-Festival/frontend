@@ -1,20 +1,23 @@
 import styles from "@styles/main/MainPage.module.css";
 
 interface ProgramSlideUnitProps {
-  programImgURL: string; // 이미지 URL
-  programName: string; // 프로그램 이름
+  programImgURL: string;
+  programName: string;
+  onClick?: () => void;
 }
 
 const ProgramSlideUnit = ({
   programImgURL,
   programName,
+  onClick,
 }: ProgramSlideUnitProps) => {
   return (
     <div className={styles.programBox}>
       <div
         className={styles.programImg}
         style={{ backgroundImage: `url(${programImgURL})` }}
-      ></div>
+        onClick={onClick ? onClick : undefined}
+      />
       <div className={styles.programName}>{programName}</div>
     </div>
   );
