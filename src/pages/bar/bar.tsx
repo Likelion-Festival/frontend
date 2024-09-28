@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "@styles/BarList/BarList.module.css";
-import { stores } from "./bar-types";
+import { stores } from "../../assets/bar/bar-types";
 import goBack from "@assets/bar/goBack.png";
 import searchResult from "@assets/bar/주점검색.png";
 import noResult from "@assets/bar/no_result.png";

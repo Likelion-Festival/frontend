@@ -281,7 +281,7 @@ export const Map = () => {
       temporaryMarker.setMap(null); // 임시 마커 제거
       setTemporaryMarker(null);
     }
-  }, [currCategory]);
+  }, [currCategory, isCategoryClicked]);
 
   return (
     <div className={styles.wrapper}>

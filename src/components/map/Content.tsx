@@ -56,9 +56,33 @@ export const Content = ({ clickMarkerList }: clickMarkerListType) => {
 
   // 조건에 따른 클릭된 마커 리스트 렌더링
   useEffect(() => {
+    // if (!isCategoryClicked && clickMarkerList && clickMarkerList.length > 0) {
+    //   setRenderList(clickMarkerList);
+    //   console.log(clickMarkerList);
+    // }
+
     if (!isCategoryClicked && clickMarkerList && clickMarkerList.length > 0) {
-      setRenderList(clickMarkerList);
-      console.log(clickMarkerList);
+      const convertedList = clickMarkerList.map((marker) => {
+        if ("id" in marker) {
+          return marker as MarkerInfoType; // MarkerInfoType인 경우 그대로 반환
+        } else {
+          // Store인 경우, MarkerInfoType에 맞게 변환
+          return {
+            id: -1, // Store에는 id가 없으므로 임시 id 추가
+            day: [], // day도 Store에는 없으므로 빈 배열 할당
+            category: marker.category,
+            subCategory: "", // 필요에 따라 Store 정보를 채워넣음
+            name: marker.name,
+            index: "",
+            time: marker.time,
+            location: marker.location, // Store의 위치 정보 사용
+            position: marker.position,
+            imagePath: marker.imageUrl,
+          } as MarkerInfoType;
+        }
+      });
+
+      setRenderList(convertedList);
     }
   }, [clickMarkerList, currMarker, isCategoryClicked]);
 

@@ -139,4 +139,8 @@
 
 .bar_image {
   object-fit: cover;
+  img {
+    width: 325px;
+    height: 121px;
+  }
 }

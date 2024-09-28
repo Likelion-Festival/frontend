@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import styles from "@styles/BarList/BarDetail.module.css";
-import { stores, Store, MenuItem } from "./bar-types.ts";
-import { BarPage } from "./bar.tsx";
+import { stores, Store, MenuItem } from "../../assets/bar/bar-types.ts";
 import goBack from "@assets/bar/goBack.png";
 import MoveToMap from "@assets/bar/지도이동버튼.png";
 import { useMapContext } from "@context/MapContext.tsx";
@@ -10,7 +9,7 @@ import { useEffect } from "react";
 
 export const BarDetail = () => {
   const navigate = useNavigate();
-  const { setIsNavVisible } = useMapContext();
+  const { setCurrCategory, setIsNavVisible } = useMapContext();
 
   const handleGoBack = () => {
     navigate(-1);
@@ -27,7 +26,10 @@ export const BarDetail = () => {
   console.log(store.imageUrl);
 
   const MoveMap = () => {
-    navigate(`/bar/${BarPage}`);
+    navigate("/map", {
+      state: { category: store.category, position: store.position },
+    });
+    setCurrCategory("bar");
   };
 
   useEffect(() => {
@@ -73,7 +75,7 @@ export const BarDetail = () => {
 
           <div>
             <div className={styles["barDetail-menu"]}>
-              <div className={styles.main}>{store.category[0]?.Main}</div>
+              <div className={styles.main}>{store.classification[0]?.Main}</div>
               <ul>
                 {store.mainMenu.map((item: MenuItem, index: number) => (
                   <li key={index}>
@@ -87,7 +89,9 @@ export const BarDetail = () => {
             <div className={styles.detailLine}></div>
 
             <div className={styles["barDetail-menu"]}>
-              <div className={styles.main}>{store.category[0]?.Second}</div>
+              <div className={styles.main}>
+                {store.classification[0]?.Second}
+              </div>
               <ul>
                 {store.secondMenu.map((item: MenuItem, index: number) => (
                   <li key={index}>
@@ -100,7 +104,9 @@ export const BarDetail = () => {
 
             <div className={styles.detailLine}></div>
             <div className={styles["barDetail-menu"]}>
-              <div className={styles.main}>{store.category[0]?.Third}</div>
+              <div className={styles.main}>
+                {store.classification[0]?.Third}
+              </div>
               <ul>
                 {store.thirdMenu.map((item: MenuItem, index: number) => (
                   <li key={index}>
