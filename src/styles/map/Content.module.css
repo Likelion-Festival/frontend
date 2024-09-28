@@ -11,7 +11,7 @@
 
 .marker_list {
   width: 328px;
-  max-height: 107px;
+  height: auto;
   -webkit-overflow-scrolling: touch;
 }
 
