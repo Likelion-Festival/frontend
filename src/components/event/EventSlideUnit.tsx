@@ -1,28 +1,32 @@
 // Event.tsx
-import styles from "@styles/MainPage.module.css";
+import styles from "@styles/main/MainPage.module.css";
 
 interface EventProps {
   imgURL: string;
-  isOnLive: boolean;
   indexText: string;
   mainTitle: string;
   subTitle: string;
+  onClick?: () => void;
 }
 
 const EventSlideUnit = ({
   imgURL,
-  isOnLive,
   indexText,
   mainTitle,
   subTitle,
+  onClick,
 }: EventProps) => {
   return (
     <div
       className={styles.eventBox}
-      style={{ backgroundImage: `url(${imgURL})` }}
+      style={{
+        background: `linear-gradient(180deg, rgba(0, 0, 0, 0) 39%, rgba(0, 0, 0, 0.8) 100%), url(${imgURL})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+      onClick={onClick ? onClick : undefined}
     >
       <div className={styles.eventHeader}>
-        {isOnLive ? <div className={styles.eventLiveLogo}>Live</div> : null}
         <div className={styles.eventIndex}>{indexText}</div>
       </div>
       <div className={styles.eventTitleBox}>
