@@ -17,6 +17,7 @@ import { NoticeListPage } from "@pages/notice/noticeList";
 import { useMapContext } from "@context/MapContext";
 import {DevelopersPage} from "@pages/developer/developers";
 import { DetailPage } from "@pages/notice/DetailPage";
+import ScrollToTop from '@components/developer/ScrollTop'; 
 
 function App() {
   const [isSplashVisible, setIsSplashVisible] = useState(true);
@@ -47,6 +48,7 @@ function App() {
   return (
     <AlarmProvider>
       <BrowserRouter>
+      <ScrollToTop /> 
         {isSplashVisible ? (
           <SplashScreen onSplashFinish={() => setIsSplashVisible(false)} />
         ) : (

@@ -1,8 +1,8 @@
 .developerContainer{
-    margin: 0;
+    background-color: #131313;
     padding: 20px;
     border: none;
-    overflow: hidden;
+    overflow-y: auto;
     min-width: 325px;
     min-height: 340px;
 }
