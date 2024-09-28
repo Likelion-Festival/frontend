@@ -1,11 +1,13 @@
 .developerContainer{
-    margin: 0;
+    background-color: #131313;
     padding: 20px;
     border: none;
-    overflow: hidden;
+    overflow: auto;
     min-width: 325px;
     min-height: 340px;
 }
+
+
 .developerTitle{
     display: flex;
     flex-direction: row;
