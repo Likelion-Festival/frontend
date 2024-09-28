@@ -1,16 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "@styles/BarList/BarList.module.css";
-import { stores } from "../../assets/bar/bar-types";
+import { stores } from "./bar-types";
 import goBack from "@assets/bar/goBack.png";
 import searchResult from "@assets/bar/주점검색.png";
 import noResult from "@assets/bar/no_result.png";
 import inputGlass from "@assets/bar/search.png";
 import { disassemble } from "es-hangul";
-import { useMapContext } from "@context/MapContext";
 
 export const BarPage = () => {
-  const { setIsNavVisible } = useMapContext();
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
   const [isInputFocused, setIsInputFocused] = useState(false);
@@ -49,9 +47,9 @@ export const BarPage = () => {
     );
   };
 
-const handleStoreClick = (storeId: number) => {
-  navigate(`/bar-detail/${storeId}`);
-};
+  const handleStoreClick = (storeId: number) => {
+    navigate(`/bar-detail/${storeId}`);
+  };
 
   const handleInputFocus = () => {
     setIsInputFocused(true);
@@ -67,10 +65,6 @@ const handleStoreClick = (storeId: number) => {
     setSearchTerm("");
     navigate(-1);
   };
-
-  useEffect(() => {
-    setIsNavVisible(true);
-  }, []);
 
   return (
     <div className={styles.container}>
@@ -143,7 +137,10 @@ const handleStoreClick = (storeId: number) => {
                 </div>
                 <div className={styles.descriptions}>
                   <div className={styles.representMenu}>대표</div>
-                  {highlightText(store.description, searchTerm)}
+                  <div className={styles.descriptionMenu}>
+                    {" "}
+                    {highlightText(store.description, searchTerm)}{" "}
+                  </div>
                 </div>
               </div>
             </div>
