@@ -1,14 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "@styles/performance/Tooltip.module.css";
 
 interface TooltipProps {
   text: string;
   top: number;
   left: number;
+  visible: boolean;
+  setVisible: (visible: boolean) => void;
 }
 
-export const Tooltip: React.FC<TooltipProps> = ({ text, top, left }) => {
-  const [visible, setVisible] = useState(true); // 툴팁 가시성 상태
+export const Tooltip: React.FC<TooltipProps> = ({ text, top, left, visible, setVisible }) => {
   const tooltipRef = useRef<HTMLDivElement>(null); // 툴팁 참조
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -22,7 +23,7 @@ export const Tooltip: React.FC<TooltipProps> = ({ text, top, left }) => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside); // 컴포넌트 언마운트 시 리스너 제거
     };
-  }, []);
+  });
 
   if (!visible) return null; // 툴팁이 보이지 않게 설정
 

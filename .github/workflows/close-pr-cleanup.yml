@@ -1,0 +1,20 @@
+name: Delete Firebase Hosting preview channel
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  delete_preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Delete Firebase channel
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_HYUERICA_FESTIVAL }}"
+          projectId: hyuerica-festival
+          channelId: pr-${{ github.event.pull_request.number }}
+          expires: "0"

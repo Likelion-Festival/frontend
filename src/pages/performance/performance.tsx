@@ -8,10 +8,14 @@ import { Tooltip } from "@components/performance/Tooltip";
 import { NoPerformanceDay } from "@components/performance/NoPerformanceDay";
 import { useAlarm } from "@hooks/useAlarm";
 import { Modal } from "@components/performance/Modal";
+import { useEffect, useRef, useState } from "react";
+import { NoPerformanceTomorrow } from "@components/performance/NoPerformanceTomorrow";
 
 export const PerformancePage = () => {
   const navigate = useNavigate();
-  const {showModal} = useAlarm();
+  const { showModal } = useAlarm();
+  const [visible, setVisible] = useState(true);
+  const containerRef = useRef<HTMLDivElement>(null); // 컨테이너 참조
 
   const handleTimeTableClick = () => {
     const today = new Date();
@@ -19,29 +23,52 @@ export const PerformancePage = () => {
 
     if (today.getFullYear() === 2024 && today.getMonth() === 9) {
       if (dayOfMonth === 1) {
-        navigate("timetable/1");
-      } else if (dayOfMonth === 2) {
         navigate("timetable/2");
+      } else if (dayOfMonth === 2) {
+        navigate("timetable/3");
       }
     } else {
       navigate("timetable/0");
     }
   };
 
+  const handleScroll = () => {
+    setVisible(false); // 스크롤 시 툴팁 숨기기
+  };
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener("scroll", handleScroll); // 컨테이너에 스크롤 이벤트 리스너 추가
+    }
+    return () => {
+      if (container) {
+        container.removeEventListener("scroll", handleScroll); // 언마운트 시 리스너 제거
+      }
+    };
+  }, []);
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={containerRef}>
       <div className={styles.column}>
         <div className={styles.header}>
           <span>Today</span>
-          <img src={timeTable} alt="" onClick={() => handleTimeTableClick()} />
-          <Tooltip text="타임테이블 보러가기" top={60} left={212} />
+          <img src={timeTable} alt="" onClick={handleTimeTableClick} />
+          <Tooltip
+            text="타임테이블 보러가기"
+            top={60}
+            left={212}
+            visible={visible}
+            setVisible={setVisible}
+          />
         </div>
         {new Date().getMonth() === 9 &&
         (new Date().getDate() === 1 || new Date().getDate() === 2) ? (
           <Slide items={performances} onlyToday={true} />
         ) : (
-          <NoPerformanceDay/>
+          <NoPerformanceDay />
         )}
+
         <div className={styles.guide}>
           <span>공연 관람 Guide 보러가기</span>
           <div onClick={() => navigate("guide")}>
@@ -50,13 +77,19 @@ export const PerformancePage = () => {
         </div>
       </div>
       <div className={styles.horizon}></div>
-      <div className={styles.column}>
-        <div className={styles.header}>
-          <span>Soon</span>
+      {(
+        new Date() < new Date("2024-10-02") 
+      ) ? (
+        <div className={styles.column}>
+          <div className={styles.header}>
+            <span>Soon</span>
+          </div>
+          <Slide items={performances} onlyToday={false} />
         </div>
-        <Slide items={performances} onlyToday={false} />
-      </div>
-      {  showModal && <Modal />}
+      ) : (
+        <NoPerformanceTomorrow />
+      )}
+      {showModal && <Modal />}
     </div>
   );
 };
