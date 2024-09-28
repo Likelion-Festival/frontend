@@ -33,7 +33,8 @@ export const DevelopersPage = () => {
       }, [location]);
     
       const handleFormClick = () => {
-        window.location.href = 'https://forms.gle/HjsQi1yt8S9sG7Z19';
+        // window.location.href = 'https://forms.gle/HjsQi1yt8S9sG7Z19';
+        window.open("https://forms.gle/HjsQi1yt8S9sG7Z19", "_blank"); // 새 창 열기로 변경
       };
 
 
@@ -195,7 +196,6 @@ export const DevelopersPage = () => {
 
 
 
-            {/* 설문 주소 - 아직 주소 추가 X*/}
             <div className={styles.contactBox} onClick={handleFormClick}>
                 <div className={styles.contactPhraseBox}>
                 <div className={styles.contactPhrase1}>축제 앱 어떠셨나요?</div>
