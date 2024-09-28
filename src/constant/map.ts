@@ -15,7 +15,9 @@ export const foodCourtMarkerPositions = [
 export const medicalMarkerPositions = [
   new kakao.maps.LatLng(37.298087, 126.834385),
 ];
-export const toiletMarkerPositions = [];
+export const toiletMarkerPositions = [
+  new kakao.maps.LatLng(37.295565768777244, 126.83488031121028),
+];
 
 // 카테고리별 영역 위치
 export const eventPositions = [

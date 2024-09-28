@@ -3,7 +3,6 @@
   justify-content: center;
   width: 100%;
   background-color: #131313;
-  /* padding-left: 27px; */
   margin-bottom: 24px;
   overflow-x: auto;
   overflow-y: hidden;
@@ -32,6 +31,9 @@
     background-color: #272727;
     white-space: nowrap;
     flex-shrink: 0;
+  }
+  li:last-child {
+    margin-right: 0;
   }
 
   & .selected {
