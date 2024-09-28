@@ -78,3 +78,65 @@
     height: 86px;
   }
 }
+
+.bar_content {
+  box-sizing: border-box;
+  height: auto;
+  min-height: 185px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 21px;
+
+  .bar_title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    h3 {
+      max-width: 260px;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 21px;
+      color: white;
+      margin-right: 8px;
+    }
+
+    span {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 21px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .bar_detail {
+    display: flex;
+    margin-bottom: 12px;
+
+    .time,
+    .location {
+      padding-left: 21px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 21px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .time {
+      background: url("/public/marker-img/schedule.svg") no-repeat;
+      background-position: left center;
+      white-space: pre-line;
+      margin-right: 13px;
+    }
+
+    .location {
+      background: url("/public/marker-img/location.svg") no-repeat;
+      background-position: left center;
+    }
+  }
+}
+
+.bar_image {
+  object-fit: cover;
+}

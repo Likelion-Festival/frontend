@@ -32,6 +32,7 @@ export const Map = () => {
     isCategoryClicked,
     setIsCategoryClicked,
     setCurrCategory,
+    setSubCategory,
     isBottomSheetVisible,
     setIsBottomSheetVisible,
     setIsNavVisible,
@@ -55,6 +56,7 @@ export const Map = () => {
     setIsCategoryClicked(false);
     setIsBottomSheetVisible(false);
     setCurrCategory("");
+    setSubCategory("");
   }, []);
 
   const handleMarkerImage = (
@@ -106,6 +108,7 @@ export const Map = () => {
         const newLatLng = position;
         setCurrMarker(newLatLng);
         setIsCategoryClicked(false);
+        setSubCategory("");
         setIsNavVisible(true);
 
         handleMarkerImage(marker, markerImageSrc);
