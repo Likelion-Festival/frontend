@@ -5,16 +5,18 @@ import useSlider2 from "@hooks/useSlider2";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styles from "@styles/MainPage.module.css";
+import styles from "@styles/main/MainPage.module.css";
 import EventSlideUnit from "@components/event/EventSlideUnit";
 import ProgramSlideUnit from "@components/program/programSlideUnit";
-import FallingLogo from "@assets/main/top-logo.svg";
-import UpLogo from "@assets/main/UP-logo.svg";
-import LikelionLogo from "@assets/main/Likelion-logo.svg";
+import FallingLogo from "@assets/main/top-logo.png";
+import UpLogo from "@assets/main/UP-logo.png";
+import LikelionLogo from "@assets/main/Likelion-logo.png";
+import RightVector from "@assets/main/right-vector.svg";
 import { useMapContext } from "@context/MapContext";
 import useInstagramOpen from "@hooks/useLinkToInsta";
 import LaptopIcon from "@assets/main/laptop-icon.png";
 import InstagramIcon from "@assets/main/instagram-icon.png";
+import allJsonData from "@constant/detailData.json";
 
 export const MainPage = () => {
   const navigate = useNavigate();
@@ -27,31 +29,27 @@ export const MainPage = () => {
   const sliderSettings2 = useSlider2();
   const openInstagramOfUp = useInstagramOpen("hanyang_erica_club_association");
   const openInstagramOfLikelion = useInstagramOpen("likelion_erica");
+  const openGoogleForm = () => {
+    window.open("https://forms.gle/HjsQi1yt8S9sG7Z19", "_blank");
+  };
   const rights1: string =
     "한양대학교 ERICA 멋쟁이사자처럼\n@LIKELION ERICA. All Rights Reserved.";
   const rights2: string = "@Design based by 총동아리연합회_UP";
-
-  const events = [
-    // TODO: 수정하기
-    {
-      imgURL: "",
-      isOnLive: true,
-      mainTitle: "가을 축제 사전 이벤트",
-      subTitle: "하냥이 키링을 받아갈 기회!",
-    },
-    {
-      imgURL: "",
-      isOnLive: false,
-      mainTitle: "겨울 축제 준비 중",
-      subTitle: "따뜻한 겨울을 위한 축제!",
-    },
-    {
-      imgURL: "",
-      isOnLive: true,
-      mainTitle: "봄 축제 미리보기",
-      subTitle: "봄바람을 맞이하며 즐기는 축제!",
-    },
+  const eventIdOrderList = [
+    "2",
+    "3",
+    "5",
+    "8",
+    "9",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
   ];
+  const sortedEventListData = eventIdOrderList
+    .map((id) => allJsonData.find((item) => item.id === id))
+    .filter((item) => item !== undefined);
   const programs = [
     // TODO: 서버에서 받아오거나 미리 세팅
     {
@@ -84,11 +82,12 @@ export const MainPage = () => {
       </div>
 
       <div className={styles.eventSlideContainer}>
+        {/* TODO:로딩 구현하기 */}
         <Slider
           {...sliderSettings}
           afterChange={(current: number) => setCurrentSlide(current)}
         >
-          {events.map((event, index) => (
+          {sortedEventListData.map((event, index) => (
             <div
               key={index}
               className={`${styles.eventSlide} ${
@@ -98,9 +97,8 @@ export const MainPage = () => {
               }`}
             >
               <EventSlideUnit
-                imgURL={event.imgURL}
-                isOnLive={event.isOnLive}
-                indexText={`${index + 1}/${events.length}`}
+                imgURL={event.images[0]}
+                indexText={`${index + 1}/${sortedEventListData.length}`}
                 mainTitle={event.mainTitle}
                 subTitle={event.subTitle}
               />
@@ -127,7 +125,14 @@ export const MainPage = () => {
         <div className={styles.noticeHeader}>
           <div className={styles.noticeEntireTitle}>공지사항</div>
           <button className={styles.noticeMore} onClick={MoveNotice}>
-            더보기&nbsp;&nbsp;&gt;
+            <div>
+              더보기
+              <img
+                className={styles.rightVector}
+                src={RightVector}
+                alt="오른쪽 벡터"
+              />
+            </div>
           </button>
         </div>
         <div className={styles.noticeBoxContainer}>
@@ -167,7 +172,7 @@ export const MainPage = () => {
               <img src={UpLogo} />
             </div>
           </div>
-          <div className={styles.contactBox} onClick={openInstagramOfLikelion}>
+          <div className={styles.contactBox} onClick={openGoogleForm}>
             <div className={styles.contactPhraseBox}>
               <div className={styles.contactPhrase1}>축제 앱 어떠셨나요?</div>
               <div className={styles.contactPhrase2}>
@@ -187,17 +192,20 @@ export const MainPage = () => {
 
       {/* 개발자 소개 및 인스타그램 페이지 연결 */}
       <div className={styles.moreInfo}>
-        <div className={styles.introDev} onClick={moveToDevelopers}>      {/* 개발자 소개 페이지로! */}
-            <img src={LaptopIcon} className={styles.introDevIcon1} />
-            Developers
+        <div className={styles.introDev} onClick={moveToDevelopers}>
+          {" "}
+          {/* 개발자 소개 페이지로! */}
+          <img src={LaptopIcon} className={styles.introDevIcon1} />
+          Developers
         </div>
         |
-        <div className={styles.introDev} onClick={openInstagramOfLikelion}> {/* 멋사 인스타그램으로! */}
+        <div className={styles.introDev} onClick={openInstagramOfLikelion}>
+          {" "}
+          {/* 멋사 인스타그램으로! */}
           <img src={InstagramIcon} className={styles.introDevIcon2} />
           Instagram
         </div>
       </div>
-
     </div>
   );
 };
