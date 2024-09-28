@@ -31,6 +31,7 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
     setCurrMarker,
     currCategory,
     setCurrCategory,
+    setSubCategory,
     isCategoryClicked,
     setIsCategoryClicked,
     setIsNavVisible,
@@ -46,6 +47,8 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
     const id = target.id;
 
     setIsCategoryClicked(true);
+    setSubCategory("");
+
     // 현재 선택된 마커 초기화
     setCurrMarker(null);
 

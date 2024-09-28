@@ -19,3 +19,5 @@ jobs:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_HYUERICA_FESTIVAL }}
           projectId: hyuerica-festival
+          channelId: pr-${{ github.event.pull_request.number }}
+          expires: 1d

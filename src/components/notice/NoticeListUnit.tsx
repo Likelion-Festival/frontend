@@ -1,30 +1,16 @@
-import { useNoticeTypeENG, useNoticeTypeKR } from "@hooks/useNoticeTypeText";
 import styles from "@styles/notice/noticeList.module.css";
-import { NoticeType } from "@type/notice/NoticeType";
 import { useNavigate } from "react-router-dom";
+import { ListData } from "@type/notice/listData";
 
-interface NoticeListUnitProps {
-  noticeType: NoticeType; // 공지 타입 (->NoticeType.tsx)
-  title: string;
-  thumbNailImgURL: string; // 썸네일 이미지 URL
-  id: string;
-}
-
-const NoticeListUnit = ({
-  noticeType,
-  title,
-  thumbNailImgURL,
-  id,
-}: NoticeListUnitProps) => {
+const NoticeListUnit = ({ subTitle, title, thumbNailImgURL, id }: ListData) => {
   const navigate = useNavigate();
-
   const onClickHandler = () => {
-    navigate(`/${useNoticeTypeENG(noticeType)}/${id}`);
+    navigate(`/detail/${id}`);
   };
   return (
     <div className={styles.unitBox} onClick={onClickHandler}>
       <div className={styles.textBox}>
-        <div className={styles.typeText}>{useNoticeTypeKR(noticeType)}</div>
+        <div className={styles.subTitle}>{subTitle}</div>
         <div className={styles.titleText}>{title}</div>
       </div>
       <div className={styles.imgBox}>

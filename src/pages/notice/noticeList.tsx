@@ -1,53 +1,32 @@
 import { useNavigate } from "react-router-dom";
 import goBackImg from "@assets/notice/goBackButton.svg";
 import styles from "@styles/notice/noticeList.module.css";
-import { NoticeType } from "@type/notice/NoticeType";
 import NoticeListUnit from "@components/notice/NoticeListUnit";
-import thumbnail_eg from "@assets/notice/thumbnails/thumbnail_eg.svg";
+import allJsonData from "@constant/detailData.json";
 
 export const NoticeListPage = () => {
   const navigate = useNavigate();
   const handleGoBack = () => navigate(-1);
-  const noticeUnits = [
-    // TODO: 수정하기
-    {
-      noticeType: NoticeType.Booth,
-      title: "FACE STICKER BOOTH  -타투스티커...",
-      thumbNailImgURL: thumbnail_eg,
-      id: "1",
-    },
-    {
-      noticeType: NoticeType.Notice,
-      title: "FACE STICKER BOOTH  -타투스티커...",
-      thumbNailImgURL: thumbnail_eg,
-      id: "1",
-    },
-    {
-      noticeType: NoticeType.Festival,
-      title: "FACE STICKER BOOTH  -타투스티커...",
-      thumbNailImgURL: thumbnail_eg,
-      id: "1",
-    },
-    {
-      noticeType: NoticeType.PerformanceGuide,
-      title: "FACE STICKER BOOTH  -타투스티커...",
-      thumbNailImgURL: thumbnail_eg,
-      id: "1",
-    },
-    {
-      noticeType: NoticeType.Notice,
-      title: "FACE STICKER BOOTH  -타투스티커...",
-      thumbNailImgURL: thumbnail_eg,
-      id: "1",
-    },
-    {
-      noticeType: NoticeType.Festival,
-      title: "FACE STICKER BOOTH  -타투스티커...",
-      thumbNailImgURL: thumbnail_eg,
-      id: "1",
-    },
+  const idOrderList = [
+    "12",
+    "11",
+    "10",
+    "9",
+    "8",
+    "7",
+    "6",
+    "5",
+    "4",
+    "3",
+    "2",
+    "1",
+    "14",
+    "15",
+    "13",
   ];
-
+  const sortedListData = idOrderList
+    .map((id) => allJsonData.find((item) => item.id === id)) // id에 맞는 데이터를 JSON에서 찾음
+    .filter((item) => item !== undefined); // undefined인 경우 제외
   return (
     <div className={styles.wrapper}>
       <div className={styles.topMargin} />
@@ -58,15 +37,19 @@ export const NoticeListPage = () => {
         <div className={styles.entireTitle}>공지사항</div>
       </div>
       <div className={styles.listBody}>
-        {noticeUnits.map((noticeUnit, index) => (
-          <NoticeListUnit
-            key={index}
-            noticeType={noticeUnit.noticeType}
-            title={noticeUnit.title}
-            thumbNailImgURL={noticeUnit.thumbNailImgURL}
-            id={noticeUnit.id}
-          />
-        ))}
+        {sortedListData.length > 0 ? (
+          sortedListData.map((noticeUnit) => (
+            <NoticeListUnit
+              key={noticeUnit.id}
+              subTitle={noticeUnit.subTitle}
+              title={noticeUnit.mainTitle}
+              thumbNailImgURL={noticeUnit.images[0]}
+              id={noticeUnit.id}
+            />
+          ))
+        ) : (
+          <div>로딩 중...</div>
+        )}
       </div>
     </div>
   );

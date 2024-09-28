@@ -14,11 +14,16 @@ import Calendar from "@assets/performance/calendar.svg";
 import Music from "@assets/performance/music.svg";
 import { useAlarm } from "@hooks/useAlarm";
 import { Modal } from "@components/performance/Modal";
+import { useEffect } from "react";
 
 export const PerformanceDetailPage = () => {
   const params = useParams();
   const navigator = useNavigate();
   const { alarms, handleToggleAlarm, showModal } = useAlarm();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!params.id) {
     navigator("error");
@@ -69,30 +74,62 @@ export const PerformanceDetailPage = () => {
         </div>
         <div
           className={styles.grayBox}
-          style={{ justifyContent: "space-around" }}
+          style={{ justifyContent: "center", gap: "30px" }}
         >
-          <div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
             <div className={styles.iconBox}>
               <img src={Location} alt="" />
               <span>장소</span>
             </div>
-            <span className={styles.textWhite}>호수 공원 앞</span>
+            <span className={styles.textWhite}>대운동장</span>
           </div>
           <img src={Vertical} alt="" />
-          <div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
             <div className={styles.iconBox}>
               <img src={Calendar} alt="" />
               <span>날짜</span>
             </div>
-            <span className={styles.textWhite}>10/1-2</span>
+            <span className={styles.textWhite}>{`${
+              item.date.getMonth() + 1
+            }/${item.date.getDate()}`}</span>
           </div>
           <img src={Vertical} alt="" />
-          <div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+            }}
+          >
             <div className={styles.iconBox}>
               <img src={Time} alt="" />
               <span>시간</span>
             </div>
-            <span className={styles.textWhite}>10:30-11:30</span>
+            <span className={styles.textWhite}>{`${item.date.getHours()}:${
+              item.date.getMinutes() < 10
+                ? "0" + item.date.getMinutes()
+                : item.date.getMinutes()
+            }-${
+              item.date.getHours() +
+              Math.floor((item.playTime + item.date.getMinutes()) / 60)
+            }:${
+              item.date.getMinutes() + (item.playTime % 60) === 0 ||
+              item.date.getMinutes() + (item.playTime % 60) === 60
+                ? "00"
+                : item.date.getMinutes() + (item.playTime % 60)
+            }`}</span>
           </div>
         </div>
         <div
@@ -128,7 +165,7 @@ export const PerformanceDetailPage = () => {
           </div>
         </div>
       </div>
-      {  showModal && <Modal />}
+      {showModal && <Modal />}
     </div>
   );
 };
