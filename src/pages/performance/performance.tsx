@@ -8,20 +8,20 @@ import { Tooltip } from "@components/performance/Tooltip";
 import { NoPerformanceDay } from "@components/performance/NoPerformanceDay";
 import { useAlarm } from "@hooks/useAlarm";
 import { Modal } from "@components/performance/Modal";
-import { useMapContext } from "@context/MapContext";
 import { useEffect, useRef, useState } from "react";
 import { NoPerformanceTomorrow } from "@components/performance/NoPerformanceTomorrow";
+import { useMapContext } from "@context/MapContext";
 
 export const PerformancePage = () => {
   const navigate = useNavigate();
   const { showModal } = useAlarm();
+  const [visible, setVisible] = useState(true);
+  const containerRef = useRef<HTMLDivElement>(null); // 컨테이너 참조
   const { setIsNavVisible } = useMapContext();
 
   useEffect(() => {
     setIsNavVisible(true);
   }, []);
-  const [visible, setVisible] = useState(true);
-  const containerRef = useRef<HTMLDivElement>(null); // 컨테이너 참조
 
   const handleTimeTableClick = () => {
     const today = new Date();
