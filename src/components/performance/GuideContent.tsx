@@ -1,6 +1,6 @@
 import styles from "@styles/performance/GuideContent.module.css";
 import ground from "@assets/performance/ground.jpg";
-import innerLayout from "@assets/performance/inner-layout.png";
+import innerLayout from "@assets/performance/inner-layout.jpg";
 import { useEffect, useState } from "react";
 
 export const GuideTime = () => {
@@ -15,7 +15,7 @@ export const GuideTime = () => {
   return (
     <div className={`${styles.wrapper} ${styles.column}`}>
       <div className={`${styles.column} ${styles.content}`}>
-        <span className={styles.spanHeader}>공연시간</span>
+        <span className={styles.spanHeader}>입장시간</span>
         <span className={styles.spanContent500}>
           16시 40분부터 입장가능합니다.
         </span>
