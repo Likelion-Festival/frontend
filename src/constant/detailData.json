@@ -1,10 +1,7 @@
 [
   {
     "id": "0",
-    "images": [
-      "/detail-page-images/pid0/image0.png",
-      "/detail-page-images/pid0/image0.png"
-    ],
+    "images": ["/detail-page-images/pid0/1.png"],
     "pageType": 3,
     "subTitle": "축제 앱 소개",
     "mainTitle": "FALL:ING 가을축제 앱 소개",
@@ -13,8 +10,13 @@
   {
     "id": "1",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid1/1.jpg",
+      "/detail-page-images/pid1/2.jpg",
+      "/detail-page-images/pid1/3.jpg",
+      "/detail-page-images/pid1/4.jpg",
+      "/detail-page-images/pid1/5.jpg",
+      "/detail-page-images/pid1/6.jpg",
+      "/detail-page-images/pid1/7.jpg"
     ],
     "pageType": 1,
     "subTitle": "운영 안내",
@@ -27,8 +29,14 @@
   {
     "id": "2",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid2/1.png",
+      "/detail-page-images/pid2/2.png",
+      "/detail-page-images/pid2/3.png",
+      "/detail-page-images/pid2/4.png",
+      "/detail-page-images/pid2/5.png",
+      "/detail-page-images/pid2/6.png",
+      "/detail-page-images/pid2/7.png",
+      "/detail-page-images/pid2/8.png"
     ],
     "pageType": 1,
     "subTitle": "축제 소개",
@@ -41,8 +49,15 @@
   {
     "id": "3",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid3/1.jpg",
+      "/detail-page-images/pid3/2.jpg",
+      "/detail-page-images/pid3/3.jpg",
+      "/detail-page-images/pid3/4.jpg",
+      "/detail-page-images/pid3/5.jpg",
+      "/detail-page-images/pid3/6.jpg",
+      "/detail-page-images/pid3/7.jpg",
+      "/detail-page-images/pid3/8.jpg",
+      "/detail-page-images/pid3/9.jpg"
     ],
     "pageType": 3,
     "subTitle": "축제 소개",
@@ -52,8 +67,8 @@
   {
     "id": "4",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid4/1.png",
+      "/detail-page-images/pid4/2.png"
     ],
     "pageType": 3,
     "subTitle": "단속 공고",
@@ -63,8 +78,12 @@
   {
     "id": "5",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid5/1.png",
+      "/detail-page-images/pid5/2.png",
+      "/detail-page-images/pid5/3.png",
+      "/detail-page-images/pid5/4.png",
+      "/detail-page-images/pid5/5.png",
+      "/detail-page-images/pid5/6.png"
     ],
     "pageType": 1,
     "subTitle": "축제 소개",
@@ -77,8 +96,14 @@
   {
     "id": "6",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid6/1.png",
+      "/detail-page-images/pid6/2.png",
+      "/detail-page-images/pid6/3.png",
+      "/detail-page-images/pid6/4.png",
+      "/detail-page-images/pid6/5.png",
+      "/detail-page-images/pid6/6.png",
+      "/detail-page-images/pid6/7.png",
+      "/detail-page-images/pid6/8.png"
     ],
     "pageType": 2,
     "subTitle": "운영 안내",
@@ -92,8 +117,11 @@
   {
     "id": "7",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid7/1.png",
+      "/detail-page-images/pid7/2.png",
+      "/detail-page-images/pid7/3.png",
+      "/detail-page-images/pid7/4.png",
+      "/detail-page-images/pid7/5.png"
     ],
     "pageType": 3,
     "subTitle": "유의사항",
@@ -103,8 +131,12 @@
   {
     "id": "8",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid8/1.png",
+      "/detail-page-images/pid8/2.png",
+      "/detail-page-images/pid8/3.png",
+      "/detail-page-images/pid8/4.png",
+      "/detail-page-images/pid8/5.png",
+      "/detail-page-images/pid8/6.png"
     ],
     "pageType": 1,
     "subTitle": "축제 소개",
@@ -117,8 +149,16 @@
   {
     "id": "9",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid9/1.png",
+      "/detail-page-images/pid9/2.png",
+      "/detail-page-images/pid9/3.png",
+      "/detail-page-images/pid9/4.png",
+      "/detail-page-images/pid9/5.png",
+      "/detail-page-images/pid9/6.png",
+      "/detail-page-images/pid9/7.png",
+      "/detail-page-images/pid9/8.png",
+      "/detail-page-images/pid9/9.png",
+      "/detail-page-images/pid9/10.png"
     ],
     "pageType": 3,
     "subTitle": "축제 소개",
@@ -128,8 +168,12 @@
   {
     "id": "10",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid10/1.png",
+      "/detail-page-images/pid10/2.png",
+      "/detail-page-images/pid10/3.png",
+      "/detail-page-images/pid10/4.png",
+      "/detail-page-images/pid10/5.png",
+      "/detail-page-images/pid10/6.png"
     ],
     "pageType": 1,
     "subTitle": "가이드",
@@ -142,8 +186,13 @@
   {
     "id": "11",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid11/1.png",
+      "/detail-page-images/pid11/2.png",
+      "/detail-page-images/pid11/3.png",
+      "/detail-page-images/pid11/4.png",
+      "/detail-page-images/pid11/5.png",
+      "/detail-page-images/pid11/6.png",
+      "/detail-page-images/pid11/7.png"
     ],
     "pageType": 1,
     "subTitle": "축제 소개",
@@ -156,8 +205,12 @@
   {
     "id": "12",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid12/1.png",
+      "/detail-page-images/pid12/2.png",
+      "/detail-page-images/pid12/3.png",
+      "/detail-page-images/pid12/4.png",
+      "/detail-page-images/pid12/5.png",
+      "/detail-page-images/pid12/6.png"
     ],
     "pageType": 3,
     "subTitle": "축제 소개",
@@ -167,8 +220,9 @@
   {
     "id": "13",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid13/1.png",
+      "/detail-page-images/pid13/2.png",
+      "/detail-page-images/pid13/3.png"
     ],
     "pageType": 3,
     "subTitle": "축제 소개",
@@ -178,8 +232,8 @@
   {
     "id": "14",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid14/1.png",
+      "/detail-page-images/pid14/2.png"
     ],
     "pageType": 3,
     "subTitle": "축제 소개",
@@ -189,8 +243,8 @@
   {
     "id": "15",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid15/1.png",
+      "/detail-page-images/pid15/2.png"
     ],
     "pageType": 3,
     "subTitle": "축제 소개",
@@ -200,8 +254,12 @@
   {
     "id": "101",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid101/1.jpg",
+      "/detail-page-images/pid101/2.png",
+      "/detail-page-images/pid101/3.png",
+      "/detail-page-images/pid101/4.png",
+      "/detail-page-images/pid101/5.png",
+      "/detail-page-images/pid101/6.png"
     ],
     "pageType": 1,
     "subTitle": "축제 소개",
@@ -214,8 +272,15 @@
   {
     "id": "102",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid102/1.jpg",
+      "/detail-page-images/pid102/2.png",
+      "/detail-page-images/pid102/3.png",
+      "/detail-page-images/pid102/4.png",
+      "/detail-page-images/pid102/5.png",
+      "/detail-page-images/pid102/6.png",
+      "/detail-page-images/pid102/7.png",
+      "/detail-page-images/pid102/8.png",
+      "/detail-page-images/pid102/9.png"
     ],
     "pageType": 1,
     "subTitle": "축제 소개",
@@ -228,8 +293,12 @@
   {
     "id": "103",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid103/1.jpg",
+      "/detail-page-images/pid103/2.png",
+      "/detail-page-images/pid103/3.png",
+      "/detail-page-images/pid103/4.png",
+      "/detail-page-images/pid103/5.png",
+      "/detail-page-images/pid103/6.png"
     ],
     "pageType": 1,
     "subTitle": "축제 소개",
@@ -242,8 +311,13 @@
   {
     "id": "104",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid104/1.jpg",
+      "/detail-page-images/pid104/2.png",
+      "/detail-page-images/pid104/3.png",
+      "/detail-page-images/pid104/4.png",
+      "/detail-page-images/pid104/5.png",
+      "/detail-page-images/pid104/6.png",
+      "/detail-page-images/pid104/7.png"
     ],
     "pageType": 1,
     "subTitle": "축제 소개",
@@ -256,8 +330,13 @@
   {
     "id": "105",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid105/1.jpg",
+      "/detail-page-images/pid105/2.png",
+      "/detail-page-images/pid105/3.png",
+      "/detail-page-images/pid105/4.png",
+      "/detail-page-images/pid105/5.png",
+      "/detail-page-images/pid105/6.png",
+      "/detail-page-images/pid105/7.png"
     ],
     "pageType": 1,
     "subTitle": "축제 소개",
@@ -270,8 +349,14 @@
   {
     "id": "106",
     "images": [
-      "/detail-page-images/pid1/img1.png",
-      "/detail-page-images/pid1/img1.png"
+      "/detail-page-images/pid106/1.jpg",
+      "/detail-page-images/pid106/2.png",
+      "/detail-page-images/pid106/3.png",
+      "/detail-page-images/pid106/4.png",
+      "/detail-page-images/pid106/5.png",
+      "/detail-page-images/pid106/6.png",
+      "/detail-page-images/pid106/7.png",
+      "/detail-page-images/pid106/8.png"
     ],
     "pageType": 1,
     "subTitle": "축제 소개",
