@@ -18,9 +18,16 @@ interface MapFilterProps {
   markers: MarkersType;
   day: string;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsInputFocus: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
+export const MapFilter = ({
+  map,
+  markers,
+  day,
+  setIsOpen,
+  setIsInputFocus,
+}: MapFilterProps) => {
   const [eventArea, setEventArea] = useState<kakao.maps.Polygon[] | null>(null);
   const [barArea, setBarArea] = useState<kakao.maps.Polygon | null>(null);
   const [foodCourtArea, setFoodCourtArea] = useState<kakao.maps.Polygon | null>(
@@ -58,6 +65,7 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
     setMarkersOnMap(markers.foodCourtMarkers, null);
     setMarkersOnMap(markers.medicalMarkers, null);
     setMarkersOnMap(markers.smokingMarkers, null);
+    setMarkersOnMap(markers.toiletMarkers, null);
 
     // 이벤트 영역 초기화
     if (eventArea) {
@@ -139,6 +147,12 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
         setIsCategoryClicked(false); // 카테고리 헤더 없어지지 않게
         setIsBottomSheetVisible(false);
         setIsNavVisible(true);
+
+        setMarkersOnMap(markers.toiletMarkers, map);
+        map?.panTo(
+          new kakao.maps.LatLng(37.295565768777244, 126.83488031121028)
+        );
+
         break;
 
       case "smokingMenu":
@@ -180,10 +194,16 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
             <img src={dropDownBtn} alt="dropdown-btn" />
           </button>
 
-          <form className={styles.form}>
+          <form
+            className={styles.form}
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
+          >
             <input
               type="text"
               placeholder="부스, 주점, 키워드를 검색해보세요"
+              onFocus={() => setIsInputFocus(true)}
             />
             <button type="submit"></button>
           </form>

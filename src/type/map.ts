@@ -1,9 +1,12 @@
+import { Store } from "@assets/bar/bar-types";
+
 export interface MarkersType {
   eventMarkers: kakao.maps.Marker[];
   barMarkers: kakao.maps.Marker[];
   foodCourtMarkers: kakao.maps.Marker[];
   medicalMarkers: kakao.maps.Marker[];
   smokingMarkers: kakao.maps.Marker[];
+  toiletMarkers: kakao.maps.Marker[];
 }
 
 export interface MarkerInfoType {
@@ -21,5 +24,5 @@ export interface MarkerInfoType {
 }
 
 export interface clickMarkerListType {
-  clickMarkerList?: MarkerInfoType[];
+  clickMarkerList?: (MarkerInfoType | Store)[];
 }

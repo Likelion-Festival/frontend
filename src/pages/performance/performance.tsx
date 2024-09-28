@@ -10,12 +10,18 @@ import { useAlarm } from "@hooks/useAlarm";
 import { Modal } from "@components/performance/Modal";
 import { useEffect, useRef, useState } from "react";
 import { NoPerformanceTomorrow } from "@components/performance/NoPerformanceTomorrow";
+import { useMapContext } from "@context/MapContext";
 
 export const PerformancePage = () => {
   const navigate = useNavigate();
   const { showModal } = useAlarm();
   const [visible, setVisible] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null); // 컨테이너 참조
+  const { setIsNavVisible } = useMapContext();
+
+  useEffect(() => {
+    setIsNavVisible(true);
+  }, []);
 
   const handleTimeTableClick = () => {
     const today = new Date();
@@ -77,9 +83,7 @@ export const PerformancePage = () => {
         </div>
       </div>
       <div className={styles.horizon}></div>
-      {(
-        new Date() < new Date("2024-10-02") 
-      ) ? (
+      {new Date() < new Date("2024-10-02") ? (
         <div className={styles.column}>
           <div className={styles.header}>
             <span>Soon</span>

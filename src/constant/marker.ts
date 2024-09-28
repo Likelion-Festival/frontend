@@ -1,7 +1,7 @@
 // 의무실 + 이벤트
 export const eventInfo = [
   {
-    id: 4,
+    id: 7,
     day: ["전체", "2일차", "3일차"],
     category: "event",
     subCategory: "",
@@ -12,21 +12,9 @@ export const eventInfo = [
     position: new kakao.maps.LatLng(37.294711, 126.833163),
     imagePath: "/marker-img/performance.png",
   },
-  {
-    id: 5,
-    day: ["전체", "1일차", "2일차", "3일차"],
-    category: "medical",
-    subCategory: "",
-    name: "한양보건센터",
-    index: "의무실",
-    time: "09:00~17:00\n(점심시간 12:00~13:00)",
-    location: "학생복지관 1층",
-    position: new kakao.maps.LatLng(37.298087, 126.834385),
-    imagePath: "/marker-img/medical.png",
-  },
 
   {
-    id: 11,
+    id: 6,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "event",
     subCategory: "네컷사진",
@@ -41,7 +29,7 @@ export const eventInfo = [
 
 export const promotionInfo = [
   {
-    id: 6,
+    id: 5,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "event",
     subCategory: "프로모션",
@@ -53,7 +41,7 @@ export const promotionInfo = [
     imagePath: "/marker-img/indo-mie.png",
   },
   {
-    id: 7,
+    id: 5,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "event",
     subCategory: "프로모션",
@@ -65,7 +53,7 @@ export const promotionInfo = [
     imagePath: "/marker-img/dawn-of-grammy.png",
   },
   {
-    id: 8,
+    id: 5,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "event",
     subCategory: "프로모션",
@@ -80,7 +68,7 @@ export const promotionInfo = [
 
 export const picnicInfo = [
   {
-    id: 9,
+    id: 100,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "event",
     subCategory: "잔디공원",
@@ -92,7 +80,7 @@ export const picnicInfo = [
     imagePath: "/marker-img/rest.png",
   },
   {
-    id: 10,
+    id: 102,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "event",
     subCategory: "잔디공원",
@@ -107,7 +95,7 @@ export const picnicInfo = [
 
 export const fleaMarketInfo = [
   {
-    id: 12,
+    id: 2,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "event",
     subCategory: "플리마켓",
@@ -119,7 +107,7 @@ export const fleaMarketInfo = [
     imagePath: "/marker-img/shopping.png",
   },
   {
-    id: 13,
+    id: 2,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "event",
     subCategory: "플리마켓",
@@ -134,7 +122,7 @@ export const fleaMarketInfo = [
 
 export const barInfo = [
   {
-    id: 60,
+    id: 61,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "bar",
     subCategory: "동아리",
@@ -146,7 +134,7 @@ export const barInfo = [
     imagePath: "/marker-img/street-board-fighter.png",
   },
   {
-    id: 61,
+    id: 64,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "bar",
     subCategory: "동아리",
@@ -170,7 +158,7 @@ export const barInfo = [
     imagePath: "/marker-img/data-science-bar.png",
   },
   {
-    id: 63,
+    id: 66,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "bar",
     subCategory: "공대",
@@ -182,7 +170,7 @@ export const barInfo = [
     imagePath: "/marker-img/squid-game-bar.png",
   },
   {
-    id: 64,
+    id: 60,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "bar",
     subCategory: "소융대",
@@ -194,7 +182,7 @@ export const barInfo = [
     imagePath: "/marker-img/software-bar.png",
   },
   {
-    id: 65,
+    id: 63,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "bar",
     subCategory: "언정대",
@@ -206,7 +194,7 @@ export const barInfo = [
     imagePath: "/marker-img/smile-flower-bar.png",
   },
   {
-    id: 66,
+    id: 65,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "bar",
     subCategory: "언정대",
@@ -233,7 +221,7 @@ export const barInfo = [
 
 export const foodCourtInfo = [
   {
-    id: 14,
+    id: 107,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "food",
     subCategory: "한식",
@@ -246,7 +234,7 @@ export const foodCourtInfo = [
     imagePath: "/marker-img/alternate-image.png",
   },
   {
-    id: 15,
+    id: 108,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "food",
     subCategory: "한식",
@@ -259,7 +247,7 @@ export const foodCourtInfo = [
     imagePath: "/marker-img/alternate-image.png",
   },
   {
-    id: 16,
+    id: 109,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "food",
     subCategory: "일식",
@@ -272,7 +260,7 @@ export const foodCourtInfo = [
     imagePath: "/marker-img/alternate-image.png",
   },
   {
-    id: 17,
+    id: 110,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "food",
     subCategory: "일식",
@@ -285,7 +273,7 @@ export const foodCourtInfo = [
     imagePath: "/marker-img/alternate-image.png",
   },
   {
-    id: 18,
+    id: 111,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "food",
     subCategory: "일식",
@@ -298,7 +286,7 @@ export const foodCourtInfo = [
     imagePath: "/marker-img/alternate-image.png",
   },
   {
-    id: 19,
+    id: 112,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "food",
     subCategory: "양식",
@@ -311,7 +299,7 @@ export const foodCourtInfo = [
     imagePath: "/marker-img/alternate-image.png",
   },
   {
-    id: 20,
+    id: 113,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "food",
     subCategory: "아시안",
@@ -325,7 +313,7 @@ export const foodCourtInfo = [
   },
 
   {
-    id: 21,
+    id: 114,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "food",
     subCategory: "디저트",
@@ -338,7 +326,7 @@ export const foodCourtInfo = [
     imagePath: "/marker-img/alternate-image.png",
   },
   {
-    id: 22,
+    id: 115,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "food",
     subCategory: "디저트",
@@ -351,7 +339,7 @@ export const foodCourtInfo = [
     imagePath: "/marker-img/alternate-image.png",
   },
   {
-    id: 23,
+    id: 116,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "food",
     subCategory: "디저트",
@@ -364,7 +352,7 @@ export const foodCourtInfo = [
     imagePath: "/marker-img/alternate-image.png",
   },
   {
-    id: 24,
+    id: 117,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "food",
     subCategory: "디저트",
@@ -378,7 +366,7 @@ export const foodCourtInfo = [
   },
 
   {
-    id: 25,
+    id: 118,
     day: ["전체", "2일차", "3일차"],
     category: "food",
     subCategory: "한식",
@@ -390,7 +378,7 @@ export const foodCourtInfo = [
     imagePath: "/marker-img/alternate-image.png",
   },
   {
-    id: 26,
+    id: 119,
     day: ["전체", "2일차", "3일차"],
     category: "food",
     subCategory: "한식",
@@ -402,7 +390,7 @@ export const foodCourtInfo = [
     imagePath: "/marker-img/alternate-image.png",
   },
   {
-    id: 27,
+    id: 120,
     day: ["전체", "2일차", "3일차"],
     category: "food",
     subCategory: "한식",
@@ -414,7 +402,7 @@ export const foodCourtInfo = [
     imagePath: "/marker-img/alternate-image.png",
   },
   {
-    id: 28,
+    id: 121,
     day: ["전체", "2일차", "3일차"],
     category: "food",
     subCategory: "양식",
@@ -426,7 +414,7 @@ export const foodCourtInfo = [
     imagePath: "/marker-img/alternate-image.png",
   },
   {
-    id: 29,
+    id: 122,
     day: ["전체", "2일차", "3일차"],
     category: "food",
     subCategory: "양식",
@@ -438,7 +426,7 @@ export const foodCourtInfo = [
     imagePath: "/marker-img/alternate-image.png",
   },
   {
-    id: 30,
+    id: 123,
     day: ["전체", "2일차", "3일차"],
     category: "food",
     subCategory: "아시안",
@@ -454,7 +442,7 @@ export const foodCourtInfo = [
 // 호수공원 마커 정보
 export const lakeParkInfo = [
   {
-    id: 50,
+    id: 103,
     day: ["전체", "2일차", "3일차"],
     category: "event",
     subCategory: "호수공원",
@@ -466,7 +454,7 @@ export const lakeParkInfo = [
     imagePath: "/marker-img/easy-workshop.png",
   },
   {
-    id: 51,
+    id: 104,
     day: ["전체", "2일차", "3일차"],
     category: "event",
     subCategory: "호수공원",
@@ -478,7 +466,7 @@ export const lakeParkInfo = [
     imagePath: "/marker-img/ericasino.png",
   },
   {
-    id: 52,
+    id: 105,
     day: ["전체", "3일차"],
     category: "event",
     subCategory: "호수공원",
@@ -490,7 +478,7 @@ export const lakeParkInfo = [
     imagePath: "/marker-img/cross-the-lake.png",
   },
   {
-    id: 53,
+    id: 106,
     day: ["전체", "3일차"],
     category: "event",
     subCategory: "호수공원",
@@ -500,5 +488,20 @@ export const lakeParkInfo = [
     location: "호수공원",
     position: new kakao.maps.LatLng(37.297633, 126.833848),
     imagePath: "/marker-img/fantasy.png",
+  },
+];
+
+export const medicalInfo = [
+  {
+    id: 101,
+    day: ["전체", "1일차", "2일차", "3일차"],
+    category: "medical",
+    subCategory: "",
+    name: "한양보건센터",
+    index: "의무실",
+    time: "09:00~17:00\n(점심시간 12:00~13:00)",
+    location: "학생복지관 1층",
+    position: new kakao.maps.LatLng(37.298087, 126.834385),
+    imagePath: "/marker-img/medical.png",
   },
 ];

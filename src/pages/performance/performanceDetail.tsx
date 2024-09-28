@@ -14,12 +14,18 @@ import Calendar from "@assets/performance/calendar.svg";
 import Music from "@assets/performance/music.svg";
 import { useAlarm } from "@hooks/useAlarm";
 import { Modal } from "@components/performance/Modal";
+import { useMapContext } from "@context/MapContext";
 import { useEffect } from "react";
 
 export const PerformanceDetailPage = () => {
   const params = useParams();
   const navigator = useNavigate();
   const { alarms, handleToggleAlarm, showModal } = useAlarm();
+  const { setIsNavVisible } = useMapContext();
+
+  useEffect(() => {
+    setIsNavVisible(false);
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);

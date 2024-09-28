@@ -10,7 +10,7 @@ import { getClickMarkerList } from "@utils/markerUtils";
 
 export const Bottomsheet = () => {
   const { sheet, content } = useBottomSheet();
-  const { currMarker } = useMapContext();
+  const { currMarker, currCategory } = useMapContext();
 
   const clickMarkerList = getClickMarkerList();
 
@@ -25,7 +25,9 @@ export const Bottomsheet = () => {
       >
         <BottomSheetHeader />
         {/* 선택된 마커가 없을 때만 2차 필터링 렌더링 */}
-        {currMarker === null && <CategoryDetailFilter />}
+        {currMarker === null && currCategory !== "medical" && (
+          <CategoryDetailFilter />
+        )}
         <div className={styles.bottomsheet_wrapper} ref={content}>
           <Content clickMarkerList={clickMarkerList} />
         </div>

@@ -7,19 +7,21 @@ import HERC from "@assets/bar/헐크.png";
 import MEDIA from "@assets/bar/정사미.png";
 import HYENA from "@assets/bar/전자.png";
 import MEDI from "@assets/bar/약대.png";
+
 //메뉴 데이터
 export interface MenuItem {
   name: string; //이름
   price: string; //가격
 }
+
 export interface Cartegorys {
   Main: string;
   Second: string;
   Third: string;
 }
+
 //주점 정보들 - 주점 이름, 대표자(과이름), 메뉴설명, 이미지, 메뉴들
 export interface Store {
-  id: number;
   name: string;
   position: kakao.maps.LatLng;
   category: string;
@@ -31,6 +33,7 @@ export interface Store {
   thirdMenu: MenuItem[];
   time: string;
   location: string;
+
   classification: Cartegorys[];
 }
 
@@ -38,7 +41,6 @@ export interface Store {
 export const stores: Store[] = [
   //소융
   {
-    id: 60,
     name: "주막",
     category: "bar",
     time: "17:00~22:00",
@@ -71,9 +73,9 @@ export const stores: Store[] = [
       { name: "식혜", price: "2,000" },
     ],
   },
+
   //마하
   {
-    id: 61,
     name: "스트릿보드파이터",
     category: "bar",
     time: "17:00~22:00",
@@ -88,6 +90,7 @@ export const stores: Store[] = [
     ],
     mainMenu: [
       { name: "**테이블 차지 (1인당)", price: "1,000" },
+
       { name: "훈제마늘통삼겹츄베릅", price: "16,000" },
       { name: "대패왕창비빔면", price: "14,000" },
       { name: "와우S.E.X.Y.떡볶이 세트", price: "14,000" },
@@ -105,9 +108,9 @@ export const stores: Store[] = [
       { name: "물은 영어로 셀프", price: "1,500" },
     ],
   },
+
   //응용수학과
   {
-    id: 62,
     name: "눈떠보니 수데사더라...(feat. 응용수학과)",
     category: "bar",
     time: "17:00~22:00",
@@ -138,9 +141,9 @@ export const stores: Store[] = [
       { name: "C set 닭발+오돌뼈+오리구이", price: "70,000" },
     ],
   },
+
   //광홍과
   {
-    id: 63,
     name: "웃음꼬치피었습니다 (feat.투다리)",
     category: "bar",
     time: "17:00~22:00",
@@ -172,9 +175,9 @@ export const stores: Store[] = [
     ],
     thirdMenu: [],
   },
+
   //헐크
   {
-    id: 64,
     name: "TTEMU 업고 뛰어",
     category: "bar",
     time: "17:00~22:00",
@@ -201,9 +204,9 @@ export const stores: Store[] = [
     ],
     thirdMenu: [],
   },
+
   //정사미
   {
-    id: 65,
     name: "여정이네",
     category: "bar",
     time: "17:00~22:00",
@@ -227,9 +230,9 @@ export const stores: Store[] = [
     ],
     thirdMenu: [],
   },
+
   //전자
   {
-    id: 66,
     name: "오징어게임",
     category: "bar",
     time: "17:00~22:00",
@@ -258,9 +261,9 @@ export const stores: Store[] = [
       { name: "생수(물)", price: "2,000" },
     ],
   },
+
   //약학대
   {
-    id: 67,
     name: "약주는할머니맥주",
     category: "bar",
     time: "17:00~22:00",
