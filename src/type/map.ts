@@ -6,6 +6,7 @@ export interface MarkersType {
   foodCourtMarkers: kakao.maps.Marker[];
   medicalMarkers: kakao.maps.Marker[];
   smokingMarkers: kakao.maps.Marker[];
+  toiletMarkers: kakao.maps.Marker[];
 }
 
 export interface MarkerInfoType {

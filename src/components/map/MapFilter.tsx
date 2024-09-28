@@ -65,6 +65,7 @@ export const MapFilter = ({
     setMarkersOnMap(markers.foodCourtMarkers, null);
     setMarkersOnMap(markers.medicalMarkers, null);
     setMarkersOnMap(markers.smokingMarkers, null);
+    setMarkersOnMap(markers.toiletMarkers, null);
 
     // 이벤트 영역 초기화
     if (eventArea) {
@@ -146,6 +147,12 @@ export const MapFilter = ({
         setIsCategoryClicked(false); // 카테고리 헤더 없어지지 않게
         setIsBottomSheetVisible(false);
         setIsNavVisible(true);
+
+        setMarkersOnMap(markers.toiletMarkers, map);
+        map?.panTo(
+          new kakao.maps.LatLng(37.295565768777244, 126.83488031121028)
+        );
+
         break;
 
       case "smokingMenu":

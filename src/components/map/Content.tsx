@@ -62,27 +62,28 @@ export const Content = ({ clickMarkerList }: clickMarkerListType) => {
     // }
 
     if (!isCategoryClicked && clickMarkerList && clickMarkerList.length > 0) {
-      const convertedList = clickMarkerList.map((marker) => {
-        if ("id" in marker) {
+      const filteredList = clickMarkerList.map((marker) => {
+        console.log(marker);
+        if ("day" in marker) {
           return marker as MarkerInfoType; // MarkerInfoType인 경우 그대로 반환
         } else {
           // Store인 경우, MarkerInfoType에 맞게 변환
           return {
-            id: -1, // Store에는 id가 없으므로 임시 id 추가
+            id: -1, // marker.id -> 왜 Store에 없다고 뜨는거야..
             day: [], // day도 Store에는 없으므로 빈 배열 할당
             category: marker.category,
-            subCategory: "", // 필요에 따라 Store 정보를 채워넣음
+            subCategory: "", // 빈 string 할당
             name: marker.name,
             index: "",
             time: marker.time,
-            location: marker.location, // Store의 위치 정보 사용
+            location: marker.location,
             position: marker.position,
             imagePath: marker.imageUrl,
           } as MarkerInfoType;
         }
       });
 
-      setRenderList(convertedList);
+      setRenderList(filteredList);
     }
   }, [clickMarkerList, currMarker, isCategoryClicked]);
 

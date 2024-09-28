@@ -37,6 +37,7 @@ form {
     outline: none;
   }
   input::placeholder {
+    color: #636363;
     font-size: 13px;
     font-weight: 500;
     line-height: 19.4px;

@@ -5,6 +5,7 @@ import {
   foodCourtMarkerPositions,
   medicalMarkerPositions,
   smokingMarkerPositions,
+  toiletMarkerPositions,
 } from "@constant/map";
 import styles from "@styles/map/Map.module.css";
 import { MapFilter } from "./MapFilter";
@@ -37,6 +38,7 @@ export const Map = () => {
     foodCourtMarkers: [],
     medicalMarkers: [],
     smokingMarkers: [],
+    toiletMarkers: [],
   });
   const [temporaryMarker, setTemporaryMarker] =
     useState<kakao.maps.Marker | null>(null);
@@ -149,6 +151,11 @@ export const Map = () => {
         ...prev,
         smokingMarkers: newEventMarkers,
       }));
+    } else if (category === "toilet") {
+      setMarkers((prev) => ({
+        ...prev,
+        toiletMarkers: newEventMarkers,
+      }));
     }
   };
 
@@ -174,6 +181,11 @@ export const Map = () => {
       "smoking",
       smokingMarkerPositions,
       "/marker-img/smoking-marker.svg"
+    );
+    createMarkersOnMap(
+      "toilet",
+      toiletMarkerPositions,
+      "/marker-img/toilet-marker.svg"
     );
   }, [map]);
 
@@ -209,6 +221,10 @@ export const Map = () => {
         resetMarkerImage(
           markers.smokingMarkers,
           "/marker-img/smoking-marker.svg"
+        );
+        resetMarkerImage(
+          markers.toiletMarkers,
+          "/marker-img/toilet-marker.svg"
         );
       }
     }
