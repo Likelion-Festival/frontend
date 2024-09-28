@@ -61,6 +61,7 @@ export const Map = () => {
 
     setIsCategoryClicked(false);
     setIsBottomSheetVisible(false);
+    setIsNavVisible(true);
     setCurrCategory("");
     setSubCategory("");
   }, []);

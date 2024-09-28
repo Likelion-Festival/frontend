@@ -12,6 +12,7 @@ import { useMapContext } from "@context/MapContext";
 import styles from "@styles/map/Content.module.css";
 import { clickMarkerListType, MarkerInfoType } from "@type/map";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Content = ({ clickMarkerList }: clickMarkerListType) => {
   const { day, currMarker, currCategory, isCategoryClicked, subCategory } =
@@ -68,52 +69,87 @@ export const Content = ({ clickMarkerList }: clickMarkerListType) => {
         <ul className={styles.marker_list}>
           {renderList.map((markerInfo) => {
             return (
-              <li className={styles.bar_content} key={markerInfo.id}>
-                <div className={styles.bar_title}>
-                  <h3>{markerInfo?.name}</h3>
-                  <span>{markerInfo?.index}</span>
-                </div>
-                <div className={styles.bar_detail}>
-                  <strong className={styles.time}>{markerInfo?.time}</strong>
-                  <strong className={styles.location}>
-                    {markerInfo?.location}
-                  </strong>
-                </div>
-                <div className={styles.bar_image}>
-                  <img src={markerInfo?.imagePath} alt="marker-image" />
-                </div>
-              </li>
+              <Link to={`/bar-detail/${markerInfo.id}`}>
+                <li className={styles.bar_content} key={markerInfo.id}>
+                  <div className={styles.bar_title}>
+                    <h3>{markerInfo?.name}</h3>
+                    <span>{markerInfo?.index}</span>
+                  </div>
+                  <div className={styles.bar_detail}>
+                    <strong className={styles.time}>{markerInfo?.time}</strong>
+                    <strong className={styles.location}>
+                      {markerInfo?.location}
+                    </strong>
+                  </div>
+                  <div className={styles.bar_image}>
+                    <img src={markerInfo?.imagePath} alt="marker-image" />
+                  </div>
+                </li>
+              </Link>
             );
           })}
         </ul>
       ) : (
         <ul className={styles.marker_list}>
           {renderList.map((markerInfo) => {
+            const isNavigate = markerInfo.id < 100;
+
             return (
-              <li className={styles.content} key={markerInfo.id}>
-                <div className={styles.content_info}>
-                  <div className={styles.title}>
-                    <h3>{markerInfo?.name}</h3>
-                    <span>{markerInfo?.index}</span>
-                  </div>
-                  <div className={styles.detail}>
-                    <strong className={styles.time}>
-                      {day === "전체" && currCategory === "food"
-                        ? markerInfo?.total || markerInfo.time
-                        : (day === "2일차" || day === "3일차") &&
-                          currCategory === "food"
-                        ? "10월 1~2일 11:00~23:30"
-                        : markerInfo?.time}
-                    </strong>
-                    <strong className={styles.location}>
-                      {markerInfo?.location}
-                    </strong>
-                  </div>
-                </div>
-                <div className={styles.image}>
-                  <img src={markerInfo?.imagePath} alt="marker-image" />
-                </div>
-              </li>
+              <>
+                {isNavigate ? (
+                  <Link to={`/detail/${markerInfo.id}`}>
+                    <li className={styles.content} key={markerInfo.id}>
+                      <div className={styles.content_info}>
+                        <div className={styles.title}>
+                          <h3>{markerInfo?.name}</h3>
+                          <span>{markerInfo?.index}</span>
+                        </div>
+                        <div className={styles.detail}>
+                          <strong className={styles.time}>
+                            {day === "전체" && currCategory === "food"
+                              ? markerInfo?.total || markerInfo.time
+                              : (day === "2일차" || day === "3일차") &&
+                                currCategory === "food"
+                              ? "10월 1~2일 11:00~23:30"
+                              : markerInfo?.time}
+                          </strong>
+                          <strong className={styles.location}>
+                            {markerInfo?.location}
+                          </strong>
+                        </div>
+                      </div>
+                      <div className={styles.image}>
+                        <img src={markerInfo?.imagePath} alt="marker-image" />
+                      </div>
+                    </li>
+                  </Link>
+                ) : (
+                  <li className={styles.content} key={markerInfo.id}>
+                    <div className={styles.content_info}>
+                      <div className={styles.title}>
+                        <h3>{markerInfo?.name}</h3>
+                        <span>{markerInfo?.index}</span>
+                      </div>
+                      <div className={styles.detail}>
+                        <strong className={styles.time}>
+                          {day === "전체" && currCategory === "food"
+                            ? markerInfo?.total || markerInfo.time
+                            : (day === "2일차" || day === "3일차") &&
+                              currCategory === "food"
+                            ? "10월 1~2일 11:00~23:30"
+                            : markerInfo?.time}
+                        </strong>
+                        <strong className={styles.location}>
+                          {markerInfo?.location}
+                        </strong>
+                      </div>
+                    </div>
+                    <div className={styles.image}>
+                      <img src={markerInfo?.imagePath} alt="marker-image" />
+                    </div>
+                  </li>
+                )}
+              </>
             );
           })}
         </ul>
