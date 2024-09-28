@@ -20,7 +20,7 @@
 }
 
 .filter_wrapper {
-  padding-top: 9 / px;
+  padding-top: 9px;
 
   .day {
     display: flex;
@@ -42,13 +42,15 @@
   }
 
   .form {
+    width: 324px;
     display: flex;
     justify-content: center;
     position: relative;
     margin-bottom: 14px;
+    margin: 0 auto 14px auto;
 
     input {
-      width: 324px;
+      width: inherit;
       height: 46px;
       padding-left: 16px;
       border: none;
@@ -69,7 +71,7 @@
 
     button {
       position: absolute;
-      right: 40px;
+      right: 10px;
       top: 50%;
       transform: translateY(-50%);
       width: 24px;

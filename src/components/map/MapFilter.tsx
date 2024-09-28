@@ -205,7 +205,7 @@ export const MapFilter = ({
               placeholder="부스, 주점, 키워드를 검색해보세요"
               onFocus={() => setIsInputFocus(true)}
             />
-            <button type="submit"></button>
+            <button type="submit" />
           </form>
 
           <ul id={styles.category}>
