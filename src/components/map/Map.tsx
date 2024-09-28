@@ -12,20 +12,11 @@ import { MarkersType } from "@type/map";
 import { DaySelectorModal } from "./DaySelectorModal";
 import { Bottomsheet } from "./BottomSheet";
 import { useMapContext } from "@context/MapContext";
+import { MapSearch } from "./MapSearch";
+import { useNavigate } from "react-router-dom";
 
 export const Map = () => {
-  const [map, setMap] = useState<kakao.maps.Map | null>(null);
-  const [markers, setMarkers] = useState<MarkersType>({
-    eventMarkers: [],
-    barMarkers: [],
-    foodCourtMarkers: [],
-    medicalMarkers: [],
-    smokingMarkers: [],
-  });
-  // const [selectedMarker, setSelectedMarker] =
-  //   useState<kakao.maps.Marker | null>(null);
-  const selectedMarkerRef = useRef<kakao.maps.Marker | null>(null);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const navigate = useNavigate();
   const {
     day,
     setCurrMarker,
@@ -37,6 +28,17 @@ export const Map = () => {
     setIsBottomSheetVisible,
     setIsNavVisible,
   } = useMapContext();
+  const [map, setMap] = useState<kakao.maps.Map | null>(null);
+  const [markers, setMarkers] = useState<MarkersType>({
+    eventMarkers: [],
+    barMarkers: [],
+    foodCourtMarkers: [],
+    medicalMarkers: [],
+    smokingMarkers: [],
+  });
+  const selectedMarkerRef = useRef<kakao.maps.Marker | null>(null);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isInputFocus, setIsInputFocus] = useState<boolean>(false);
 
   // 초기 세팅
   useEffect(() => {
@@ -170,6 +172,7 @@ export const Map = () => {
     );
   }, [map]);
 
+  // 마커 이미지 초기화
   useEffect(() => {
     // 카테고리 클릭 시 모든 마커 초기화
     if (isCategoryClicked) {
@@ -207,12 +210,29 @@ export const Map = () => {
     }
   }, [isCategoryClicked]);
 
+  // 인풋창 클릭시 라우팅
+  useEffect(() => {
+    if (isInputFocus) navigate("/map/search");
+  }, [isInputFocus]);
+
   return (
     <div className={styles.wrapper}>
-      <MapFilter map={map} markers={markers} day={day} setIsOpen={setIsOpen} />
-      {isOpen && <DaySelectorModal setIsOpen={setIsOpen} />}
-      <div id="map" className={styles.map_wrapper}></div>
-      {isBottomSheetVisible && <Bottomsheet />}
+      {isInputFocus ? (
+        <MapSearch />
+      ) : (
+        <>
+          <MapFilter
+            map={map}
+            markers={markers}
+            day={day}
+            setIsOpen={setIsOpen}
+            setIsInputFocus={setIsInputFocus}
+          />
+          {isOpen && <DaySelectorModal setIsOpen={setIsOpen} />}
+          <div id="map" className={styles.map_wrapper}></div>
+          {isBottomSheetVisible && <Bottomsheet />}
+        </>
+      )}
     </div>
   );
 };

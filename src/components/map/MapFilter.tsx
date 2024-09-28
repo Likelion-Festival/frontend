@@ -18,9 +18,16 @@ interface MapFilterProps {
   markers: MarkersType;
   day: string;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsInputFocus: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
+export const MapFilter = ({
+  map,
+  markers,
+  day,
+  setIsOpen,
+  setIsInputFocus,
+}: MapFilterProps) => {
   const [eventArea, setEventArea] = useState<kakao.maps.Polygon[] | null>(null);
   const [barArea, setBarArea] = useState<kakao.maps.Polygon | null>(null);
   const [foodCourtArea, setFoodCourtArea] = useState<kakao.maps.Polygon | null>(
@@ -180,10 +187,16 @@ export const MapFilter = ({ map, markers, day, setIsOpen }: MapFilterProps) => {
             <img src={dropDownBtn} alt="dropdown-btn" />
           </button>
 
-          <form className={styles.form}>
+          <form
+            className={styles.form}
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
+          >
             <input
               type="text"
               placeholder="부스, 주점, 키워드를 검색해보세요"
+              onFocus={() => setIsInputFocus(true)}
             />
             <button type="submit"></button>
           </form>

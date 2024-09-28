@@ -15,8 +15,9 @@ import { AlarmProvider } from "./context/AlarmContext";
 import { SplashScreen } from "@pages/splash/SplashScreen";
 import { NoticeListPage } from "@pages/notice/noticeList";
 import { useMapContext } from "@context/MapContext";
-import {DevelopersPage} from "@pages/developer/developers";
+import { DevelopersPage } from "@pages/developer/developers";
 import { DetailPage } from "@pages/notice/DetailPage";
+import { MapSearch } from "@components/map/MapSearch";
 
 function App() {
   const [isSplashVisible, setIsSplashVisible] = useState(true);
@@ -60,6 +61,7 @@ function App() {
               <Route path="/detail/:id" element={<DetailPage />} />
               {/* map page */}
               <Route path="/map" element={<MapPage />} />
+              <Route path="/map/search" element={<MapSearch />} />
               {/* performance page */}
               <Route path="/performance" element={<PerformancePage />} />
               <Route

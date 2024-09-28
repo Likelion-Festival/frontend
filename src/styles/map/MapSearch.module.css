@@ -1,0 +1,141 @@
+.search_wrapper {
+  padding-top: 9px;
+  .search_header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .search_title {
+      display: flex;
+      width: 324px;
+      margin-bottom: 18px;
+
+      img {
+        margin-right: 123px;
+      }
+    }
+  }
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 14px;
+
+  input {
+    width: 324px;
+    height: 46px;
+    padding-left: 16px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19.4px;
+    background-color: #272727;
+    outline: none;
+  }
+  input::placeholder {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 19.4px;
+  }
+
+  button {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: url("@assets/map/search-icon.svg") no-repeat;
+    cursor: pointer;
+  }
+}
+
+.focus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 90px;
+
+  img {
+    margin-bottom: 33px;
+  }
+
+  strong {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 19.4px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.searching {
+  margin-top: 25px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      width: 318px;
+      height: 47px;
+      padding-left: 32px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      background: url("@assets/map/search-location.svg") no-repeat;
+
+      h4 {
+        width: 230px;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 21px;
+        color: white;
+      }
+
+      span {
+        width: 190px;
+        text-align: right;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 21px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+}
+
+.no_result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 90px;
+
+  img {
+    width: 148px;
+    height: 166px;
+    margin-bottom: 26px;
+  }
+
+  strong,
+  span {
+    font-weight: 500;
+    line-height: 19.4px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  strong {
+    margin-bottom: 11px;
+    font-size: 18px;
+  }
+
+  span {
+    font-size: 14px;
+  }
+}

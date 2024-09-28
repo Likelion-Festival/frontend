@@ -6,6 +6,7 @@ import {
   promotionInfo,
   fleaMarketInfo,
   barInfo,
+  medicalInfo,
 } from "@constant/marker";
 import { useMapContext } from "@context/MapContext";
 import styles from "@styles/map/Content.module.css";
@@ -27,6 +28,7 @@ export const Content = ({ clickMarkerList }: clickMarkerListType) => {
       ...barInfo,
       ...foodCourtInfo,
       ...lakeParkInfo,
+      ...medicalInfo,
     ].filter((marker) => {
       if (!subCategory) {
         // 2차 필터링 없을 때 (축제 일자에 맞는 것들 필터링)
