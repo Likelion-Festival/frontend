@@ -49,9 +49,9 @@ export const BarPage = () => {
     );
   };
 
-  const handleStoreClick = (BarDetail: string) => {
-    navigate(`/bar-detail/${BarDetail}`);
-  };
+const handleStoreClick = (storeId: number) => {
+  navigate(`/bar-detail/${storeId}`);
+};
 
   const handleInputFocus = () => {
     setIsInputFocused(true);
@@ -126,7 +126,7 @@ export const BarPage = () => {
             <div
               key={index}
               className={styles.store}
-              onClick={() => handleStoreClick(store.name)}
+              onClick={() => handleStoreClick(store.id)}
             >
               <img
                 src={store.imageUrl}

@@ -14,10 +14,9 @@ export const BarDetail = () => {
   const handleGoBack = () => {
     navigate(-1);
   };
-
-  const { storeName } = useParams<{ storeName: string }>();
+  const { storeId } = useParams<{ storeId: string }>();
   const store: Store | undefined = stores.find(
-    (store) => store.name === storeName
+    (store) => store.id === Number(storeId)
   );
 
   if (!store) {
