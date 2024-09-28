@@ -2,10 +2,12 @@
     background-color: #131313;
     padding: 20px;
     border: none;
-    overflow-y: auto;
+    overflow: auto;
     min-width: 325px;
     min-height: 340px;
 }
+
+
 .developerTitle{
     display: flex;
     flex-direction: row;

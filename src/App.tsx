@@ -48,7 +48,7 @@ function App() {
   return (
     <AlarmProvider>
       <BrowserRouter>
-      <ScrollToTop /> 
+        <ScrollToTop /> 
         {isSplashVisible ? (
           <SplashScreen onSplashFinish={() => setIsSplashVisible(false)} />
         ) : (
