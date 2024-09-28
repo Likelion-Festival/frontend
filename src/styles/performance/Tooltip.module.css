@@ -18,6 +18,7 @@
     line-height: 18px;
     opacity: 0;
     user-select: none;
+    z-index: 5;
     
     transform: translateY(-10px); /* 최종 상태 */
     letter-spacing: -0.6px;
