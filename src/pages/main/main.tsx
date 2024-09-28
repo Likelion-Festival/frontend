@@ -18,6 +18,7 @@ import LaptopIcon from "@assets/main/laptop-icon.png";
 import InstagramIcon from "@assets/main/instagram-icon.png";
 import allJsonData from "@constant/detailData.json";
 
+
 export const MainPage = () => {
   const navigate = useNavigate();
   const { setIsNavVisible } = useMapContext();
@@ -86,6 +87,7 @@ export const MainPage = () => {
   const moveToDevelopers = () => {
     navigate(`/developers`);
   };
+
 
   return (
     <div className={styles.wrapper}>

@@ -14,11 +14,22 @@ import Calendar from "@assets/performance/calendar.svg";
 import Music from "@assets/performance/music.svg";
 import { useAlarm } from "@hooks/useAlarm";
 import { Modal } from "@components/performance/Modal";
+import { useMapContext } from "@context/MapContext";
+import { useEffect } from "react";
 
 export const PerformanceDetailPage = () => {
   const params = useParams();
   const navigator = useNavigate();
   const { alarms, handleToggleAlarm, showModal } = useAlarm();
+  const { setIsNavVisible } = useMapContext();
+
+  useEffect(() => {
+    setIsNavVisible(false);
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!params.id) {
     navigator("error");
@@ -69,7 +80,7 @@ export const PerformanceDetailPage = () => {
         </div>
         <div
           className={styles.grayBox}
-          style={{ justifyContent: "space-around" }}
+          style={{ justifyContent: "center", gap: "30px" }}
         >
           <div
             style={{
@@ -114,13 +125,16 @@ export const PerformanceDetailPage = () => {
             </div>
             <span className={styles.textWhite}>{`${item.date.getHours()}:${
               item.date.getMinutes() < 10
-              ? "0" + item.date.getMinutes()
-              : item.date.getMinutes()
-            }-${item.date.getHours() + Math.floor((item.playTime + item.date.getMinutes()) / 60)}:${
+                ? "0" + item.date.getMinutes()
+                : item.date.getMinutes()
+            }-${
+              item.date.getHours() +
+              Math.floor((item.playTime + item.date.getMinutes()) / 60)
+            }:${
               item.date.getMinutes() + (item.playTime % 60) === 0 ||
               item.date.getMinutes() + (item.playTime % 60) === 60
-              ? "00"
-              : item.date.getMinutes() + (item.playTime % 60)
+                ? "00"
+                : item.date.getMinutes() + (item.playTime % 60)
             }`}</span>
           </div>
         </div>

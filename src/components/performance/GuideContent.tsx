@@ -1,6 +1,6 @@
 import styles from "@styles/performance/GuideContent.module.css";
 import ground from "@assets/performance/ground.jpg";
-import innerLayout from "@assets/performance/inner-layout.png";
+import innerLayout from "@assets/performance/inner-layout.jpg";
 import { useEffect, useState } from "react";
 
 export const GuideTime = () => {
@@ -13,9 +13,9 @@ export const GuideTime = () => {
     };
   });
   return (
-    <div className={`${styles.wrapper} ${styles.column}`}>
+    <div className={`${styles.wrapper} ${styles.column}`} style={{marginTop : "15px"}}>
       <div className={`${styles.column} ${styles.content}`}>
-        <span className={styles.spanHeader}>공연시간</span>
+        <span className={styles.spanHeader}>입장시간</span>
         <span className={styles.spanContent500}>
           16시 40분부터 입장가능합니다.
         </span>
@@ -40,7 +40,7 @@ export const GuideTime = () => {
 
 export const GuideEntrance = () => {
   return (
-    <div className={`${styles.wrapper} ${styles.column}`}>
+    <div className={`${styles.wrapper} ${styles.column}`} style={{marginTop : "15px"}}>
       <div className={`${styles.column} ${styles.content}`}>
         <span className={styles.spanHeader}>입장안내</span>
         <span className={styles.spanContent400}>
@@ -78,7 +78,7 @@ export const GuideLayout = () => {
     };
   });
   return (
-    <div className={`${styles.wrapper} ${styles.column}`}>
+    <div className={`${styles.wrapper} ${styles.column}`} style={{marginTop : "15px"}}>
       <div className={`${styles.column} ${styles.content}`}>
         <span className={styles.spanHeader}>내부배치도</span>
         <div className={styles.column} style={{ gap: "5px" }}>

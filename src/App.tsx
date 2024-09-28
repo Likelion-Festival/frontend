@@ -15,8 +15,10 @@ import { AlarmProvider } from "./context/AlarmContext";
 import { SplashScreen } from "@pages/splash/SplashScreen";
 import { NoticeListPage } from "@pages/notice/noticeList";
 import { useMapContext } from "@context/MapContext";
-import {DevelopersPage} from "@pages/developer/developers";
+import { DevelopersPage } from "@pages/developer/developers";
 import { DetailPage } from "@pages/notice/DetailPage";
+import { MapSearch } from "@components/map/MapSearch";
+import ScrollToTop from "@components/developer/ScrollTop";
 
 function App() {
   const [isSplashVisible, setIsSplashVisible] = useState(true);
@@ -47,6 +49,7 @@ function App() {
   return (
     <AlarmProvider>
       <BrowserRouter>
+        <ScrollToTop />
         {isSplashVisible ? (
           <SplashScreen onSplashFinish={() => setIsSplashVisible(false)} />
         ) : (
@@ -60,6 +63,7 @@ function App() {
               <Route path="/detail/:id" element={<DetailPage />} />
               {/* map page */}
               <Route path="/map" element={<MapPage />} />
+              <Route path="/map/search" element={<MapSearch />} />
               {/* performance page */}
               <Route path="/performance" element={<PerformancePage />} />
               <Route
@@ -73,7 +77,7 @@ function App() {
               <Route path="/performance/guide" element={<GuidePage />} />
               {/* bar page */}
               <Route path="/bar" element={<BarPage />} />
-              <Route path="/bar-detail/:storeName" element={<BarDetail />} />
+              <Route path="/bar-detail/:storeId" element={<BarDetail />} />
               {/* error page */}
               <Route path="*" element={<ErrorPage />} />
             </Routes>

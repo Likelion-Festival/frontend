@@ -9,11 +9,19 @@ import { useParams } from "react-router-dom";
 import "@styles/notice/slickDots.css";
 import { InfoBox1 } from "@components/notice/InfoBox1";
 import { InfoBox2 } from "@components/notice/InfoBox2";
+import { useEffect } from "react";
+import { useMapContext } from "@context/MapContext";
 
 export const DetailPage = () => {
   const { id } = useParams();
+  const { setIsNavVisible } = useMapContext();
   const pageData = useDataById(id);
   const sliderSettings3 = useSlider3();
+
+  useEffect(() => {
+    setIsNavVisible(false);
+  }, []);
+
   if (!pageData) {
     return <div>데이터를 찾을 수 없습니다.</div>; // TODO: 나중에 에러페이지로 바꾸기
   }

@@ -5,6 +5,7 @@ import {
   foodCourtMarkerPositions,
   medicalMarkerPositions,
   smokingMarkerPositions,
+  toiletMarkerPositions,
 } from "@constant/map";
 import styles from "@styles/map/Map.module.css";
 import { MapFilter } from "./MapFilter";
@@ -12,8 +13,24 @@ import { MarkersType } from "@type/map";
 import { DaySelectorModal } from "./DaySelectorModal";
 import { Bottomsheet } from "./BottomSheet";
 import { useMapContext } from "@context/MapContext";
+import { MapSearch } from "./MapSearch";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const Map = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const {
+    day,
+    currCategory,
+    setCurrMarker,
+    isCategoryClicked,
+    setIsCategoryClicked,
+    setCurrCategory,
+    setSubCategory,
+    isBottomSheetVisible,
+    setIsBottomSheetVisible,
+    setIsNavVisible,
+  } = useMapContext();
   const [map, setMap] = useState<kakao.maps.Map | null>(null);
   const [markers, setMarkers] = useState<MarkersType>({
     eventMarkers: [],
@@ -21,21 +38,13 @@ export const Map = () => {
     foodCourtMarkers: [],
     medicalMarkers: [],
     smokingMarkers: [],
+    toiletMarkers: [],
   });
-  // const [selectedMarker, setSelectedMarker] =
-  //   useState<kakao.maps.Marker | null>(null);
+  const [temporaryMarker, setTemporaryMarker] =
+    useState<kakao.maps.Marker | null>(null);
   const selectedMarkerRef = useRef<kakao.maps.Marker | null>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const {
-    day,
-    setCurrMarker,
-    isCategoryClicked,
-    setIsCategoryClicked,
-    setCurrCategory,
-    isBottomSheetVisible,
-    setIsBottomSheetVisible,
-    setIsNavVisible,
-  } = useMapContext();
+  const [isInputFocus, setIsInputFocus] = useState<boolean>(false);
 
   // 초기 세팅
   useEffect(() => {
@@ -54,7 +63,9 @@ export const Map = () => {
 
     setIsCategoryClicked(false);
     setIsBottomSheetVisible(false);
+    setIsNavVisible(true);
     setCurrCategory("");
+    setSubCategory("");
   }, []);
 
   const handleMarkerImage = (
@@ -106,6 +117,7 @@ export const Map = () => {
         const newLatLng = position;
         setCurrMarker(newLatLng);
         setIsCategoryClicked(false);
+        setSubCategory("");
         setIsNavVisible(true);
 
         handleMarkerImage(marker, markerImageSrc);
@@ -139,6 +151,11 @@ export const Map = () => {
         ...prev,
         smokingMarkers: newEventMarkers,
       }));
+    } else if (category === "toilet") {
+      setMarkers((prev) => ({
+        ...prev,
+        toiletMarkers: newEventMarkers,
+      }));
     }
   };
 
@@ -165,26 +182,31 @@ export const Map = () => {
       smokingMarkerPositions,
       "/marker-img/smoking-marker.svg"
     );
+    createMarkersOnMap(
+      "toilet",
+      toiletMarkerPositions,
+      "/marker-img/toilet-marker.svg"
+    );
   }, [map]);
 
+  const resetMarkerImage = (
+    markersArray: kakao.maps.Marker[],
+    imagePath: string
+  ) => {
+    const markerImage = new kakao.maps.MarkerImage(
+      imagePath,
+      new kakao.maps.Size(50, 60)
+    );
+    markersArray.forEach((marker) => {
+      marker.setImage(markerImage); // 모든 마커의 이미지를 초기화
+    });
+  };
+  // 마커 이미지 초기화
   useEffect(() => {
     // 카테고리 클릭 시 모든 마커 초기화
     if (isCategoryClicked) {
       // 선택된 마커가 있다면 기존 카테고리의 마커들을 초기화
       if (selectedMarkerRef.current) {
-        const resetMarkerImage = (
-          markersArray: kakao.maps.Marker[],
-          imagePath: string
-        ) => {
-          const markerImage = new kakao.maps.MarkerImage(
-            imagePath,
-            new kakao.maps.Size(50, 60)
-          );
-          markersArray.forEach((marker) => {
-            marker.setImage(markerImage); // 모든 마커의 이미지를 초기화
-          });
-        };
-
         // 각각의 마커 배열 초기화
         resetMarkerImage(markers.eventMarkers, "/marker-img/event-marker.svg");
         resetMarkerImage(markers.barMarkers, "/marker-img/bar-marker.svg");
@@ -200,16 +222,101 @@ export const Map = () => {
           markers.smokingMarkers,
           "/marker-img/smoking-marker.svg"
         );
+        resetMarkerImage(
+          markers.toiletMarkers,
+          "/marker-img/toilet-marker.svg"
+        );
       }
     }
   }, [isCategoryClicked]);
 
+  // 인풋창 클릭시 라우팅
+  useEffect(() => {
+    if (isInputFocus) navigate("/map/search");
+  }, [isInputFocus]);
+
+  // 임시 마커 생성
+  const createTemporaryMarker = (
+    position: kakao.maps.LatLng,
+    imagePath: string
+  ) => {
+    if (map && temporaryMarker) {
+      temporaryMarker.setMap(null); // 기존 임시 마커 제거
+    }
+
+    const markerImage = new kakao.maps.MarkerImage(
+      imagePath,
+      new kakao.maps.Size(60, 72)
+    );
+
+    const marker = new kakao.maps.Marker({
+      position,
+      image: markerImage,
+    });
+
+    marker.setMap(map); // 지도에 마커 표시
+    setTemporaryMarker(marker); // 임시 마커 저장
+
+    // 클릭 시 이동 및 마커 이미지 변경
+    kakao.maps.event.addListener(marker, "click", () => {
+      map?.panTo(position);
+      setCurrMarker(position);
+    });
+
+    return marker;
+  };
+
+  // 다른 페이지에서 지도 페이지로 이동 시 단일 마커 표시 및 이벤트
+  useEffect(() => {
+    if (!location.state) return;
+
+    if (currCategory) {
+      setCurrCategory(currCategory);
+    }
+
+    if (map && location.state.position) {
+      setIsInputFocus(false);
+      const { category, position } = location.state;
+
+      createTemporaryMarker(
+        new kakao.maps.LatLng(position.Ma, position.La),
+        `/marker-img/${category}-marker.svg`
+      );
+
+      setIsBottomSheetVisible(true);
+      setCurrMarker(new kakao.maps.LatLng(position.Ma, position.La));
+      map.panTo(new kakao.maps.LatLng(position.Ma, position.La));
+
+      navigate(location.pathname, { replace: true }); // state 초기화 및 url 유지
+    }
+  }, [map]);
+
+  // 카테고리 클릭 시 임시 마커 제거
+  useEffect(() => {
+    if (temporaryMarker) {
+      temporaryMarker.setMap(null); // 임시 마커 제거
+      setTemporaryMarker(null);
+    }
+  }, [currCategory, isCategoryClicked]);
+
   return (
     <div className={styles.wrapper}>
-      <MapFilter map={map} markers={markers} day={day} setIsOpen={setIsOpen} />
-      {isOpen && <DaySelectorModal setIsOpen={setIsOpen} />}
-      <div id="map" className={styles.map_wrapper}></div>
-      {isBottomSheetVisible && <Bottomsheet />}
+      {isInputFocus ? (
+        <MapSearch />
+      ) : (
+        <>
+          <MapFilter
+            map={map}
+            markers={markers}
+            day={day}
+            setIsOpen={setIsOpen}
+            setIsInputFocus={setIsInputFocus}
+          />
+          {isOpen && <DaySelectorModal setIsOpen={setIsOpen} />}
+          <div id="map" className={styles.map_wrapper}></div>
+          {isBottomSheetVisible && <Bottomsheet />}
+        </>
+      )}
     </div>
   );
 };

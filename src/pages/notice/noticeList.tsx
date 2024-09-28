@@ -3,6 +3,8 @@ import goBackImg from "@assets/notice/goBackButton.svg";
 import styles from "@styles/notice/noticeList.module.css";
 import NoticeListUnit from "@components/notice/NoticeListUnit";
 import allJsonData from "@constant/detailData.json";
+import { useEffect } from "react";
+import { useMapContext } from "@context/MapContext";
 
 export const NoticeListPage = () => {
   const navigate = useNavigate();
@@ -24,6 +26,13 @@ export const NoticeListPage = () => {
     "15",
     "13",
   ];
+
+  const { setIsNavVisible } = useMapContext();
+
+  useEffect(() => {
+    setIsNavVisible(false);
+  }, []);
+
   const sortedListData = idOrderList
     .map((id) => allJsonData.find((item) => item.id === id)) // id에 맞는 데이터를 JSON에서 찾음
     .filter((item) => item !== undefined); // undefined인 경우 제외

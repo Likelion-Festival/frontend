@@ -4,6 +4,7 @@ import NoPerformance from "@assets/performance/noperformance.svg";
 import { DaySelect } from "@components/performance/DaySelect";
 import { Toast } from "@components/performance/Toast";
 import { daysPerformance } from "@constant/performance";
+import { useMapContext } from "@context/MapContext";
 
 // add styles
 import styles from "@styles/performance/Timetable.module.css";
@@ -17,6 +18,11 @@ export const Timetable = () => {
   const [currentArtist, setCurrentArtist] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const { setIsNavVisible } = useMapContext();
+
+  useEffect(() => {
+    setIsNavVisible(false);
+  }, []);
 
   useEffect(() => {
     if (parmas.day === "2" || parmas.day === "3") setCurrentDay(parmas.day);
@@ -46,7 +52,7 @@ export const Timetable = () => {
 
   const handleButtonClick = () => {
     if (parmas.day === "2" || parmas.day === "3") {
-      if (currentArtist !== "-1") {
+      if (Number(currentArtist) >= 0 && currentArtist !== "") {
         navigate(`/performance/${currentArtist}`);
         return;
       }
@@ -112,7 +118,6 @@ export const Timetable = () => {
               }` === time
             );
           });
-
           return (
             <div
               className={styles.tableCell}
@@ -126,7 +131,6 @@ export const Timetable = () => {
                     height: `${(filteredPerformance.playTime / 30) * 95}px`,
                   }}
                 >
-                  {" "}
                   <div
                     className={styles.circleLine}
                     style={{
