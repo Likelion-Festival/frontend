@@ -230,8 +230,12 @@
 /* 문의사항 */
 .contactContainer {
   margin-top: 47px;
-  margin-left: 26px;
-  margin-right: 26px;
+  padding-left: 26px;
+  padding-right: 26px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 .contactEntireTitle {
   font-family: Noto Sans KR;
@@ -244,6 +248,7 @@
 }
 .contactBoxContainer {
   margin-top: 20px;
+  width: 100%;
   gap: 10px;
   display: flex;
   flex-direction: column;
@@ -252,7 +257,7 @@
 .contactBox {
   background: #272727;
   border-radius: 5px;
-  width: 323px;
+  width: 100%;
   height: 90px;
   display: flex;
   flex-direction: row;
