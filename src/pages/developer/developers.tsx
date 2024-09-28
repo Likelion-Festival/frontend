@@ -16,7 +16,7 @@ import Hyunjoo from "@assets/developer/Hyunjoo.png";
 import Sehyun from "@assets/developer/Sehyun.png";
 import Yeaahn from "@assets/developer/Yeaahn.png";
 import Sunhoo from "@assets/developer/Sunhoo.png";
-import LikelionLogo from "@assets/main/Likelion-logo.svg";
+import LikelionLogo from "@assets/main/Likelion-logo.png";
 import useInstagramOpen from "@hooks/useLinkToInsta";
 import Instagram from "@assets/developer/instagram.png";
 
@@ -47,7 +47,6 @@ export const DevelopersPage = () => {
       <div className={styles.appIntro}>
         <img src={appImage} className={styles.appImage} />
         <img src={LikelionUP} className={styles.LikelionUP} />
-
         <div className={styles.introText}>
           한양대학교 ERICA 멋쟁이 사자처럼 12기
         </div>
@@ -69,9 +68,7 @@ export const DevelopersPage = () => {
             즐거운 추억을 쌓으셨으면 좋겠습니다.
           </div>
         </div>
-
         <div className={styles.developerTitle}>Team Lead</div>
-
         <div className={styles.developerRoles}>
           <div className={styles.developerLine}>
             {" "}
@@ -126,7 +123,6 @@ export const DevelopersPage = () => {
             </div>
           </div>
         </div>
-
         <div className={styles.developerTitle}> Member </div>
         <div className={styles.developerRoles}>
           <div className={styles.developerLine}>
