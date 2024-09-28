@@ -15,10 +15,11 @@ import {
   promotionInfo,
 } from "@constant/marker";
 import { MarkerInfoType } from "@type/map";
-
+import { useMapContext } from "@context/MapContext";
 export const MapSearch = () => {
   const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const { currCategory, setCurrCategory } = useMapContext();
   const [inputValue, setInputValue] = useState<string>("");
 
   const hasMatchingTerm = [
@@ -40,8 +41,6 @@ export const MapSearch = () => {
     );
   });
 
-  console.log(hasMatchingTerm);
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
@@ -50,6 +49,13 @@ export const MapSearch = () => {
   useEffect(() => {
     if (inputRef.current) inputRef.current.focus();
   }, []);
+
+  const navigateToSelectedItem = (item: MarkerInfoType) => {
+    navigate("/map", {
+      state: { category: item.category, position: item.position },
+    });
+    setCurrCategory(item.category);
+  };
 
   return (
     <div className={styles.search_wrapper}>
@@ -91,7 +97,7 @@ export const MapSearch = () => {
           <div className={styles.searching}>
             <ul>
               {hasMatchingTerm.map((v: MarkerInfoType) => (
-                <li>
+                <li key={v.id} onClick={() => navigateToSelectedItem(v)}>
                   <h4>{v.name}</h4>
                   <span>{v.index}</span>
                 </li>

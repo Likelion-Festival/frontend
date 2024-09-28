@@ -8,10 +8,17 @@ import { Tooltip } from "@components/performance/Tooltip";
 import { NoPerformanceDay } from "@components/performance/NoPerformanceDay";
 import { useAlarm } from "@hooks/useAlarm";
 import { Modal } from "@components/performance/Modal";
+import { useEffect } from "react";
+import { useMapContext } from "@context/MapContext";
 
 export const PerformancePage = () => {
   const navigate = useNavigate();
-  const {showModal} = useAlarm();
+  const { showModal } = useAlarm();
+  const { setIsNavVisible } = useMapContext();
+
+  useEffect(() => {
+    setIsNavVisible(true);
+  }, []);
 
   const handleTimeTableClick = () => {
     const today = new Date();
@@ -40,7 +47,7 @@ export const PerformancePage = () => {
         (new Date().getDate() === 1 || new Date().getDate() === 2) ? (
           <Slide items={performances} onlyToday={true} />
         ) : (
-          <NoPerformanceDay/>
+          <NoPerformanceDay />
         )}
         <div className={styles.guide}>
           <span>공연 관람 Guide 보러가기</span>
@@ -56,7 +63,7 @@ export const PerformancePage = () => {
         </div>
         <Slide items={performances} onlyToday={false} />
       </div>
-      {  showModal && <Modal />}
+      {showModal && <Modal />}
     </div>
   );
 };

@@ -4,6 +4,7 @@ import NoPerformance from "@assets/performance/noperformance.svg";
 import { DaySelect } from "@components/performance/DaySelect";
 import { Toast } from "@components/performance/Toast";
 import { daysPerformance } from "@constant/performance";
+import { useMapContext } from "@context/MapContext";
 
 // add styles
 import styles from "@styles/performance/Timetable.module.css";
@@ -17,6 +18,11 @@ export const Timetable = () => {
   const [currentArtist, setCurrentArtist] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const { setIsNavVisible } = useMapContext();
+
+  useEffect(() => {
+    setIsNavVisible(false);
+  }, []);
 
   useEffect(() => {
     if (parmas.day === "2" || parmas.day === "3") setCurrentDay(parmas.day);

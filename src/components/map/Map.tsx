@@ -13,12 +13,16 @@ import { DaySelectorModal } from "./DaySelectorModal";
 import { Bottomsheet } from "./BottomSheet";
 import { useMapContext } from "@context/MapContext";
 import { MapSearch } from "./MapSearch";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { setMarkersOnMap } from "@utils/mapUtils";
 
 export const Map = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const {
     day,
+    currCategory,
+    currMarker,
     setCurrMarker,
     isCategoryClicked,
     setIsCategoryClicked,
@@ -214,6 +218,49 @@ export const Map = () => {
   useEffect(() => {
     if (isInputFocus) navigate("/map/search");
   }, [isInputFocus]);
+
+  // 다른 페이지에서 지도로 위치보기 시
+  useEffect(() => {
+    // location.state가 없으면 실행 X
+    if (!location.state) return;
+
+    // 카테고리 표시
+    if (currCategory) {
+      setCurrCategory(currCategory);
+    }
+
+    // location.state.가 존재하고 map이 초기화된 경우에만 실행
+    if (map && location.state.position) {
+      const { category, position } = location.state;
+
+      // 마커 초기화
+      setMarkersOnMap(markers.eventMarkers, null);
+      setMarkersOnMap(markers.barMarkers, null);
+      setMarkersOnMap(markers.foodCourtMarkers, null);
+      setMarkersOnMap(markers.medicalMarkers, null);
+      setMarkersOnMap(markers.smokingMarkers, null);
+
+      // 카테고리에 맞는 마커 표시
+      switch (category) {
+        case "event":
+          // setIsCategoryClicked(true);
+          setMarkersOnMap(markers.eventMarkers, map);
+          break;
+        case "bar":
+          setMarkersOnMap(markers.barMarkers, map);
+          break;
+        case "food":
+          setMarkersOnMap(markers.foodCourtMarkers, map);
+          break;
+      }
+
+      setIsBottomSheetVisible(true);
+      setCurrMarker(new kakao.maps.LatLng(position.Ma, position.La));
+      map?.panTo(new kakao.maps.LatLng(position.Ma, position.La));
+
+      navigate(location.pathname, { replace: true }); // state를 초기화하면서 url 유지
+    }
+  }, [map, currCategory]);
 
   return (
     <div className={styles.wrapper}>

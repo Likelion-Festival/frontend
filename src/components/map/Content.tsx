@@ -57,12 +57,36 @@ export const Content = ({ clickMarkerList }: clickMarkerListType) => {
   useEffect(() => {
     if (!isCategoryClicked && clickMarkerList && clickMarkerList.length > 0) {
       setRenderList(clickMarkerList);
+      console.log(clickMarkerList);
     }
   }, [clickMarkerList, currMarker, isCategoryClicked]);
 
   return (
     <div className={styles.wrapper}>
-      {currCategory !== "bar" ? (
+      {currCategory === "bar" ? (
+        // 주점일 때 렌더링
+        <ul className={styles.marker_list}>
+          {renderList.map((markerInfo) => {
+            return (
+              <li className={styles.bar_content} key={markerInfo.id}>
+                <div className={styles.bar_title}>
+                  <h3>{markerInfo?.name}</h3>
+                  <span>{markerInfo?.index}</span>
+                </div>
+                <div className={styles.bar_detail}>
+                  <strong className={styles.time}>{markerInfo?.time}</strong>
+                  <strong className={styles.location}>
+                    {markerInfo?.location}
+                  </strong>
+                </div>
+                <div className={styles.bar_image}>
+                  <img src={markerInfo?.imagePath} alt="marker-image" />
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
         <ul className={styles.marker_list}>
           {renderList.map((markerInfo) => {
             return (
@@ -87,29 +111,6 @@ export const Content = ({ clickMarkerList }: clickMarkerListType) => {
                   </div>
                 </div>
                 <div className={styles.image}>
-                  <img src={markerInfo?.imagePath} alt="marker-image" />
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      ) : (
-        // 주점일 때 렌더링
-        <ul className={styles.marker_list}>
-          {renderList.map((markerInfo) => {
-            return (
-              <li className={styles.bar_content} key={markerInfo.id}>
-                <div className={styles.bar_title}>
-                  <h3>{markerInfo?.name}</h3>
-                  <span>{markerInfo?.index}</span>
-                </div>
-                <div className={styles.bar_detail}>
-                  <strong className={styles.time}>{markerInfo?.time}</strong>
-                  <strong className={styles.location}>
-                    {markerInfo?.location}
-                  </strong>
-                </div>
-                <div className={styles.bar_image}>
                   <img src={markerInfo?.imagePath} alt="marker-image" />
                 </div>
               </li>
