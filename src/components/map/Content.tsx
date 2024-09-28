@@ -13,7 +13,8 @@ import { clickMarkerListType, MarkerInfoType } from "@type/map";
 import { useEffect, useState } from "react";
 
 export const Content = ({ clickMarkerList }: clickMarkerListType) => {
-  const { day, currCategory, isCategoryClicked, subCategory } = useMapContext();
+  const { day, currMarker, currCategory, isCategoryClicked, subCategory } =
+    useMapContext();
   const [renderList, setRenderList] = useState<MarkerInfoType[]>([]);
 
   // 현재 선택된 카테고리에 해당되는 리스트 필터링
@@ -41,18 +42,21 @@ export const Content = ({ clickMarkerList }: clickMarkerListType) => {
     });
   };
 
-  // 조건에 따른 리스트 렌더링
+  // 조건에 따른 카테고리 리스트 렌더링
   useEffect(() => {
     const categoryList = filterCategoryList();
 
     if (isCategoryClicked || subCategory) {
       setRenderList(categoryList);
-    } else if (clickMarkerList && clickMarkerList.length > 0) {
+    }
+  }, [day, currCategory, isCategoryClicked, subCategory]);
+
+  // 조건에 따른 클릭된 마커 리스트 렌더링
+  useEffect(() => {
+    if (!isCategoryClicked && clickMarkerList && clickMarkerList.length > 0) {
       setRenderList(clickMarkerList);
     }
-
-    console.log(categoryList);
-  }, [day, currCategory, isCategoryClicked, subCategory]);
+  }, [clickMarkerList, currMarker, isCategoryClicked]);
 
   return (
     <div className={styles.wrapper}>

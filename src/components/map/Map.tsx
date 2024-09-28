@@ -12,7 +12,6 @@ import { MarkersType } from "@type/map";
 import { DaySelectorModal } from "./DaySelectorModal";
 import { Bottomsheet } from "./BottomSheet";
 import { useMapContext } from "@context/MapContext";
-import { getClickMarkerList } from "@utils/markerUtils";
 
 export const Map = () => {
   const [map, setMap] = useState<kakao.maps.Map | null>(null);
@@ -208,17 +207,12 @@ export const Map = () => {
     }
   }, [isCategoryClicked]);
 
-  // 클릭한 마커 리스트(들) 가져오기
-  const clickMarkerList = getClickMarkerList();
-
   return (
     <div className={styles.wrapper}>
       <MapFilter map={map} markers={markers} day={day} setIsOpen={setIsOpen} />
       {isOpen && <DaySelectorModal setIsOpen={setIsOpen} />}
       <div id="map" className={styles.map_wrapper}></div>
-      {isBottomSheetVisible && (
-        <Bottomsheet clickMarkerList={clickMarkerList} />
-      )}
+      {isBottomSheetVisible && <Bottomsheet />}
     </div>
   );
 };

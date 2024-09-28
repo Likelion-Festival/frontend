@@ -4,14 +4,17 @@ import { BOTTOM_SHEET_HEIGHT } from "@constant/bottomSheetOption";
 import { BottomSheetHeader } from "./BottomSheetHeader";
 import { Content } from "./Content";
 import { useBottomSheet } from "@hooks/useBottomSheet";
-
 import { useMapContext } from "@context/MapContext";
 import { CategoryDetailFilter } from "./CategoryDetailFilter";
-import { clickMarkerListType } from "@type/map";
+import { getClickMarkerList } from "@utils/markerUtils";
 
-export const Bottomsheet = ({ clickMarkerList }: clickMarkerListType) => {
+export const Bottomsheet = () => {
   const { sheet, content } = useBottomSheet();
   const { currMarker } = useMapContext();
+
+  const clickMarkerList = getClickMarkerList();
+
+  console.log(clickMarkerList);
 
   return (
     <>

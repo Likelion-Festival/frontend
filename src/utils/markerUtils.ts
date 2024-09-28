@@ -17,6 +17,7 @@ export const getClickMarkerList = () => {
   // 사용자가 클릭한 마커 정보 담는 배열
   const clickMarkerList: MarkerInfoType[] = [];
 
+  // 클릭시 항목이 여러개 나타나는 마커들
   // 호수공원 마커 클릭 시
   if (
     lakeParkInfo[0].position.getLat() === currMarker?.getLat() &&
@@ -25,24 +26,28 @@ export const getClickMarkerList = () => {
     // 해당 day에 진행하는 이벤트 필터링
     const filterdMarkers = lakeParkInfo.filter((v) => v.day.includes(day));
     filterdMarkers.map((v) => clickMarkerList.push(v));
+    console.log("호수공원 클릭");
   } else if (
     // 피크닉 마커 클릭 시
     picnicInfo[0].position.getLat() === currMarker?.getLat() &&
     picnicInfo[0].position.getLng() === currMarker?.getLng()
   ) {
     picnicInfo.map((v) => clickMarkerList.push(v));
+    console.log("피크닉 클릭");
   } else if (
     // 프로모션 마커 클릭 시
     promotionInfo[0].position.getLat() === currMarker?.getLat() &&
     promotionInfo[0].position.getLng() === currMarker?.getLng()
   ) {
     promotionInfo.map((v) => clickMarkerList.push(v));
+    console.log("프로모션 클릭");
   } else if (
     // 플리마켓 마커 클릭 시
     fleaMarketInfo[0].position.getLat() === currMarker?.getLat() &&
     fleaMarketInfo[0].position.getLng() === currMarker?.getLng()
   ) {
     fleaMarketInfo.map((v) => clickMarkerList.push(v));
+    console.log("플리마켓 클릭");
   } else if (
     // 주점 마커 클릭 시
     barInfo[0].position.getLat() === currMarker?.getLat() &&
