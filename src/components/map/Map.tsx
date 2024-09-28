@@ -14,7 +14,6 @@ import { Bottomsheet } from "./BottomSheet";
 import { useMapContext } from "@context/MapContext";
 import { MapSearch } from "./MapSearch";
 import { useLocation, useNavigate } from "react-router-dom";
-import { setMarkersOnMap } from "@utils/mapUtils";
 
 export const Map = () => {
   const location = useLocation();
@@ -22,7 +21,6 @@ export const Map = () => {
   const {
     day,
     currCategory,
-    currMarker,
     setCurrMarker,
     isCategoryClicked,
     setIsCategoryClicked,
@@ -40,6 +38,8 @@ export const Map = () => {
     medicalMarkers: [],
     smokingMarkers: [],
   });
+  const [temporaryMarker, setTemporaryMarker] =
+    useState<kakao.maps.Marker | null>(null);
   const selectedMarkerRef = useRef<kakao.maps.Marker | null>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isInputFocus, setIsInputFocus] = useState<boolean>(false);
@@ -176,25 +176,24 @@ export const Map = () => {
     );
   }, [map]);
 
+  const resetMarkerImage = (
+    markersArray: kakao.maps.Marker[],
+    imagePath: string
+  ) => {
+    const markerImage = new kakao.maps.MarkerImage(
+      imagePath,
+      new kakao.maps.Size(50, 60)
+    );
+    markersArray.forEach((marker) => {
+      marker.setImage(markerImage); // 모든 마커의 이미지를 초기화
+    });
+  };
   // 마커 이미지 초기화
   useEffect(() => {
     // 카테고리 클릭 시 모든 마커 초기화
     if (isCategoryClicked) {
       // 선택된 마커가 있다면 기존 카테고리의 마커들을 초기화
       if (selectedMarkerRef.current) {
-        const resetMarkerImage = (
-          markersArray: kakao.maps.Marker[],
-          imagePath: string
-        ) => {
-          const markerImage = new kakao.maps.MarkerImage(
-            imagePath,
-            new kakao.maps.Size(50, 60)
-          );
-          markersArray.forEach((marker) => {
-            marker.setImage(markerImage); // 모든 마커의 이미지를 초기화
-          });
-        };
-
         // 각각의 마커 배열 초기화
         resetMarkerImage(markers.eventMarkers, "/marker-img/event-marker.svg");
         resetMarkerImage(markers.barMarkers, "/marker-img/bar-marker.svg");
@@ -219,48 +218,69 @@ export const Map = () => {
     if (isInputFocus) navigate("/map/search");
   }, [isInputFocus]);
 
-  // 다른 페이지에서 지도로 위치보기 시
+  // 임시 마커 생성
+  const createTemporaryMarker = (
+    position: kakao.maps.LatLng,
+    imagePath: string
+  ) => {
+    if (map && temporaryMarker) {
+      temporaryMarker.setMap(null); // 기존 임시 마커 제거
+    }
+
+    const markerImage = new kakao.maps.MarkerImage(
+      imagePath,
+      new kakao.maps.Size(60, 72)
+    );
+
+    const marker = new kakao.maps.Marker({
+      position,
+      image: markerImage,
+    });
+
+    marker.setMap(map); // 지도에 마커 표시
+    setTemporaryMarker(marker); // 임시 마커 저장
+
+    // 클릭 시 이동 및 마커 이미지 변경
+    kakao.maps.event.addListener(marker, "click", () => {
+      map?.panTo(position);
+      setCurrMarker(position);
+    });
+
+    return marker;
+  };
+
+  // 다른 페이지에서 지도 페이지로 이동 시 단일 마커 표시 및 이벤트
   useEffect(() => {
-    // location.state가 없으면 실행 X
     if (!location.state) return;
 
-    // 카테고리 표시
     if (currCategory) {
       setCurrCategory(currCategory);
     }
 
-    // location.state.가 존재하고 map이 초기화된 경우에만 실행
     if (map && location.state.position) {
+      setIsInputFocus(false);
       const { category, position } = location.state;
 
-      // 마커 초기화
-      setMarkersOnMap(markers.eventMarkers, null);
-      setMarkersOnMap(markers.barMarkers, null);
-      setMarkersOnMap(markers.foodCourtMarkers, null);
-      setMarkersOnMap(markers.medicalMarkers, null);
-      setMarkersOnMap(markers.smokingMarkers, null);
-
-      // 카테고리에 맞는 마커 표시
-      switch (category) {
-        case "event":
-          // setIsCategoryClicked(true);
-          setMarkersOnMap(markers.eventMarkers, map);
-          break;
-        case "bar":
-          setMarkersOnMap(markers.barMarkers, map);
-          break;
-        case "food":
-          setMarkersOnMap(markers.foodCourtMarkers, map);
-          break;
-      }
+      createTemporaryMarker(
+        new kakao.maps.LatLng(position.Ma, position.La),
+        `/marker-img/${category}-marker.svg`
+      );
 
       setIsBottomSheetVisible(true);
       setCurrMarker(new kakao.maps.LatLng(position.Ma, position.La));
-      map?.panTo(new kakao.maps.LatLng(position.Ma, position.La));
+      map.panTo(new kakao.maps.LatLng(position.Ma, position.La));
 
-      navigate(location.pathname, { replace: true }); // state를 초기화하면서 url 유지
+      navigate(location.pathname, { replace: true }); // state 초기화 및 url 유지
     }
-  }, [map, currCategory]);
+  }, [map]);
+
+  // 카테고리 클릭 시 임시 마커 제거
+  useEffect(() => {
+    if (temporaryMarker) {
+      temporaryMarker.setMap(null); // 임시 마커 제거
+      setTemporaryMarker(null);
+    }
+  }, [currCategory]);
 
   return (
     <div className={styles.wrapper}>

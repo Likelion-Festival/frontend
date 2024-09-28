@@ -19,7 +19,7 @@ import { useMapContext } from "@context/MapContext";
 export const MapSearch = () => {
   const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const { currCategory, setCurrCategory } = useMapContext();
+  const { setCurrCategory } = useMapContext();
   const [inputValue, setInputValue] = useState<string>("");
 
   const hasMatchingTerm = [
@@ -50,6 +50,7 @@ export const MapSearch = () => {
     if (inputRef.current) inputRef.current.focus();
   }, []);
 
+  // 클릭한 항목 위치로 이동
   const navigateToSelectedItem = (item: MarkerInfoType) => {
     navigate("/map", {
       state: { category: item.category, position: item.position },
@@ -93,7 +94,7 @@ export const MapSearch = () => {
           </div>
         )}
 
-        {inputValue && hasMatchingTerm.length > 0 && (
+        {inputValue && hasMatchingTerm.length >= 1 && (
           <div className={styles.searching}>
             <ul>
               {hasMatchingTerm.map((v: MarkerInfoType) => (
