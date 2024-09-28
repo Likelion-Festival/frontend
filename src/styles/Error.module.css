@@ -19,14 +19,17 @@
     margin-bottom: 22px;
   }
 
-  button {
-    width: 139px;
+  .home_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 154px;
     height: 46px;
     border: 1px solid black;
-    border-radius: 20px;
+    border-radius: 50px;
     font-size: 16px;
     font-weight: 500;
-    line-height: 28px;
+    line-height: 16px;
     color: #131313;
     background-color: #ff85ee;
   }

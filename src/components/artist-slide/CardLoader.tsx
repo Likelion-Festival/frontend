@@ -71,7 +71,11 @@ export const CardLoader: React.FC<CardLoaderProp> = ({ item, index }) => {
               <span className={styles.cardPlaytime}>
                 {item.playTime % 60 === 0
                   ? `${item.playTime / 60}h`
-                  : `${Math.floor(item.playTime / 60)}h ${item.playTime % 60}m`}
+                  : `${
+                      Math.floor(item.playTime / 60) === 0
+                        ? ""
+                        : Math.floor(item.playTime / 60) + "h"
+                    } ${item.playTime % 60}m`}
               </span>
             </div>
             <div className={styles.cardTimeLocate}>
@@ -79,11 +83,15 @@ export const CardLoader: React.FC<CardLoaderProp> = ({ item, index }) => {
                 <img src={Time} alt="" />
                 <span>{`${item.date.getHours()}:${
                   item.date.getMinutes() < 10
-                    ? `0${item.date.getMinutes()}`
+                    ? "0" + item.date.getMinutes()
                     : item.date.getMinutes()
-                }~${item.date.getHours() + Math.floor(item.playTime / 60)}:${
-                  item.date.getMinutes() + (item.playTime % 60) < 10
-                    ? `0${item.date.getMinutes() + (item.playTime % 60)}`
+                }~${
+                  item.date.getHours() +
+                  Math.floor((item.playTime + item.date.getMinutes()) / 60)
+                }:${
+                  item.date.getMinutes() + (item.playTime % 60) === 0 ||
+                  item.date.getMinutes() + (item.playTime % 60) === 60
+                    ? "00"
                     : item.date.getMinutes() + (item.playTime % 60)
                 }`}</span>
               </div>

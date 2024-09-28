@@ -18,3 +18,4 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_HYUERICA_FESTIVAL }}
           channelId: live
           projectId: hyuerica-festival
+          expires: 1d

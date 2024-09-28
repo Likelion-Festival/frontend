@@ -42,6 +42,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  border: none;
 }
 .imageBox img {
   border: none;
@@ -56,7 +57,7 @@
   margin-right: 26px;
   width: auto;
 }
-.pageTypeText {
+.subTitle {
   font-family: Noto Sans;
   font-size: 16px;
   font-weight: 700;
