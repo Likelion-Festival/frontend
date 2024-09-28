@@ -112,7 +112,7 @@ const handleStoreClick = (storeId: number) => {
                 <div className={styles.storeRepresentative}>{highlightText(store.representative, searchTerm)}</div>
                 <div className={styles.descriptions}>
                   <div className={styles.representMenu}>대표</div>
-                  {highlightText(store.description, searchTerm)}
+                  <div className={styles.descriptionMenu}> {highlightText(store.description, searchTerm)} </div>
                 </div>
               </div>
             </div>
