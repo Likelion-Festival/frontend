@@ -1,0 +1,41 @@
+.wrap {
+  width: 100%;
+  height: 375px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  margin-top: 30px;
+}
+
+.content {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: -1px;
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.img {
+  width: 325px;
+  height: 178px;
+  border-radius: 5px;
+
+  padding: 21px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  & > span {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20.99px;
+    letter-spacing: -1px;
+
+    color: #ffffff;
+  }
+}

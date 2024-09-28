@@ -27,7 +27,7 @@ export const Slide: React.FC<SlideProp> = ({ items, onlyToday = false }) => {
           item.date.getFullYear() === today.getFullYear()
         );
       })
-    : items.filter((item) => item.date.getDate() < today.getDate());
+    : items.filter((item) => item.date  > today);
   return (
     <div className={styles.container}>
       <Slider {...sliderSetting}>

@@ -2,6 +2,7 @@ import styles from "@styles/performance/NoPerformanceDay.module.css";
 import App from "@assets/performance/performance-app.svg";
 import FoodTruck from "@assets/performance/performance-food.svg";
 import Bar from "@assets/performance/performance-bar.svg";
+import Stage from "@assets/performance/stage.svg";
 import { useNavigate } from "react-router-dom";
 
 export const NoPerformanceDay = () => {
@@ -36,8 +37,8 @@ export const NoPerformanceDay = () => {
             내일 공연 <br />
             미리보기
           </div>
-          <div>
-            <img src="" alt="" />
+          <div className={styles.btnImg}>
+            <img src={Stage} alt="" />
           </div>
         </div>
         <div className={styles.btn} onClick={() => navigate('/bar')}>
