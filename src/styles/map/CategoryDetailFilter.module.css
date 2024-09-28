@@ -32,6 +32,9 @@
     white-space: nowrap;
     flex-shrink: 0;
   }
+  li:last-child {
+    margin-right: 0;
+  }
 
   & .selected {
     color: #131313;
