@@ -150,11 +150,16 @@
   .representMenu{
     background-color: #473273; 
     color: #BDBDBD; 
-    font-size: 12px; 
+    font-size: 11px; 
     border-radius: 5px; 
     padding: 0px 7px;
     display: inline-block;
     margin-right: 5px;
+  }
+
+  .descriptionMenu{
+    color: #7E7E7E;
+    font-size: 13px;
   }
 
   .storeLine{

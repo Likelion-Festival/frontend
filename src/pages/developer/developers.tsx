@@ -1,7 +1,7 @@
 import styles from "@styles/developer/Developers.module.css";
 
-import { useNavigate} from 'react-router-dom';
 import { useEffect } from 'react';
+import { useLocation, useNavigate } from "react-router-dom";
 
 import goBack from "@assets/bar/goBack.png";
 import appImage from "@assets/developer/appImage.png";
@@ -21,9 +21,8 @@ import useInstagramOpen from "@hooks/useLinkToInsta";
 import Instagram from "@assets/developer/instagram.png";
 
 export const DevelopersPage = () => {
-
-    
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation();
     const openInstagramOfLikelion = useInstagramOpen("likelion_erica");
     const handleBackClick = () => {
         navigate(-1); 
@@ -31,7 +30,7 @@ export const DevelopersPage = () => {
 
       useEffect(() => {
         window.scrollTo(0, 0); 
-      }, []);
+      }, [location]);
     
       const handleFormClick = () => {
         window.location.href = 'https://forms.gle/HjsQi1yt8S9sG7Z19';
@@ -51,7 +50,7 @@ export const DevelopersPage = () => {
 
         <div className={styles.introText}>
           한양대학교 ERICA 멋쟁이 사자처럼 12기
-        </div>/
+        </div>
         <img src={X} className={styles.introX} />
         <div className={styles.introText}>총동아리연합회 UP</div>
         <div className={styles.introText2}>
