@@ -242,7 +242,7 @@ export const daysPerformance: dayPerformance[] = [
         artistName: "실용 음악과 학생 특별 공연",
         time: new Date("2024-10-01T18:00:00"),
         playTime: 60,
-        index: "-1",
+        index: "-2",
       },
       {
         artistName: "LE SSERAFIM",
@@ -277,7 +277,7 @@ export const daysPerformance: dayPerformance[] = [
         artistName: "끼페스티벌",
         time: new Date("2024-10-02T18:00:00"),
         playTime: 120,
-        index: "-1",
+        index: "-3",
       },
       {
         artistName: "YELO",

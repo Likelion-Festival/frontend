@@ -117,7 +117,9 @@ export const BarPage = () => {
               alt={`주점검색`}
               className={styles.searchResult}
             />
-            <div className={styles["noResult-main"]}>검색해보세요</div>
+            <div className={styles["noResult-main"]}>
+              찾고 싶은 주점을 검색해보세요
+            </div>
           </div>
         ) : filteringStores.length > 0 ? (
           filteringStores.map((store, index) => (

@@ -1,5 +1,8 @@
 import styles from "@styles/developer/Developers.module.css";
-import { useNavigate } from "react-router-dom";
+
+import { useNavigate} from 'react-router-dom';
+import { useEffect } from 'react';
+
 import goBack from "@assets/bar/goBack.png";
 import appImage from "@assets/developer/appImage.png";
 import LikelionUP from "@assets/developer/LikelionUP.png";
@@ -18,11 +21,22 @@ import useInstagramOpen from "@hooks/useLinkToInsta";
 import Instagram from "@assets/developer/instagram.png";
 
 export const DevelopersPage = () => {
-  const navigate = useNavigate();
-  const openInstagramOfLikelion = useInstagramOpen("likelion_erica");
-  const handleBackClick = () => {
-    navigate(-1);
-  };
+
+    
+    const navigate = useNavigate();
+    const openInstagramOfLikelion = useInstagramOpen("likelion_erica");
+    const handleBackClick = () => {
+        navigate(-1); 
+      };
+
+      useEffect(() => {
+        window.scrollTo(0, 0); 
+      }, []);
+    
+      const handleFormClick = () => {
+        window.location.href = 'https://forms.gle/HjsQi1yt8S9sG7Z19';
+      };
+
 
   return (
     <div className={styles.developerContainer}>
@@ -184,17 +198,20 @@ export const DevelopersPage = () => {
           </div>
         </div>
 
-        {/* 설문 주소 - 아직 주소 추가 X*/}
-        <div className={styles.contactBox}>
-          <div className={styles.contactPhraseBox}>
-            <div className={styles.contactPhrase1}>축제 앱 어떠셨나요?</div>
-            <div className={styles.contactPhrase2}>
-              멋사에게 후기를 알려주세요!
-            </div>
+
+
+            {/* 설문 주소 - 아직 주소 추가 X*/}
+            <div className={styles.contactBox} onClick={handleFormClick}>
+                <div className={styles.contactPhraseBox}>
+                <div className={styles.contactPhrase1}>축제 앱 어떠셨나요?</div>
+                <div className={styles.contactPhrase2}>
+                    멋사에게 후기를 알려주세요!
+                </div>
           </div>
           <div className={styles.contactIcon}>
             <img src={LikelionLogo} />
           </div>
+
         </div>
         {/* 컨택 주소 - 메인과 동일 */}
         <div className={styles.contactBox} onClick={openInstagramOfLikelion}>

@@ -27,6 +27,10 @@ export const PerformanceDetailPage = () => {
     setIsNavVisible(false);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   if (!params.id) {
     navigator("error");
     return <div>Invalid ID</div>;
@@ -76,7 +80,7 @@ export const PerformanceDetailPage = () => {
         </div>
         <div
           className={styles.grayBox}
-          style={{ justifyContent: "space-around" }}
+          style={{ justifyContent: "center", gap: "30px" }}
         >
           <div
             style={{

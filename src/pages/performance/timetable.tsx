@@ -52,7 +52,7 @@ export const Timetable = () => {
 
   const handleButtonClick = () => {
     if (parmas.day === "2" || parmas.day === "3") {
-      if (currentArtist !== "-1") {
+      if (Number(currentArtist) >= 0 && currentArtist !== "") {
         navigate(`/performance/${currentArtist}`);
         return;
       }
@@ -118,7 +118,6 @@ export const Timetable = () => {
               }` === time
             );
           });
-
           return (
             <div
               className={styles.tableCell}
@@ -132,7 +131,6 @@ export const Timetable = () => {
                     height: `${(filteredPerformance.playTime / 30) * 95}px`,
                   }}
                 >
-                  {" "}
                   <div
                     className={styles.circleLine}
                     style={{
