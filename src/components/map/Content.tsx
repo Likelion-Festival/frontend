@@ -7,6 +7,8 @@ import {
   fleaMarketInfo,
   barInfo,
   medicalInfo,
+  photoBoothInfo_1,
+  photoBoothInfo_2,
 } from "@constant/marker";
 import { useMapContext } from "@context/MapContext";
 import styles from "@styles/map/Content.module.css";
@@ -30,6 +32,8 @@ export const Content = ({ clickMarkerList }: clickMarkerListType) => {
       ...foodCourtInfo,
       ...lakeParkInfo,
       ...medicalInfo,
+      ...photoBoothInfo_1,
+      ...photoBoothInfo_2,
     ].filter((marker) => {
       if (!subCategory) {
         // 2차 필터링 없을 때 (축제 일자에 맞는 것들 필터링)
@@ -69,7 +73,7 @@ export const Content = ({ clickMarkerList }: clickMarkerListType) => {
         } else {
           // Store인 경우, MarkerInfoType에 맞게 변환
           return {
-            id: -1, // marker.id -> 왜 Store에 없다고 뜨는거야..
+            id: 61, // marker.id -> 왜 Store에 없다고 뜨는거야..
             day: [], // day도 Store에는 없으므로 빈 배열 할당
             category: marker.category,
             subCategory: "", // 빈 string 할당

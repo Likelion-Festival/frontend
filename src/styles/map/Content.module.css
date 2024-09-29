@@ -5,13 +5,15 @@
   height: 72vh;
 
   background-color: #131313;
-  overflow: auto;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
 .marker_list {
   width: 328px;
-  height: 100vh;
+  height: auto;
+  max-height: calc(100vh - 20px);
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 

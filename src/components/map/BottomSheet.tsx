@@ -14,8 +14,6 @@ export const Bottomsheet = () => {
 
   const clickMarkerList = getClickMarkerList();
 
-  console.log(clickMarkerList);
-
   return (
     <>
       <motion.div
