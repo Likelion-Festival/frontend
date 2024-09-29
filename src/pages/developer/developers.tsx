@@ -1,7 +1,6 @@
 import styles from "@styles/developer/Developers.module.css";
-
 import { useEffect } from 'react';
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import goBack from "@assets/bar/goBack.png";
 import appImage from "@assets/developer/appImage.png";
@@ -21,16 +20,15 @@ import useInstagramOpen from "@hooks/useLinkToInsta";
 import Instagram from "@assets/developer/instagram.png";
 
 export const DevelopersPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const navigate = useNavigate();
-  const location = useLocation();
     const openInstagramOfLikelion = useInstagramOpen("likelion_erica");
     const handleBackClick = () => {
         navigate(-1); 
       };
 
-      useEffect(() => {
-        window.scrollTo(0, 0); 
-      }, [location]);
     
       const handleFormClick = () => {
         // window.location.href = 'https://forms.gle/HjsQi1yt8S9sG7Z19';
@@ -40,7 +38,7 @@ export const DevelopersPage = () => {
 
   return (
     <div className={styles.developerContainer}>
-      <div className={styles.developerTitle}>
+      <div className={styles.developerTitle2}>
         <img src={goBack} className={styles.goBack} onClick={handleBackClick} />
         만든 이들
       </div>

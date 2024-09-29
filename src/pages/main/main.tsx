@@ -85,6 +85,7 @@ export const MainPage = () => {
   }, []);
 
   const moveToDevelopers = () => {
+    window.scrollTo(0, 0);
     navigate(`/developers`);
   };
 
