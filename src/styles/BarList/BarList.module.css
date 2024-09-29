@@ -142,9 +142,6 @@
     font-size: 13px; 
     line-height: 2;
     margin: 0;
-    white-space: nowrap; 
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .representMenu{
@@ -160,6 +157,10 @@
   .descriptionMenu{
     color: #7E7E7E;
     font-size: 13px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+
   }
 
   .storeLine{
