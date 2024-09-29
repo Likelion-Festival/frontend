@@ -9,10 +9,12 @@ import { CategoryDetailFilter } from "./CategoryDetailFilter";
 import { getClickMarkerList } from "@utils/markerUtils";
 
 export const Bottomsheet = () => {
-  const { sheet, content } = useBottomSheet();
-  const { currMarker, currCategory } = useMapContext();
+  const { currMarker, currCategory, setIsNavVisible } = useMapContext();
+  const { sheet, content } = useBottomSheet(setIsNavVisible);
 
   const clickMarkerList = getClickMarkerList();
+
+  console.log(clickMarkerList);
 
   return (
     <>
