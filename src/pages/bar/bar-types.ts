@@ -1,12 +1,13 @@
 //주점 사진들
-import SW from "@assets/bar/소융.png";
-import MAHA from "@assets/bar/마하.png";
-import MATH from "@assets/bar/수학.png";
-import AD from "@assets/bar/광홍.png";
-import HERC from "@assets/bar/헐크.png";
-import MEDIA from "@assets/bar/정사미.png";
-import HYENA from "@assets/bar/전자.png";
-import MEDI from "@assets/bar/약대.png";
+import SW from "@assets/bar/SW.webp";
+import MAHA from "@assets/bar/MAHA.webp";
+import MATH from "@assets/bar/MATH.webp";
+import AD from "@assets/bar/AD.webp";
+import HERC from "@assets/bar/HERC.webp";
+import MEDIA from "@assets/bar/MEDIA.webp";
+import HYENA from "@assets/bar/HYENA.webp";
+import MEDI from "@assets/bar/MEDI.webp";
+
 //메뉴 데이터
 export interface MenuItem {
   name: string; //이름
@@ -81,7 +82,7 @@ export const stores: Store[] = [
     position: new kakao.maps.LatLng(37.29573017593732, 126.83485739526147),
     representative: "중앙동아리 MAHA",
     description:
-      "훈제마늘통삽겹, 대패왕창비빔면, 떡볶이세트, 토리로코스",
+      "훈제마늘통삽겹, 비빔면, 떡볶이, 토리로코스",
     imageUrl: MAHA,
     classification: [
       { Main: "주요차림", Second: "사이드 메뉴", Third: "세트" },
