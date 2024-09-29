@@ -96,6 +96,7 @@
   font-weight: 700;
   line-height: 28px;
   text-align: left;
+  color: #ffffff;
 }
 .eventSubTitle {
   font-family: Noto Sans KR;
@@ -104,6 +105,7 @@
   line-height: 20.99px;
   letter-spacing: -1px;
   text-align: left;
+  color: #ffffffbf;
 }
 
 /* 프로그램 */

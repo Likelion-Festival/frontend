@@ -111,7 +111,7 @@ export const MainPage = () => {
                 imgURL={event.images[0]}
                 indexText={`${index + 1}/${sortedEventListData.length}`}
                 mainTitle={event.mainTitle}
-                subTitle={event.subTitle}
+                subTitle={event.guide}
                 onClick={() => MoveDetailPageWithID(event.id)}
               />
             </div>
