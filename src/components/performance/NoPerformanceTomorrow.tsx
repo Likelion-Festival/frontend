@@ -1,10 +1,12 @@
-import Pantasia from "@assets/bar/SW.webp";
+import Pantasia from "@assets/performance/pantasia.webp";
 import styles from "@styles/performance/NoPerformanceTomorrow.module.css";
+import { useNavigate } from "react-router-dom";
 
 export const NoPerformanceTomorrow = () => {
+  const navigate = useNavigate();
   return (
     <div className={styles.wrap}>
-      <div className={styles.content}>
+      <div className={styles.content} onClick={() => navigate('detail/105')}>
         모든 공연이 끝났어요 <br />
         마지막 남은 행사들도 즐겨주세요!
       </div>
