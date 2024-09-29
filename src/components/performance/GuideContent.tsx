@@ -1,6 +1,6 @@
 import styles from "@styles/performance/GuideContent.module.css";
-import ground from "@assets/performance/ground.jpg";
-import innerLayout from "@assets/performance/inner-layout.jpg";
+import ground from "@assets/performance/ground.webp";
+import innerLayout from "@assets/performance/innerlayout.webp";
 import { useEffect, useState } from "react";
 
 export const GuideTime = () => {
