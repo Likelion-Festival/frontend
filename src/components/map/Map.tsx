@@ -266,7 +266,12 @@ export const Map = () => {
 
     // 클릭 시 이동 및 마커 이미지 변경
     kakao.maps.event.addListener(marker, "click", () => {
-      map?.panTo(position);
+      const adjustPosition = new kakao.maps.LatLng(
+        position.getLat() - 0.0007,
+        position.getLng()
+      );
+
+      map?.panTo(adjustPosition);
       setCurrMarker(position);
     });
 
