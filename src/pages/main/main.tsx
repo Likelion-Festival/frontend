@@ -17,7 +17,7 @@ import useInstagramOpen from "@hooks/useLinkToInsta";
 import LaptopIcon from "@assets/main/laptop-icon.png";
 import InstagramIcon from "@assets/main/instagram-icon.png";
 import allJsonData from "@constant/detailData.json";
-
+import "@styles/main/slide.css";
 
 export const MainPage = () => {
   const navigate = useNavigate();
@@ -85,10 +85,8 @@ export const MainPage = () => {
   }, []);
 
   const moveToDevelopers = () => {
-    window.scrollTo(0, 0);
     navigate(`/developers`);
   };
-
 
   return (
     <div className={styles.wrapper}>
@@ -158,9 +156,7 @@ export const MainPage = () => {
               onClick={() => MoveDetailPageWithID(notice.id)}
             >
               <div className={styles.noticeTitle}>{notice.mainTitle}</div>
-              <div className={styles.noticeContent}>
-                평행세계의 경계를 지키는 Fall:ing Keeper 를 소개합니다!
-              </div>
+              <div className={styles.noticeContent}>{notice.summary}</div>
             </div>
           ))}
         </div>
