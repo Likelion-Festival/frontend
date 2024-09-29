@@ -3,8 +3,8 @@ import styles from "@styles/map/MapSearch.module.css";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { disassemble } from "es-hangul";
-import searchHanyang from "@assets/map/search_hanyang.png";
-import noResultHanyang from "@assets/map/no-result-hanyang.png";
+import searchHanyang from "@assets/map/search_hanyang.webp";
+import noResultHanyang from "@assets/map/no_result_hanyang.webp";
 import {
   barInfo,
   eventInfo,
