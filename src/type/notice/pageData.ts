@@ -5,6 +5,7 @@ export interface PageData {
   subTitle: string;
   mainTitle: string;
   mainText: string;
+  summary?: string;
 
   location?: string;
   date?: string;
