@@ -5,7 +5,7 @@ interface EventProps {
   imgURL: string;
   indexText: string;
   mainTitle: string;
-  subTitle: string;
+  subTitle: string | undefined;
   onClick?: () => void;
 }
 
