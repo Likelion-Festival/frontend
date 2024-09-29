@@ -4,8 +4,9 @@ import {
   eventInfo,
   picnicInfo,
   promotionInfo,
-  fleaMarketInfo,
   barInfo,
+  photoBoothInfo_1,
+  photoBoothInfo_2,
 } from "@constant/marker";
 import { MarkerInfoType } from "@type/map";
 import { useMapContext } from "@context/MapContext";
@@ -40,12 +41,6 @@ export const getClickMarkerList = () => {
   ) {
     promotionInfo.map((v) => clickMarkerList.push(v));
   } else if (
-    // 플리마켓 마커 클릭 시
-    fleaMarketInfo[0].position.getLat() === currMarker?.getLat() &&
-    fleaMarketInfo[0].position.getLng() === currMarker?.getLng()
-  ) {
-    fleaMarketInfo.map((v) => clickMarkerList.push(v));
-  } else if (
     // 주점 마커 클릭 시
     barInfo[0].position.getLat() === currMarker?.getLat() &&
     barInfo[0].position.getLng() === currMarker?.getLng()
@@ -69,16 +64,22 @@ export const getClickMarkerList = () => {
   });
   if (bar) clickMarkerList.push(bar);
 
-  // 사용자 클릭 위치 정보와 일치하는 마커 1개 찾아내기
-  const info = eventInfo.find((marker) => {
-    const newLatLng = marker.position;
-    return (
-      marker.day.includes(day) &&
-      newLatLng.getLat() === currMarker?.getLat() &&
-      newLatLng.getLng() === currMarker?.getLng()
-    );
-  });
-  if (info) clickMarkerList.push(info);
+  // 마커 1개 필터링 로직
+  const findSingleMarker = (markerArray: MarkerInfoType[]) => {
+    return markerArray.find((marker) => {
+      return (
+        marker.day.includes(day) &&
+        marker.position.getLat() === currMarker?.getLat() &&
+        marker.position.getLng() === currMarker?.getLng()
+      );
+    });
+  };
+
+  const singleMarker =
+    findSingleMarker(photoBoothInfo_1) ||
+    findSingleMarker(photoBoothInfo_2) ||
+    findSingleMarker(eventInfo);
+  if (singleMarker) clickMarkerList.push(singleMarker);
 
   return clickMarkerList;
 };

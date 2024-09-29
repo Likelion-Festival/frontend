@@ -1,4 +1,4 @@
-// 의무실 + 이벤트
+// 이벤트
 export const eventInfo = [
   {
     id: 7,
@@ -12,7 +12,24 @@ export const eventInfo = [
     position: new kakao.maps.LatLng(37.294711, 126.833163),
     imagePath: "/marker-img/performance.png",
   },
+];
 
+export const photoBoothInfo_1 = [
+  {
+    id: 8,
+    day: ["전체", "1일차", "2일차", "3일차"],
+    category: "event",
+    subCategory: "네컷사진",
+    name: "포토부스",
+    index: "네컷사진",
+    time: `00:00-24:00`,
+    location: "학생 복지관 옆 및 주점존",
+    position: new kakao.maps.LatLng(37.29700985189893, 126.83500403771586),
+    imagePath: "/marker-img/shopping.png",
+  },
+];
+
+export const photoBoothInfo_2 = [
   {
     id: 6,
     day: ["전체", "1일차", "2일차", "3일차"],
@@ -22,12 +39,36 @@ export const eventInfo = [
     index: "네컷사진",
     time: `00:00-24:00`,
     location: "학생 복지관 옆 및 주점존",
-    position: new kakao.maps.LatLng(37.29820581238032, 126.83488581905908),
+    position: new kakao.maps.LatLng(37.2962171035601, 126.83512137251627),
     imagePath: "/marker-img/shopping.png",
   },
 ];
 
 export const promotionInfo = [
+  {
+    id: 2,
+    day: ["전체", "1일차", "2일차", "3일차"],
+    category: "event",
+    subCategory: "플리마켓",
+    name: "축제 굿즈",
+    index: "플리마켓",
+    time: `11:00-17:00`,
+    location: "학생복지관 앞 민주광장",
+    position: new kakao.maps.LatLng(37.29820581238032, 126.83488581905908),
+    imagePath: "/marker-img/shopping.png",
+  },
+  {
+    id: 2,
+    day: ["전체", "1일차", "2일차", "3일차"],
+    category: "event",
+    subCategory: "플리마켓",
+    name: "플리마켓",
+    index: "플리마켓",
+    time: `11:00-17:00`,
+    location: "학생복지관 앞 민주광장",
+    position: new kakao.maps.LatLng(37.29820581238032, 126.83488581905908),
+    imagePath: "/marker-img/flea-market.png",
+  },
   {
     id: 5,
     day: ["전체", "1일차", "2일차", "3일차"],
@@ -37,7 +78,7 @@ export const promotionInfo = [
     index: "프로모션",
     time: "11:00-17:00",
     location: "학생복지관 앞 민주광장",
-    position: new kakao.maps.LatLng(37.296951, 126.835818),
+    position: new kakao.maps.LatLng(37.29820581238032, 126.83488581905908),
     imagePath: "/marker-img/indo-mie.png",
   },
   {
@@ -49,7 +90,7 @@ export const promotionInfo = [
     index: "프로모션",
     time: "11:00-17:00",
     location: "학생복지관 앞 민주광장",
-    position: new kakao.maps.LatLng(37.296951, 126.835818),
+    position: new kakao.maps.LatLng(37.29820581238032, 126.83488581905908),
     imagePath: "/marker-img/dawn-of-grammy.png",
   },
   {
@@ -61,7 +102,7 @@ export const promotionInfo = [
     index: "프로모션",
     time: "11:00-17:00",
     location: "학생복지관 앞 민주광장",
-    position: new kakao.maps.LatLng(37.296951, 126.835818),
+    position: new kakao.maps.LatLng(37.29820581238032, 126.83488581905908),
     imagePath: "/marker-img/central-medical-center.png",
   },
 ];
@@ -93,32 +134,7 @@ export const picnicInfo = [
   },
 ];
 
-export const fleaMarketInfo = [
-  {
-    id: 2,
-    day: ["전체", "1일차", "2일차", "3일차"],
-    category: "event",
-    subCategory: "플리마켓",
-    name: "축제 굿즈",
-    index: "플리마켓",
-    time: `11:00-17:00`,
-    location: "학생복지관 앞 민주광장",
-    position: new kakao.maps.LatLng(37.29820581238032, 126.83488581905908),
-    imagePath: "/marker-img/shopping.png",
-  },
-  {
-    id: 2,
-    day: ["전체", "1일차", "2일차", "3일차"],
-    category: "event",
-    subCategory: "플리마켓",
-    name: "플리마켓",
-    index: "플리마켓",
-    time: `11:00-17:00`,
-    location: "학생복지관 앞 민주광장",
-    position: new kakao.maps.LatLng(37.29820581238032, 126.83488581905908),
-    imagePath: "/marker-img/flea-market.png",
-  },
-];
+export const fleaMarketInfo = [];
 
 export const barInfo = [
   {
@@ -418,7 +434,7 @@ export const foodCourtInfo = [
     day: ["전체", "2일차", "3일차"],
     category: "food",
     subCategory: "양식",
-    name: "스물여덣감자",
+    name: "스물여덟감자",
     index: "감자튀김",
     time: `10월 1~2일 11:00~23:00`,
     location: "예체능 대학 앞",

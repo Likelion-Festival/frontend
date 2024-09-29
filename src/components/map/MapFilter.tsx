@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "@styles/map/MapFilter.module.css";
 import classNames from "classnames";
 import {
   drawBarArea,
   drawEventArea,
   drawFoodCourtArea,
-  drawPlaygroundArea,
   setMarkersOnMap,
 } from "@utils/mapUtils";
 import { MarkersType } from "@type/map";
@@ -30,9 +29,9 @@ export const MapFilter = ({
 }: MapFilterProps) => {
   const [eventArea, setEventArea] = useState<kakao.maps.Polygon[] | null>(null);
   const [barArea, setBarArea] = useState<kakao.maps.Polygon | null>(null);
-  const [foodCourtArea, setFoodCourtArea] = useState<kakao.maps.Polygon | null>(
-    null
-  );
+  const [foodCourtArea, setFoodCourtArea] = useState<
+    kakao.maps.Polygon[] | null
+  >(null);
 
   const {
     setCurrMarker,
@@ -45,8 +44,9 @@ export const MapFilter = ({
     setIsBottomSheetVisible,
   } = useMapContext();
 
-  const [playGroundArea, setPlayGroundArea] =
-    useState<kakao.maps.Polygon | null>(null);
+  useEffect(() => {
+    console.log(barArea);
+  }, [currCategory]);
 
   // 카테고리 선택 시 이벤트
   const changeMarker = (event: React.MouseEvent<HTMLElement>) => {
@@ -59,17 +59,9 @@ export const MapFilter = ({
     // 현재 선택된 마커 초기화
     setCurrMarker(null);
 
-    // 마커 초기화
-    setMarkersOnMap(markers.eventMarkers, null);
-    setMarkersOnMap(markers.barMarkers, null);
-    setMarkersOnMap(markers.foodCourtMarkers, null);
-    setMarkersOnMap(markers.medicalMarkers, null);
-    setMarkersOnMap(markers.smokingMarkers, null);
-    setMarkersOnMap(markers.toiletMarkers, null);
-
     // 이벤트 영역 초기화
     if (eventArea) {
-      eventArea?.forEach((event) => event.setMap(null)); // 이전 다각형 제거
+      eventArea.forEach((event) => event.setMap(null)); // 이전 다각형 제거
       setEventArea(null); // 상태 초기화
     }
 
@@ -81,15 +73,17 @@ export const MapFilter = ({
 
     // 먹거리 영역 초기화
     if (foodCourtArea) {
-      foodCourtArea.setMap(null);
+      foodCourtArea?.forEach((foodCourt) => foodCourt.setMap(null));
       setFoodCourtArea(null);
     }
 
-    // 대운동장 영역 초기화
-    if (playGroundArea) {
-      playGroundArea.setMap(null);
-      setPlayGroundArea(null);
-    }
+    // 마커 초기화
+    setMarkersOnMap(markers.eventMarkers, null);
+    setMarkersOnMap(markers.barMarkers, null);
+    setMarkersOnMap(markers.foodCourtMarkers, null);
+    setMarkersOnMap(markers.medicalMarkers, null);
+    setMarkersOnMap(markers.smokingMarkers, null);
+    setMarkersOnMap(markers.toiletMarkers, null);
 
     switch (id) {
       case "eventMenu":
@@ -99,12 +93,11 @@ export const MapFilter = ({
           new kakao.maps.LatLng(37.29611717143787, 126.83453511611461)
         ); // 해당 위치로 화면 트래킹
         setCurrCategory("event"); // 선택 카테고리 표시
+
         setMarkersOnMap(markers.eventMarkers, map); // 지도에 마커 표시
         const newEventArea = drawEventArea(map); // 영역 그리기
         setEventArea(newEventArea); // 상태 설정
 
-        const newEllipse = drawPlaygroundArea(map);
-        setPlayGroundArea(newEllipse);
         break;
 
       case "barMenu":
@@ -127,8 +120,9 @@ export const MapFilter = ({
         );
         setCurrCategory("food");
         setMarkersOnMap(markers.foodCourtMarkers, map);
+
         const newFoodCourtArea = drawFoodCourtArea(map);
-        setBarArea(newFoodCourtArea);
+        setFoodCourtArea(newFoodCourtArea);
         break;
 
       case "medicalMenu":
