@@ -37,7 +37,8 @@
 
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.2);
-  animation: fade-in 700ms, fade-out 700ms 2000ms;
+  animation: fade-in 1000ms, fade-out 500ms 1000ms;
+  backdrop-filter: blur(13.699999809265137px);
 
   display: flex;
   justify-content: center;

@@ -1,6 +1,7 @@
 import Arrow from "@assets/performance/arrow-back.svg";
 import ArrowDown from "@assets/performance/arrow-down.svg";
 import NoPerformance from "@assets/performance/noperformance.svg";
+import Restore from "@assets/performance/restore.svg";
 import { DaySelect } from "@components/performance/DaySelect";
 import { Toast } from "@components/performance/Toast";
 import { daysPerformance } from "@constant/performance";
@@ -76,12 +77,17 @@ export const Timetable = () => {
   };
 
   const timeSlots = generateTimeSlots();
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
-        <img src={Arrow} alt="" onClick={() => navigate(-1)} />
+        <img src={Arrow} alt="" onClick={() => navigate('/performance')} />
         <span>타임테이블</span>
+        <img
+          src={Restore}
+          alt=""
+          style={{ width: "28px", height: "28px" }}
+          onClick={() => navigate(`/performance/timetable/${currentDay}`)}
+        />
       </div>
 
       <div className={styles.ndayBox} onClick={() => setShowModal(true)}>
@@ -94,10 +100,9 @@ export const Timetable = () => {
       </button>
       {currentDay === "1" ? (
         <div className={styles.noPerformance}>
-          <div>오늘은 공연이 없어요.</div>
           <div>
-            날짜를 선택하고 예정된 공연 타임테이블을
-            <br /> 미리 확인해보세요!
+            오늘은 공연이 없어요.
+            <br /> 예정된 공연을 미리 확인해보세요!
           </div>
           <img src={NoPerformance} alt="" />
         </div>

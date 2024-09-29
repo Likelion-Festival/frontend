@@ -47,13 +47,13 @@
 .button {
   width: 325px;
   height: 45px;
-  margin-top: 10px;
+  margin-top: 18px;
 
   border-radius: 5px;
   border: none;
   background-color: #272727;
 
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 20.99px;
   text-align: center;
@@ -156,22 +156,23 @@
 
 .noPerformance {
   display: flex;
-  margin-top: 10px;
+  margin-top: 138px;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
   width: 325px;
 
   & > div {
     width: 100%;
+    color: rgba(255, 255, 255, 0.5);
+
     font-size: 18px;
     font-weight: 500;
-    line-height: 34px;
+    line-height: 26px;
     letter-spacing: -1px;
-    text-align: left;
-    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
   }
   & > img {
+    margin-top: 28px;
     width: 133px;
     height: 166px;
   }

@@ -1,43 +1,44 @@
 import { dayPerformance, Performance } from "@type/performance/performance";
 // load artist png
 // LEYUKA IMG IMPORT
-import LEEYUKA from "@assets/performance/artist/leeyuka.jpg";
-import WIWM from "@assets/performance/artist/songs/worldiswithoutme.jpg";
-import SIMON from "@assets/performance/artist/songs/simon.jpg";
-import UNUSUAL from "@assets/performance/artist/songs/unusual.jpg";
+import LEEYUKA from "@assets/performance/artist/leeyuka.webp";
+import WIWM from "@assets/performance/artist/songs/notme.webp";
+import SIMON from "@assets/performance/artist/songs/simon.webp";
+import UNUSUAL from "@assets/performance/artist/songs/unusual.webp";
 // LUCY IMG IMPORT
-import LUCY from "@assets/performance/artist/lucy.jpg";
-import FlOWER from "@assets/performance/artist/songs/flowering.jpg";
-import UNBELEVABLE from "@assets/performance/artist/songs/unbelievable.jpg";
-import HERO from "@assets/performance/artist/songs/hero.jpg";
+import LUCY from "@assets/performance/artist/lucy.webp";
+import FlOWER from "@assets/performance/artist/songs/flowering.webp";
+import UNBELEVABLE from "@assets/performance/artist/songs/unbelievable.webp";
+import HERO from "@assets/performance/artist/songs/hero.webp";
 // LE SSERAFIM IMG IMPORT
-import LESERRAFIM from "@assets/performance/artist/lesserafim.jpeg";
-import CRAZY from "@assets/performance/artist/songs/crazy.jpg";
-import EASY from "@assets/performance/artist/songs/easy.jpeg";
-import PERFECTNIGHT from "@assets/performance/artist/songs/perfectnight.jpeg";
+import LESERRAFIM from "@assets/performance/artist/lesserafim.webp";
+import CRAZY from "@assets/performance/artist/songs/crazy.webp";
+import EASY from "@assets/performance/artist/songs/easy.webp";
+import PERFECTNIGHT from "@assets/performance/artist/songs/perfectnight.webp";
 // KimSooYoung IMG IMPORT
-import KSY from "@assets/performance/artist/ksy.jpeg";
-import BlANK from "@assets/performance/artist/songs/blank.jpg";
-import LOVE from "@assets/performance/artist/songs/love.jpg";
-import SAD from "@assets/performance/artist/songs/sad.jpg";
+import KSY from "@assets/performance/artist/ksy.webp";
+import BlANK from "@assets/performance/artist/songs/blank.webp";
+import LOVE from "@assets/performance/artist/songs/love.webp";
+import SAD from "@assets/performance/artist/songs/three.webp";
 // Yelo IMG IMPORT
 import YELO from "@assets/performance/artist/yelo.webp";
-import MYYELLOW from "@assets/performance/artist/songs/myyellow.jpeg";
-import BADTHING from "@assets/performance/artist/songs/badthing.jpg";
-import ASMR from "@assets/performance/artist/songs/asmr.jpg";
+import MYYELLOW from "@assets/performance/artist/songs/myyellow.webp";
+import BADTHING from "@assets/performance/artist/songs/badthing.webp";
+import ASMR from "@assets/performance/artist/songs/asmr.webp";
 // n.flying IMG IMPORT
-import NFlYING from "@assets/performance/artist/nflying.jpg";
-import INTOYOU from "@assets/performance/artist/songs/intoyou.jpg";
-import ROOFTOP from "@assets/performance/artist/songs/rooftop.jpg";
+import NFlYING from "@assets/performance/artist/nflying.webp";
+import INTOYOU from "@assets/performance/artist/songs/yourinmylove.webp";
+import ROOFTOP from "@assets/performance/artist/songs/rooftop.webp";
 import MAN from "@assets/performance/artist/songs/manonthemoon.webp";
 // STAYC IMG IMPORT
-import STAYC from "@assets/performance/artist/stayc.jpeg";
-import BUBBLE from "@assets/performance/artist/songs/bubble.jpg";
-import TEDDY from "@assets/performance/artist/songs/teddybear.png";
-import CHEEKY from "@assets/performance/artist/songs/cheeky.jpg";
+import STAYC from "@assets/performance/artist/stayc.webp";
+import BUBBLE from "@assets/performance/artist/songs/bubble.webp";
+import TEDDY from "@assets/performance/artist/songs/teddybear.webp";
+import CHEEKY from "@assets/performance/artist/songs/cheeky.webp";
 
 export const performances: Performance[] = [
   {
+    index : 0,
     topic: "lesserafim",
     artistName: "LE SSERAFIM",
     artistImg: LESERRAFIM,
@@ -65,6 +66,7 @@ export const performances: Performance[] = [
     ],
   },
   {
+    index : 1,
     topic: "kimsooyoung",
     artistName: "김수영",
     artistImg: KSY,
@@ -91,6 +93,7 @@ export const performances: Performance[] = [
     ],
   },
   {
+    index : 2,
     topic: "leeyuka",
     artistName: "LEEYUKA",
     artistImg: LEEYUKA,
@@ -117,6 +120,7 @@ export const performances: Performance[] = [
     ],
   },
   {
+    index : 3,
     topic: "lucy",
     artistName: "LUCY",
     artistImg: LUCY,
@@ -144,6 +148,7 @@ export const performances: Performance[] = [
   },
 
   {
+    index : 4,
     topic: "yelo",
     artistName: "YELO",
     artistImg: YELO,
@@ -170,6 +175,7 @@ export const performances: Performance[] = [
     ],
   },
   {
+    index : 5,
     topic: "stayc",
     artistName: "STAYC",
     artistImg: STAYC,
@@ -196,6 +202,7 @@ export const performances: Performance[] = [
     ],
   },
   {
+    index : 6,
     topic: "nflying",
     artistName: "N.Flying",
     artistImg: NFlYING,

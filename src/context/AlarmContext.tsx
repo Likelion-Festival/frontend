@@ -8,7 +8,12 @@ type AlarmContextType = {
   alarms: boolean[];
   closeModal: () => void;
   showModal: boolean;
-  handleToggleAlarm: (index: number, topic: string) => void;
+  handleToggleAlarm: (
+    index: number,
+    topic: string,
+    btnLoading: boolean,
+    setBtnLoading: (value: boolean) => void
+  ) => void;
 };
 
 export const AlarmContext = createContext<AlarmContextType | undefined>(
@@ -83,7 +88,13 @@ export const AlarmProvider: React.FC<{ children: ReactNode }> = ({
     });
   };
 
-  const handleToggleAlarm = async (index: number, topic: string) => {
+  const handleToggleAlarm = async (
+    index: number,
+    topic: string,
+    btnLoading: boolean,
+    setBtnLoading: (value: boolean) => void
+  ) => {
+    if(btnLoading) return;
     const permission = await Notification.requestPermission();
 
     if (!state.deviceToken) {
@@ -98,18 +109,23 @@ export const AlarmProvider: React.FC<{ children: ReactNode }> = ({
 
     if (state.alarms[index]) {
       try {
+        setToast(false);
+        setBtnLoading(true);
         const response = await unsubscribeFromTopic(token, topic);
         if (response.successCount === 1) {
           toggleAlarm(index);
+          setBtnLoading(false);
         }
       } catch (e) {
         console.error(e);
       }
     } else {
       try {
+        setBtnLoading(true);
         const response = await subscribeToTopic(token, topic);
         if (response.successCount === 1) {
           toggleAlarm(index);
+          setBtnLoading(false);
           setToast(true);
         }
       } catch (e) {

@@ -1,36 +1,34 @@
 import styles from "@styles/developer/Developers.module.css";
-
 import { useEffect } from 'react';
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import goBack from "@assets/bar/goBack.png";
-import appImage from "@assets/developer/appImage.png";
-import LikelionUP from "@assets/developer/LikelionUP.png";
-import X from "@assets/developer/X.png";
-import Sanghoon from "@assets/developer/Sanghoon.png";
-import Seungah from "@assets/developer/Seungah.png";
-import Minji from "@assets/developer/Minji.png";
-import Jaehyun from "@assets/developer/Jaehyun.png";
-import Minkyung from "@assets/developer/Minkyung.png";
-import Hyunjoo from "@assets/developer/Hyunjoo.png";
-import Sehyun from "@assets/developer/Sehyun.png";
-import Yeaahn from "@assets/developer/Yeaahn.png";
-import Sunhoo from "@assets/developer/Sunhoo.png";
+import goBack from "@assets/bar/goBack.webp";
+import appImage from "@assets/developer/appImage.webp";
+import LikelionUP from "@assets/developer/LikelionUP.webp";
+import X from "@assets/developer/X.webp";
+import Sanghoon from "@assets/developer/Sanghoon.webp";
+import Seungah from "@assets/developer/Seungah.webp";
+import Minji from "@assets/developer/Minji.webp";
+import Jaehyun from "@assets/developer/Jaehyun.webp";
+import Minkyung from "@assets/developer/Minkyung.webp";
+import Hyunjoo from "@assets/developer/Hyunjoo.webp";
+import Sehyun from "@assets/developer/Sehyun.webp";
+import Yeaahn from "@assets/developer/Yeaahn.webp";
+import Sunhoo from "@assets/developer/Sunhoo.webp";
 import LikelionLogo from "@assets/main/Likelion-logo.png";
 import useInstagramOpen from "@hooks/useLinkToInsta";
-import Instagram from "@assets/developer/instagram.png";
+import Instagram from "@assets/developer/instagram.webp";
 
 export const DevelopersPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const navigate = useNavigate();
-  const location = useLocation();
     const openInstagramOfLikelion = useInstagramOpen("likelion_erica");
     const handleBackClick = () => {
         navigate(-1); 
       };
 
-      useEffect(() => {
-        window.scrollTo(0, 0); 
-      }, [location]);
     
       const handleFormClick = () => {
         // window.location.href = 'https://forms.gle/HjsQi1yt8S9sG7Z19';
@@ -40,7 +38,7 @@ export const DevelopersPage = () => {
 
   return (
     <div className={styles.developerContainer}>
-      <div className={styles.developerTitle}>
+      <div className={styles.developerTitle2}>
         <img src={goBack} className={styles.goBack} onClick={handleBackClick} />
         만든 이들
       </div>
