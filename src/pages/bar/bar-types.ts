@@ -1,12 +1,13 @@
 //주점 사진들
-import SW from "@assets/bar/SW.png";
-import MAHA from "@assets/bar/MAHA.png";
-import MATH from "@assets/bar/MATH.png";
-import AD from "@assets/bar/AD.png";
-import HERC from "@assets/bar/HERC.png";
-import MEDIA from "@assets/bar/MEDIA.png";
-import HYENA from "@assets/bar/HYENA.png";
-import MEDI from "@assets/bar/MEDI.png";
+import SW from "@assets/bar/SW.webp";
+import MAHA from "@assets/bar/MAHA.webp";
+import MATH from "@assets/bar/MATH.webp";
+import AD from "@assets/bar/AD.webp";
+import HERC from "@assets/bar/HERC.webp";
+import MEDIA from "@assets/bar/MEDIA.webp";
+import HYENA from "@assets/bar/HYENA.webp";
+import MEDI from "@assets/bar/MEDI.webp";
+
 //메뉴 데이터
 export interface MenuItem {
   name: string; //이름
