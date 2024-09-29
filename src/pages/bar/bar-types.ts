@@ -81,7 +81,7 @@ export const stores: Store[] = [
     position: new kakao.maps.LatLng(37.29573017593732, 126.83485739526147),
     representative: "중앙동아리 MAHA",
     description:
-      "훈제마늘통삽겹, 대패왕창비빔면, 떡볶이세트, 토리로코스",
+      "훈제마늘통삽겹, 비빔면, 떡볶이, 토리로코스",
     imageUrl: MAHA,
     classification: [
       { Main: "주요차림", Second: "사이드 메뉴", Third: "세트" },
