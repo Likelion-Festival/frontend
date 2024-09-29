@@ -1,23 +1,33 @@
 .wraper {
+  /* width: 100%;
+  min-width: 375px;
+  max-width: 430px; */
   margin: 0;
   padding: 0;
   border: none;
   display: flex;
   flex-direction: column;
 }
+
+.headerWithBack {
+  width: 100%;
+  min-width: 375px;
+  max-width: 430px;
+  z-index: 100;
+  position: fixed;
+  /* display: inline-block; */
+  flex-direction: column;
+  background: #131313;
+  border-bottom: 1.5px none;
+  padding-bottom: 20px;
+}
 .topMargin {
   height: 20px;
-  width: auto;
-}
-.headerWithBack {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  border-bottom: 1.5px none;
-  padding-bottom: 25px;
 }
 .goBack {
+  width: 100%;
   margin-left: 24px;
+  /* padding-right: max-content; */
   border: none;
   background: transparent;
   width: 24px;
@@ -30,7 +40,7 @@
 
 /* 슬라이더 */
 .slideContainer {
-  margin-top: 24px;
+  padding-top: 64px;
   justify-content: center;
   align-items: center;
 }
