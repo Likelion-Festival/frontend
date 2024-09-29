@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "@styles/map/MapFilter.module.css";
 import classNames from "classnames";
 import {
@@ -10,7 +10,6 @@ import {
 import { MarkersType } from "@type/map";
 import dropDownBtn from "@assets/map/dropdown-btn.svg";
 import { useMapContext } from "@context/MapContext";
-import arrowBackIcon from "@assets/map/arrow_back_icon.svg";
 
 interface MapFilterProps {
   map: kakao.maps.Map | null;
@@ -38,15 +37,10 @@ export const MapFilter = ({
     currCategory,
     setCurrCategory,
     setSubCategory,
-    isCategoryClicked,
     setIsCategoryClicked,
     setIsNavVisible,
     setIsBottomSheetVisible,
   } = useMapContext();
-
-  useEffect(() => {
-    console.log(barArea);
-  }, [currCategory]);
 
   // 카테고리 선택 시 이벤트
   const changeMarker = (event: React.MouseEvent<HTMLElement>) => {
@@ -104,7 +98,8 @@ export const MapFilter = ({
         setIsNavVisible(false);
         setIsBottomSheetVisible(true);
         map?.panTo(
-          new kakao.maps.LatLng(37.29607777698318, 126.83536134155077)
+          // new kakao.maps.LatLng(37.29607777698318, 126.83536134155077)
+          new kakao.maps.LatLng(37.29520363706782, 126.83526456219653)
         );
         setCurrCategory("bar");
         setMarkersOnMap(markers.barMarkers, map);
@@ -116,7 +111,7 @@ export const MapFilter = ({
         setIsNavVisible(false);
         setIsBottomSheetVisible(true);
         map?.panTo(
-          new kakao.maps.LatLng(37.296341663836365, 126.83398762250677)
+          new kakao.maps.LatLng(37.29502692868061, 126.83454314316053)
         );
         setCurrCategory("food");
         setMarkersOnMap(markers.foodCourtMarkers, map);
@@ -129,7 +124,7 @@ export const MapFilter = ({
         setIsNavVisible(false);
         setIsBottomSheetVisible(true);
         map?.panTo(
-          new kakao.maps.LatLng(37.29812402209422, 126.83438691733076)
+          new kakao.maps.LatLng(37.29722986885821, 126.83447628623955)
         );
 
         setCurrCategory("medical");
@@ -161,105 +156,83 @@ export const MapFilter = ({
 
   return (
     <>
-      {isCategoryClicked ? (
-        <div className={styles.wrapper}>
-          <img
-            src={arrowBackIcon}
-            alt="back-arrow"
-            onClick={() => {
-              setIsCategoryClicked(false);
-              setIsNavVisible(true);
-            }}
+      <div className={styles.filter_wrapper}>
+        <button className={styles.day} onClick={() => setIsOpen(true)}>
+          <span>{day}</span>
+          <img src={dropDownBtn} alt="dropdown-btn" />
+        </button>
+
+        <form
+          className={styles.form}
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
+          <input
+            type="text"
+            placeholder="부스, 주점, 키워드를 검색해보세요"
+            onFocus={() => setIsInputFocus(true)}
           />
-          <h2>
-            {currCategory === "event"
-              ? "이벤트"
-              : currCategory === "bar"
-              ? "주점"
-              : currCategory === "food"
-              ? "먹거리"
-              : "의무실"}
-          </h2>
-        </div>
-      ) : (
-        <div className={styles.filter_wrapper}>
-          <button className={styles.day} onClick={() => setIsOpen(true)}>
-            <span>{day}</span>
-            <img src={dropDownBtn} alt="dropdown-btn" />
-          </button>
+          <button type="submit" />
+        </form>
 
-          <form
-            className={styles.form}
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
+        <ul id={styles.category}>
+          <li
+            id="eventMenu"
+            className={classNames({
+              [styles.selected]: currCategory === "event",
+            })}
+            onClick={changeMarker}
           >
-            <input
-              type="text"
-              placeholder="부스, 주점, 키워드를 검색해보세요"
-              onFocus={() => setIsInputFocus(true)}
-            />
-            <button type="submit" />
-          </form>
-
-          <ul id={styles.category}>
-            <li
-              id="eventMenu"
-              className={classNames({
-                [styles.selected]: currCategory === "event",
-              })}
-              onClick={changeMarker}
-            >
-              <span>이벤트</span>
-            </li>
-            <li
-              id="barMenu"
-              className={classNames({
-                [styles.selected]: currCategory === "bar",
-              })}
-              onClick={changeMarker}
-            >
-              <span>주점</span>
-            </li>
-            <li
-              id="foodMenu"
-              className={classNames({
-                [styles.selected]: currCategory === "food",
-              })}
-              onClick={changeMarker}
-            >
-              <span>먹거리</span>
-            </li>
-            <li
-              id="medicalMenu"
-              className={classNames({
-                [styles.selected]: currCategory === "medical",
-              })}
-              onClick={changeMarker}
-            >
-              <span>의무실</span>
-            </li>
-            <li
-              id="toiletMenu"
-              className={classNames({
-                [styles.selected]: currCategory === "toilet",
-              })}
-              onClick={changeMarker}
-            >
-              <span>화장실</span>
-            </li>
-            <li
-              id="smokingMenu"
-              className={classNames({
-                [styles.selected]: currCategory === "smoking",
-              })}
-              onClick={changeMarker}
-            >
-              <span>흡연실</span>
-            </li>
-          </ul>
-        </div>
-      )}
+            <span>이벤트</span>
+          </li>
+          <li
+            id="barMenu"
+            className={classNames({
+              [styles.selected]: currCategory === "bar",
+            })}
+            onClick={changeMarker}
+          >
+            <span>주점</span>
+          </li>
+          <li
+            id="foodMenu"
+            className={classNames({
+              [styles.selected]: currCategory === "food",
+            })}
+            onClick={changeMarker}
+          >
+            <span>먹거리</span>
+          </li>
+          <li
+            id="medicalMenu"
+            className={classNames({
+              [styles.selected]: currCategory === "medical",
+            })}
+            onClick={changeMarker}
+          >
+            <span>의무실</span>
+          </li>
+          <li
+            id="toiletMenu"
+            className={classNames({
+              [styles.selected]: currCategory === "toilet",
+            })}
+            onClick={changeMarker}
+          >
+            <span>화장실</span>
+          </li>
+          <li
+            id="smokingMenu"
+            className={classNames({
+              [styles.selected]: currCategory === "smoking",
+            })}
+            onClick={changeMarker}
+          >
+            <span>흡연실</span>
+          </li>
+        </ul>
+      </div>
     </>
   );
 };

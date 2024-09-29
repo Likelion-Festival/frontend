@@ -130,7 +130,7 @@ export const picnicInfo = [
     time: `12:00-14:00`,
     location: "잔디공원 피크닉존",
     position: new kakao.maps.LatLng(37.296603, 126.834362),
-    imagePath: "/marker-img/rest.png",
+    imagePath: "/marker-img/singing.png",
   },
 ];
 
