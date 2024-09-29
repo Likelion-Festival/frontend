@@ -48,6 +48,7 @@ export const MapFilter = ({
     const id = target.id;
 
     setIsCategoryClicked(true);
+    setIsNavVisible(true);
     setSubCategory("");
 
     // 현재 선택된 마커 초기화
@@ -81,7 +82,6 @@ export const MapFilter = ({
 
     switch (id) {
       case "eventMenu":
-        setIsNavVisible(false);
         setIsBottomSheetVisible(true);
         map?.panTo(
           new kakao.maps.LatLng(37.29611717143787, 126.83453511611461)
@@ -95,7 +95,6 @@ export const MapFilter = ({
         break;
 
       case "barMenu":
-        setIsNavVisible(false);
         setIsBottomSheetVisible(true);
         map?.panTo(
           // new kakao.maps.LatLng(37.29607777698318, 126.83536134155077)
@@ -108,7 +107,6 @@ export const MapFilter = ({
         break;
 
       case "foodMenu":
-        setIsNavVisible(false);
         setIsBottomSheetVisible(true);
         map?.panTo(
           new kakao.maps.LatLng(37.29502692868061, 126.83454314316053)
@@ -121,7 +119,6 @@ export const MapFilter = ({
         break;
 
       case "medicalMenu":
-        setIsNavVisible(false);
         setIsBottomSheetVisible(true);
         map?.panTo(
           new kakao.maps.LatLng(37.29722986885821, 126.83447628623955)
@@ -135,7 +132,6 @@ export const MapFilter = ({
         setCurrCategory("toilet");
         setIsCategoryClicked(false); // 카테고리 헤더 없어지지 않게
         setIsBottomSheetVisible(false);
-        setIsNavVisible(true);
 
         setMarkersOnMap(markers.toiletMarkers, map);
         map?.panTo(
@@ -148,7 +144,6 @@ export const MapFilter = ({
         setCurrCategory("smoking");
         setIsCategoryClicked(false); // 카테고리 헤더 없어지지 않게
         setIsBottomSheetVisible(false);
-        setIsNavVisible(true);
         setMarkersOnMap(markers.smokingMarkers, map);
         break;
     }

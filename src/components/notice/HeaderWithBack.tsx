@@ -8,7 +8,7 @@ export const HeaderWithBack = () => {
     navigate(-1);
   };
   return (
-    <div>
+    <div className={styles.headerWithBack}>
       <div className={styles.topMargin} />
       <div className={styles.header}>
         <button className={styles.goBack} onClick={handleGoBack}>

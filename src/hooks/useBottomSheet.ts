@@ -169,28 +169,27 @@
 //   return { sheet, content };
 // };
 
-// useBottomSheet.ts
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect, SetStateAction } from "react";
 import { MIN_Y, MAX_Y } from "@constant/bottomSheetOption";
 
 interface BottomSheetMetrics {
   // 터치 시작 시
   touchStart: {
-    sheetY: number; // 바텀시트의 최상단 모서리의 높이 Y값
-    touchY: number; // 내가 터치한 곳의 Y값
+    sheetY: number;
+    touchY: number;
   };
-  // 터치하고 움직일 때
   touchMove: {
-    prevTouchY?: number; // 움직이는 동안의 Y값
-    movingDirection: "none" | "down" | "up"; // 움직이는 방향
+    prevTouchY?: number;
+    movingDirection: "none" | "down" | "up";
   };
-  isContentAreaTouched: boolean; // 컨텐츠 영역을 터치 하고 있는지
+  isContentAreaTouched: boolean;
 }
 
-export const useBottomSheet = () => {
+export const useBottomSheet = (
+  isNavVisible: React.Dispatch<SetStateAction<boolean>>
+) => {
   const sheet = useRef<HTMLDivElement>(null);
   const content = useRef<HTMLDivElement>(null);
-
   const metrics = useRef<BottomSheetMetrics>({
     touchStart: {
       sheetY: 0,
@@ -204,38 +203,29 @@ export const useBottomSheet = () => {
   });
 
   useEffect(() => {
-    //  바텀시트가 움직일 수 있는지 체크
     const canUserMoveBottomSheet = () => {
       const { touchMove, isContentAreaTouched } = metrics.current;
-
-      // 바텀시트에서 컨텐츠 영역이 아닌 부분을 터치하면 바텀시트를 움직인다
       if (!isContentAreaTouched) {
         return true;
       }
-      // 바텀 시트가 최대로 올라와 있는 상태가 아니라면 바텀 시트를 움직일 수 있다
       if (sheet.current!.getBoundingClientRect().y !== MIN_Y) {
         return true;
       }
-      // 컨텐츠가 최대로 스크롤 되지 않았으면 바텀시트를 움직일 수 없다.
       if (touchMove.movingDirection === "down") {
         return content.current!.scrollTop <= 0;
       }
       return false;
     };
 
-    // 터치 시작 시 호출
     const handleTouchStart = (e: TouchEvent) => {
       const { touchStart } = metrics.current;
-
       touchStart.sheetY = sheet.current!.getBoundingClientRect().y;
       touchStart.touchY = e.touches[0].clientY;
     };
 
-    // 터치를 유지한 채 움직일 때 (드래그 시) 호출
     const handleTouchMove = (e: TouchEvent) => {
       const { touchStart, touchMove } = metrics.current;
       const currentTouch = e.touches[0];
-
       if (touchMove.prevTouchY === undefined) {
         touchMove.prevTouchY = touchStart.touchY;
       }
@@ -244,18 +234,15 @@ export const useBottomSheet = () => {
         touchMove.prevTouchY = touchStart.touchY;
       }
 
-      // 드래그 방향 설정
       if (touchMove.prevTouchY < currentTouch.clientY) {
         touchMove.movingDirection = "down";
       }
-
       if (touchMove.prevTouchY > currentTouch.clientY) {
         touchMove.movingDirection = "up";
       }
 
       if (canUserMoveBottomSheet()) {
-        e.preventDefault(); // 기본 스크롤 차단
-
+        e.preventDefault();
         const touchOffset = currentTouch.clientY - touchStart.touchY;
         let nextSheetY = touchStart.sheetY + touchOffset;
 
@@ -272,29 +259,34 @@ export const useBottomSheet = () => {
           `translateY(${nextSheetY - MAX_Y}px)`
         );
       } else {
-        // 컨텐츠 스크롤 가능
         document.body.style.overflowY = "hidden";
       }
     };
 
     const handleTouchEnd = () => {
-      document.body.style.overflowY = "auto";
+      document.body.style.overflowY = "auto"; // 스크롤 설정
       const { touchMove } = metrics.current;
 
       const currentSheetY = sheet.current!.getBoundingClientRect().y;
 
+      // 최상단 모서리가 올라갈 수 있는 최대치가 아니라면 아래의 로직을 적용
       if (currentSheetY !== MIN_Y) {
+        // 아래로 스크롤하는 경우 바텀 시트가 가장 작은 크기로 축소
         if (touchMove.movingDirection === "down") {
           sheet.current!.style.setProperty("transform", "translateY(0)");
+          isNavVisible(true); // 바텀 시트가 내려간 후 네비게이션을 보이게 설정
         }
+        // 위로 스크롤 하는 경우 바텀 시트가 최대의 크기
         if (touchMove.movingDirection === "up") {
           sheet.current!.style.setProperty(
             "transform",
             `translateY(${MIN_Y - MAX_Y}px)`
           );
+          isNavVisible(false); // 바텀 시트가 올라간 후 네비게이션을 숨김
         }
       }
 
+      // metrics 초기화.
       metrics.current = {
         touchStart: {
           sheetY: 0,
@@ -311,7 +303,7 @@ export const useBottomSheet = () => {
     sheet.current!.addEventListener("touchstart", handleTouchStart);
     sheet.current!.addEventListener("touchmove", handleTouchMove);
     sheet.current!.addEventListener("touchend", handleTouchEnd);
-  }, []);
+  }, [isNavVisible]); // Add isNavVisible as a dependency
 
   useEffect(() => {
     const handleTouchStart = () => {
