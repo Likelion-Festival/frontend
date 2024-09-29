@@ -10,7 +10,7 @@ export const eventInfo = [
     time: "16:30",
     location: "대운동장 앞",
     position: new kakao.maps.LatLng(37.294711, 126.833163),
-    imagePath: "/marker-img/performance.png",
+    imagePath: "/marker-img/performance.webp",
   },
 ];
 
@@ -25,7 +25,7 @@ export const photoBoothInfo_1 = [
     time: `00:00-24:00`,
     location: "학생 복지관 옆 및 주점존",
     position: new kakao.maps.LatLng(37.29700985189893, 126.83500403771586),
-    imagePath: "/marker-img/shopping.png",
+    imagePath: "/marker-img/shopping.webp",
   },
 ];
 
@@ -40,7 +40,7 @@ export const photoBoothInfo_2 = [
     time: `00:00-24:00`,
     location: "학생 복지관 옆 및 주점존",
     position: new kakao.maps.LatLng(37.2962171035601, 126.83512137251627),
-    imagePath: "/marker-img/shopping.png",
+    imagePath: "/marker-img/shopping.webp",
   },
 ];
 
@@ -55,7 +55,7 @@ export const promotionInfo = [
     time: `11:00-17:00`,
     location: "학생복지관 앞 민주광장",
     position: new kakao.maps.LatLng(37.29820581238032, 126.83488581905908),
-    imagePath: "/marker-img/shopping.png",
+    imagePath: "/marker-img/shopping.webp",
   },
   {
     id: 2,
@@ -67,7 +67,7 @@ export const promotionInfo = [
     time: `11:00-17:00`,
     location: "학생복지관 앞 민주광장",
     position: new kakao.maps.LatLng(37.29820581238032, 126.83488581905908),
-    imagePath: "/marker-img/flea-market.png",
+    imagePath: "/marker-img/flea_market.webp",
   },
   {
     id: 5,
@@ -79,7 +79,7 @@ export const promotionInfo = [
     time: "11:00-17:00",
     location: "학생복지관 앞 민주광장",
     position: new kakao.maps.LatLng(37.29820581238032, 126.83488581905908),
-    imagePath: "/marker-img/indo-mie.png",
+    imagePath: "/marker-img/indo_mie.webp",
   },
   {
     id: 5,
@@ -91,7 +91,7 @@ export const promotionInfo = [
     time: "11:00-17:00",
     location: "학생복지관 앞 민주광장",
     position: new kakao.maps.LatLng(37.29820581238032, 126.83488581905908),
-    imagePath: "/marker-img/dawn-of-grammy.png",
+    imagePath: "/marker-img/dawn_of_grammy.webp",
   },
   {
     id: 5,
@@ -103,7 +103,7 @@ export const promotionInfo = [
     time: "11:00-17:00",
     location: "학생복지관 앞 민주광장",
     position: new kakao.maps.LatLng(37.29820581238032, 126.83488581905908),
-    imagePath: "/marker-img/central-medical-center.png",
+    imagePath: "/marker-img/central_medical_center.webp",
   },
 ];
 
@@ -118,7 +118,7 @@ export const picnicInfo = [
     time: `11:00~16:30`,
     location: "잔디공원 피크닉존",
     position: new kakao.maps.LatLng(37.296603, 126.834362),
-    imagePath: "/marker-img/rest.png",
+    imagePath: "/marker-img/rest.webp",
   },
   {
     id: 102,
@@ -130,7 +130,7 @@ export const picnicInfo = [
     time: `12:00-14:00`,
     location: "잔디공원 피크닉존",
     position: new kakao.maps.LatLng(37.296603, 126.834362),
-    imagePath: "/marker-img/singing.png",
+    imagePath: "/marker-img/singing.webp",
   },
 ];
 
@@ -147,7 +147,7 @@ export const barInfo = [
     time: `17:00-22:00`,
     location: "학술정보관 주차장, 1번째 부스",
     position: new kakao.maps.LatLng(37.296007, 126.835283),
-    imagePath: "/marker-img/street-board-fighter.png",
+    imagePath: "/marker-img/street_board_fighter.webp",
   },
   {
     id: 64,
@@ -159,7 +159,7 @@ export const barInfo = [
     time: `17:00-22:00`,
     location: "학술정보관 주차장, 2번째 부스",
     position: new kakao.maps.LatLng(37.296007, 126.835283),
-    imagePath: "/marker-img/ttemu-bar.png",
+    imagePath: "/marker-img/ttemu_bar.webp",
   },
   {
     id: 62,
@@ -171,7 +171,7 @@ export const barInfo = [
     time: `17:00-22:00`,
     location: "학술정보관 주차장, 1번째 부스",
     position: new kakao.maps.LatLng(37.296007, 126.835283),
-    imagePath: "/marker-img/data-science-bar.png",
+    imagePath: "/marker-img/data_science_bar.webp",
   },
   {
     id: 66,
@@ -183,7 +183,7 @@ export const barInfo = [
     time: `17:00-22:00`,
     location: "학술정보관 주차장, 1번째 부스",
     position: new kakao.maps.LatLng(37.296007, 126.835283),
-    imagePath: "/marker-img/squid-game-bar.png",
+    imagePath: "/marker-img/squid_game_bar.webp",
   },
   {
     id: 60,
@@ -195,7 +195,7 @@ export const barInfo = [
     time: `17:00-22:00`,
     location: "학술정보관 주차장, 1번째 부스",
     position: new kakao.maps.LatLng(37.296007, 126.835283),
-    imagePath: "/marker-img/software-bar.png",
+    imagePath: "/marker-img/software_bar.webp",
   },
   {
     id: 63,
@@ -207,7 +207,7 @@ export const barInfo = [
     time: `17:00-22:00`,
     location: "학술정보관 주차장, 1번째 부스",
     position: new kakao.maps.LatLng(37.296007, 126.835283),
-    imagePath: "/marker-img/smile-flower-bar.png",
+    imagePath: "/marker-img/smile_flower_bar.webp",
   },
   {
     id: 65,
@@ -219,7 +219,7 @@ export const barInfo = [
     time: `17:00-22:00`,
     location: "학술정보관 주차장, 2번째 부스",
     position: new kakao.maps.LatLng(37.296007, 126.835283),
-    imagePath: "/marker-img/journey-bar.png",
+    imagePath: "/marker-img/journey_bar.webp",
   },
   {
     id: 67,
@@ -231,7 +231,7 @@ export const barInfo = [
     time: `17:00-22:00`,
     location: "학술정보관 주차장, 1번째 부스",
     position: new kakao.maps.LatLng(37.296007, 126.835283),
-    imagePath: "/marker-img/grandma-bar.png",
+    imagePath: "/marker-img/grandma_bar.webp",
   },
 ];
 
@@ -247,7 +247,7 @@ export const foodCourtInfo = [
     total: "9월 30일 11:00-17:00\n10월 1~2일 11:00~23:30",
     location: "예체능 대학 앞",
     position: new kakao.maps.LatLng(37.296317, 126.833993),
-    imagePath: "/marker-img/alternate-image.png",
+    imagePath: "/marker-img/alternate_image.webp",
   },
   {
     id: 108,
@@ -260,7 +260,7 @@ export const foodCourtInfo = [
     total: "9월 30일 11:00-17:00\n10월 1~2일 11:00~23:30",
     location: "예체능 대학 앞",
     position: new kakao.maps.LatLng(37.296317, 126.833993),
-    imagePath: "/marker-img/alternate-image.png",
+    imagePath: "/marker-img/alternate_image.webp",
   },
   {
     id: 109,
@@ -273,7 +273,7 @@ export const foodCourtInfo = [
     total: "9월 30일 11:00-17:00\n10월 1~2일 11:00~23:30",
     location: "예체능 대학 앞",
     position: new kakao.maps.LatLng(37.296317, 126.833993),
-    imagePath: "/marker-img/alternate-image.png",
+    imagePath: "/marker-img/alternate_image.webp",
   },
   {
     id: 110,
@@ -286,7 +286,7 @@ export const foodCourtInfo = [
     total: "9월 30일 11:00-17:00\n10월 1~2일 11:00~23:30",
     location: "예체능 대학 앞",
     position: new kakao.maps.LatLng(37.296317, 126.833993),
-    imagePath: "/marker-img/alternate-image.png",
+    imagePath: "/marker-img/alternate_image.webp",
   },
   {
     id: 111,
@@ -299,7 +299,7 @@ export const foodCourtInfo = [
     total: "9월 30일 11:00-17:00\n10월 1~2일 11:00~23:30",
     location: "예체능 대학 앞",
     position: new kakao.maps.LatLng(37.296317, 126.833993),
-    imagePath: "/marker-img/alternate-image.png",
+    imagePath: "/marker-img/alternate_image.webp",
   },
   {
     id: 112,
@@ -312,7 +312,7 @@ export const foodCourtInfo = [
     total: "9월 30일 11:00-17:00\n10월 1~2일 11:00~23:30",
     location: "예체능 대학 앞",
     position: new kakao.maps.LatLng(37.296317, 126.833993),
-    imagePath: "/marker-img/alternate-image.png",
+    imagePath: "/marker-img/alternate_image.webp",
   },
   {
     id: 113,
@@ -325,7 +325,7 @@ export const foodCourtInfo = [
     total: "9월 30일 11:00-17:00\n10월 1~2일 11:00~23:30",
     location: "예체능 대학 앞",
     position: new kakao.maps.LatLng(37.296317, 126.833993),
-    imagePath: "/marker-img/alternate-image.png",
+    imagePath: "/marker-img/alternate_image.webp",
   },
 
   {
@@ -339,7 +339,7 @@ export const foodCourtInfo = [
     total: "9월 30일 11:00-17:00\n10월 1~2일 11:00~23:30",
     location: "예체능 대학 앞",
     position: new kakao.maps.LatLng(37.296317, 126.833993),
-    imagePath: "/marker-img/alternate-image.png",
+    imagePath: "/marker-img/alternate_image.webp",
   },
   {
     id: 115,
@@ -352,7 +352,7 @@ export const foodCourtInfo = [
     total: "9월 30일 11:00-17:00\n10월 1~2일 11:00~23:30",
     location: "예체능 대학 앞",
     position: new kakao.maps.LatLng(37.296317, 126.833993),
-    imagePath: "/marker-img/alternate-image.png",
+    imagePath: "/marker-img/alternate_image.webp",
   },
   {
     id: 116,
@@ -365,7 +365,7 @@ export const foodCourtInfo = [
     total: "9월 30일 11:00-17:00\n10월 1~2일 11:00~23:30",
     location: "예체능 대학 앞",
     position: new kakao.maps.LatLng(37.296317, 126.833993),
-    imagePath: "/marker-img/alternate-image.png",
+    imagePath: "/marker-img/alternate_image.webp",
   },
   {
     id: 117,
@@ -378,7 +378,7 @@ export const foodCourtInfo = [
     total: "9월 30일 11:00-17:00\n10월 1~2일 11:00~23:30",
     location: "예체능 대학 앞",
     position: new kakao.maps.LatLng(37.296317, 126.833993),
-    imagePath: "/marker-img/alternate-image.png",
+    imagePath: "/marker-img/alternate_image.webp",
   },
 
   {
@@ -391,7 +391,7 @@ export const foodCourtInfo = [
     time: `10월 1~2일 11:00~23:30`,
     location: "예체능 대학 앞",
     position: new kakao.maps.LatLng(37.296317, 126.833993),
-    imagePath: "/marker-img/alternate-image.png",
+    imagePath: "/marker-img/alternate_image.webp",
   },
   {
     id: 119,
@@ -403,7 +403,7 @@ export const foodCourtInfo = [
     time: `10월 1~2일 11:00~23:30`,
     location: "예체능 대학 앞",
     position: new kakao.maps.LatLng(37.296317, 126.833993),
-    imagePath: "/marker-img/alternate-image.png",
+    imagePath: "/marker-img/alternate_image.webp",
   },
   {
     id: 120,
@@ -415,7 +415,7 @@ export const foodCourtInfo = [
     time: `10월 1~2일 11:00~23:30`,
     location: "예체능 대학 앞",
     position: new kakao.maps.LatLng(37.296317, 126.833993),
-    imagePath: "/marker-img/alternate-image.png",
+    imagePath: "/marker-img/alternate_image.webp",
   },
   {
     id: 121,
@@ -427,7 +427,7 @@ export const foodCourtInfo = [
     time: `10월 1~2일 11:00~23:00`,
     location: "예체능 대학 앞",
     position: new kakao.maps.LatLng(37.296317, 126.833993),
-    imagePath: "/marker-img/alternate-image.png",
+    imagePath: "/marker-img/alternate_image.webp",
   },
   {
     id: 122,
@@ -439,7 +439,7 @@ export const foodCourtInfo = [
     time: `10월 1~2일 11:00~23:00`,
     location: "예체능 대학 앞",
     position: new kakao.maps.LatLng(37.296317, 126.833993),
-    imagePath: "/marker-img/alternate-image.png",
+    imagePath: "/marker-img/alternate_image.webp",
   },
   {
     id: 123,
@@ -451,7 +451,7 @@ export const foodCourtInfo = [
     time: `10월 1~2일 11:00~23:00`,
     location: "예체능 대학 앞",
     position: new kakao.maps.LatLng(37.296317, 126.833993),
-    imagePath: "/marker-img/alternate-image.png",
+    imagePath: "/marker-img/alternate_image.webp",
   },
 ];
 
@@ -467,7 +467,7 @@ export const lakeParkInfo = [
     time: `11:00-16:30`,
     location: "호수공원 신전 내 부스",
     position: new kakao.maps.LatLng(37.297633, 126.833848),
-    imagePath: "/marker-img/easy-workshop.png",
+    imagePath: "/marker-img/easy_workshop.webp",
   },
   {
     id: 104,
@@ -479,7 +479,7 @@ export const lakeParkInfo = [
     time: `11:00-16:30`,
     location: "호수공원 신전 내 부스",
     position: new kakao.maps.LatLng(37.297633, 126.833848),
-    imagePath: "/marker-img/ericasino.png",
+    imagePath: "/marker-img/ericasino.webp",
   },
   {
     id: 105,
@@ -491,7 +491,7 @@ export const lakeParkInfo = [
     time: `11:00-14:00`,
     location: "호수공원",
     position: new kakao.maps.LatLng(37.297633, 126.833848),
-    imagePath: "/marker-img/cross-the-lake.png",
+    imagePath: "/marker-img/cross_the_lake.webp",
   },
   {
     id: 106,
@@ -503,7 +503,7 @@ export const lakeParkInfo = [
     time: `21:00-23:30`,
     location: "호수공원",
     position: new kakao.maps.LatLng(37.297633, 126.833848),
-    imagePath: "/marker-img/fantasy.png",
+    imagePath: "/marker-img/fantasy.webp",
   },
 ];
 
@@ -518,6 +518,6 @@ export const medicalInfo = [
     time: "09:00~17:00\n(점심시간 12:00~13:00)",
     location: "학생복지관 1층",
     position: new kakao.maps.LatLng(37.298087, 126.834385),
-    imagePath: "/marker-img/medical.png",
+    imagePath: "/marker-img/medical.webp",
   },
 ];
