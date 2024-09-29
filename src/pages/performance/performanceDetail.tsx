@@ -15,13 +15,16 @@ import Music from "@assets/performance/music.svg";
 import { useAlarm } from "@hooks/useAlarm";
 import { Modal } from "@components/performance/Modal";
 import { useMapContext } from "@context/MapContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import loadingBlack from "@assets/performance/loading_black.gif";
+import loadingPoint from "@assets/performance/loading_point.gif";
 
 export const PerformanceDetailPage = () => {
   const params = useParams();
   const navigator = useNavigate();
   const { alarms, handleToggleAlarm, showModal } = useAlarm();
   const { setIsNavVisible } = useMapContext();
+  const [btnLoading, setBtnLoading] = useState(false);
 
   useEffect(() => {
     setIsNavVisible(false);
@@ -58,29 +61,51 @@ export const PerformanceDetailPage = () => {
           <div
             className={styles.alarm}
             style={{ backgroundColor: alarms[id] ? "#FF85EE" : "" }}
-            onClick={() => handleToggleAlarm(id, item.topic)}
+            onClick={() =>
+              handleToggleAlarm(id, item.topic, btnLoading, setBtnLoading)
+            }
           >
-            {alarms[id] ? (
-              <img
-                src={BellActive}
-                alt=""
-                style={{ width: "20px", height: "20px" }}
-              />
+            {btnLoading ? (
+              <div>
+                {alarms[id] ? (
+                  <img
+                    src={loadingBlack}
+                    alt=""
+                    style={{ width: "21px", height: "21px" }}
+                  />
+                ) : (
+                  <img
+                    src={loadingPoint}
+                    alt=""
+                    style={{ width: "21px", height: "21px" }}
+                  />
+                )}
+              </div>
             ) : (
-              <img
-                src={Bell}
-                alt=""
-                style={{ width: "20px", height: "20px" }}
-              />
+              <div>
+                {alarms[id] ? (
+                  <img
+                    src={BellActive}
+                    alt=""
+                    style={{ width: "20px", height: "20px" }}
+                  />
+                ) : (
+                  <img
+                    src={Bell}
+                    alt=""
+                    style={{ width: "20px", height: "20px" }}
+                  />
+                )}
+                <span style={{ color: alarms[id] ? "#141414" : "#FF85EE" }}>
+                  {alarms[id] ? "알림" : "알림 받기"}
+                </span>
+              </div>
             )}
-            <span style={{ color: alarms[id] ? "#141414" : "#FF85EE" }}>
-              {alarms[id] ? "알림" : "알림 받기"}
-            </span>
           </div>
         </div>
         <div
           className={styles.grayBox}
-          style={{ justifyContent: "space-around"}}
+          style={{ justifyContent: "space-around" }}
         >
           <div
             style={{
@@ -107,9 +132,11 @@ export const PerformanceDetailPage = () => {
               <img src={Calendar} alt="" />
               <span>날짜</span>
             </div>
-            <span className={styles.textWhite}>{`${
-              item.date.getMonth() + 1
-            }/${item.date.getDate() < 10 ? "0" + item.date.getDate() : item.date.getDate()}`}</span>
+            <span className={styles.textWhite}>{`${item.date.getMonth() + 1}/${
+              item.date.getDate() < 10
+                ? "0" + item.date.getDate()
+                : item.date.getDate()
+            }`}</span>
           </div>
           <img src={Vertical} alt="" />
           <div

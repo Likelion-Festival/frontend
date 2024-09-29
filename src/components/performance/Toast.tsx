@@ -10,7 +10,7 @@ export const Toast: React.FC<ToastProps> = ({ message = "", setToast }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setToast(false);
-    }, 2500);
+    }, 1400);
     return () => clearTimeout(timer);
   });
   return (
