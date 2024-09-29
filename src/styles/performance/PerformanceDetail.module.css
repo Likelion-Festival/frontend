@@ -68,11 +68,16 @@
 
   box-shadow: 0px 0px 5px 0px #ff85ee8c;
 
-  & > span {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 21px;
-    text-align: center;
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & > span {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 21px;
+      text-align: center;
+    }
   }
 }
 

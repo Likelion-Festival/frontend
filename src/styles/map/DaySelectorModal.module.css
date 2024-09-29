@@ -37,7 +37,6 @@
     font-size: 16px;
     font-weight: 500;
     color: black;
-    background-color: #f0f0f0;
   }
 
   .selected {
@@ -45,6 +44,7 @@
     font-weight: 500;
     line-height: 24px;
     color: #000000;
+    background-color: #f0f0f0;
   }
 }
 

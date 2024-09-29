@@ -7,6 +7,8 @@ import Location from "@assets/performance/location.svg";
 import Time from "@assets/performance/time.svg";
 import { useNavigate } from "react-router-dom";
 import { useAlarm } from "@hooks/useAlarm";
+import LoadingPoint from "@assets/performance/loading_black.gif";
+import LoadingWhite from "@assets/performance/loading_white.gif";
 
 interface CardLoaderProp {
   item: Performance;
@@ -15,6 +17,7 @@ interface CardLoaderProp {
 
 export const CardLoader: React.FC<CardLoaderProp> = ({ item, index }) => {
   const [loading, setLoading] = useState(true);
+  const [btnLoading, setBtnLoading] = useState(false);
   const navigate = useNavigate();
   const { alarms, handleToggleAlarm } = useAlarm();
 
@@ -56,13 +59,25 @@ export const CardLoader: React.FC<CardLoaderProp> = ({ item, index }) => {
               }}
               onClick={(event) => {
                 event.stopPropagation();
-                handleToggleAlarm(index, item.topic);
+                handleToggleAlarm(index, item.topic, btnLoading, setBtnLoading);
               }}
             >
-              {alarms[index] ? (
-                <img src={BellActive} alt="" />
+              {btnLoading ? (
+                <div>
+                  {alarms[index] ? (
+                    <img src={LoadingPoint} alt="" />
+                  ) : (
+                    <img src={LoadingWhite} alt="" />
+                  )}
+                </div>
               ) : (
-                <img src={Bell} alt="" />
+                <div>
+                  {alarms[index] ? (
+                    <img src={BellActive} alt="" />
+                  ) : (
+                    <img src={Bell} alt="" />
+                  )}
+                </div>
               )}
             </div>
           </div>

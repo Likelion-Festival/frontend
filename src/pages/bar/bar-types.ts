@@ -1,12 +1,13 @@
 //주점 사진들
-import SW from "@assets/bar/소융.png";
-import MAHA from "@assets/bar/마하.png";
-import MATH from "@assets/bar/수학.png";
-import AD from "@assets/bar/광홍.png";
-import HERC from "@assets/bar/헐크.png";
-import MEDIA from "@assets/bar/정사미.png";
-import HYENA from "@assets/bar/전자.png";
-import MEDI from "@assets/bar/약대.png";
+import SW from "@assets/bar/SW.webp";
+import MAHA from "@assets/bar/MAHA.webp";
+import MATH from "@assets/bar/MATH.webp";
+import AD from "@assets/bar/AD.webp";
+import HERC from "@assets/bar/HERC.webp";
+import MEDIA from "@assets/bar/MEDIA.webp";
+import HYENA from "@assets/bar/HYENA.webp";
+import MEDI from "@assets/bar/MEDI.webp";
+
 //메뉴 데이터
 export interface MenuItem {
   name: string; //이름
@@ -45,7 +46,7 @@ export const stores: Store[] = [
     location: "학술정보관 주차장, 1번째 부스",
     position: new kakao.maps.LatLng(37.29591021735943, 126.83473857926585),
     representative: "소프트웨어융합대학 학생회",
-    description: "김치전, 감자전, 어묵탕, 우삼겹숙주볶음, 된장술밥, 해장라면",
+    description: "김치전, 감자전, 어묵탕, 우삼겹숙주볶음, 된장술밥",
     imageUrl: SW,
     classification: [{ Main: "주요차림", Second: "옆갈래차림", Third: "음료" }],
     mainMenu: [
@@ -81,7 +82,7 @@ export const stores: Store[] = [
     position: new kakao.maps.LatLng(37.29573017593732, 126.83485739526147),
     representative: "중앙동아리 MAHA",
     description:
-      "훈제마늘통삽겹, 대패왕창비빔면, 떡볶이세트, 토리로코스, 해물라면",
+      "훈제마늘통삽겹, 비빔면, 떡볶이, 토리로코스",
     imageUrl: MAHA,
     classification: [
       { Main: "주요차림", Second: "사이드 메뉴", Third: "세트" },
@@ -108,7 +109,7 @@ export const stores: Store[] = [
   //응용수학과
   {
     id: 62,
-    name: "눈떠보니 수데사더라...(feat. 응용수학과)",
+    name: "눈떠보니 수데사더라...",
     category: "bar",
     time: "17:00~22:00",
     location: "학술정보관 주차장, 1번째 부스",
@@ -141,14 +142,14 @@ export const stores: Store[] = [
   //광홍과
   {
     id: 63,
-    name: "웃음꼬치피었습니다 (feat.투다리)",
+    name: "웃음꼬치피었습니다",
     category: "bar",
     time: "17:00~22:00",
     location: "학술정보관 주차장, 1번째 부스",
     position: new kakao.maps.LatLng(37.296118586121786, 126.8355501650792),
     representative: "광고홍보학과 학술제 COMMAH",
     description:
-      "김치우동, 닭산적, 매운닭살꼬치, 먹태, 포도칵테일, 레몬칵테일, 파인애플샤베트, 모둠소세지",
+      "김치우동, 닭산적, 매운닭살꼬치, 먹태",
     imageUrl: AD,
     classification: [{ Main: "MENU", Second: "SET", Third: "" }],
     mainMenu: [
@@ -210,7 +211,7 @@ export const stores: Store[] = [
     location: "학술정보관 주차장, 2번째 부스",
     position: new kakao.maps.LatLng(37.295883870356576, 126.83522924387606),
     representative: "정보사회미디어학과 학생회 [여정]",
-    description: "연어회, 해물 부추전, 골뱅이 무침&소면, 순두부 라면, 콘치즈",
+    description: "연어회, 해물 부추전, 골뱅이 무침&소면",
     imageUrl: MEDIA,
     classification: [{ Main: "메뉴", Second: "음료", Third: "" }],
     mainMenu: [
@@ -268,7 +269,7 @@ export const stores: Store[] = [
     position: new kakao.maps.LatLng(37.29604656611, 126.83559543524264),
     representative: "약학대학 학생회",
     description:
-      "우삼겹숙주볶음, 오리훈제부추볶음, 치킨가라아게, 어묵탕, 치즈김치볶음밥",
+      "우삼겹숙주볶음, 오리훈제부추볶음, 치킨가라아게",
     imageUrl: MEDI,
     classification: [
       { Main: "메인 메뉴", Second: "사이드 메뉴", Third: "음료" },

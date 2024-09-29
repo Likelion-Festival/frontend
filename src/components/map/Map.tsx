@@ -111,7 +111,13 @@ export const Map = () => {
 
       // 마커 클릭 이벤트 추가
       kakao.maps.event.addListener(marker, "click", () => {
-        map?.panTo(position); // 마커 클릭 시 해당 위치로 이동
+        // 위치 정가운데로 조정
+        const adjustPosition = new kakao.maps.LatLng(
+          position.getLat() - 0.0007,
+          position.getLng()
+        );
+
+        map?.panTo(adjustPosition); // 마커 클릭 시 해당 위치로 이동
 
         // 비교를 위해 lat lng 값만 추출
         const newLatLng = position;
@@ -226,6 +232,7 @@ export const Map = () => {
           markers.toiletMarkers,
           "/marker-img/toilet-marker.svg"
         );
+        selectedMarkerRef.current = null;
       }
     }
   }, [isCategoryClicked]);
@@ -285,7 +292,13 @@ export const Map = () => {
 
       setIsBottomSheetVisible(true);
       setCurrMarker(new kakao.maps.LatLng(position.Ma, position.La));
-      map.panTo(new kakao.maps.LatLng(position.Ma, position.La));
+
+      const adjustPosition = new kakao.maps.LatLng(
+        position.Ma - 0.0007,
+        position.La
+      );
+
+      map.panTo(adjustPosition);
 
       navigate(location.pathname, { replace: true }); // state 초기화 및 url 유지
     }

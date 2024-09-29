@@ -2,8 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import styles from "@styles/BarList/BarDetail.module.css";
 import { stores, Store, MenuItem } from "./bar-types.ts";
-import goBack from "@assets/bar/goBack.png";
-import MoveToMap from "@assets/bar/지도이동버튼.png";
+import goBack from "@assets/bar/goBack.webp";
+import MoveToMap from "@assets/bar/moveToMap.webp";
 import { useMapContext } from "@context/MapContext.tsx";
 import { useEffect } from "react";
 

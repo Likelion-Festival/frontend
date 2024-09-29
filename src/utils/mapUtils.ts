@@ -1,4 +1,4 @@
-import { eventPositions } from "@constant/map";
+import { eventPositions, foodCourtPositions } from "@constant/map";
 
 // 지도에 마커 표시 여부 결정
 export const setMarkersOnMap = (
@@ -34,26 +34,23 @@ export const drawBarArea = (map: kakao.maps.Map | null) => {
 
 // 먹거리 영역 표시
 export const drawFoodCourtArea = (map: kakao.maps.Map | null) => {
-  const polygonPath = [
-    new kakao.maps.LatLng(37.29668135265921, 126.83366544045224), //좌상단
-    new kakao.maps.LatLng(37.29671980898541, 126.83378095984449), //우상단
-    new kakao.maps.LatLng(37.29593885834149, 126.83427892468886), //우하단
-    new kakao.maps.LatLng(37.295895889429566, 126.83415777697986), //좌하단
-  ];
+  const polygons: kakao.maps.Polygon[] = [];
+  foodCourtPositions.forEach((position) => {
+    const polygon = new kakao.maps.Polygon({
+      path: position, // 다각형 좌표 배열
+      strokeWeight: 2,
+      strokeColor: "#FF85EE",
+      strokeOpacity: 1,
+      strokeStyle: "solid",
+      fillColor: "#FF85EE",
+      fillOpacity: 0.3,
+    });
 
-  const polygon = new kakao.maps.Polygon({
-    path: polygonPath, // 다각형 좌표 배열
-    strokeWeight: 2,
-    strokeColor: "#FF85EE",
-    strokeOpacity: 1,
-    strokeStyle: "solid",
-    fillColor: "#FF85EE",
-    fillOpacity: 0.3,
+    polygons.push(polygon);
+    // 지도에 다각형을 표시
+    polygon.setMap(map);
   });
-
-  // 지도에 다각형을 표시
-  polygon.setMap(map);
-  return polygon;
+  return polygons;
 };
 
 // 이벤트 영역 표시
@@ -70,34 +67,9 @@ export const drawEventArea = (map: kakao.maps.Map | null) => {
       fillOpacity: 0.3,
     });
 
-    polygon.setMap(map);
     polygons.push(polygon);
-
     // 지도에 다각형을 표시
+    polygon.setMap(map);
   });
   return polygons;
-};
-
-// 대운동장 영역 표시
-export const drawPlaygroundArea = (map: kakao.maps.Map | null) => {
-  const polygonPath = [
-    new kakao.maps.LatLng(37.29527551544004, 126.83191477109656), //좌상단
-    new kakao.maps.LatLng(37.2957955676468346, 126.83329802624638), //우상단
-    new kakao.maps.LatLng(37.29420894083035, 126.83433065129614), //우하단
-    new kakao.maps.LatLng(37.293652851294574, 126.83294185871812), //좌하단
-  ];
-
-  const polygon = new kakao.maps.Polygon({
-    path: polygonPath, // 다각형 좌표 배열
-    strokeWeight: 1,
-    strokeColor: "#FF85EE",
-    strokeOpacity: 1,
-    strokeStyle: "solid",
-    fillColor: "#FF85EE",
-    fillOpacity: 0.4,
-  });
-
-  // 지도에 다각형을 표시
-  polygon.setMap(map);
-  return polygon;
 };

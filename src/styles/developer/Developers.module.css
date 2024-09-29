@@ -2,11 +2,23 @@
     background-color: #131313;
     padding: 20px;
     border: none;
-    overflow: auto;
+    overflow-y:scroll;
     min-width: 325px;
-    min-height: 340px;
+    height: 100%;
 }
 
+
+.developerTitle2{
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;  
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    height: 50px;
+}
 
 .developerTitle{
     display: flex;
@@ -17,6 +29,7 @@
     font-size: 18px;
     font-weight: 700;
 }
+
 
 .goBack{
     position: absolute;
@@ -32,6 +45,8 @@
     align-items: center;
     justify-content: center;  
 }
+
+
 
 .appImage{
     width: 400px;

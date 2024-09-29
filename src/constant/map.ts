@@ -4,40 +4,22 @@ export const eventMarkerPositions = [
   new kakao.maps.LatLng(37.296603, 126.834362),
   new kakao.maps.LatLng(37.297633, 126.833848), // 호수공원
   new kakao.maps.LatLng(37.29820581238032, 126.83488581905908), // 학생복지관 옆
-  new kakao.maps.LatLng(37.296951, 126.835818), // 학생 복지관 앞 프로모션 존
+
+  new kakao.maps.LatLng(37.29700985189893, 126.83500403771586), // 학생회관 앞 포토부스
+  new kakao.maps.LatLng(37.2962171035601, 126.83512137251627), // 학술정보관 앞 포토부스
 ];
 export const barMarkerPositions = [
   new kakao.maps.LatLng(37.296007, 126.835283),
 ];
 export const foodCourtMarkerPositions = [
-  new kakao.maps.LatLng(37.296317, 126.833993),
+  new kakao.maps.LatLng(37.296317, 126.833993), // 체육관 옆
+  new kakao.maps.LatLng(37.295629175234374, 126.83511983613786), // 학정 주차장
 ];
 export const medicalMarkerPositions = [
   new kakao.maps.LatLng(37.298087, 126.834385),
 ];
 export const toiletMarkerPositions = [
   new kakao.maps.LatLng(37.295565768777244, 126.83488031121028),
-];
-
-// 카테고리별 영역 위치
-export const eventPositions = [
-  [
-    // 학정 4공 사이
-    new kakao.maps.LatLng(37.29740699342643, 126.83549660676887),
-    new kakao.maps.LatLng(37.297427372464774, 126.83557269261316),
-    new kakao.maps.LatLng(37.29644837044158, 126.83620359468733),
-    new kakao.maps.LatLng(37.29641897366423, 126.83612189001876),
-  ],
-  [
-    // 학생 복지관 앞
-    new kakao.maps.LatLng(37.29846208701177, 126.83451306156995),
-    new kakao.maps.LatLng(37.298606803608244, 126.83490749998964),
-    new kakao.maps.LatLng(37.29796312661364, 126.83531211788184),
-    new kakao.maps.LatLng(37.29777321413325, 126.83481345373289),
-    new kakao.maps.LatLng(37.29802078567034, 126.83466065069774),
-    new kakao.maps.LatLng(37.29806148573315, 126.8347705284131),
-    new kakao.maps.LatLng(37.29806374618874, 126.83477616279194),
-  ],
 ];
 
 // 흡연장 마커 위치
@@ -65,4 +47,42 @@ export const smokingMarkerPositions = [
   new kakao.maps.LatLng(37.29248785027118, 126.83586820806165),
   new kakao.maps.LatLng(37.29138819725552, 126.83558865564659),
   new kakao.maps.LatLng(37.291806751069544, 126.83690723724386),
+];
+
+// 카테고리별 영역 위치
+export const eventPositions = [
+  [
+    // 학생 복지관 앞
+    new kakao.maps.LatLng(37.29846208701177, 126.83451306156995),
+    new kakao.maps.LatLng(37.298606803608244, 126.83490749998964),
+    new kakao.maps.LatLng(37.29796312661364, 126.83531211788184),
+    new kakao.maps.LatLng(37.29777321413325, 126.83481345373289),
+    new kakao.maps.LatLng(37.29802078567034, 126.83466065069774),
+    new kakao.maps.LatLng(37.29806148573315, 126.8347705284131),
+    new kakao.maps.LatLng(37.29806374618874, 126.83477616279194),
+  ],
+  [
+    // 대운동장
+    new kakao.maps.LatLng(37.29527551544004, 126.83191477109656), //좌상단
+    new kakao.maps.LatLng(37.2957955676468346, 126.83329802624638), //우상단
+    new kakao.maps.LatLng(37.29420894083035, 126.83433065129614), //우하단
+    new kakao.maps.LatLng(37.293652851294574, 126.83294185871812), //좌하단
+  ],
+];
+
+export const foodCourtPositions = [
+  [
+    // 체육관 옆
+    new kakao.maps.LatLng(37.29668135265921, 126.83366544045224), //좌상단
+    new kakao.maps.LatLng(37.29671980898541, 126.83378095984449), //우상단
+    new kakao.maps.LatLng(37.29593885834149, 126.83427892468886), //우하단
+    new kakao.maps.LatLng(37.295895889429566, 126.83415777697986), //좌하단
+  ],
+  [
+    // 학정 주차장 앞
+    new kakao.maps.LatLng(37.29553404765277, 126.83474786088405), //좌상단
+    new kakao.maps.LatLng(37.29545527412515, 126.8347959657929), //좌하단
+    new kakao.maps.LatLng(37.295744618008115, 126.83552278341675), //우하단
+    new kakao.maps.LatLng(37.295827893077224, 126.83547184969783), //우상단
+  ],
 ];

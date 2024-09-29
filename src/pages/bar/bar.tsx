@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "@styles/BarList/BarList.module.css";
 import { stores } from "./bar-types";
-import goBack from "@assets/bar/goBack.png";
-import searchResult from "@assets/bar/주점검색.png";
-import noResult from "@assets/bar/no_result.png";
-import inputGlass from "@assets/bar/search.png";
+import goBack from "@assets/bar/goBack.webp";
+import searchResult from "@assets/bar/searchBar.webp";
+import noResult from "@assets/bar/no_result.webp";
+import inputGlass from "@assets/bar/search.webp";
 import { disassemble } from "es-hangul";
 import { useMapContext } from "@context/MapContext";
 
