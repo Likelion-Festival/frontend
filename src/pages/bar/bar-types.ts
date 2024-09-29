@@ -109,7 +109,7 @@ export const stores: Store[] = [
   //응용수학과
   {
     id: 62,
-    name: "눈떠보니 수데사더라...(feat. 응용수학과)",
+    name: "눈떠보니 수데사더라...",
     category: "bar",
     time: "17:00~22:00",
     location: "학술정보관 주차장, 1번째 부스",
@@ -142,7 +142,7 @@ export const stores: Store[] = [
   //광홍과
   {
     id: 63,
-    name: "웃음꼬치피었습니다 (feat.투다리)",
+    name: "웃음꼬치피었습니다",
     category: "bar",
     time: "17:00~22:00",
     location: "학술정보관 주차장, 1번째 부스",
