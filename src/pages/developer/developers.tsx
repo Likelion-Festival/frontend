@@ -1,5 +1,5 @@
 import styles from "@styles/developer/Developers.module.css";
-import { useEffect } from 'react';
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import goBack from "@assets/bar/goBack.webp";
@@ -18,23 +18,25 @@ import Sunhoo from "@assets/developer/Sunhoo.webp";
 import LikelionLogo from "@assets/main/Likelion-logo.png";
 import useInstagramOpen from "@hooks/useLinkToInsta";
 import Instagram from "@assets/developer/instagram.webp";
+import { useMapContext } from "@context/MapContext";
 
 export const DevelopersPage = () => {
+  const { setIsNavVisible } = useMapContext();
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    setIsNavVisible(false);
   }, []);
   const navigate = useNavigate();
-    const openInstagramOfLikelion = useInstagramOpen("likelion_erica");
-    const handleBackClick = () => {
-        navigate(-1); 
-      };
+  const openInstagramOfLikelion = useInstagramOpen("likelion_erica");
+  const handleBackClick = () => {
+    navigate(-1);
+  };
 
-    
-      const handleFormClick = () => {
-        // window.location.href = 'https://forms.gle/HjsQi1yt8S9sG7Z19';
-        window.open("https://forms.gle/HjsQi1yt8S9sG7Z19", "_blank"); // 새 창 열기로 변경
-      };
-
+  const handleFormClick = () => {
+    // window.location.href = 'https://forms.gle/HjsQi1yt8S9sG7Z19';
+    window.open("https://forms.gle/HjsQi1yt8S9sG7Z19", "_blank"); // 새 창 열기로 변경
+  };
 
   return (
     <div className={styles.developerContainer}>
@@ -192,19 +194,16 @@ export const DevelopersPage = () => {
           </div>
         </div>
 
-
-
-            <div className={styles.contactBox} onClick={handleFormClick}>
-                <div className={styles.contactPhraseBox}>
-                <div className={styles.contactPhrase1}>축제 앱 어떠셨나요?</div>
-                <div className={styles.contactPhrase2}>
-                    멋사에게 후기를 알려주세요!
-                </div>
+        <div className={styles.contactBox} onClick={handleFormClick}>
+          <div className={styles.contactPhraseBox}>
+            <div className={styles.contactPhrase1}>축제 앱 어떠셨나요?</div>
+            <div className={styles.contactPhrase2}>
+              멋사에게 후기를 알려주세요!
+            </div>
           </div>
           <div className={styles.contactIcon}>
             <img src={LikelionLogo} />
           </div>
-
         </div>
         {/* 컨택 주소 - 메인과 동일 */}
         <div className={styles.contactBox} onClick={openInstagramOfLikelion}>
