@@ -38,6 +38,7 @@ import CHEEKY from "@assets/performance/artist/songs/cheeky.webp";
 
 export const performances: Performance[] = [
   {
+    index : 0,
     topic: "lesserafim",
     artistName: "LE SSERAFIM",
     artistImg: LESERRAFIM,
@@ -65,6 +66,7 @@ export const performances: Performance[] = [
     ],
   },
   {
+    index : 1,
     topic: "kimsooyoung",
     artistName: "김수영",
     artistImg: KSY,
@@ -91,6 +93,7 @@ export const performances: Performance[] = [
     ],
   },
   {
+    index : 2,
     topic: "leeyuka",
     artistName: "LEEYUKA",
     artistImg: LEEYUKA,
@@ -117,6 +120,7 @@ export const performances: Performance[] = [
     ],
   },
   {
+    index : 3,
     topic: "lucy",
     artistName: "LUCY",
     artistImg: LUCY,
@@ -144,6 +148,7 @@ export const performances: Performance[] = [
   },
 
   {
+    index : 4,
     topic: "yelo",
     artistName: "YELO",
     artistImg: YELO,
@@ -170,6 +175,7 @@ export const performances: Performance[] = [
     ],
   },
   {
+    index : 5,
     topic: "stayc",
     artistName: "STAYC",
     artistImg: STAYC,
@@ -196,6 +202,7 @@ export const performances: Performance[] = [
     ],
   },
   {
+    index : 6,
     topic: "nflying",
     artistName: "N.Flying",
     artistImg: NFlYING,
