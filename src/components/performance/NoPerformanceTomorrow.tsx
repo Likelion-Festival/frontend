@@ -1,4 +1,4 @@
-import Pantasia from "@assets/bar/소융.png";
+import Pantasia from "@assets/bar/SW.png";
 import styles from "@styles/performance/NoPerformanceTomorrow.module.css";
 
 export const NoPerformanceTomorrow = () => {
