@@ -43,6 +43,10 @@
   padding: 20px 0px;
   gap: 15px;
 }
+.content2 {
+  padding : 20px 0px;
+  gap: 36px;
+}
 
 .spanHeader {
   font-size: 20px;

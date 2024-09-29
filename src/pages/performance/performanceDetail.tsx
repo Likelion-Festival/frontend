@@ -80,7 +80,7 @@ export const PerformanceDetailPage = () => {
         </div>
         <div
           className={styles.grayBox}
-          style={{ justifyContent: "center", gap: "30px" }}
+          style={{ justifyContent: "space-around"}}
         >
           <div
             style={{
@@ -109,7 +109,7 @@ export const PerformanceDetailPage = () => {
             </div>
             <span className={styles.textWhite}>{`${
               item.date.getMonth() + 1
-            }/${item.date.getDate()}`}</span>
+            }/${item.date.getDate() < 10 ? "0" + item.date.getDate() : item.date.getDate()}`}</span>
           </div>
           <img src={Vertical} alt="" />
           <div
