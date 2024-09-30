@@ -23,9 +23,9 @@ export const PerformancePage = () => {
 
     if (today.getFullYear() === 2024 && today.getMonth() === 9) {
       if (dayOfMonth === 1) {
-        navigate("timetable/1");
-      } else if (dayOfMonth === 2) {
         navigate("timetable/2");
+      } else if (dayOfMonth === 2) {
+        navigate("timetable/3");
       }
     } else {
       navigate("timetable/0");
