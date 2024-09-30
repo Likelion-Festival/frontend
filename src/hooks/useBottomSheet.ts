@@ -99,8 +99,11 @@ export const useBottomSheet = (
 
       // 최상단 모서리가 올라갈 수 있는 최대치가 아니라면 아래의 로직을 적용
       if (currentSheetY !== MIN_Y) {
-        // 아래로 스크롤하는 경우 바텀 시트가 가장 작은 크기로 축소
-        if (touchMove.movingDirection === "down") {
+        // 아래로 스크롤하는 경우 && content 터치 X이면 바텀 시트가 가장 작은 크기로 축소
+        if (
+          touchMove.movingDirection === "down" &&
+          !metrics.current!.isContentAreaTouched
+        ) {
           sheet.current!.style.setProperty("transform", "translateY(0)");
           isNavVisible(true); // 바텀 시트가 내려간 후 네비게이션을 보이게 설정
         }
