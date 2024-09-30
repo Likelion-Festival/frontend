@@ -30,7 +30,7 @@ export const Slide: React.FC<SlideProp> = ({ items, onlyToday = false }) => {
     : items.filter((item) => {
       if(item.date.getMonth() > today.getMonth())
         return true;
-      if(item.date.getDate() > today.getDate())
+      if(item.date.getMonth() === today.getMonth() && item.date.getDate() > today.getDate())
         return true;
       return false;
     });
