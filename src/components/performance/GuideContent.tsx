@@ -20,7 +20,7 @@ export const GuideTime = () => {
       <div className={`${styles.column} ${styles.content}`}>
         <span className={styles.spanHeader}>입장시간</span>
         <span className={styles.spanContent500}>
-          16시 40분부터 입장가능합니다.
+          14:00부터 21:00까지 입장 가능합니다.
         </span>
       </div>
       <div className={`${styles.column} ${styles.content}`}>
@@ -54,11 +54,33 @@ export const GuideEntrance = () => {
           제공되는 자리입니다.
         </span>
         <span className={styles.spanContent400}>
-          · ERICA-Zone 입장 시 학생증(모바일 학생증 포함), 신분(법적 효력이
+          · ERICA-Zone 입장 시 학생증(모바일 학생증 포함), 신분증(법적 효력이
           가능한 온라인 신분증 포함) 모두 실물로 필요합니다.
           <br />
           원활한 입장을 위해 학생증과 신분증을 미리 준비해주시길 바랍니다.
         </span>
+        <div className={styles.column}>
+          <span className={styles.spanContent400}>✔소지품 검사 안내</span>
+          <span className={styles.spanContent400}>- 공연장 안전을 위하여 매표소 소지품 검사를 실시합니다.</span>
+          <span className={styles.spanContent400}>
+            - 소지품 검사 전 QR코드를 통한 소지품 검사 동의서 작성 바랍니다.
+          </span>
+        </div>
+        <div className={styles.column}>
+          <span className={styles.spanContent400}>✔반입금지물품</span>
+          <span className={styles.spanContent400}>
+            - 쓰레기를 발생시킬 수 있는 물품(유리병, 캔 플라스틱병 등)
+          </span>
+          <span className={styles.spanContent400}>- 날카로운 물건(칼, 가위, 도끼 등)</span>
+          <span className={styles.spanContent400}>- 슬로건(가을축제 굿즈 제외)</span>
+          <span className={styles.spanContent400}>- 총기 및 무기류</span>
+          <span className={styles.spanContent400}>- 폭죽, 폭발물, 불꽃놀이용품</span>
+          <span className={styles.spanContent400}>- 인화성 물질(라이터 등)</span>
+          <span className={styles.spanContent400}>- 대형 배낭이나 가방(캐리어)</span>
+          <span className={styles.spanContent400}>- 우산-휴대폰 제외 모든 촬영 장비(삼각대, 카메라 등)</span>
+          <span className={styles.spanContent400}>-이외에 주최측에서 위험하다고 판단하는 물품</span>
+          <span className={styles.spanContent400}>※안내견을 제외한 반려동물은 입장 불가합니다.</span>
+        </div>
         <span className={styles.spanContent400}>
           · 입장 가능 시간(14시 이후) 이외에는 공연장 출입이 불가합니다.
         </span>
