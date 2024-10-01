@@ -86,6 +86,9 @@ export const useBottomSheet = (
           nextSheetY = MAX_Y;
         }
 
+        // 바텀 시트 높이 조정 시 배경 스크롤 막기
+        document.body.style.overflowY = "hidden";
+
         sheet.current!.style.setProperty(
           "transform",
           `translateY(${nextSheetY - MAX_Y}px)`
