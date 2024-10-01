@@ -85,7 +85,7 @@ export const stores: Store[] = [
       "훈제마늘통삽겹, 비빔면, 떡볶이, 토리로코스",
     imageUrl: MAHA,
     classification: [
-      { Main: "주요차림", Second: "사이드 메뉴", Third: "세트" },
+      { Main: "메인 메뉴", Second: "사이드 메뉴", Third: "세트" },
     ],
     mainMenu: [
       { name: "**테이블 차지 (1인당)", price: "1,000" },
