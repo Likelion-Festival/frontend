@@ -22,6 +22,7 @@
 }
 
 .bottomsheet_wrapper {
+  height: auto;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
