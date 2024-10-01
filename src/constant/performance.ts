@@ -271,7 +271,7 @@ export const daysPerformance: dayPerformance[] = [
       },
       {
         artistName: "LUCY",
-        time: new Date("2024-10-02T21:00:00"),
+        time: new Date("2024-10-01T21:00:00"),
         playTime: 30,
         index: "3",
       },

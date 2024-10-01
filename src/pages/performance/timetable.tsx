@@ -43,7 +43,6 @@ export const Timetable = () => {
           )
       );
     });
-
     if (currentPerformance) setCurrentArtist(currentPerformance?.index);
     else setCurrentArtist("");
   };
@@ -80,7 +79,7 @@ export const Timetable = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
-        <img src={Arrow} alt="" onClick={() => navigate('/performance')} />
+        <img src={Arrow} alt="" onClick={() => navigate("/performance")} />
         <span>타임테이블</span>
         <img
           src={Restore}
@@ -168,14 +167,27 @@ export const Timetable = () => {
                 </span>
                 <span className={styles.tablePlaytime}>
                   {filteredPerformance
-                    ? `${filteredPerformance.time.getHours()}:${
-                        filteredPerformance.time.getMinutes() < 10
+                    ? `${filteredPerformance?.time.getHours()}:${
+                        filteredPerformance?.time.getMinutes() < 10
                           ? "0" + filteredPerformance.time.getMinutes()
                           : filteredPerformance.time.getMinutes()
-                      } ~ ${filteredPerformance.time.getHours() + 1}:${
-                        filteredPerformance.time.getMinutes() < 10
-                          ? "0" + filteredPerformance.time.getMinutes()
-                          : filteredPerformance.time.getMinutes()
+                      }~${
+                        filteredPerformance.time.getHours() +
+                        Math.floor(
+                          (filteredPerformance.playTime +
+                            filteredPerformance.time.getMinutes()) /
+                            60
+                        )
+                      }:${
+                        filteredPerformance.time.getMinutes() +
+                          (filteredPerformance.playTime % 60) ===
+                          0 ||
+                        filteredPerformance.time.getMinutes() +
+                          (filteredPerformance.playTime % 60) ===
+                          60
+                          ? "00"
+                          : filteredPerformance.time.getMinutes() +
+                            (filteredPerformance.playTime % 60)
                       }`
                     : ""}
                 </span>

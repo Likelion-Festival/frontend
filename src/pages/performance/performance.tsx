@@ -53,7 +53,6 @@ export const PerformancePage = () => {
       }
     };
   }, []);
-
   return (
     <div className={styles.container} ref={containerRef}>
       <div className={styles.column}>
@@ -83,7 +82,7 @@ export const PerformancePage = () => {
         </div>
       </div>
       <div className={styles.horizon}></div>
-      {new Date() > new Date("2024-10-02-T00:00:00") ? (
+      {(new Date().getMonth() === 8 && new Date().getDate() === 30) || (new Date().getMonth() === 9 && new Date().getDate() === 1) ? (
         <div className={styles.column}>
           <div className={styles.header}>
             <span>Soon</span>
