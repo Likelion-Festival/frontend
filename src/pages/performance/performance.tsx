@@ -83,7 +83,7 @@ export const PerformancePage = () => {
         </div>
       </div>
       <div className={styles.horizon}></div>
-      {new Date() < new Date("2024-10-02") ? (
+      {new Date() > new Date("2024-10-02-T00:00:00") ? (
         <div className={styles.column}>
           <div className={styles.header}>
             <span>Soon</span>
