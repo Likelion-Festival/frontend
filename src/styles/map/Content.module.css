@@ -2,16 +2,14 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 72vh;
+  height: auto;
 
   background-color: #131313;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 .marker_list {
   width: 328px;
-  height: 100vh;
+  height: 600px;
   -webkit-overflow-scrolling: touch;
 }
 

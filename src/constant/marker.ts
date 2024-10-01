@@ -16,14 +16,14 @@ export const eventInfo = [
 
 export const photoBoothInfo_1 = [
   {
-    id: 8,
+    id: 6,
     day: ["전체", "1일차", "2일차", "3일차"],
     category: "event",
     subCategory: "네컷사진",
     name: "포토부스",
     index: "네컷사진",
     time: `00:00-24:00`,
-    location: "학생 복지관 옆 및 주점존",
+    location: "학술정보관 옆",
     position: new kakao.maps.LatLng(37.29700985189893, 126.83500403771586),
     imagePath: "/marker-img/shopping.webp",
   },
@@ -38,7 +38,7 @@ export const photoBoothInfo_2 = [
     name: "포토부스",
     index: "네컷사진",
     time: `00:00-24:00`,
-    location: "학생 복지관 옆 및 주점존",
+    location: "주점 존",
     position: new kakao.maps.LatLng(37.2962171035601, 126.83512137251627),
     imagePath: "/marker-img/shopping.webp",
   },

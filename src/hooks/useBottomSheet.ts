@@ -50,11 +50,15 @@ export const useBottomSheet = (
       const { touchStart } = metrics.current;
       touchStart.sheetY = sheet.current!.getBoundingClientRect().y;
       touchStart.touchY = e.touches[0].clientY;
+
+      // 바텀 시트 터치 시작 시, body 스크롤 막기
+      document.body.style.overflowY = "hidden";
     };
 
     const handleTouchMove = (e: TouchEvent) => {
       const { touchStart, touchMove } = metrics.current;
       const currentTouch = e.touches[0];
+
       if (touchMove.prevTouchY === undefined) {
         touchMove.prevTouchY = touchStart.touchY;
       }
@@ -82,11 +86,15 @@ export const useBottomSheet = (
           nextSheetY = MAX_Y;
         }
 
+        // 바텀 시트 높이 조정 시 배경 스크롤 막기
+        document.body.style.overflowY = "hidden";
+
         sheet.current!.style.setProperty(
           "transform",
           `translateY(${nextSheetY - MAX_Y}px)`
         );
-      } else {
+      } else if (!metrics.current.isContentAreaTouched) {
+        // 내부 Content가 터치되지 않았을 때만 스크롤 막기
         document.body.style.overflowY = "hidden";
       }
     };
