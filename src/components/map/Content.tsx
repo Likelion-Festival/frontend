@@ -52,6 +52,7 @@ export const Content = ({ clickMarkerList }: clickMarkerListType) => {
   // 조건에 따른 카테고리 리스트 렌더링
   useEffect(() => {
     const categoryList = filterCategoryList();
+    console.log(categoryList);
 
     if (isCategoryClicked || subCategory) {
       setRenderList(categoryList);
